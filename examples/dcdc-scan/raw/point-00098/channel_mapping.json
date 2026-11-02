@@ -1,0 +1,17 @@
+{
+  "design": "adc_bringup_50m_v1",
+  "bit_sha256": "FDD74F08FB4F42FFD54DF65D25FCC94054801E38BDF4E6C2E9C56941A1286AA6",
+  "per_channel_sample_rate_hz_nominal": 50000000,
+  "physical_input_to_phase": {
+    "INA": 1,
+    "INB": 3
+  },
+  "phase_to_physical_input": {
+    "3": "INB",
+    "1": "INA"
+  },
+  "method": "Same probe and gain requested; move low-pass output INA -> INB -> INA, 5 real frames each",
+  "supported_by": "captures/readiness_20261017_121003/readiness_summary.json",
+  "scope": "Empirical channel association for this bitstream only; external IO timing and absolute gain remain unvalidated",
+  "revision_basis": "Same routed ADC logic/phase layout as v1; PS interrupt tieoffs match factory zero values. New Linux validation pending."
+}

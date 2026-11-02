@@ -1,0 +1,63 @@
+{
+  "origin": "returned along checked path to prior near/right origin; physical return confirmed by operator",
+  "direction": "controller +X is left; controller -Y is away (operator observed 2026-10-28)",
+  "range_mm": [
+    70,
+    44
+  ],
+  "step_mm": 5,
+  "points_total": 150,
+  "x_positions_mm": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70
+  ],
+  "y_positions_mm": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    44
+  ],
+  "scale_controller_units_per_physical_mm": 0.3184713375796178,
+  "scale_note": "prior approximate ruler measurement; no current precision or backlash calibration",
+  "adc_bit_sha256": "FDD74F08FB4F42FFD54DF65D25FCC94054801E38BDF4E6C2E9C56941A1286AA6",
+  "adc_ina_phase": 1,
+  "sample_rate_hz_nominal": 50000000,
+  "samples_per_phase_per_frame": 4096,
+  "frames_per_point": 3,
+  "settle_seconds": 0.5,
+  "gain_control_voltage_v_user_report": 1.82,
+  "probe_chain": "near-field probe -> powered amplifier -> lowpass -> INA",
+  "previous_fine_scan_status": "207 complete 1mm points; JTAG disconnected, later attempt incomplete; never mixed into this scan",
+  "calibration": "relative ADC code measurements, no absolute field strength or EMC-compliance claim",
+  "caveat": "unvalidated external timing, probe spatial response, and analog amplitude/aliasing; 20-25 MHz lies near Nyquist and filter edge",
+  "human_confirmed_full_clearance": true,
+  "automatic_homing": false,
+  "persistent_grbl_changes": false,
+  "controller_origin": {
+    "state": "Idle",
+    "x": 0.0,
+    "y": 0.0,
+    "z": 0.0,
+    "raw": "<Idle|MPos:0.000,0.000,0.000|FS:0,0>"
+  },
+  "controller_identity": "[VER:1.1f.20170801:]\n[OPT:VC,15,128]\nok"
+}

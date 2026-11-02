@@ -1,0 +1,45 @@
+{
+  "checked_on": "2026-11-03",
+  "report_pages": 12,
+  "report_word_export_pdf_pixel_identical_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "report_public_copy_body_and_template_unchanged": true,
+  "dcdc_points": 150,
+  "raw_frames_in_release": 450,
+  "raw_example_indices": [
+    0,
+    98,
+    149
+  ],
+  "raw_example_coordinates_mm": [
+    [
+      0,
+      0
+    ],
+    [
+      40,
+      30
+    ],
+    [
+      0,
+      44
+    ]
+  ],
+  "raw_example_recomputed_psd_matches_archived": true,
+  "frequency_bins_per_point": 2049,
+  "nominal_sample_rate_hz": 50000000,
+  "ordinary_git_max_file_bytes": 21006099,
+  "scope": "Material integrity and historical evidence audit; no new hardware test performed"
+}

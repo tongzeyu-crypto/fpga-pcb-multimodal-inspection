@@ -1,0 +1,14 @@
+{
+  "design": "adc_bringup_50m_psirq_v3",
+  "raw_clock_hz_nominal": 200000000,
+  "per_channel_sample_rate_hz_nominal": 50000000,
+  "raw_samples_per_frame": 16384,
+  "samples_per_channel": 4096,
+  "stable_phases": [
+    3,
+    1
+  ],
+  "pwdn_package_pin": "T11",
+  "layout": "packed32_v1",
+  "external_io_timing": "Raw transition samples intentionally not signed off; verify physical clock and data quality"
+}

@@ -1,0 +1,24 @@
+{
+  "index": 98,
+  "left_mm": 40,
+  "away_mm": 30,
+  "controller_reported": {
+    "state": "Idle",
+    "x": 12.74,
+    "y": -9.556,
+    "z": 0.0,
+    "raw": "<Idle|MPos:12.740,-9.556,0.000|FS:0,0>"
+  },
+  "time": "2026-10-28T23:18:46.786",
+  "adc_request_id": "req_00099",
+  "capture_attempt": 1,
+  "rms": {
+    "total": 39.09772998458578,
+    "low": 11.875794877740631,
+    "mid": 18.19393393255894,
+    "high": 22.415300614754997,
+    "edge": 23.54003084911428
+  },
+  "highest_bin_hz": 24841308.59375,
+  "relative_path": "points\\point-00098"
+}

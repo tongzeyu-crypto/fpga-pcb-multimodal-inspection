@@ -1,0 +1,58 @@
+{
+  "frames": 3,
+  "sample_rate_hz_nominal": 50000000,
+  "channels": {
+    "INA": {
+      "0p2_3MHz_rms_codes": 11.875794877740631,
+      "3_10MHz_rms_codes": 18.19393393255894,
+      "10_20MHz_rms_codes": 22.415300614754997,
+      "20_25MHz_rms_codes": 23.54003084911428,
+      "0p2_25MHz_rms_codes": 39.09772998458578,
+      "highest_observed_bin_hz": 24841308.59375
+    },
+    "INB": {
+      "0p2_3MHz_rms_codes": 0.7887977458694823,
+      "3_10MHz_rms_codes": 1.2754283421587966,
+      "10_20MHz_rms_codes": 1.6050310200985916,
+      "20_25MHz_rms_codes": 1.475436300287524,
+      "0p2_25MHz_rms_codes": 2.6461209706957036,
+      "highest_observed_bin_hz": 21008300.78125
+    }
+  },
+  "integrity": [
+    {
+      "file": "capture_00.csv",
+      "sha256": "f49a4dddefa2a7b706c1095d754a83135523b52914800feb43592383866f9ab7",
+      "ground_high_all": [
+        0,
+        0
+      ],
+      "heartbeat_gaps": 0
+    },
+    {
+      "file": "capture_01.csv",
+      "sha256": "8624d2deda6de4a4d7089f465bd4398aed6d5653a2a86aff74c274537ab6dd76",
+      "ground_high_all": [
+        2,
+        3
+      ],
+      "heartbeat_gaps": 0
+    },
+    {
+      "file": "capture_02.csv",
+      "sha256": "a9d4edaafa3b82a35d138188f384e61f395c77d0d0efe0f4d92fae6ca675ebb7",
+      "ground_high_all": [
+        8,
+        10
+      ],
+      "heartbeat_gaps": 0
+    }
+  ],
+  "external_io_timing_validated": false,
+  "encoding": "14-bit twos-complement hypothesis",
+  "calibration": "Digital diagnostic; not calibrated EMI/field measurement",
+  "request_id": "req_00099",
+  "clock_disabled": true,
+  "gain_control_voltage_v": 1.82,
+  "gain_record_basis": "Last operator report; fixed during this acceptance, no hardware readback"
+}

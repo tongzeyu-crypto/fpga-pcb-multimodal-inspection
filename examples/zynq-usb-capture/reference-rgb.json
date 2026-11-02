@@ -1,0 +1,21 @@
+{
+  "source": "ZYNQ_USB_REAL",
+  "sequence": 3797,
+  "received": 3787,
+  "frames": 3757,
+  "requested_width": 1280,
+  "requested_height": 720,
+  "negotiated_width": 1280,
+  "negotiated_height": 720,
+  "jpeg_width": 1280,
+  "jpeg_height": 720,
+  "bytes": 63756,
+  "v4l2_timestamp_us": 9174705230,
+  "monotonic_s": 9174.735478,
+  "steady_elapsed_s": 123.616311,
+  "invalid": 0,
+  "sequence_gaps": 19,
+  "warm_invalid": 0,
+  "warm_sequence_gaps": 0,
+  "temperature_matrix_valid": false
+}
