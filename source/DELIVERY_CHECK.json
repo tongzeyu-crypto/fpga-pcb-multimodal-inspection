@@ -1,7 +1,7 @@
 {
   "date": "2026-11-03",
-  "files": 1074,
-  "bytes": 189481122,
+  "files": 1075,
+  "bytes": 189448400,
   "credential_scan_matches": [],
   "derived_measurement_outputs_excluded": true,
   "neural_pixel_fusion": true,
@@ -38,5 +38,6 @@
   "board_record": "evidence/board-20261103-r1/result.json",
   "version_label": "正式提交版",
   "hardware_included": true,
-  "debug_intermediates_included": false
+  "debug_intermediates_included": false,
+  "documentation_revision": "r2"
 }

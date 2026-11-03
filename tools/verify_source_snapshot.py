@@ -1,4 +1,4 @@
-"""Verify the Git source subset against the unchanged full-delivery manifest."""
+"""Verify the Git source subset against the published full-delivery manifest."""
 from pathlib import Path
 import hashlib
 import json
@@ -12,7 +12,7 @@ def main():
     manifest = json.loads((source / 'FILE_MANIFEST.json').read_text(encoding='utf8'))
     mismatches = []
     checked = 0
-    for name in layout['git_original_files']:
+    for name in layout.get('git_snapshot_files', layout.get('git_original_files', [])):
         if name not in manifest:
             # FILE_MANIFEST itself and later-generated source manifests are
             # authenticated by the repository-wide FILES.json instead.
@@ -33,7 +33,7 @@ def main():
         path = ROOT / entry['file']
         if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != entry['sha256']:
             mismatches.append('repository: ' + entry['file'])
-    print(json.dumps({'passed': not mismatches, 'original_manifest_files_checked': checked,
+    print(json.dumps({'passed': not mismatches, 'release_manifest_files_checked': checked,
                       'release_only_files': len(layout['release_only_files']),
                       'mismatched_files': mismatches}, indent=2))
     return int(bool(mismatches))

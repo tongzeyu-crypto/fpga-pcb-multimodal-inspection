@@ -8,7 +8,16 @@
   "zip_crc_passed": true,
   "python_syntax_files": 70,
   "git_snapshot_original_files": 306,
-  "git_snapshot_original_files_byte_identical": true,
+  "git_snapshot_original_files_byte_identical": false,
   "new_hardware_tests_in_this_publication": false,
-  "release_tag": "code-20261103"
+  "release_tag": "code-20261103",
+  "revision": "r2",
+  "published_archive": "submission-zynq-20261103-docs-r2.zip",
+  "published_archive_sha256": "d6e6bf7c9c7f2782b7dfdb9cbaeef16fac8587bb2a8dd7260b062a044cbea867",
+  "published_archive_bytes": 73990590,
+  "published_archive_files": 1078,
+  "published_manifest_checked_files": 1075,
+  "algorithm_rtl_model_runtime_unchanged": true,
+  "publication_manifest_checked": true,
+  "source_snapshot_matches_current_release": true
 }

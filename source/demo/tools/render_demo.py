@@ -13,7 +13,7 @@ def main():
     def text(x,y,s,size=24,color='#dce8f5'):draw.text((x,y),s,font=font(size),fill=color)
     def panel(box,title):draw.rounded_rectangle(box,16,fill='#152332',outline='#304456',width=2);text(box[0]+24,box[1]+19,title,27)
     text(50,28,'PL / PS 功能演示',42);text(50,91,'模拟机构  ·  历史原始数据回放  ·  AXI RTL 仿真结果',26,'#efc56f')
-    text(1320,38,'6 测点 / 18 帧 / 21 次 PL 结果调用',25,'#60d4bc');text(1320,88,'独立演示核，尚未合入此前整机 bitstream',20)
+    text(1320,38,'6 测点 / 18 帧 / 21 次 PL 结果调用',25,'#60d4bc');text(1320,88,'独立演示核 · 已核验XSim结果回放',20)
     panel((50,170,975,690),'PS 扫描调度');panel((1025,170,1950,690),'PL 64 点频谱核心');panel((50,725,975,1230),'PL 温度转换 / 热点计数');panel((1025,725,1950,1230),'共享像素预处理：分时使用')
     points=data['points'];xs=[p['xy_mm'][0] for p in points];ys=[p['xy_mm'][1] for p in points]
     positions=[(160+(p['xy_mm'][0]-min(xs))/max(1,max(xs)-min(xs))*680,290+(p['xy_mm'][1]-min(ys))/max(1,max(ys)-min(ys))*230) for p in points]
@@ -42,6 +42,6 @@ def main():
     for label,key,x in [('RGB 灰度 → INT8','rgb_int8',1100),('热像裁剪 → INT8','thermal_int8',1530)]:
         values=data['preprocessing'][key]['output'];tile=Image.new('L',(16,16));tile.putdata([v+128 for v in values]);image.paste(tile.resize((280,280),Image.Resampling.NEAREST),(x,840));text(x,1140,label,23)
     text(1070,1193,'共享状态机 / RAM 通路；不包含完整缩放、Sobel 链',19,'#9bb3c8')
-    text(50,1263,'离线新增演示模块  |  未连接、烧写开发板  |  原自启动镜像与此前整机候选文件未改动',23,'#9bb3c8')
+    text(50,1263,'独立算子与调度演示  |  模拟机构 / 历史数据 / XSim结果  |  整机实板记录单独归档',23,'#9bb3c8')
     image.save(a.run/'demo-preview.png');print(a.run/'demo-preview.png')
 if __name__=='__main__':main()

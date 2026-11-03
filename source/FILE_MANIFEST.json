@@ -3120,8 +3120,8 @@
     "sha256": "2d462721cf39cc96da67cbde1e2871ce2a2fe412d289bdece1c84a759cdcf2d2"
   },
   "demo/README-standalone.md": {
-    "bytes": 4411,
-    "sha256": "9d91f44e7bb152a48ca3d66776c904cd8daf238b58459648b437fbd39528d407"
+    "bytes": 4348,
+    "sha256": "511c0047c1a0b38810fea77bcc689649dfa78ef48b0a4613e5acd0895d7af4af"
   },
   "demo/rtl/cos_q14.mem": {
     "bytes": 384,
@@ -3192,8 +3192,8 @@
     "sha256": "7909bff462951a9311794eb16a9e33a7e42fac20a3c462a2a539f20ca1fa7ce6"
   },
   "demo/tools/render_demo.py": {
-    "bytes": 4998,
-    "sha256": "2e553dafb7e1f09180bd6634d9dc089ddfea9b42aec7805d8f43f0b87bf142c9"
+    "bytes": 5029,
+    "sha256": "1c237c20833f31adfee681fd841e4c7b63e582463504e63443af2f2006ae4b39"
   },
   "demo/tools/verify_demo.py": {
     "bytes": 5347,
@@ -3201,35 +3201,35 @@
   },
   "docs/主程序演示.md": {
     "bytes": 3262,
-    "sha256": "466c11c857164108c20c2c66174c28268d1e425fd2954117eb2595034f6e8b4e"
+    "sha256": "a544c5e217543553ff310e63f76f13c58e0d215b540646326d1c45c3695d445e"
   },
   "docs/功能清单.md": {
-    "bytes": 4667,
-    "sha256": "f23893122d30d4f7a9d96ec4a6b6cc6ce8f19e80536d95214658c13db39b6c96"
+    "bytes": 2388,
+    "sha256": "b7108a2af5bf9faf74c098a4bfea14756dcc43dd6cb1a8c68b8461658612144a"
   },
   "docs/实板演示记录-20261103.md": {
-    "bytes": 4955,
-    "sha256": "a37aef865fac84e08c0b79981c53b637ab768b0d3a35bdeb3e7aa6f2960d9e82"
+    "bytes": 4655,
+    "sha256": "430ea6829e49f21f6ae9692a3fcb4f51e6fd8267d6823982281bc3a3d5d57048"
   },
   "docs/宣传与实现对照.md": {
-    "bytes": 3477,
-    "sha256": "ec3ea0d195e153546e10d63e3f01fa6be20b81b0053a5602a9600802494e4625"
+    "bytes": 1441,
+    "sha256": "a2a867c56d5ed2ce6273e2fa7271023318bce3d5a9d1e62663aabd27ad9ad368"
   },
   "docs/构建与运行.md": {
-    "bytes": 8698,
-    "sha256": "2e695ab3e53e5cfb1db01ba37ad74602eea4247e6e74314b76e9e52799e6f5db"
+    "bytes": 8615,
+    "sha256": "155ae588a315b77fe4d81a6604df91bfb6eba6198122c92de8a75b7a332b5e3b"
   },
   "docs/神经补帧.md": {
-    "bytes": 3634,
-    "sha256": "bbaa0374488140bca19f2e0454536b015a54f5d90709f90d7ed7b5f3d248be7a"
+    "bytes": 3662,
+    "sha256": "6f80dee28cfd8fcfca16c111d23287c86317ade75049169808d0bfd98e5a094d"
   },
   "docs/第三方与资源.md": {
-    "bytes": 2737,
-    "sha256": "b0171c1a5b65ff0a0a72b07c6658503e4211ea33e75d2aec14f2459f039789a0"
+    "bytes": 2681,
+    "sha256": "f0c1c04bac89dd464bc6ced8baed134a0fdcaef3bb86057f36ee6ab45c2c20f9"
   },
   "docs/验收记录.md": {
-    "bytes": 10666,
-    "sha256": "272b8832d058a6f87df2d5fe1bd85164d50b642709e746fcf96f0ffc3db2d9c0"
+    "bytes": 2439,
+    "sha256": "f45fd92e6ebe92d0244a30f860fcbc8ab42a57ed7502cb2b38b8ceff884d1667"
   },
   "drivers/compute.dtsi": {
     "bytes": 337,
@@ -3743,9 +3743,13 @@
     "bytes": 25933,
     "sha256": "6c5c84b1ac762201be25af6839934730848b3203b5726c66076248f65e738aa7"
   },
+  "PUBLICATION_REVISION.json": {
+    "bytes": 754,
+    "sha256": "91bc88b085a731dd7988fa2fa0cb4c8f826d69975490117f1e2f912aacb0460a"
+  },
   "README.md": {
-    "bytes": 5218,
-    "sha256": "2cc5efe079efe8b6af1d0c5812c8035ce1433af18647bc0ff16bda4bafdcbf32"
+    "bytes": 2813,
+    "sha256": "d6a36db662e62d5eb6927929a078be2108613d951ee2d3dff20cbdf4d51c5fac"
   },
   "resources/adc_bringup.xdc": {
     "bytes": 1955,
@@ -4208,8 +4212,8 @@
     "sha256": "2b0a260fa80f2ab2785fe91dbff5bd91e2862c8cb3cee7835a9c251b5f725a60"
   },
   "tools/make_delivery.py": {
-    "bytes": 21543,
-    "sha256": "b8f8e1e1cd3dd7b6bf255abb61f1278c64c8ce8208bb50391064c31e693fb671"
+    "bytes": 3624,
+    "sha256": "823d553d21a541ab7ae2d0f19d17301a1187e29ea37982965147920cf0c38b69"
   },
   "tools/package_board_delivery.py": {
     "bytes": 4111,
@@ -4292,7 +4296,7 @@
     "sha256": "fd30899fe7e9b759e40269f5519cbdbbdc72f21ec000a00392cc110be7662834"
   },
   "版本说明.md": {
-    "bytes": 1081,
-    "sha256": "1f5611bd8876d5c71594d0af0015b197b3fdf769913a9d768b6a901fec52476a"
+    "bytes": 914,
+    "sha256": "5565cbb2502a4dabd2959db3a98686ccc672d172e6031b318fe8a0d78014d55e"
   }
 }

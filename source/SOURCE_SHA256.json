@@ -64,8 +64,8 @@
     "sha256": "7909bff462951a9311794eb16a9e33a7e42fac20a3c462a2a539f20ca1fa7ce6"
   },
   "demo/tools/render_demo.py": {
-    "bytes": 4998,
-    "sha256": "2e553dafb7e1f09180bd6634d9dc089ddfea9b42aec7805d8f43f0b87bf142c9"
+    "bytes": 5029,
+    "sha256": "1c237c20833f31adfee681fd841e4c7b63e582463504e63443af2f2006ae4b39"
   },
   "demo/tools/verify_demo.py": {
     "bytes": 5347,
@@ -604,8 +604,8 @@
     "sha256": "2b0a260fa80f2ab2785fe91dbff5bd91e2862c8cb3cee7835a9c251b5f725a60"
   },
   "tools/make_delivery.py": {
-    "bytes": 21543,
-    "sha256": "b8f8e1e1cd3dd7b6bf255abb61f1278c64c8ce8208bb50391064c31e693fb671"
+    "bytes": 3624,
+    "sha256": "823d553d21a541ab7ae2d0f19d17301a1187e29ea37982965147920cf0c38b69"
   },
   "tools/package_board_delivery.py": {
     "bytes": 4111,

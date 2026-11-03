@@ -1,6 +1,6 @@
 # PL / PS 最小功能演示
 
-这是新增加的独立演示代码。未连接开发板，未更改自启动镜像，**未合入此前已通过时序的整机 bitstream**。主工程中的 4096 点 FFT、热像解码和完整图像预处理仍保持原来的 PS 实现。
+本目录提供独立算子核和PS扫描调度演示。完整4096点FFT、热像解码和图像预处理由主工程PS软件执行；独立核配套RTL测试、OOC实现及XSim结果回放。整机运行记录见上级目录的实板文档。
 
 ## 演示范围
 
@@ -11,7 +11,7 @@
 | PL 共享预处理 | 同一任务核分时处理 RGB888 灰度/INT8 量化与热像仿射裁剪/INT8 量化，共用控制和 RAM 通路。不含完整缩放、高斯、Sobel 流水。 |
 | PS 扫描 | 蛇形路线 → 下发目标 → 等待 ack、Idle、最新回报坐标 → 独立停稳计时 → 每点三帧 → 点位/帧 ID/原始来源/时序关联。 |
 
-`rtl/pcb_demo_core.sv` 实际计算这三类任务，`pcb_demo_axi.sv` 提供 AXI-Lite 接口。`runtime/scan_demo.py` 是可在 PS Python 上使用的调度逻辑；当前命令行只提供明确标识的模拟运动与原始数据回放，未接入物理 GRBL 控制器。
+`rtl/pcb_demo_core.sv` 实际计算这三类任务，`pcb_demo_axi.sv` 提供 AXI-Lite 接口。`runtime/scan_demo.py` 是可在 PS Python 上使用的调度逻辑；当前命令行只提供明确标识的模拟运动与原始数据回放，使用模拟GRBL控制器。
 
 输入从原提交版真实 DC-DC 记录提取：六个原机械位置，每点三帧、每帧第一通道前 64 个样本；RGB/热像取 16×16 格。输入文件记录原文件 SHA256 和原采集时间。这些是历史记录，不是本轮新采集或硬件同步数据。
 
@@ -28,7 +28,7 @@ python -m runtime.scan_demo --replay --output output/my_run
 python tools/render_demo.py --run output/my_run
 ```
 
-回放从 `evidence/rtl-results.json` 读取 **XSim 实际 AXI 回读并与整数参考校验的结果**。输入键或 RTL 源码哈希不匹配会报错，没有静默的软件计算替代。它不是已连接 FPGA 的实时执行。
+回放从 `evidence/rtl-results.json` 读取 **XSim 实际 AXI 回读并与整数参考校验的结果**。输入键或 RTL 源码哈希不匹配会报错，没有静默的软件计算替代。此入口读取离线生成的已核验结果。
 
 输出包括 `demo-result.json`、逐步状态记录 `events.jsonl` 和 `demo-preview.png`。附带的 `output/example_run` 是一次已运行的示例。
 
@@ -42,11 +42,11 @@ python tools/implement_demo.py --vivado-bin <Vivado-bin> --work <new-ASCII-OOC-d
 
 `tools/prepare_inputs.py --source-root <prior-submission-folder>` 可从完整原始记录重新提取演示输入。需要 NumPy 和 Pillow；普通调度回放只需 Python 标准库。
 
-独立 OOC 实现检查的是这一个小 IP，不能作为新增功能已集成整机或上板成功的证据。旧整机 Slice 已接近上限，集成需要另做资源安排和完整实现。
+独立OOC报告对应本目录的小型IP；整机位流及其运行记录由上级工程分别管理。
 
-本次验证结果：27 组 RTL 任务、1480 个输出值逐一一致；5 项 PS 调度测试通过；示例完成 6 点、18 帧关联。小 IP 在 62.5 MHz 独立实现中 setup +4.546 ns、hold +0.156 ns，使用 895 LUT、611 FF、1 BRAM、4 DSP。ARM MMIO 客户端交叉编译通过，但未在开发板执行。
+本次验证结果：27 组 RTL 任务、1480 个输出值逐一一致；5 项 PS 调度测试通过；示例完成 6 点、18 帧关联。小 IP 在 62.5 MHz 独立实现中 setup +4.546 ns、hold +0.156 ns，使用 895 LUT、611 FF、1 BRAM、4 DSP。ARM MMIO客户端交叉编译通过，使用独立演示IP标识。
 
-`runtime/pl_demo.cpp` 提供可交叉编译的 ARM MMIO 客户端，要求显式指定设备，并检查独立演示 IP 的 PDP1 标识。它没有被用于接触硬件。原整机 AI 设备的标识不同，客户端会拒绝向其提交这些任务。
+`runtime/pl_demo.cpp` 提供可交叉编译的 ARM MMIO 客户端，要求显式指定设备，并检查独立演示 IP 的 PDP1 标识。它对应独立演示IP的寄存器接口。原整机 AI 设备的标识不同，客户端会拒绝向其提交这些任务。
 
 ## 寄存器摘要
 
@@ -54,6 +54,6 @@ python tools/implement_demo.py --vivado-bin <Vivado-bin> --work <new-ASCII-OOC-d
 
 ## 文档可采用的措辞
 
-在功能演示原型中，补充了 PL 侧小点数频谱、热像温度转换与热点计数、RGB/热像共享灰度量化处理模块，并在 PS 侧实现路线遍历、回报到点确认、停稳等待和采样关联的调度流程。相关模块通过原始数据回放与 RTL 离线验证；新增演示核尚未合入此前整机候选，也未完成实板联调。
+在功能演示原型中，补充了 PL 侧小点数频谱、热像温度转换与热点计数、RGB/热像共享灰度量化处理模块，并在 PS 侧实现路线遍历、回报到点确认、停稳等待和采样关联的调度流程。相关模块配套原始数据回放、RTL逐值对照和独立实现记录；主程序扫描页面调用已核验结果。
 
-不得据此表述为原正式程序的全部频谱和图像处理已经迁移到 PL，或所有功能已在开发板正常运行。
+主工程的完整频谱和图像处理由PS软件执行，图形与共享CNN由整机PL执行。

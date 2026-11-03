@@ -2,7 +2,7 @@
 
 面向PCB研发调试与故障排查的桌面式原型系统：通过CoreXY机构移动近场探头，结合RGB、红外热像与ADC原始采样，在Zynq平台上关联板卡位置、温度与近场频谱，并由PL完成图形渲染和HDMI输出。
 
-**2026年11月3日正式提交版代码已发布。** [浏览源码与模型权重](source/README_GITHUB.md) · [下载完整代码包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103) · [运行与版本说明](docs/code-submission.md)。完整定稿视频待补充。
+**2026年11月3日正式提交版代码已发布。** [浏览源码与模型权重](source/README_GITHUB.md) · [下载完整代码包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-r2) · [运行与版本说明](docs/code-submission.md)。本次发布包含源码、模型、硬件产物与实板记录。
 
 ![真实整机与HDMI终端](assets/photos/system.jpg)
 
@@ -14,7 +14,7 @@
 - 11月3日提交包含配准与神经帧融合的训练/剪枝/INT8权重、共享PL计算核、图形渲染、ARM程序、驱动、构建工具及验证摘要。
 - 随包实板记录确认RAM临时启动、两项PL推理与整数参考一致、HDMI完整显示及六点十八帧扫描回放；原自启动镜像保留。
 
-当前扫描演示使用模拟运动和历史原始数据，新增64点频谱/小热像/共享预处理演示核仍为已核验仿真回放，没有合入当前整机位流。完整实时联合采集、物理机械闭环、该版本USB鼠标及AI加速比未验收。具体见[功能状态](STATUS.md)和[实板记录](source/docs/实板演示记录-20261103.md)。
+扫描演示采用模拟运动、历史原始数据和已核验的独立算子结果回放；完整频谱/热像数值处理由PS执行，整机PL承载图形、共享CNN与ADC接口。具体见[功能状态](STATUS.md)和[实板记录](source/docs/实板演示记录-20261103.md)。
 
 ## 系统结构
 
@@ -41,7 +41,7 @@
 |材料|入口|
 |---|---|
 |源码、模型与构建工具|[source/](source/README_GITHUB.md)|
-|完整正式代码包、位流与驱动|[代码Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103)|
+|完整正式代码包、位流与驱动|[代码Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-r2)|
 |电脑演示与复现说明|[docs/code-submission.md](docs/code-submission.md)|
 |当前功能与验证状态|[STATUS.md](STATUS.md)|
 |本版实板验证记录|[source/docs/实板演示记录-20261103.md](source/docs/实板演示记录-20261103.md)|
@@ -52,7 +52,7 @@
 |150点频谱与3点原始采样|[DCDC样例](examples/dcdc-scan/README.md)|
 |板端RGB与热像原始样例|[USB采集样例](examples/zynq-usb-capture/README.md)|
 |首批数据与历史片段|[材料Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/materials-20261103)|
-|补交材料与已发现问题|[docs/submission-follow-ups.md](docs/submission-follow-ups.md)|
+|材料目录|[docs/submission-follow-ups.md](docs/submission-follow-ups.md)|
 |照片图表来源与版权|[assets/](assets/README.md) · [THIRD_PARTY.md](THIRD_PARTY.md)|
 
-报告与早期截图保留其阶段日期。五处外观候选来自电脑直采的离线回归，STM32历史EMI含模拟背景；新提交版缺少STM32实采输入时保持等待，不把旧展示结果作为新测量。原始包未改动，完整数据与二进制放在Release。
+报告与早期截图保留其阶段日期。五处外观候选来自电脑直采的离线回归，STM32历史EMI含模拟背景；新提交版缺少STM32实采输入时保持等待，不把旧展示结果作为新测量。R2统一发布说明，算法、RTL、权重、执行程序和原始数据保持交付版本，完整包见Release。

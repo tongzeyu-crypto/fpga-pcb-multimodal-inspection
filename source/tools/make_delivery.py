@@ -1,174 +1,63 @@
-"""Evidence-led documentation, file manifest, secret scan and standalone ZIP."""
+"""Refresh integrity manifests and package the maintained formal release."""
 from pathlib import Path
-import argparse,hashlib,json,re,zipfile
-ROOT=Path(__file__).resolve().parents[1]
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def read(p):return json.loads((ROOT/p).read_text(encoding='utf8'))
-def resource_table(result):
-    r=result.get('resources',{});return ', '.join(f'{k}={v:g}' for k,v in r.items())
+import argparse
+import hashlib
+import json
+import re
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[1]
+GENERATED = {'FILE_MANIFEST.json', 'SOURCE_SHA256.json', 'DELIVERY_CHECK.json'}
+FOLDERS = {'runtime', 'demo', 'drivers', 'rtl', 'graphics', 'models', 'tools',
+           'tests', 'docs', 'resources', 'bin', 'hardware', 'evidence', 'data'}
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
 def main():
-    a=argparse.ArgumentParser();a.add_argument('--archive',type=Path);args=a.parse_args()
-    reg=read('models/registration/training-report.json');frame=read('models/frame/training-report.json');ooc=read('evidence/ai-ooc/result.json');rtl=read('evidence/rtl-verification.json');arm=read('evidence/arm/result.json');raw=read('evidence/raw-recomputation.json');ext=read('evidence/extensions.json');display=read('evidence/display/result.json');native=read('evidence/native-frame/result.json')
-    kernel_result=read('evidence/kernel/result.json') if (ROOT/'evidence/kernel/result.json').exists() else {}
-    kernel_built=kernel_result.get('modules_passed',kernel_result.get('passed',False))
-    kernel_state='两份 ARMv7 `.ko` 编译和 ELF/版本检查通过；vermagic 5.4.0-xilinx-v2020.2，未加载到开发板' if kernel_built else '模块构建未通过，详见 evidence/kernel'
-    combined=read('evidence/combined/result.json');combined_log=(ROOT/'evidence/combined/implementation.log').read_text(errors='replace') if (ROOT/'evidence/combined/implementation.log').exists() else ''
-    if combined.get('last_stage')!='implementation':combined_state='未完成整机实现：'+combined.get('last_stage','unknown')
-    elif combined.get('passed'):combined_state='62.5 MHz 演示候选完成实现/内部时序检查；未上板，ADC 外部 IO 仍未签核'
-    else:combined_state='合并候选未通过，见原始综合/布局布线日志；不能生成可用整机结论'
-    slacks=[]
-    full_summary=read('evidence/combined/summary.json') if (ROOT/'evidence/combined/summary.json').exists() else None
-    timing=ROOT/'evidence/combined/board-timing.rpt'
-    if timing.exists():
-        content=timing.read_text(errors='replace');slacks=re.findall(r'Slack \((?:MET|VIOLATED)\)\s*:\s*([-\d.]+)ns',content)
-    total=sum(c['output_elements'] for c in rtl['cases']);head='''# Zynq-7020 独立提交版 · 2026-11-03
-
-本目录交付源码、实际训练权重、剪枝/量化工具、两任务共享 PL 计算引擎和离线证据。**本轮没有连接、重启、烧写或升级开发板，现有自启动镜像未修改。**
-
-当前目标按用户要求调整为功能展示。图形、AI、AXI 与显示搬运逻辑实际配置为 FCLK1 62.5 MHz；FCLK0 100 MHz 继续作为 HDMI 参考，保持 1280×720 的 74.25/371.25 MHz 显示时钟。ADC 原始域仍为 200 MHz。接受较低处理速度，不承诺实测帧率或实用检测性能；独立 AI 核此前的 100 MHz 证据与这份整机演示配置分别列出。
-
-正式入口从经来源/哈希校验的 Zynq 原始记录重新计算；正常参考 RGB 和预建模型可导入，待测 RGB 仅接受 Zynq 采集或其原始回放。缺少输入显示等待，不加载历史测量结果或随机补值。
-
-'''
-    summary=f'''| 项目 | 实际结果 |
-|---|---|
-| 原始复算 | {raw['adc_frames']} 个 ADC 帧、{raw['points']} 测点；PSD 最大绝对差 {raw['adc_max_absolute_psd_difference']:.3g}；热像差 {raw['thermal_max_absolute_difference_c']:g} °C |
-| 配准模型 | {reg['wide_parameters']} → {reg['pruned_parameters']} 参数；最终 W8A8/QAT 增强角点 RMSE {reg['int8_validation']['augmentation_corner_rmse_px']:.3f} 网格像素；无独立实拍验证 |
-| 神经补帧模型 | {frame['wide_parameters']} → {frame['pruned_parameters']} 参数；重投影 + 学习式 RGB 像素融合，12 个保留视角及网络关闭对照通过 |
-| RTL | {len(rtl['cases'])} 组、{total:,} 个逐层整数输出全部一致；复位/停顿/边界用例 |
-| 独立 AI 核 | 100 MHz；setup {ooc.get('setup_ns')} ns，hold {ooc.get('hold_ns')} ns；{resource_table(ooc)} |
-| ARM | 六个程序交叉编译状态见 `evidence/arm/result.json`；两个模型 C++/Python 整数一致 |
-| 页面 | 两板八主要页面；{len(display['cases'])} 个切换状态；1280×720 CPU 参考渲染，非 HDMI 实测 |
-| 合并整机 | {combined_state} |
-| 实板 | 本轮全部未验证；没有板上 AI 加速比、FPS 或检测准确率数据 |
-| 内核模块 | {kernel_state} |
-
-'''
-    index='''主要入口：
-
-- `runtime/run_board.py`：板端正式启动，校验原始包、重新处理、生成新显示资源，再启动原生 UI。
-- `runtime/capture_live.py`、`camera_stream.c`、`pcb_adc.cpp`：板端 USB 与 AXI ADC 原始采集源码。
-- `runtime/service.py`、`numerics.py`、`aoi_rules.py`：ARM 数值、配准调度与可见缺陷规则处理。
-- `runtime/pcb_ai.cpp`、`runtime/display/driver/full_ai_frame.h`：PL 层执行与实际深度重投影/学习式像素融合接入。
-- `rtl/pcb_ai_core.sv`、`pcb_ai_axi.sv`：多通道卷积/GAP/线性头共享计算；任务 1/2 分别对应配准/补帧融合权重。
-- `rtl/pcb_adc_capture.sv`、`pcb_adc_axi.sv`：冻结原始帧，PS 读取，无 JTAG 运行依赖。
-- `graphics`：保留图形源码及向 ABI3 增加深度能力的兼容扩展。
-- `models`：宽模型、剪枝清单、前后权重、QAT、INT8/校准与哈希。
-- `tools`、`tests`、`evidence`：构建入口、重现测试和成功/失败记录。
-
-详细边界、命令及宣传对照见 `docs/构建与运行.md`、`docs/验收记录.md`、`docs/宣传与实现对照.md`。原技术报告未修改。
-
-本包没有正式 STM32 实测输入和合规缺陷实采样本；STM32 页面保持等待。已有 DC-DC RGB/热像与 ADC 来自不同批次，不能称为硬件同步采集。机械到 RGB 标定未就绪时 EMI 视图使用机械坐标，不叠加到器件。
-
-提交 ZIP 排除 `data/derived`、开发缓存和个人凭据。重算输出不作为程序业务输入；程序资源（模型权重、字形、固定配置、预建几何）随包提供。
-'''
-    demo=read('evidence/demo-integration/result.json') if (ROOT/'evidence/demo-integration/result.json').exists() else None
-    demo_intro='''主程序已合入离线功能演示：双击 `start_demo.cmd`，或运行 `python -m runtime.run_board --demo`，打开 http://127.0.0.1:8698/ 。原有界面左侧新增“扫描演示”，包含六点路线、到点报告检查、停稳等待、十八帧采样关联、频谱/温度/共享量化结果以及停止、重跑、选点与导出。详见 [主程序演示](docs/主程序演示.md)。
-
-新增演示使用模拟运动、历史原始记录和已核验的 RTL 结果回放。主程序软件和界面已合并；新增小核尚未加入原有整机 bitstream，原 62.5 MHz 整机时序证据不覆盖新增小核集成。
-
-界面另有“神经补帧”入口，实际执行已训练的 INT8 网络并生成 RGB 过渡帧，可播放及与网络关闭/完整渲染画面对照。该演示使用本机整数参考，未进行板端加速测量；详见 [神经补帧](docs/神经补帧.md)。
-
-''' if demo else ''
-    (ROOT/'README.md').write_text(head+demo_intro+summary+index,encoding='utf8')
-    text='# 验收记录\n\n验证日期：2026-11-03。只做离线工作，所有物理板上项目均未验证。\n\n'+summary
-    text+='''## 数据与功能
-
-- CaptureBundle 关联 board_id、capture_id、批次、来源、时间、原始哈希、尺寸/单位和标定版本；热像温度从原 uint16 平面复算，温度查询 API 逆映射回原矩阵；鼠标温度查询的板端交互未验证。
-- ADC 使用完整原始样本，标称每通道 50 MS/s、4096 点；周期 Hann 窗、双通道一侧 PSD、三帧线性功率平均、频段积分。原始高频没有被删除，21.9 MHz 仅为现有显示区间。
-- 实时 ADC 代码提供独立 AXI 冻结帧控制、代次、溢出、超时和 PS 读取。时钟原语的行为仿真不是外部 IO 时序签核。
-- 两项 AI 均有真实训练与 INT8 导出；PL 执行卷积/GAP/1×1 头，ARM 逐层调度，四个 INT8 乘法位置共享。独立资源实际使用 7 DSP，其中包含控制/寻址乘法，不能称为只有四个 DSP。
-- 通道剪枝是实际张量切片，参数减少可以复核，未测板上速度、功耗、精度收益。
-- 缺陷规则为可见变化候选，正常参考缺失时不输出历史缺陷。仅有真实 Zynq RGB 自比较无变化回归及显示发布检查，没有新缺陷真值样本。
-- 正式 CNN 路径不调用 PC、PyTorch 服务或软件参考。PL 失败会禁用配准/合成或恢复真实渲染，`--offline-test` 必须显式选择。
-
-## 训练证据边界
-
-配准仅有一个真实 DC-DC RGB/热像来源，训练和验证来自该来源的不同几何增强种子。标签是已知增强的逆变换，初始绝对标定仍为手工近似，因此增强角点误差不能解释为真实传感器绝对配准精度，也不能解释为两款板的泛化准确率。没有把同一原图的增强称为独立实拍。
-
-帧模型使用预建几何的 1280×720 渲染对，训练/验证的视角种子分开。原生帧适配器另外用完整固定点渲染器的网格与机械 EMI 地形作真值比较，渲染监督不混入传感器实测记录。
-
-'''
-    text+='最终原生帧测试（误差单位为 0–255 的每像素 RGB 平均绝对差）：\n\n| 模式 | 全屏 MAE | 几何区 MAE | 几何区 P95 | 几何门控 | 实板 |\n|---|---:|---:|---:|---|---|\n'
-    for c in native['cases']:text+=f"| {c['mode']} | {c['full_frame_mae']:.4f} | {c['geometry_mae']:.4f} | {c['geometry_error_p95']:.4f} | {'通过' if c['accepted'] else '拒绝、真实渲染'} | 未验证 |\n"
-    text+='''
-每两个真实帧之间最多合成一张。只允许模式 0/3 小角度变化；切板、数据/图层/模型变化、平移/缩放、低覆盖时重新真实渲染。文字与光标独立叠加，拾取绑定真实渲染帧，合成像素不会送入热像、ADC 或缺陷分析。这些保留视角用例不能证明普遍视觉质量、板上增帧或端到端低延迟。
-
-## 搬运与计算预算
-
-1280×720 颜色/ID/深度每个真实帧分别为 3,686,400 / 1,843,200 / 1,843,200 字节，总计 7,372,800 字节，合成全屏图层另需 3,686,400 字节。80×45×4 输入为 14,400 字节，输出为 3,600 字节；小网格没有降低正式显示分辨率。
-
-配准 CNN 约 276,624 MAC，补帧融合 CNN 648,000 MAC。当前原型 SRAM 每个 INT8 元素占一次 32 位寄存器事务：不计轮询，配准各层输入/输出约 92,324 字节寄存器总线传输，帧模型约 187,200 字节，另加权重、偏置、控制及 CPU 重投影/图层搬运。没有大 DMA 或零拷贝吞吐承诺。独立仿真层周期见 `evidence/rtl-simulate.log`，不能替代板上延迟测量。
-
-## 失败与修正记录
-
-- 首轮 RTL 编译使用了保留字 `task`，已更名；初始日志保留。
-- Vivado 初次启动受目录权限影响，XSim 首次生成 C 文件编译失败；获准执行本地工具后重试，日志保留。
-- 独立 AI 核早期时序分别为 −13.334 ns、−5.980 ns、−5.475 ns、−1.910 ns；改为窄位串行 GAP 除法、分级检查/地址生成和量化流水。最终 100 MHz 通过，没有放宽时钟或添加计算假路径。
-- 中间一次旧版综合失败，保留原日志；单线程、关闭 FSM 自动提取后完成。最终以实际 PnR 报告为准。
-- 合并工程初次深度扩展语法错误、自动地址冲突、RAM 模板失败和 ADC 错误映射到大量 LUT，均保留记录。最终候选改用明确的深度寄存器和独立双时钟 BRAM 端口。
-- 配准 PTQ 角点误差 1.422 像素，首轮 QAT 1.539 像素，没有将这轮退化称为提升。保留 `ptq-attempt`、`qat-attempt-1` 后，以饱和梯度处理和训练损失选择的第二轮 QAT 交付。
-- 帧门控初版把“有效且准确的区域占比”当作条件概率，两个原生用例被拒绝；修正为按有效区域归一化，门控仍保留 0.9 可信度和 0.94 覆盖阈值，没有通过降低阈值制造通过。
-- 前轮内核源码传送审批曾受阻；本轮用户明确授权发送到 vm-claude。启动原有构建虚拟机后，按源码白名单传送并完成两份模块编译、ELF 架构和版本核对。完整日志、源哈希和内核构建配置指纹在 `evidence/kernel`。没有连接或加载到开发板。
-
-## 尚未验证/未完成
-
-本提交版的物理相机/ADC/机构联合流程、Python 依赖在目标 rootfs 上的安装、两新模块的板端加载、整机外部 IO/物理签核、板上显示/鼠标、AI 实测速度、真实缺陷准确率、独立采集泛化、机械到模型精确标定均未完成。内部整机时序状态以下面的实际报告为准。现有自启动镜像的旧验收结果不能迁移为本版本验收。
-
-'''
-    if full_summary:
-        t=full_summary['global_timing'];rr=full_summary['resources'];adc=full_summary['clocks'].get('fast_raw',{})
-        text+=f"最终全局时序：setup WNS {t['setup_wns_ns']} ns，TNS {t['setup_tns_ns']} ns，{t['setup_failing_endpoints']} 个失败端点；hold WHS {t['hold_whs_ns']} ns。ADC 200 MHz 内部域 WNS {adc.get('setup_wns_ns')} ns。\n\n"
-        text+='最终资源：'+', '.join(f"{k} {v['used']:g}/{v['available']:g} ({v['percent']:g}%)" for k,v in rr.items())+'。LUT 或 DSP 剩余不代表 Slice/布线/时序可用。\n\n'
-        text+='CDC 详情以原始报告和 summary.json 为准；原 ADC 诊断约束保留外部输入的 false-path，不是外部 IO 签核。用户后来允许降低演示要求，因此新候选实际启用 FCLK1 62.5 MHz，而不是只放宽时序约束；HDMI 参考仍为 FCLK0 100 MHz，ADC 原始域仍为 200 MHz。没有新增计算假路径。\n\n'
-    text+='整机最终状态：'+combined_state+'。详见 `evidence/combined`，独立 OOC 通过不改变这个状态。\n'
-    regression=read('evidence/graphics-timing/result.json') if (ROOT/'evidence/graphics-timing/result.json').exists() else None
-    if regression:
-        text+='''
-## 本轮时序修改与功能回归
-
-- 在着色器算术输出增加两个独立整包寄存器槽，使用已寄存占用量产生内部 ready，隔离 tile 地址冲突比较到算术 DSP 使能的组合链；保持有空槽时每周期接收一对像素。
-- 混色除以 255 改为窄位进位表达式，逐一比较 0–65025 的全部 65,026 个整数输入；保留原来的逐字节舍入。存储测试继续比较颜色、深度、对象 ID 与写后写冲突。
-- 缓存的三个 64 位诊断等待计数器改为接收前一周期的事件。统计读数晚一个周期，不参与缓存/AXI 控制；流水线排空后的累计事件不丢失。
-- ADC 在请求进入采样域时清零写指针，并提前一周期译码预热终点；数字预热仍为 1024 个 200 MHz 时钟，完整原始帧/冻结/溢出/代次测试通过。这没有验证模拟唤醒时间。
-- 图形驱动改用参数设置回调，区分未提供 `expected_tag` 与显式 `expected_tag=0`。正式硬件模式下，未提供或值与硬件不等均拒绝；显式匹配模板 0 不再被错误拒绝。修改后重新完成目标内核编译，未做板端加载验证。
-- 用户将目标调整为功能展示后，中止尚未完成的 100 MHz 布线，完整中止记录在 `evidence/combined-r5-100MHz-interrupted`；它不是一份最终时序结果。演示候选配置新的 62.5 MHz 核心时钟，保留原 HDMI 时钟与全部显示尺寸。内核时钟引用、设备树与 IP 时钟元数据同步更新，计算驱动会持有其 `aclk`。
-- `drivers/demo-7020.dts` 与 `bin/demo-7020.dtb` 为离线编译的候选设备树；公共 Zynq 基础定义来自 Xilinx v2020.2，保留原 GPL-2.0+ 标识和哈希。没有安装或替换目标设备树。
-- 第一版输出缓冲使用动态索引结构数组，完整流测试发现空槽重新填充时的输出稳定性问题；改为两个独立整包寄存器后复测。失败日志保留在 `evidence/graphics-timing-r5-initial`，没有删除稳定性断言。
-
-'''
-        text+=f"图形回归 {sum(c['passed'] for c in regression['cases'].values())}/{len(regression['cases'])} 项通过，详见 `evidence/graphics-timing`；ADC/深度回归详见 `evidence/extensions.json`。所有测试都是离线仿真。\n"
-        prior=ROOT/'evidence/combined-r4-failed/summary.json'
-        if prior.exists() and full_summary:
-            before=json.loads(prior.read_text())['global_timing'];after=full_summary['global_timing']
-            text+=f"\n原 100 MHz 候选与当前 62.5 MHz 演示候选的全局 setup WNS：{before['setup_wns_ns']} → {after['setup_wns_ns']} ns；失败端点：{before['setup_failing_endpoints']} → {after['setup_failing_endpoints']}。ADC 内部 200 MHz、1280×720 保持一致；结果包含降频效果，不能解释为纯 RTL 优化收益。\n"
-    if demo:
-        text+='\n## 主程序离线演示合入\n\n六点、十八帧、21 次已核验 RTL 结果调用完整通过。停止清空、重新开始、重复开始保护、原生按钮命中、选点、导出和切板隔离通过；27 个含新模式的页面切换状态通过，原有 24 状态回归也通过。当前 ARM 主程序已重新编译，未上板。新 PL 核只有独立 RTL/实现证据，未加入原整机 bitstream。详见 `evidence/demo-integration` 和 `docs/主程序演示.md`。\n'
-    (ROOT/'docs/验收记录.md').write_text(text,encoding='utf8')
-    kernel=ROOT/'evidence/kernel';kernel.mkdir(exist_ok=True);(kernel/'status.json').write_text(json.dumps({'built':kernel_built,'source_transmitted':kernel_result.get('transfer_exit')==0,'user_authorized_transfer':True,'board_contacted':False,'board_loaded':False,'boot_image_modified':False},indent=2))
-    # Only allowlisted paths enter the deliverable. No derived measurement files.
-    folders=['runtime','demo','drivers','rtl','graphics','models','tools','tests','docs','resources','bin','data/raw','evidence']
-    files=[ROOT/'README.md',ROOT/'data/raw-manifest.json',ROOT/'start_demo.cmd',ROOT/'start_demo.ps1']
-    files += [p for f in folders for p in (ROOT/f).rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix not in {'.pyc','.dcp','.bit','.hdf','.pb'} and not (p.parent==ROOT/'bin' and p.suffix=='.exe' and p.name not in {'demo_reference.exe','neural_frame_tool.exe'})]
-    files=sorted(set(files));scan=[]
-    for p in files:
-        rel=p.relative_to(ROOT).as_posix()
-        if re.search(r'(?i)(board_.*_key|id_rsa|id_ed25519|ssh_config|\.pem$|\.env$)',rel):scan.append(rel)
-        if p.suffix.lower() in {'.py','.json','.md','.txt','.log','.c','.h','.cpp','.tcl','.sv','.v','.dts','.dtsi'}:
-            data=p.read_bytes()
-            # Values are patterns, never echo any matching credential contents.
-            if re.search(rb'-----BEGIN (?:OPENSSH|RSA|EC) PRIVATE KEY-----|(?:sk-proj-|ghp_)[A-Za-z0-9_-]{20,}',data):scan.append(rel)
-    if scan:raise RuntimeError('credential candidate blocked: '+str(scan))
-    manifest={p.relative_to(ROOT).as_posix():{'bytes':p.stat().st_size,'sha256':sha(p)} for p in files}
-    (ROOT/'FILE_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf8')
-    source_manifest={k:v for k,v in manifest.items() if Path(k).suffix in {'.py','.cpp','.c','.h','.html','.ps1','.cmd','.sv','.v','.tcl','.xdc','.dts','.dtsi'} or k.endswith('Makefile')};(ROOT/'SOURCE_SHA256.json').write_text(json.dumps(source_manifest,ensure_ascii=False,indent=2),encoding='utf8')
-    (ROOT/'DELIVERY_CHECK.json').write_text(json.dumps({'date':'2026-11-03','files':len(files),'bytes':sum(p.stat().st_size for p in files),'credential_scan_matches':scan,'derived_measurement_outputs_excluded':True,'neural_pixel_fusion':True,'frame_model_is_confidence_classifier':False,'main_demo_software_integrated':bool(demo),'new_demo_integrated_in_bitstream':False,'demo_motion_simulated':True,'demo_pl_backend':'checked XSim AXI result replay','original_boot_image_modified':False,'board_accessed':False,'kernel_modules_built':kernel_built,'candidate_device_tree_built':kernel_result.get('device_tree',{}).get('valid_fdt_magic',False),'profile':combined.get('profile'),'core_clock_target_mhz':combined.get('clock_target_mhz'),'combined_passed':combined.get('passed',False),'rtl_passed':rtl['simulation'],'extensions':ext,'host_models_integer_equal':all(arm['host_'+k]['integer_equal'] for k in ['registration','frame'])},ensure_ascii=False,indent=2),encoding='utf8')
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--archive', type=Path)
+    args = parser.parse_args()
+    board = json.loads((ROOT/'evidence/board-20261103-r1/result.json').read_text(encoding='utf8'))
+    if not board.get('board_demo_passed'):
+        raise RuntimeError('Formal packaging requires the recorded board-demo result')
+    files = []
+    for path in ROOT.rglob('*'):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(ROOT)
+        if rel.as_posix() in GENERATED or '__pycache__' in rel.parts or path.suffix == '.pyc':
+            continue
+        if len(rel.parts) > 1 and rel.parts[0] not in FOLDERS:
+            continue
+        if rel.parts[:2] == ('data', 'derived'):
+            continue
+        if re.search(r'(?i)(board_.*_key|id_rsa|id_ed25519|ssh_config|[.]pem$|[.]env$)', rel.as_posix()):
+            raise RuntimeError('Credential-like filename blocked: ' + rel.as_posix())
+        if path.suffix.lower() in {'.py','.json','.md','.txt','.log','.c','.h','.cpp','.tcl','.sv','.v','.dts','.dtsi'}:
+            if re.search(rb'-----BEGIN (?:OPENSSH|RSA|EC) PRIVATE KEY-----|(?:sk-proj-|ghp_)[A-Za-z0-9_-]{20,}', path.read_bytes()):
+                raise RuntimeError('Credential-like content blocked: ' + rel.as_posix())
+        files.append(path)
+    manifest = {p.relative_to(ROOT).as_posix(): {'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(files)}
+    (ROOT/'FILE_MANIFEST.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    source = {k:v for k,v in manifest.items() if Path(k).suffix in {'.py','.cpp','.c','.h','.html','.ps1','.cmd','.sh','.sv','.v','.tcl','.xdc','.dts','.dtsi'} or k.endswith('Makefile')}
+    (ROOT/'SOURCE_SHA256.json').write_text(json.dumps(source,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+    check = json.loads((ROOT/'DELIVERY_CHECK.json').read_text(encoding='utf8'))
+    check.update({'files':len(files),'bytes':sum(p.stat().st_size for p in files),
+                  'credential_scan_matches':[],'documentation_revision':'r2'})
+    (ROOT/'DELIVERY_CHECK.json').write_text(json.dumps(check,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
     if args.archive:
-        with zipfile.ZipFile(args.archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
-            for p in files+[ROOT/'FILE_MANIFEST.json',ROOT/'SOURCE_SHA256.json',ROOT/'DELIVERY_CHECK.json']:z.write(p,'submission_zynq_20261103/'+p.relative_to(ROOT).as_posix())
-        with zipfile.ZipFile(args.archive) as z:
-            bad=z.testzip()
-            if bad:raise RuntimeError('ZIP CRC failure: '+bad)
-        (args.archive.with_suffix(args.archive.suffix+'.sha256')).write_text(sha(args.archive)+'  '+args.archive.name+'\n',encoding='utf8')
-    print('DELIVERY',len(files),'files; combined_passed',combined.get('passed',False))
-if __name__=='__main__':main()
+        args.archive.parent.mkdir(parents=True,exist_ok=True)
+        with zipfile.ZipFile(args.archive,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as archive:
+            for path in sorted(files + [ROOT/n for n in sorted(GENERATED)]):
+                archive.write(path,'submission_zynq_20261103/'+path.relative_to(ROOT).as_posix())
+        with zipfile.ZipFile(args.archive) as archive:
+            bad = archive.testzip()
+            if bad:
+                raise RuntimeError('ZIP CRC: '+bad)
+        args.archive.with_suffix(args.archive.suffix+'.sha256').write_text(sha(args.archive)+'  '+args.archive.name+'\n',encoding='utf8')
+    print(json.dumps({'files':len(files),'documentation_revision':'r2','board_demo_passed':True}))
+    return 0
+
+if __name__ == '__main__':
+    raise SystemExit(main())
