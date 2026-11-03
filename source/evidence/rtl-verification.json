@@ -1,0 +1,164 @@
+{
+  "cases": [
+    {
+      "name": "registration/0",
+      "input": [
+        2,
+        48,
+        64
+      ],
+      "output": [
+        8,
+        24,
+        32
+      ],
+      "output_elements": 6144,
+      "expected_sha256": "92d4de2f072651dbadb5cba0814d3f78c5f6bdb72a0676ca1cf854490f980287"
+    },
+    {
+      "name": "registration/1",
+      "input": [
+        8,
+        24,
+        32
+      ],
+      "output": [
+        8,
+        12,
+        16
+      ],
+      "output_elements": 1536,
+      "expected_sha256": "db52d704f5ae5f1f21fd4633d4ed0626162280516c22f5a89d15cec4b31fa392"
+    },
+    {
+      "name": "registration/2",
+      "input": [
+        8,
+        12,
+        16
+      ],
+      "output": [
+        16,
+        6,
+        8
+      ],
+      "output_elements": 768,
+      "expected_sha256": "1adc15dadc34fdadd9d2ad469b5e85ba7e3639f588bea34c5363fdf5e7aff197"
+    },
+    {
+      "name": "registration/3",
+      "input": [
+        16,
+        6,
+        8
+      ],
+      "output": [
+        16,
+        1,
+        1
+      ],
+      "output_elements": 16,
+      "expected_sha256": "1064fa0ca4eb27613a6b5451bdf3524a4275131c4251464efbe14aec5daf1c1d"
+    },
+    {
+      "name": "registration/4",
+      "input": [
+        16,
+        1,
+        1
+      ],
+      "output": [
+        9,
+        1,
+        1
+      ],
+      "output_elements": 9,
+      "expected_sha256": "82a89a487736adc7a6f9a7367cb0b2b519599479af722aa653069569d5cb12a9"
+    },
+    {
+      "name": "frame/0",
+      "input": [
+        4,
+        45,
+        80
+      ],
+      "output": [
+        4,
+        45,
+        80
+      ],
+      "output_elements": 14400,
+      "expected_sha256": "75fff8fba5b40de207c29506910607442f07dbe9db06b29e6a5ce19a9a4fa30d"
+    },
+    {
+      "name": "frame/1",
+      "input": [
+        4,
+        45,
+        80
+      ],
+      "output": [
+        1,
+        45,
+        80
+      ],
+      "output_elements": 3600,
+      "expected_sha256": "cdb27772d492f90124e5c10cde55e7f421fcb31d86a737a224d9c2337c62a2e9"
+    },
+    {
+      "name": "edge/0",
+      "input": [
+        3,
+        5,
+        7
+      ],
+      "output": [
+        2,
+        5,
+        7
+      ],
+      "output_elements": 70,
+      "expected_sha256": "8cc68aac19da380d469a2f5abe4f0c0a1dd74f2588f26a2d84619646dce2f989"
+    },
+    {
+      "name": "edge/1",
+      "input": [
+        3,
+        5,
+        7
+      ],
+      "output": [
+        2,
+        3,
+        4
+      ],
+      "output_elements": 24,
+      "expected_sha256": "989ffce979c946be56b6b0eac2ee449c77ddcab262b91b8a2ddbd1e580a56cee"
+    },
+    {
+      "name": "edge/2",
+      "input": [
+        3,
+        5,
+        7
+      ],
+      "output": [
+        2,
+        5,
+        7
+      ],
+      "output_elements": 70,
+      "expected_sha256": "5cb8909dce089e576895e3945478ac11b240abd5670f192870441e1586ca01cf"
+    }
+  ],
+  "board_accessed": false,
+  "simulation": true,
+  "model_sha256": {
+    "models/registration/int8.npz": "97725bdfc2a0426de7358d981cf98eb697583e057d2a7ae1c32ee255960ecd73",
+    "models/registration/model.json": "4bd5b32e0cf647b0574ff14af817ba9c3a3a0588da1dda5cc2c58ef86867da4f",
+    "models/registration/validation-inputs.npz": "0d45ca37b52213f8205be68af45e7350668aaf9dd851a864746e259051c92f85",
+    "models/frame/int8.npz": "3a0bd7bd989c22c8e8cc035a8dade86d4c3b26a382c594e5e5d72e0fae453864",
+    "models/frame/model.json": "c53cd76ee5c382b09fbd3e1af65dce12869cd29bd6766f382002e68ccfd5b47e",
+    "models/frame/validation-inputs.npz": "12236f2bb65cdecb8ba6acb6fdd2ab42fdb84edf0922d26713ba036cc98c6302"
+  }
+}

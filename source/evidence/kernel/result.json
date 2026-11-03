@@ -1,0 +1,52 @@
+{
+  "transfer_exit": 0,
+  "board_contacted": false,
+  "modules": {
+    "pcb_compute": {
+      "exit_code": 0,
+      "board_loaded": false,
+      "sha256": "c2b752a09a06dd390271539399f9f7321fdb275887de40c6d39f3e8aa5659455",
+      "elf32_little_endian_arm": true,
+      "metadata_exit_code": 0,
+      "vermagic": "5.4.0-xilinx-v2020.2 SMP preempt mod_unload modversions ARMv7 p2v8"
+    },
+    "pcb_gfx3": {
+      "exit_code": 0,
+      "board_loaded": false,
+      "sha256": "94f63bfb6bfabe49512b397a701cb8d39613c3c3052d31e66a27573a3ed39178",
+      "elf32_little_endian_arm": true,
+      "metadata_exit_code": 0,
+      "vermagic": "5.4.0-xilinx-v2020.2 SMP preempt mod_unload modversions ARMv7 p2v8"
+    }
+  },
+  "payload_sha256": "a4c87dc6045247f7d9d166e5d14e648a769a8d127bb919c4e61853d9ae559ba3",
+  "source_sha256": {
+    "drivers/compute.dtsi": "3d12ee5f9746e376030101e6f9b0651f55b33fe73844b573c067a94fae6b04d4",
+    "drivers/demo-7020.dts": "0a0816b46bd5d213b6171acfa72024729df1e3f479eb9358e17f00a62848f5a0",
+    "drivers/Makefile": "59751a421bfc7750465a72b3d7383b118cd0fa68c5263113459b1efc20c9cc5c",
+    "drivers/pcb_compute.c": "3416f6a1e50757fcd2ddbbcc7ebc07c738a14f3c98dcbfefae0e16f55353e540",
+    "graphics/driver/gfx3_contract_test.c": "3dd0d6b092b32e62ce954fa02ab8adf520b8b8ee934cde6dd99ed021397421d6",
+    "graphics/driver/gfx3_memory_test.c": "d8295fc0a085447b4a95c5929569879be71d3416c2abfcff7dba0f6b72504717",
+    "graphics/driver/gfx3_status.c": "6f3ad0bfd57d5b97e13eae168f74dc58b0d903741ceeadf3c7207a2b613615d2",
+    "graphics/driver/gfx3_view_matrix.h": "748ad4124a4bef4d4fb853fbfffab0e581a45c985769e8dddae4a3ac516d8dd0",
+    "graphics/driver/Makefile": "766b43c7314df324c6cae065d58db77f95d06082f72ce69c5610563eaca99d9f",
+    "graphics/driver/pcb_gfx3.c": "24bd5d3821caf808cc02f0d823463aa312b34b20c087d18e6f7f7c8637b21a55",
+    "graphics/include/gfx3_commands.h": "4d251088c1e9c285b0f2d7bcf0a32596e523c916f34df01925108103c928029b",
+    "graphics/include/gfx3_protocol.h": "59f5ad49f4b7b8da139c361424b178ca6f8986bbf4cf2a1fd8ccf02c76db787c",
+    "graphics/include/gfx3_uapi.h": "a8226f3994d5158b96807d62c5cc425783963752913459ce3b6fd5a8ee4fb360",
+    "resources/kernel-dts/zynq-7000.dtsi": "d8613c281acc7c2bb7248e93dd9cbccbe75df7f684fa33211de1338c1f30d593"
+  },
+  "device_tree": {
+    "exit_code": 0,
+    "board_installed": false,
+    "sha256": "98aab9f31d21fd54d8842804477166351d121b791615e5dfe6d6ca0806cc61e6",
+    "valid_fdt_magic": true,
+    "public_dependency": {
+      "url": "https://raw.githubusercontent.com/Xilinx/linux-xlnx/xilinx-v2020.2/arch/arm/boot/dts/zynq-7000.dtsi",
+      "sha256": "d8613c281acc7c2bb7248e93dd9cbccbe75df7f684fa33211de1338c1f30d593",
+      "license": "GPL-2.0+"
+    }
+  },
+  "modules_passed": true,
+  "passed": true
+}

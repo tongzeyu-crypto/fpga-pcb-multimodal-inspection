@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-03",
+  "original_archive_sha256": "b1b3f12d203dd6df59de4ba400810d7b4dfcdb31c761e651647ea156cae33cd1",
+  "original_archive_bytes": 74041875,
+  "original_archive_files": 1077,
+  "original_delivery_check_passed": true,
+  "original_manifest_checked_files": 1074,
+  "zip_crc_passed": true,
+  "python_syntax_files": 70,
+  "git_snapshot_original_files": 306,
+  "git_snapshot_original_files_byte_identical": true,
+  "new_hardware_tests_in_this_publication": false,
+  "release_tag": "code-20261103"
+}

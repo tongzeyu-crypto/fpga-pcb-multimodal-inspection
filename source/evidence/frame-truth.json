@@ -1,0 +1,677 @@
+{
+  "resolution": [
+    1280,
+    720
+  ],
+  "source": "software rendered component box prior, no physical acquisition or measured depth",
+  "cases": [
+    {
+      "split": "train",
+      "pose": [
+        0.2181090432485528,
+        0.9965363377046903
+      ],
+      "step": -0.007369375505295327,
+      "full_frame_mae": 0.1317303240740741,
+      "geometry_region_mae": 0.31568339247095617,
+      "valid_fraction_geometry": 0.9980248212814331
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.2810432379197256,
+        1.0242995400118533
+      ],
+      "step": -0.002255899506362378,
+      "full_frame_mae": 0.10756184895833333,
+      "geometry_region_mae": 0.24371633595363842,
+      "valid_fraction_geometry": 0.9984760284423828
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.2775541515893691,
+        0.9190876694577867
+      ],
+      "step": 0.022467817843148562,
+      "full_frame_mae": 0.1916420717592593,
+      "geometry_region_mae": 0.5602975134596833,
+      "valid_fraction_geometry": 0.9953281879425049
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.18054276352102316,
+        0.7469813803275931
+      ],
+      "step": -0.003270262341362507,
+      "full_frame_mae": 0.10934859664351851,
+      "geometry_region_mae": 0.32755012812090784,
+      "valid_fraction_geometry": 0.9980161786079407
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.0575402659108975,
+        0.8071093245533896
+      ],
+      "step": -0.027295361149721316,
+      "full_frame_mae": 0.20570782696759257,
+      "geometry_region_mae": 0.6845603885525424,
+      "valid_fraction_geometry": 0.9942106008529663
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.034420435647639414,
+        0.9368735867373286
+      ],
+      "step": 0.015498527794904963,
+      "full_frame_mae": 0.14941406249999997,
+      "geometry_region_mae": 0.3858922913942159,
+      "valid_fraction_geometry": 0.9970677495002747
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.10423753486468851,
+        0.943381572846947
+      ],
+      "step": 0.025476369487997957,
+      "full_frame_mae": 0.1883159722222223,
+      "geometry_region_mae": 0.5456182391725222,
+      "valid_fraction_geometry": 0.9956172108650208
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.15157790326296655,
+        1.0417650282063196
+      ],
+      "step": 0.014568898164940797,
+      "full_frame_mae": 0.12842881944444445,
+      "geometry_region_mae": 0.3223886007473091,
+      "valid_fraction_geometry": 0.9976507425308228
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.23046118569718888,
+        0.8596385750415512
+      ],
+      "step": -0.0025623122535439156,
+      "full_frame_mae": 0.1272732204861111,
+      "geometry_region_mae": 0.3302092923098807,
+      "valid_fraction_geometry": 0.9982654452323914
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.20009213814949667,
+        0.7891054527341104
+      ],
+      "step": 0.02137371165888002,
+      "full_frame_mae": 0.1712102141203704,
+      "geometry_region_mae": 0.5631534799428822,
+      "valid_fraction_geometry": 0.9950176477432251
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.15383786729834056,
+        1.0279638080927085
+      ],
+      "step": -0.009970062500281252,
+      "full_frame_mae": 0.13852141203703705,
+      "geometry_region_mae": 0.35076010121412454,
+      "valid_fraction_geometry": 0.9977272748947144
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.04159755621183531,
+        0.7087097699732531
+      ],
+      "step": -0.027377934452099736,
+      "full_frame_mae": 0.16227864583333337,
+      "geometry_region_mae": 0.5323262757003151,
+      "valid_fraction_geometry": 0.994943380355835
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.14734808608004996,
+        0.6529371115799529
+      ],
+      "step": 0.0032767428482595486,
+      "full_frame_mae": 0.11873046874999998,
+      "geometry_region_mae": 0.40260968075829084,
+      "valid_fraction_geometry": 0.997735857963562
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.026511297911918474,
+        0.7357805282743658
+      ],
+      "step": 0.015497193795433958,
+      "full_frame_mae": 0.1765133101851852,
+      "geometry_region_mae": 0.5842016851417655,
+      "valid_fraction_geometry": 0.995625376701355
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.24513136058158885,
+        1.0340607440353549
+      ],
+      "step": 0.0011390035579426465,
+      "full_frame_mae": 0.07470522280092591,
+      "geometry_region_mae": 0.16707079913862383,
+      "valid_fraction_geometry": 0.9989667534828186
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.09406058370377629,
+        0.8761297852111349
+      ],
+      "step": 0.0011980241194988611,
+      "full_frame_mae": 0.07165581597222222,
+      "geometry_region_mae": 0.1791904145832605,
+      "valid_fraction_geometry": 0.9988732933998108
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.1755591531062592,
+        0.799692458057816
+      ],
+      "step": -0.015184382866012406,
+      "full_frame_mae": 0.1772258391203704,
+      "geometry_region_mae": 0.5506846042849742,
+      "valid_fraction_geometry": 0.9960919618606567
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.10054580916147826,
+        0.6513978277712874
+      ],
+      "step": -0.004493351553649327,
+      "full_frame_mae": 0.10492006655092587,
+      "geometry_region_mae": 0.3595363041284121,
+      "valid_fraction_geometry": 0.997736394405365
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.07055739709767284,
+        1.006001321187276
+      ],
+      "step": 0.018090131509412164,
+      "full_frame_mae": 0.16845052083333334,
+      "geometry_region_mae": 0.44319200141107,
+      "valid_fraction_geometry": 0.9966368675231934
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.1393437547948289,
+        1.0283933668311742
+      ],
+      "step": 0.0039776485894712395,
+      "full_frame_mae": 0.12069408275462963,
+      "geometry_region_mae": 0.2985150189559639,
+      "valid_fraction_geometry": 0.9984111785888672
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.2550151421492451,
+        0.7587311317217723
+      ],
+      "step": -0.022098806950039414,
+      "full_frame_mae": 0.19542100694444442,
+      "geometry_region_mae": 0.6754754563759652,
+      "valid_fraction_geometry": 0.9943842887878418
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.08002957791763105,
+        0.9634528815350478
+      ],
+      "step": -0.009498921651150332,
+      "full_frame_mae": 0.14196542245370372,
+      "geometry_region_mae": 0.35600455009308685,
+      "valid_fraction_geometry": 0.9977505803108215
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.07662063951242143,
+        0.9691513484349683
+      ],
+      "step": 0.01369419293124374,
+      "full_frame_mae": 0.13394639756944443,
+      "geometry_region_mae": 0.34796154855260486,
+      "valid_fraction_geometry": 0.997365415096283
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.0759056058610364,
+        0.6558073641219747
+      ],
+      "step": -0.015249532696077036,
+      "full_frame_mae": 0.13447880497685183,
+      "geometry_region_mae": 0.47902217260821384,
+      "valid_fraction_geometry": 0.9964035153388977
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.007340053138057023,
+        0.7207143837167679
+      ],
+      "step": -0.011486038230171414,
+      "full_frame_mae": 0.13933449074074078,
+      "geometry_region_mae": 0.43315304242785724,
+      "valid_fraction_geometry": 0.9972978830337524
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.14085269348220286,
+        0.7139218468129156
+      ],
+      "step": -0.002899008272215793,
+      "full_frame_mae": 0.10913483796296299,
+      "geometry_region_mae": 0.3084982310087389,
+      "valid_fraction_geometry": 0.9981850981712341
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.20519683639032876,
+        0.8192689842910114
+      ],
+      "step": -0.0054906670912028485,
+      "full_frame_mae": 0.11990632233796297,
+      "geometry_region_mae": 0.3561661805017439,
+      "valid_fraction_geometry": 0.9980080127716064
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.2476240370097833,
+        0.8870861069693301
+      ],
+      "step": -0.006760852372462014,
+      "full_frame_mae": 0.1287944878472222,
+      "geometry_region_mae": 0.3557071961895783,
+      "valid_fraction_geometry": 0.9977395534515381
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.05130790214907649,
+        0.9368972090252061
+      ],
+      "step": 0.017007028511355635,
+      "full_frame_mae": 0.160003978587963,
+      "geometry_region_mae": 0.4615356974698288,
+      "valid_fraction_geometry": 0.9967920780181885
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.02772054063537044,
+        0.7821328552161364
+      ],
+      "step": -0.0029527837896109847,
+      "full_frame_mae": 0.10362232349537037,
+      "geometry_region_mae": 0.2953321820398212,
+      "valid_fraction_geometry": 0.9981375932693481
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.09968140396798475,
+        0.6777358482892776
+      ],
+      "step": 0.00044171729925169406,
+      "full_frame_mae": 0.020389901620370368,
+      "geometry_region_mae": 0.06047878316480858,
+      "valid_fraction_geometry": 0.9996417164802551
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.25260583788782626,
+        1.0478068634644981
+      ],
+      "step": -0.02211306251721044,
+      "full_frame_mae": 0.16099934895833337,
+      "geometry_region_mae": 0.4172423798601707,
+      "valid_fraction_geometry": 0.9968047738075256
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.11771295127305517,
+        0.7309289853609051
+      ],
+      "step": 0.024387940902380997,
+      "full_frame_mae": 0.1739680989583333,
+      "geometry_region_mae": 0.5982206903530938,
+      "valid_fraction_geometry": 0.9941200613975525
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.12402450619241526,
+        0.8131318991628724
+      ],
+      "step": -0.02795102581753534,
+      "full_frame_mae": 0.22231011284722232,
+      "geometry_region_mae": 0.7324812982973014,
+      "valid_fraction_geometry": 0.9939265847206116
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.1550585377340663,
+        0.662323506515479
+      ],
+      "step": 0.0023412627502434474,
+      "full_frame_mae": 0.10408528645833334,
+      "geometry_region_mae": 0.3327111808772668,
+      "valid_fraction_geometry": 0.9979947805404663
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.02419078010487552,
+        0.7083835308106218
+      ],
+      "step": -0.0014378340034046262,
+      "full_frame_mae": 0.07251772280092592,
+      "geometry_region_mae": 0.20279334546241357,
+      "valid_fraction_geometry": 0.9988572001457214
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.020710741761382434,
+        0.9533003938196735
+      ],
+      "step": 0.010024286159765538,
+      "full_frame_mae": 0.12573748553240743,
+      "geometry_region_mae": 0.34120462538071566,
+      "valid_fraction_geometry": 0.9977589249610901
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.14129218911177516,
+        0.8999547472073258
+      ],
+      "step": -0.027188901994645666,
+      "full_frame_mae": 0.16496853298611108,
+      "geometry_region_mae": 0.4752859344761817,
+      "valid_fraction_geometry": 0.9960507154464722
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.026619425641216443,
+        0.6995188593985638
+      ],
+      "step": 0.005915607973590895,
+      "full_frame_mae": 0.12007161458333332,
+      "geometry_region_mae": 0.3935964046105149,
+      "valid_fraction_geometry": 0.9973422288894653
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.2510983466312025,
+        0.6679744558712947
+      ],
+      "step": 0.02573438781724852,
+      "full_frame_mae": 0.19576533564814821,
+      "geometry_region_mae": 0.7488246909313185,
+      "valid_fraction_geometry": 0.9926985502243042
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.27821732559343765,
+        0.761364004789796
+      ],
+      "step": 0.004189742400463176,
+      "full_frame_mae": 0.11938657407407412,
+      "geometry_region_mae": 0.3403694540085702,
+      "valid_fraction_geometry": 0.9981054663658142
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.1975054534078976,
+        0.8571904480758461
+      ],
+      "step": -0.02204190874215654,
+      "full_frame_mae": 0.16089409722222223,
+      "geometry_region_mae": 0.47806149937666886,
+      "valid_fraction_geometry": 0.9961341619491577
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.041249365940355776,
+        0.9495493707007383
+      ],
+      "step": 0.006679563085255354,
+      "full_frame_mae": 0.11780273437500004,
+      "geometry_region_mae": 0.29339675716134056,
+      "valid_fraction_geometry": 0.9982125163078308
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.2169503223174819,
+        0.6814109606456032
+      ],
+      "step": -0.002919991575422852,
+      "full_frame_mae": 0.12475622106481486,
+      "geometry_region_mae": 0.4166485649254365,
+      "valid_fraction_geometry": 0.9979458451271057
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.01957236140410301,
+        0.8420537449174161
+      ],
+      "step": 0.017234891202360148,
+      "full_frame_mae": 0.13764901620370368,
+      "geometry_region_mae": 0.4289872971065632,
+      "valid_fraction_geometry": 0.9963831901550293
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.2610876913962275,
+        0.9415903054282064
+      ],
+      "step": 0.00756441830570188,
+      "full_frame_mae": 0.13686631944444447,
+      "geometry_region_mae": 0.3679442730991096,
+      "valid_fraction_geometry": 0.9978358745574951
+    },
+    {
+      "split": "train",
+      "pose": [
+        -0.018444770876454686,
+        0.8319914733489171
+      ],
+      "step": -0.0206365721354491,
+      "full_frame_mae": 0.17781973379629626,
+      "geometry_region_mae": 0.56778873454105,
+      "valid_fraction_geometry": 0.9957351088523865
+    },
+    {
+      "split": "train",
+      "pose": [
+        0.21009713263305013,
+        0.8272883709772727
+      ],
+      "step": 0.011196631063851232,
+      "full_frame_mae": 0.1461787471064815,
+      "geometry_region_mae": 0.439366978534276,
+      "valid_fraction_geometry": 0.9967471361160278
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.1253583225096735,
+        1.0356748735804302
+      ],
+      "step": 0.003912775582082948,
+      "full_frame_mae": 0.12526475694444447,
+      "geometry_region_mae": 0.31329623663786793,
+      "valid_fraction_geometry": 0.9983474016189575
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.2112821066239427,
+        0.9361777648197863
+      ],
+      "step": -0.02378478988702919,
+      "full_frame_mae": 0.1630284288194445,
+      "geometry_region_mae": 0.45723900237506226,
+      "valid_fraction_geometry": 0.9962040781974792
+    },
+    {
+      "split": "validation",
+      "pose": [
+        -0.1175358493713346,
+        0.9678091913361433
+      ],
+      "step": 0.012098914934807501,
+      "full_frame_mae": 0.15184968171296295,
+      "geometry_region_mae": 0.38499071902909004,
+      "valid_fraction_geometry": 0.9973269104957581
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.1551149560938807,
+        0.8245058116122856
+      ],
+      "step": 0.021214278962470526,
+      "full_frame_mae": 0.176376953125,
+      "geometry_region_mae": 0.5564885753367428,
+      "valid_fraction_geometry": 0.9954638481140137
+    },
+    {
+      "split": "validation",
+      "pose": [
+        -0.22744931307992255,
+        0.6500535317086856
+      ],
+      "step": -0.00666478751504759,
+      "full_frame_mae": 0.1390899884259259,
+      "geometry_region_mae": 0.49325090716253306,
+      "valid_fraction_geometry": 0.996945858001709
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.23537109017461527,
+        0.9482479886290536
+      ],
+      "step": 0.0026683562590445013,
+      "full_frame_mae": 0.1013624855324074,
+      "geometry_region_mae": 0.25868990167172734,
+      "valid_fraction_geometry": 0.9984927773475647
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.15854047508043878,
+        0.6846138308335944
+      ],
+      "step": -0.014697635780072073,
+      "full_frame_mae": 0.1385210503472222,
+      "geometry_region_mae": 0.48952940627769226,
+      "valid_fraction_geometry": 0.99628746509552
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.2822429236749742,
+        0.8760909834917925
+      ],
+      "step": 0.005486898328558792,
+      "full_frame_mae": 0.12248842592592592,
+      "geometry_region_mae": 0.33491886525807646,
+      "valid_fraction_geometry": 0.9981598854064941
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.1547948191046905,
+        0.7830093912880005
+      ],
+      "step": -0.01749547846047079,
+      "full_frame_mae": 0.14455910011574077,
+      "geometry_region_mae": 0.45722330426540014,
+      "valid_fraction_geometry": 0.9964117407798767
+    },
+    {
+      "split": "validation",
+      "pose": [
+        -0.04429550302091001,
+        0.96880740881513
+      ],
+      "step": 0.0018795434749347417,
+      "full_frame_mae": 0.10511537905092593,
+      "geometry_region_mae": 0.2549424809778416,
+      "valid_fraction_geometry": 0.9985567331314087
+    },
+    {
+      "split": "validation",
+      "pose": [
+        -0.153873041022257,
+        0.7349832459001089
+      ],
+      "step": -0.0015597954849608277,
+      "full_frame_mae": 0.07685944733796293,
+      "geometry_region_mae": 0.2144618521745831,
+      "valid_fraction_geometry": 0.998795211315155
+    },
+    {
+      "split": "validation",
+      "pose": [
+        0.24760856400524806,
+        0.8104191779066457
+      ],
+      "step": -0.022344760976676196,
+      "full_frame_mae": 0.16920392071759258,
+      "geometry_region_mae": 0.5317378284192164,
+      "valid_fraction_geometry": 0.9955590963363647
+    }
+  ],
+  "bandwidth_bytes_per_real_frame": {
+    "color": 3686400,
+    "depth": 1843200,
+    "ids": 1843200,
+    "sum": 7372800
+  },
+  "confidence_grid_io_bytes": 18000,
+  "board_fps": null
+}

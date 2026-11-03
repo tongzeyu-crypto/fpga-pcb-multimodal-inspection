@@ -1,0 +1,186 @@
+{
+  "version": 3,
+  "geometry_measured": false,
+  "component_heights": "relative display estimates informed by single image and video; not dimensions",
+  "rgb_sha256": "eac8d3afa0283a7cd5a92a7a2be2b9e40082bd3af417f028c56886de276cb9cc",
+  "board_geometry": {
+    "quad_native_px": [
+      [
+        1200.0,
+        1410.0
+      ],
+      [
+        2728.0,
+        1384.0
+      ],
+      [
+        2740.0,
+        2094.0
+      ],
+      [
+        1200.0,
+        2077.0
+      ]
+    ],
+    "rectified_size_px": [
+      1540,
+      710
+    ],
+    "native_rgb_to_board": [
+      [
+        1.1480347790662668,
+        6.738371664225884e-17,
+        -1377.64173487952
+      ],
+      [
+        0.019514172765708493,
+        1.146832922538558,
+        -1640.451428098217
+      ],
+      [
+        4.5248696406071845e-05,
+        1.1843033635860175e-05,
+        1.0
+      ]
+    ],
+    "extended_margin_px": 140,
+    "algorithm": "manual RGB corner correction after blue contour included a connected wire; approximate, not metrology"
+  },
+  "components": [
+    {
+      "id": "C-left",
+      "name": "左侧电解电容",
+      "kind": "capacitor",
+      "bbox": [
+        90,
+        350,
+        355,
+        335
+      ],
+      "height": 21
+    },
+    {
+      "id": "L1",
+      "name": "环形电感",
+      "kind": "toroid",
+      "bbox": [
+        575,
+        405,
+        405,
+        225
+      ],
+      "height": 24
+    },
+    {
+      "id": "U1",
+      "name": "五引脚电源芯片",
+      "kind": "powerchip",
+      "bbox": [
+        985,
+        172,
+        294,
+        310
+      ],
+      "height": 3.4,
+      "pins": 5
+    },
+    {
+      "id": "C-right",
+      "name": "右侧电解电容",
+      "kind": "capacitor",
+      "bbox": [
+        1375,
+        350,
+        340,
+        330
+      ],
+      "height": 21
+    },
+    {
+      "id": "VR",
+      "name": "可调电阻",
+      "kind": "trimmer",
+      "bbox": [
+        840,
+        700,
+        310,
+        172
+      ],
+      "height": 18
+    },
+    {
+      "id": "D1",
+      "name": "二极管",
+      "kind": "diode",
+      "bbox": [
+        610,
+        190,
+        180,
+        90
+      ],
+      "height": 2.2
+    },
+    {
+      "id": "D2",
+      "name": "指示灯",
+      "kind": "led",
+      "bbox": [
+        470,
+        762,
+        100,
+        45
+      ],
+      "height": 1.0
+    },
+    {
+      "id": "R3",
+      "name": "贴片电阻",
+      "kind": "passive",
+      "bbox": [
+        634,
+        751,
+        121,
+        49
+      ],
+      "height": 0.8
+    },
+    {
+      "id": "C4",
+      "name": "贴片元件 C4",
+      "kind": "passive",
+      "bbox": [
+        482,
+        450,
+        66,
+        108
+      ],
+      "height": 0.8
+    },
+    {
+      "id": "C5",
+      "name": "贴片元件 C5",
+      "kind": "passive",
+      "bbox": [
+        1180,
+        680,
+        123,
+        54
+      ],
+      "height": 0.8
+    }
+  ],
+  "emi_points": 150,
+  "thermal_registration": "not calibrated",
+  "emi_registration": "not calibrated",
+  "video_reference": {
+    "file": "56a07c300256f831fc6dc19718f5ffcc.mp4",
+    "sha256": "161007c917fffaadfb2f7f9d92dcef683ce89ce7d8dc2aca662a4a2a89aab062",
+    "observation": "upright toroidal inductor, metal cans, tall blue trimmer with brass adjuster"
+  },
+  "operator_geometry_corrections": {
+    "capacitor_diameter_scale": 0.82,
+    "trimmer_depth_scale": 0.62,
+    "inductor_core": "yellow, faceted annular core with an angular cross-section",
+    "basis": "operator visual correction; sizes are still display estimates"
+  }
+}

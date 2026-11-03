@@ -1,0 +1,9 @@
+5.4.0-xilinx-v2020.2
+d789db786e6dd698d00e68860b09e30fd164ccaee864c69305988952ad1cac42  .config
+fd802d21a08596e0c32e61d4201714c3c793b2be105deffb709df26541c116dc  Module.symvers
+dd9f9414457aaf79029e87b8af9158d8b77744a9a167a28c414c5bac789e84d3  include/generated/autoconf.h
+arm-xilinx-linux-gnueabi-gcc (GCC) 9.2.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+

@@ -1,0 +1,66 @@
+{
+  "cases": {
+    "tb_shader_pair": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    },
+    "tb_shader_credit": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    },
+    "tb_shader_stream": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    },
+    "tb_store": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    },
+    "tb_store_stream": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    },
+    "tb_cache_dual": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    },
+    "tb_device_generation": {
+      "passed": true,
+      "exit_code": 0,
+      "board_run": false
+    }
+  },
+  "passed": true,
+  "board_run": false,
+  "source_sha256": {
+    "g3_axi_device.sv": "72d2d8e8f43a1b6a6bda62832bf52d52baad1730e6e25d0ab9afaa718cf4b717",
+    "g3_axi_fabric.sv": "571b64a5cad8f55f43017f4949fe3703e78e96482f7ff8e9e67cb7fe954111f6",
+    "g3_binner.sv": "f7c7b3db20b288ccb368f1676d0b2245a4024fe29007086e254a7736ee09639b",
+    "g3_bin_reader.sv": "dd0d7b4d5f31d99714750010017b12f071f70e99be35cbc541791731aa371b1d",
+    "g3_cursor_rom.sv": "613075576aead97d3dfd1aeeb85a35ae97b5e5dc118b3a94091c1a5c5db2278e",
+    "g3_device.sv": "dc2a38f493916f14dae3addcf89652dceac95f21aa515211326a87500cc3170a",
+    "g3_engine.sv": "38636487f310525436b826720e9adfc59e06f30227f4255ce51cc455304af64c",
+    "g3_line_ram.sv": "6595f802742d63f7b7117c76697feaa775b13a9618800d8e6a206f5543ff3c30",
+    "g3_mul.sv": "63f49d247b225cc0fdd888b8c993ab81f414f1faa6acd0126efcefff1b446861",
+    "g3_pkg.sv": "e1da65aee096cc92a40125b2192e672b28cefaee64d940c5f4803a52d4b983eb",
+    "g3_ram_sdp.sv": "d8c11d9149f47860f36f49832856b32c204880cfc00b2c00d8ce822bf78093c3",
+    "g3_ram_tdp.sv": "909b74f68c3b8ef6379e3989e4b1d2c42b917a65369a2989fae9233583a683aa",
+    "g3_raster_pair.sv": "d21b206b903e5bbd1376381e3e7f60338a7cbc1b98ddfe34f047058d4e960c40",
+    "g3_resolve.sv": "6712d709e4030283e3e61c7c349bda213372bffc551d89ae1da2855cf8dc7d51",
+    "g3_scanout.sv": "6f5d48c1d63681633feea0e56248d106fdf3db8081d1cb405d40d45a77a3fb6b",
+    "g3_setup.sv": "fd2d32bfe2f861656c7994ba22aff032ca4656697f9d240ebdda32301d1f6e80",
+    "g3_shader.sv": "9397503e07b1983ab3c42b9384d97463eb0ca9e1bb7c005450668727dd426cef",
+    "g3_shader_math.sv": "a9ef1a214642fa270303678b7e95f3ed31796309baebb1a4086bcb3bab32656e",
+    "g3_shader_pair.sv": "1dce1ae73939c54598529cf932f5cdfdf4ed9b7764226f687b4566615e32359a",
+    "g3_tex_cache.sv": "ae4a5a2567b13b57709f1a0a6263e995181eaab556a9a68b467752d009f78259",
+    "g3_tile_store.sv": "928ac33b3b9b775a814ac2adbe6713bbac5375b55ba551d1371f9f900a5ba652",
+    "gfx_div.sv": "e39e33a11820de4bdaaa111fc01690dd6c0e0d3e5a47c167567f1e17aff82e70",
+    "gfx_vertex.sv": "a8fa78ba9781fe67d6ab79d91ccbf90562f987ed0e0bb4cae51161901c3f92b0"
+  }
+}

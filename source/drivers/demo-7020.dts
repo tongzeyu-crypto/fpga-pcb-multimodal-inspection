@@ -1,0 +1,55 @@
+/dts-v1/;
+#include "zynq-7000.dtsi"
+
+/* Independent PS + graphics + fixed HDMI + ADC design. No factory LCD/DVP graph.
+ * Addresses below are from this project's validated address-map.txt.
+ * Do not combine this DT with the factory bitstream or treat it as board-tested.
+ */
+/ {
+ model = "HZ-ZYNQ EVM 7020 1G PCB graphics demonstration 62.5MHz";
+ compatible = "xlnx,zynq-zc702", "xlnx,zynq-7000";
+ chosen {
+  bootargs = "console=ttyPS0,115200 cma=256M earlycon root=/dev/mmcblk0p2 rw rootwait";
+  stdout-path = "serial0:115200n8";
+ };
+ aliases {ethernet0 = &gem0;serial0 = &uart0;spi0 = &qspi;};
+ memory@0 {device_type = "memory";reg = <0 0x40000000>;};
+ usb_phy0: phy@e0002000 {
+  compatible = "ulpi-phy";#phy-cells = <0>;reg = <0xe0002000 0x1000>;
+  view-port = <0x0170>;drv-vbus;
+ };
+ amba_pl {
+  compatible = "simple-bus";#address-cells = <1>;#size-cells = <1>;ranges;
+  pcb_graphics: graphics@43c00000 {
+   compatible = "pcb,graphics-3.0";
+   reg = <0x43c00000 0x10000>;
+   interrupt-parent = <&intc>;interrupts = <0 29 4>;
+   clocks = <&clkc 16>;clock-names = "aclk";
+  };
+  pcb_ai@43c40000 {compatible = "pcb,ai-1";reg = <0x43c40000 0x40000>;clocks = <&clkc 16>;clock-names = "aclk";};
+  pcb_adc@43c80000 {compatible = "pcb,adc-1";reg = <0x43c80000 0x20000>;clocks = <&clkc 16>;clock-names = "aclk";};
+  scanout_status: gpio@41200000 {
+   compatible = "xlnx,axi-gpio-2.0", "xlnx,xps-gpio-1.00.a";
+   reg = <0x41200000 0x10000>;clocks = <&clkc 16>;clock-names = "s_axi_aclk";
+   gpio-controller;#gpio-cells = <2>;
+   xlnx,is-dual = <1>;xlnx,gpio-width = <32>;xlnx,gpio2-width = <32>;
+   xlnx,all-inputs = <1>;xlnx,all-inputs-2 = <1>;xlnx,interrupt-present = <0>;
+  };
+ };
+};
+&clkc {ps-clk-frequency = <33333333>;fclk-enable = <3>;};
+&gpio0 {emio-gpio-width = <0>;gpio-mask-high = <0>;gpio-mask-low = <0x5600>;};
+&i2c0 {status = "disabled";};
+&i2c1 {status = "disabled";};
+&uart0 {status = "okay";cts-override;port-number = <0>;};
+&sdhci0 {status = "okay";xlnx,has-cd = <1>;xlnx,has-power = <0>;xlnx,has-wp = <0>;};
+&sdhci1 {status = "okay";xlnx,has-cd = <0>;xlnx,has-power = <0>;xlnx,has-wp = <0>;};
+&usb0 {status = "okay";phy_type = "ulpi";usb-reset = <&gpio0 9 0>;usb-phy = <&usb_phy0>;dr_mode = "host";};
+&gem0 {
+ status = "okay";phy-mode = "rgmii-id";phy-handle = <&ethernet_phy>;
+ ethernet_phy: ethernet-phy@7 {reg = <7>;device_type = "ethernet-phy";};
+};
+&qspi {
+ status = "okay";is-dual = <0>;num-cs = <1>;
+ flash@0 {compatible = "w25q256", "jedec,spi-nor";reg = <0>;spi-max-frequency = <50000000>;};
+};

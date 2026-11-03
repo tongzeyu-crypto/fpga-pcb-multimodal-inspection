@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "source_sha256": "bc7c1367f1fdca6e80ef379edb0a20196a37bc1bb2ab392614d6b9d6512d4cdb",
+  "board_executed": false,
+  "elf32_little_endian_arm": true,
+  "sha256": "68f501bb9b0a99e2ec6961b36a6e6c298571b3e5c65c106160a1e8a583d19a13",
+  "passed": true
+}

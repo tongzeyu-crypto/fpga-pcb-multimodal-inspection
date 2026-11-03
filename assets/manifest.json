@@ -414,5 +414,21 @@
     "source_sha256": "7b70c659668777c610efde5d96e20b55fd803b6f07db5649319bc0d3d628e7fd",
     "published_sha256": "e0b8f08569d2836022c8a3eaf65b7f17106a87374faaf1f28b3046bfee773f85",
     "processing": "metadata removed / public JSON"
+  },
+  {
+    "file": "assets/screenshots/board-20261103-main.jpg",
+    "source_collection": "submission_zynq_20261103_正式提交版",
+    "source_file": "evidence/board-20261103-r1/final-board-frame.jpg",
+    "source_sha256": "45f4655d37acc46f328172b041ef573a55a8b758cf737af8cc37de14a0bc6fec",
+    "published_sha256": "45f4655d37acc46f328172b041ef573a55a8b758cf737af8cc37de14a0bc6fec",
+    "processing": "byte-identical; supplied board evidence, no new board test in publishing session"
+  },
+  {
+    "file": "assets/screenshots/board-20261103-scan.jpg",
+    "source_collection": "submission_zynq_20261103_正式提交版",
+    "source_file": "evidence/board-20261103-r1/final-main-scan.jpg",
+    "source_sha256": "b644c6dc405e68ad393970d239f0056316b2cfdafdec0f463bb3165e7b9802da",
+    "published_sha256": "b644c6dc405e68ad393970d239f0056316b2cfdafdec0f463bb3165e7b9802da",
+    "processing": "byte-identical; supplied board evidence, no new board test in publishing session"
   }
 ]

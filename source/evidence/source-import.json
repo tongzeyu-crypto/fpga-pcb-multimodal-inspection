@@ -1,0 +1,5 @@
+{
+  "raw_files": 757,
+  "adc_csv_count": 450,
+  "policy": "explicit source allowlist; no credentials or historical computed measurement assets"
+}

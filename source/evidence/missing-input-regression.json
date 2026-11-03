@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "case": "no-input",
+      "available_modality_flags": 0,
+      "thermal_state": "waiting",
+      "adc_state": "waiting",
+      "ai_state": "waiting",
+      "historical_results_loaded": false,
+      "new_measurement_created": false
+    },
+    {
+      "case": "real-rgb-subset",
+      "available_modality_flags": 1,
+      "thermal_state": "waiting",
+      "adc_state": "waiting",
+      "ai_state": "waiting",
+      "historical_results_loaded": false,
+      "new_measurement_created": false
+    }
+  ]
+}

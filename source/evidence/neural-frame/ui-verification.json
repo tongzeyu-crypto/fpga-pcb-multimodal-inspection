@@ -1,0 +1,297 @@
+{
+  "passed": true,
+  "scenes": 2,
+  "generated_frames": 8,
+  "display_frames": 24,
+  "actual_neural_integer_execution": true,
+  "network_ablation_verified": true,
+  "board_connected": false,
+  "sessions": [
+    {
+      "state": "DONE",
+      "run_id": "123703593000000",
+      "frames": [
+        {
+          "image": "source-0",
+          "kind": "完整渲染",
+          "yaw": 0.45
+        },
+        {
+          "image": "neural-0",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.46
+        },
+        {
+          "image": "final-0",
+          "kind": "完整渲染",
+          "yaw": 0.47000000000000003
+        },
+        {
+          "image": "source-1",
+          "kind": "完整渲染",
+          "yaw": 0.47000000000000003
+        },
+        {
+          "image": "neural-1",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.48000000000000004
+        },
+        {
+          "image": "final-1",
+          "kind": "完整渲染",
+          "yaw": 0.49000000000000005
+        },
+        {
+          "image": "source-2",
+          "kind": "完整渲染",
+          "yaw": 0.49
+        },
+        {
+          "image": "neural-2",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.5
+        },
+        {
+          "image": "final-2",
+          "kind": "完整渲染",
+          "yaw": 0.51
+        },
+        {
+          "image": "source-3",
+          "kind": "完整渲染",
+          "yaw": 0.51
+        },
+        {
+          "image": "neural-3",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.52
+        },
+        {
+          "image": "final-3",
+          "kind": "完整渲染",
+          "yaw": 0.53
+        }
+      ],
+      "cases": [
+        {
+          "coverage": 0.999766,
+          "input_pixels": 149509,
+          "repair_pixels": 222429,
+          "network_participated": true,
+          "neural_changed_pixels": 222429,
+          "soft_blended_pixels": 222429,
+          "blend_mean": 0.15109,
+          "explicit_offline_int8": true,
+          "index": 0,
+          "network_ablation_changed_pixels": 222099,
+          "render_reference_mae": 1.012097800925926,
+          "source_yaw": 0.45,
+          "target_yaw": 0.46,
+          "measurement_input": false
+        },
+        {
+          "coverage": 0.999732,
+          "input_pixels": 149210,
+          "repair_pixels": 221641,
+          "network_participated": true,
+          "neural_changed_pixels": 221641,
+          "soft_blended_pixels": 221641,
+          "blend_mean": 0.150716,
+          "explicit_offline_int8": true,
+          "index": 1,
+          "network_ablation_changed_pixels": 221300,
+          "render_reference_mae": 1.0080027488425924,
+          "source_yaw": 0.47000000000000003,
+          "target_yaw": 0.48000000000000004,
+          "measurement_input": false
+        },
+        {
+          "coverage": 0.999812,
+          "input_pixels": 149028,
+          "repair_pixels": 219368,
+          "network_participated": true,
+          "neural_changed_pixels": 219368,
+          "soft_blended_pixels": 219368,
+          "blend_mean": 0.150731,
+          "explicit_offline_int8": true,
+          "index": 2,
+          "network_ablation_changed_pixels": 219084,
+          "render_reference_mae": 0.9992053674768518,
+          "source_yaw": 0.49,
+          "target_yaw": 0.5,
+          "measurement_input": false
+        },
+        {
+          "coverage": 0.999812,
+          "input_pixels": 148827,
+          "repair_pixels": 215918,
+          "network_participated": true,
+          "neural_changed_pixels": 215918,
+          "soft_blended_pixels": 215918,
+          "blend_mean": 0.150741,
+          "explicit_offline_int8": true,
+          "index": 3,
+          "network_ablation_changed_pixels": 215610,
+          "render_reference_mae": 0.9897102864583333,
+          "source_yaw": 0.51,
+          "target_yaw": 0.52,
+          "measurement_input": false
+        }
+      ],
+      "error": "",
+      "offline_reference": true,
+      "board_connected": false,
+      "mode": 0,
+      "network_is_confidence_classifier": false,
+      "algorithm": "depth reprojection + trained neural RGB pixel fusion",
+      "backend": "C++ INT8 reference; no connected FPGA",
+      "model_sha256": "f31ed6a7abc1e8af3792999e2a822fd7a7466aac1b7299ddc4406f4c9976834e"
+    },
+    {
+      "state": "DONE",
+      "run_id": "123706062000000",
+      "frames": [
+        {
+          "image": "source-0",
+          "kind": "完整渲染",
+          "yaw": 0.45
+        },
+        {
+          "image": "neural-0",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.46
+        },
+        {
+          "image": "final-0",
+          "kind": "完整渲染",
+          "yaw": 0.47000000000000003
+        },
+        {
+          "image": "source-1",
+          "kind": "完整渲染",
+          "yaw": 0.47000000000000003
+        },
+        {
+          "image": "neural-1",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.48000000000000004
+        },
+        {
+          "image": "final-1",
+          "kind": "完整渲染",
+          "yaw": 0.49000000000000005
+        },
+        {
+          "image": "source-2",
+          "kind": "完整渲染",
+          "yaw": 0.49
+        },
+        {
+          "image": "neural-2",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.5
+        },
+        {
+          "image": "final-2",
+          "kind": "完整渲染",
+          "yaw": 0.51
+        },
+        {
+          "image": "source-3",
+          "kind": "完整渲染",
+          "yaw": 0.51
+        },
+        {
+          "image": "neural-3",
+          "kind": "神经生成过渡帧",
+          "yaw": 0.52
+        },
+        {
+          "image": "final-3",
+          "kind": "完整渲染",
+          "yaw": 0.53
+        }
+      ],
+      "cases": [
+        {
+          "coverage": 0.999642,
+          "input_pixels": 97669,
+          "repair_pixels": 241968,
+          "network_participated": true,
+          "neural_changed_pixels": 241968,
+          "soft_blended_pixels": 241968,
+          "blend_mean": 0.103076,
+          "explicit_offline_int8": true,
+          "index": 0,
+          "network_ablation_changed_pixels": 241638,
+          "render_reference_mae": 1.0171433738425926,
+          "source_yaw": 0.45,
+          "target_yaw": 0.46,
+          "measurement_input": false
+        },
+        {
+          "coverage": 0.99959,
+          "input_pixels": 97475,
+          "repair_pixels": 241143,
+          "network_participated": true,
+          "neural_changed_pixels": 241143,
+          "soft_blended_pixels": 241143,
+          "blend_mean": 0.103048,
+          "explicit_offline_int8": true,
+          "index": 1,
+          "network_ablation_changed_pixels": 240802,
+          "render_reference_mae": 1.0154452401620373,
+          "source_yaw": 0.47000000000000003,
+          "target_yaw": 0.48000000000000004,
+          "measurement_input": false
+        },
+        {
+          "coverage": 0.999713,
+          "input_pixels": 97429,
+          "repair_pixels": 238947,
+          "network_participated": true,
+          "neural_changed_pixels": 238947,
+          "soft_blended_pixels": 238947,
+          "blend_mean": 0.103145,
+          "explicit_offline_int8": true,
+          "index": 2,
+          "network_ablation_changed_pixels": 238663,
+          "render_reference_mae": 1.0105190248842593,
+          "source_yaw": 0.49,
+          "target_yaw": 0.5,
+          "measurement_input": false
+        },
+        {
+          "coverage": 0.999713,
+          "input_pixels": 97398,
+          "repair_pixels": 235235,
+          "network_participated": true,
+          "neural_changed_pixels": 235235,
+          "soft_blended_pixels": 235235,
+          "blend_mean": 0.103208,
+          "explicit_offline_int8": true,
+          "index": 3,
+          "network_ablation_changed_pixels": 234927,
+          "render_reference_mae": 1.0062858072916667,
+          "source_yaw": 0.51,
+          "target_yaw": 0.52,
+          "measurement_input": false
+        }
+      ],
+      "error": "",
+      "offline_reference": true,
+      "board_connected": false,
+      "mode": 3,
+      "network_is_confidence_classifier": false,
+      "algorithm": "depth reprojection + trained neural RGB pixel fusion",
+      "backend": "C++ INT8 reference; no connected FPGA",
+      "model_sha256": "f31ed6a7abc1e8af3792999e2a822fd7a7466aac1b7299ddc4406f4c9976834e"
+    }
+  ],
+  "source_sha256": {
+    "runtime/frame_demo.py": "051bce610bca29d65da224f7e1e133fb7e9bab3f61862bddd3700ee7eadf386b",
+    "runtime/demo_host.py": "4350d09ee4c7cbd04009df72a6448de2e3adda8b912ba127a2d78333e1f04a5e",
+    "runtime/demo_preview.html": "ae31c45e5ecfeb96fb2507ea5533b1af54625522ae285bac27b275c996e40ee7",
+    "bin/neural_frame_tool.exe": "893c340b88c8ed22f3bc292d712bde03e94dabd78cb6be34175d79ffbeec5b3d"
+  }
+}

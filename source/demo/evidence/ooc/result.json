@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "exit_code": 0,
+  "core_clock_mhz": 62.5,
+  "independent_ip_only": true,
+  "integrated_in_prior_bitstream": false,
+  "board_connected": false,
+  "source_sha256": {
+    "cos_q14.mem": "00c5aa7038016b2559d1e3c08b84412f2f0bddb421877a87badeac1f51ec3e32",
+    "negsin_q14.mem": "4b4b8b5e5ae88b9ea0a9c389e91748a6c446aa35c4bcad0ceb5706d182fa5ce8",
+    "pcb_demo_axi.sv": "aef22cd8531cd1cf5a5ec30337bc1e297f2cef9f278275730e9ce8a89f237f77",
+    "pcb_demo_core.sv": "9501f012b035c982cf4a37e059f23a0b2bf7334da42b921d81444917bc382e5b"
+  },
+  "setup_ns": 4.546,
+  "hold_ns": 0.156,
+  "resources": {
+    "lut": 895.0,
+    "ff": 611.0,
+    "bram36": 1.0,
+    "dsp": 4.0
+  }
+}

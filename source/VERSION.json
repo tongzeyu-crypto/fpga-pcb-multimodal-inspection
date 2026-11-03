@@ -1,0 +1,15 @@
+{
+  "project": "Zynq-7020 PCB demonstration",
+  "date": "2026-11-03",
+  "source_snapshot": "verified board demo r6 with single-plane HDMI fix",
+  "boot_image_modified": false,
+  "hardware_sha256": {
+    "hardware/board.bit": "70f9608585416d4843119bef677676ecc1140b7c601cc4d2c0fdc0f9a4afd3fa",
+    "hardware/board.hdf": "260f2cc77f79f6a5e74944290ecca5b49d1be983ee288dfb910263ead28c995c"
+  },
+  "board_program_sha256": "89441599a806a5e064ca3aeeae2917225cfca8bee19ab65a274be5d382e2efb4",
+  "debug_transport_started_by_launcher": false,
+  "profile": "release",
+  "label": "正式提交版",
+  "debug_intermediates_included": false
+}

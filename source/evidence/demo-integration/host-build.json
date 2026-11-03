@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "binary_sha256": "79bfd53f2ab4af753d14e4bd5a846ce1cab7270edec1e66d49bd20629a8662e1",
+  "source_sha256": {
+    "runtime/display/driver/async_log.h": "7702dc0dca08121b66dd6fed14d9b07177d771a96ddba071e687a50fbbcceb52",
+    "runtime/display/driver/bounded_workers.h": "3a5c53902012f566ce93577e8580c8ca89cc9d8b25abb9772ab87f740e0d2db8",
+    "runtime/display/driver/full_ai_frame.h": "966c82447c67bfb3176e0cb7885a819dce8d97e2c51be59dd8301a622b505332",
+    "runtime/display/driver/full_aoi.h": "2d4ba80ea335cb41b2649753542e3f4be4984db1bfdcc20bdcb808080a45f924",
+    "runtime/display/driver/full_cursor.h": "e6ce983029c939cde96ad9a14aa3a48deae464e52f33ae0154fd3af3633ef999",
+    "runtime/display/driver/full_cursor_service.h": "99465114fb7189dab23f086bbef617f46393d87cc8d38d3bef3a76cfc25b87ef",
+    "runtime/display/driver/full_demo.h": "160f50d7a5259ce357e386333c6c77fb8d49ff4300f286a21b91644a52aa0d51",
+    "runtime/display/driver/full_layout.h": "08a87b7e5dcfefc516dd1b6162a57e33a5fa34ee89f6a486e2c756397d7b1eca",
+    "runtime/display/driver/full_mouse.h": "5103802d1a9f786dabe58a21cb3879e559993d6c7cdc50dc54d5869e55aca0b6",
+    "runtime/display/driver/full_raw.h": "02eb1c837a1ba02a3ed820762783a497f58377a446d0981a950d86c25a1d1e81",
+    "runtime/display/driver/full_reference.h": "8714639fcadf8e9cf4b3ba50938b66f571c03795ecf3ee11ff42a976712c71bc",
+    "runtime/display/driver/full_scene.h": "72ba350518d25432a4793814243ad099860bcc4a809b365e41d0cab1ff5adc34",
+    "runtime/display/driver/full_state.h": "9a1537976f0fbca2299d522d768e1b584d4b8f87bc7f54c4b804f65f4fed1326",
+    "runtime/display/driver/gfx3_runtime.cpp": "710edefd597c27b701ba1c4c9889e1b16c0285ece6df0480f3d64039eff097cd",
+    "runtime/display/driver/gfx3_view_matrix.h": "47218d21fbc6f48468e01e16276de43a4d0dc05968bcd17ba00fdb9e6c72c52e",
+    "runtime/display/driver/preview_copy.h": "a08b3012bb4ff2194b372d73b7bde044ca50e7d0c5e2e781c7449173d48c4ada",
+    "runtime/display/include/gfx3_commands.h": "4d251088c1e9c285b0f2d7bcf0a32596e523c916f34df01925108103c928029b",
+    "runtime/display/include/gfx3_protocol.h": "59f5ad49f4b7b8da139c361424b178ca6f8986bbf4cf2a1fd8ccf02c76db787c",
+    "runtime/display/include/gfx3_uapi.h": "a8226f3994d5158b96807d62c5cc425783963752913459ce3b6fd5a8ee4fb360",
+    "runtime/display/third_party/turbojpeg.h": "ebe6e99e43eaa17f2f47efe6dcd5c7bf08bc2feaab6670f6063fbddbc6cba654",
+    "tests/reference_bridge.cpp": "dd4a131fada22788043ccc8dac39814896dff5520c76e00f55effe070059909d"
+  },
+  "board_connected": false
+}

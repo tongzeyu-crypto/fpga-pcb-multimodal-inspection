@@ -1,0 +1,3 @@
+# Small program resources are intentionally versioned with the source snapshot.
+!resources/models/*.commands.bin
+!resources/ui/*.bin

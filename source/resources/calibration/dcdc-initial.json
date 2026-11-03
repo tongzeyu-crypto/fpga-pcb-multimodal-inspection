@@ -1,0 +1,161 @@
+{
+  "matrix_thermal_to_extended_rgb": [
+    [
+      -1.9136765213957645,
+      -16.5707825378807,
+      2416.9804488919617
+    ],
+    [
+      15.03885223755909,
+      -1.778392670099631,
+      -1032.2630850274281
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "inverse": [
+    [
+      -0.007040105257371516,
+      0.06559859092151925,
+      84.73080060330817
+    ],
+    [
+      -0.0595341537797396,
+      -0.0075756520849987454,
+      136.07281973460283
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "fit": [
+    {
+      "name": "D1 diode local thermal peak",
+      "thermal": [
+        95.5,
+        95.0
+      ],
+      "rgb": [
+        660,
+        235
+      ],
+      "nominal_component_center_rgb": [
+        700,
+        235
+      ],
+      "display_fine_offset_rgb_px": [
+        -40,
+        0
+      ],
+      "thermal_roi_xywh": [
+        90,
+        90,
+        11,
+        10
+      ],
+      "temperature_c": 37.162506103515625
+    }
+  ],
+  "check": [],
+  "fit_error_rgb_px": [
+    2.2737367544323206e-13
+  ],
+  "reference_landmarks": [
+    {
+      "name": "C-left",
+      "thermal": [
+        113,
+        115
+      ],
+      "rgb": [
+        267.5,
+        517.5
+      ]
+    },
+    {
+      "name": "C-right",
+      "thermal": [
+        104,
+        39
+      ],
+      "rgb": [
+        1545,
+        515
+      ]
+    },
+    {
+      "name": "XL4015 U1",
+      "thermal": [
+        96.5,
+        65
+      ],
+      "rgb": [
+        1132,
+        347
+      ]
+    },
+    {
+      "name": "Inductor L1",
+      "thermal": [
+        111,
+        85
+      ],
+      "rgb": [
+        777.5,
+        517.5
+      ]
+    }
+  ],
+  "reference_error_rgb_px": [
+    61.434277548784955,
+    58.96941728212724,
+    49.401131017689124,
+    36.6522104111141
+  ],
+  "check_error_thermal_px": [],
+  "checked": false,
+  "status": "approximate; manual registration with user-selected D1 anchor",
+  "registration_revision": "dcdc-left-adjustment-20261029-r4",
+  "transform_model": "global affine",
+  "registration_basis": "component-based rotation and skew; D1 anchor with operator-requested horizontal fine adjustment",
+  "display_fine_offset_rgb_px": [
+    -40,
+    0
+  ],
+  "base_matrix_before_d1_anchor": [
+    [
+      -1.9136765213957645,
+      -16.5707825378807,
+      2392.9683937120576
+    ],
+    [
+      15.03885223755909,
+      -1.778392670099631,
+      -986.5903507833865
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "display_translation_rgb_px": [
+    24.012055179904337,
+    -45.672734244041635
+  ],
+  "orientation": "clockwise rotation with skew correction; no reflection",
+  "baseline_c": 29.482818603515625,
+  "delta_display_c": [
+    -2.2490234756469727,
+    8.671875
+  ],
+  "display_alpha": 0.9215686274509803,
+  "source_rgb_sha256": "eac8d3afa0283a7cd5a92a7a2be2b9e40082bd3af417f028c56886de276cb9cc",
+  "source_thermal_sha256": "64bed978fe57cc620b39090c2423bc887b6ba6fd4df35f9c1b1a03eb2f61fad7",
+  "thermal_overlay_sha256": "ea141a827c8bbf2ae19d9a3cc4076ea05c282845fd2c40252af087d989a48193"
+}

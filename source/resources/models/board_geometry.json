@@ -1,0 +1,43 @@
+{
+  "quad_native_px": [
+    [
+      1200.0,
+      1410.0
+    ],
+    [
+      2728.0,
+      1384.0
+    ],
+    [
+      2740.0,
+      2094.0
+    ],
+    [
+      1200.0,
+      2077.0
+    ]
+  ],
+  "rectified_size_px": [
+    1540,
+    710
+  ],
+  "native_rgb_to_board": [
+    [
+      1.1480347790662668,
+      6.738371664225884e-17,
+      -1377.64173487952
+    ],
+    [
+      0.019514172765708493,
+      1.146832922538558,
+      -1640.451428098217
+    ],
+    [
+      4.5248696406071845e-05,
+      1.1843033635860175e-05,
+      1.0
+    ]
+  ],
+  "extended_margin_px": 140,
+  "algorithm": "manual RGB corner correction after blue contour included a connected wire; approximate, not metrology"
+}

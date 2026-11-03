@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "independent_ooc_only": true,
+  "clock_mhz": 100,
+  "board_tested": false,
+  "passed": true,
+  "setup_ns": 0.883,
+  "hold_ns": 0.014,
+  "resources": {
+    "lut": 2212.0,
+    "ff": 616.0,
+    "bram36": 8.0,
+    "dsp": 7.0
+  }
+}

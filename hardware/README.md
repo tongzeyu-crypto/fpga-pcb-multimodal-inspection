@@ -1,5 +1,7 @@
 # 硬件与接口
 
+11月3日代码Release已补入本版位流、HDF、设备树与驱动；RTL和引脚约束可在[source](../source/README_GITHUB.md)浏览。具体配置与RAM启动验证见[实板记录](../source/docs/实板演示记录-20261103.md)。下面是实物模块与信号链说明。
+
 ![采集板与ADC](../assets/photos/zynq-adc.jpg)
 
 |模块|证据与用途|型号说明|
@@ -20,4 +22,4 @@
 ![机械安装](../assets/photos/probe-and-workspace.jpg)
 ![模拟前端](../assets/photos/analog-front-end.jpg)
 
-模块、套件与控制固件的第三方性质见[来源说明](../THIRD_PARTY.md)。没有虚构采购成本、定位精度或测量精度；最终接口约束、原理图与源码由完整工程确认后补入。
+模块、套件与控制固件的第三方性质见[来源说明](../THIRD_PARTY.md)。没有虚构采购成本、定位精度或测量精度；当前接口约束与源码已在提交版收录；未提供完整自制模块原理图。

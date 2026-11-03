@@ -1,0 +1,12 @@
+{
+  "depth": {
+    "passed": true,
+    "board_tested": false,
+    "last_stage": 2
+  },
+  "adc": {
+    "passed": true,
+    "board_tested": false,
+    "last_stage": 2
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>桌面PCB多模态检测系统 · 功能演示</title>
+<style>
+:root{color-scheme:dark;font-family:"Microsoft YaHei",system-ui,sans-serif;color:#d6eaf0;background:#0d1722;font-size:15px}*{box-sizing:border-box}body{margin:0}header,main{max-width:1320px;margin:auto;padding:16px 20px}header{display:flex;align-items:center;justify-content:space-between;gap:18px}h1{font-size:21px;margin:0}p{margin:8px 0;color:#b1cbd5}nav,.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}button,select,a{font:inherit;color:inherit;background:#233c4a;border:1px solid #476773;border-radius:5px;padding:8px 14px;cursor:pointer;text-decoration:none}button:hover,a:hover{background:#315766}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #82dce5;outline-offset:3px}button:disabled{opacity:.55;cursor:wait}#start{background:#315e69}.screen{margin-top:14px;overflow:auto;background:#12212c}.framegen-image{width:100%;height:auto;display:block}.framegen-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0}[hidden]{display:none!important}canvas{display:block;width:100%;height:auto;min-width:700px;touch-action:none}#status{min-height:24px;margin:12px 0}#error{color:#ffd1b3}footer{margin-top:12px;font-size:13px;color:#b1cbd5}::selection{background:#315e69;color:white}@media(max-width:800px){header{align-items:flex-start;flex-direction:column}main{padding:10px}.screen{max-width:100%}}
+</style></head><body>
+<header><h1>桌面PCB多模态检测系统</h1><span>离线功能演示</span></header>
+<main><nav aria-label="显示与演示控制"><label>视图 <select id="mode" aria-label="显示视图"><option value="16">扫描演示</option><option value="0">三维融合</option><option value="1">二维融合</option><option value="3">EMI 地形</option><option value="6">频率立方体</option><option value="12">焊接缺陷</option><option value="13">RGB</option><option value="14">热像</option><option value="15">EMI</option></select></label><label>板卡 <select id="board" aria-label="板卡"><option value="1">DC-DC 模块</option><option value="0">STM32 核心板</option></select></label><button id="open-framegen">神经补帧</button><button id="start">开始演示</button><button id="reset">停止并清空</button><button id="previous" aria-label="上一个演示结果点">上一点</button><button id="next" aria-label="下一个演示结果点">下一点</button><a href="/api/export" download="demo-session.json">导出记录</a></nav>
+<p id="status" role="status" aria-live="polite">正在加载主程序界面…</p><p id="error" role="alert"></p>
+<div class="screen" id="main-screen"><canvas id="screen" width="1280" height="720" aria-label="原生主程序界面，可点击左侧模式与右侧演示按钮"></canvas></div>
+<section id="framegen-panel" hidden aria-label="神经补帧功能演示">
+<h2>神经补帧</h2><p>深度重投影 → 学习式像素融合 → 新的过渡帧。网络输出直接参与 RGB 合成。</p>
+<div class="framegen-controls"><label>场景 <select id="framegen-mode"><option value="0">三维 PCB</option><option value="3">EMI 地形</option></select></label><button id="framegen-run">生成补帧演示</button><button id="framegen-play" disabled>播放过渡帧</button><button id="framegen-back">返回主界面</button><a href="/framegen/export" download="neural-frame-session.json">导出补帧记录</a></div>
+<div class="framegen-controls"><label>画面对照 <select id="framegen-view"><option value="sequence">完整渲染 → 神经补帧 → 完整渲染</option><option value="neural">神经生成帧</option><option value="warp">关闭网络：仅重投影</option><option value="truth">同视角完整渲染参考</option><option value="difference">网络贡献差异 ×6</option></select></label><label>对照组 <select id="framegen-case" aria-label="补帧对照组"><option value="0">1</option><option value="1">2</option><option value="2">3</option><option value="3">4</option></select></label></div>
+<p id="framegen-status" role="status" aria-live="polite">点击生成，运行已训练的 INT8 网络。</p><p id="framegen-metrics"></p><img id="framegen-image" class="framegen-image" src="/frame.jpg" alt="神经补帧输出及对照画面" hidden>
+<p>这是本机离线算法演示，网络使用已训练权重进行整数推理；播放节奏用于展示，不代表开发板 FPS 或加速比。完整输出为 1280×720，网络融合权重网格为 80×45。</p>
+</section>
+<footer>模拟运动与到点报告；历史原始采样；PL 侧显示已通过校验的 RTL 仿真结果。当前没有连接开发板。频谱演示为 64 点 DFT，热像与量化演示为 16×16 子采样。</footer></main>
+<script>
+const el=id=>document.getElementById(id),canvas=el('screen'),ctx=canvas.getContext('2d');let current={},pending=false,framegen={},framegenVisible=false,playing=false,playIndex=0,lastFrameKey='';
+const names={READY:'等待开始',ROUTE:'生成路线',MOVE:'移动中',WAIT_ARRIVAL:'到点确认',SETTLE:'停稳等待',CAPTURE:'三帧采样',ASSOCIATE:'采样关联',DONE:'演示完成',FAULT:'演示失败',CANCELED:'演示停止'};
+async function command(path,body=''){try{const r=await fetch(path,{method:'POST',body});const j=await r.json();if(!r.ok)throw Error(j.error||'操作失败');el('error').textContent='';await update()}catch(e){el('error').textContent=e.message}}
+el('mode').onchange=()=>{showFramegen(false);command('/app','mode '+el('mode').value)};el('board').onchange=()=>command('/app','raw_board '+el('board').value);
+el('start').onclick=()=>command('/demo/start');el('reset').onclick=()=>command('/demo/reset');
+el('previous').onclick=()=>command('/app','demo_point '+((current.demo_point+5)%6));el('next').onclick=()=>command('/app','demo_point '+((current.demo_point+1)%6));
+let pointerQueue=Promise.resolve(),dragging=false,lastMove=0;
+function pointer(e,kind,wheel=0){const b=canvas.getBoundingClientRect(),x=Math.max(0,Math.min(1279,Math.floor((e.clientX-b.left)*1280/b.width))),y=Math.max(0,Math.min(719,Math.floor((e.clientY-b.top)*720/b.height)));pointerQueue=pointerQueue.then(()=>command('/pointer',`${kind} ${x} ${y} ${e.button>0?2:0} ${wheel}`))}
+canvas.onpointerdown=e=>{dragging=true;canvas.setPointerCapture(e.pointerId);pointer(e,1)};
+canvas.onpointermove=e=>{if(dragging&&performance.now()-lastMove>100){lastMove=performance.now();pointer(e,0)}};
+canvas.onpointerup=e=>{dragging=false;pointer(e,2)};canvas.onpointercancel=e=>{dragging=false;pointer(e,4)};
+canvas.oncontextmenu=e=>e.preventDefault();canvas.addEventListener('wheel',e=>{e.preventDefault();pointer(e,3,Math.max(-3,Math.min(3,-e.deltaY/100)))},{passive:false});
+
+function showFramegen(value){framegenVisible=value;el('framegen-panel').hidden=!value;el('main-screen').hidden=value;el('status').hidden=value;if(!value)playing=false;drawFramegen()}
+el('open-framegen').onclick=()=>showFramegen(true);el('framegen-back').onclick=()=>showFramegen(false);
+el('framegen-run').onclick=()=>{playing=false;playIndex=0;lastFrameKey='';el('framegen-image').hidden=true;el('framegen-metrics').textContent='';command('/framegen/start',el('framegen-mode').value)};
+el('framegen-play').onclick=()=>{playing=!playing;el('framegen-view').value='sequence';el('framegen-play').textContent=playing?'暂停播放':'播放过渡帧';drawFramegen()};
+el('framegen-view').onchange=()=>{playing=false;el('framegen-play').textContent='播放过渡帧';drawFramegen()};el('framegen-case').onchange=()=>{playing=false;drawFramegen()};
+function drawFramegen(){if(!framegenVisible)return;const f=framegen,ready=f.cases?.length||0;el('framegen-run').disabled=f.state==='RUNNING';el('framegen-play').disabled=!f.frames?.length;
+ el('framegen-status').textContent=f.error||({READY:'点击生成，运行已训练的 INT8 网络。',RUNNING:`正在生成 ${ready}/4 组过渡帧…`,DONE:'补帧完成：完整渲染帧与神经生成帧可以播放和对比。'}[f.state]||f.state||'正在连接');
+ if(!ready){el('framegen-image').hidden=true;el('framegen-metrics').textContent='';return;}const index=Math.min(ready-1,el('framegen-view').value==='sequence'?Math.floor((playIndex%f.frames.length)/3):Number(el('framegen-case').value)),c=f.cases[index];let key,caption;
+ if(el('framegen-view').value==='sequence'){const item=f.frames[playIndex%f.frames.length];key=item.image;caption=`${item.kind} · 视角 ${item.yaw.toFixed(3)}`}
+ else{key=el('framegen-view').value+'-'+index;caption=el('framegen-view').selectedOptions[0].textContent}
+ el('framegen-metrics').textContent=`${caption} · 本组网络参与合成 ${c.neural_changed_pixels.toLocaleString()} 个像素 · 其中 ${c.soft_blended_pixels.toLocaleString()} 个为实际融合像素`;
+ const frameToken=f.run_id+':'+key;if(frameToken!==lastFrameKey){el('framegen-image').src='/framegen/image?key='+encodeURIComponent(key)+'&run='+f.run_id;el('framegen-image').hidden=false;lastFrameKey=frameToken}
+}
+setInterval(()=>{if(playing&&framegenVisible&&framegen.frames?.length){playIndex=(playIndex+1)%framegen.frames.length;drawFramegen()}},500);
+
+async function update(){if(pending)return;pending=true;try{const r=await fetch('/api/status');if(!r.ok)throw Error('演示服务暂不可用');const j=await r.json();current=j.app;framegen=j.framegen||{};drawFramegen();el('mode').value=current.mode;el('board').value=current.raw_board;
+ const d=j.demo,busy=['ROUTE','MOVE','WAIT_ARRIVAL','SETTLE','CAPTURE','ASSOCIATE'].includes(d.state);el('start').disabled=busy||!current.raw_board;
+ el('status').textContent=`${names[d.state]||d.state} · 已关联 ${d.completed}/6 点 · ${d.completed*3}/18 帧 · 离线回放`;el('error').textContent=d.error||j.error||'';
+ if(framegenVisible)return;
+ const image=await createImageBitmap(await(await fetch('/frame.jpg')).blob());ctx.drawImage(image,0,0);image.close();
+ }catch(e){el('error').textContent=e.message}finally{pending=false}}
+update();setInterval(update,350);
+</script></body></html>

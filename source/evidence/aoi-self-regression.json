@@ -1,0 +1,17 @@
+{
+  "case": "same real Zynq RGB used as explicit normal reference and test; no defect ground truth",
+  "regions": 0,
+  "display_texture_bytes": {
+    "rgb.bin": 5592704,
+    "gray.bin": 5592704
+  },
+  "metadata": "AOI1_8X4\n20261103-014504-9e5b0e 3840 3040 811 0 no_obvious_visible_change\n",
+  "source_hashes": {
+    "capture_id": "dcdc-replay-rgbthermal-20261029-adc-20261028",
+    "board_id": "dcdc",
+    "test_sha256": "eac8d3afa0283a7cd5a92a7a2be2b9e40082bd3af417f028c56886de276cb9cc",
+    "reference_sha256": "eac8d3afa0283a7cd5a92a7a2be2b9e40082bd3af417f028c56886de276cb9cc",
+    "algorithm": "SIFT+RANSAC; local grayscale background subtraction; morphology; connected components",
+    "real_defect_validation_complete": false
+  }
+}

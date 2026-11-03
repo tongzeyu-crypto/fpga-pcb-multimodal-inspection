@@ -1,0 +1,89 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Nov  3 04:04:31 2026
+| Host         : LAPTOP-F5G30AS7 running 64-bit major release  (build 9200)
+| Command      : report_clocks -file board-clocks.rpt
+| Design       : board_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+------------------------------------------------------------------------------------
+
+Clock Report
+
+
+Attributes
+  P: Propagated
+  G: Generated
+  A: Auto-derived
+  R: Renamed
+  V: Virtual
+  I: Inverted
+  S: Pin phase-shifted with Latency mode
+
+Clock                            Period(ns)  Waveform(ns)    Attributes  Sources
+clk_fpga_0                       10.000      {0.000 5.000}   P           {board_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]}
+clk_fpga_1                       16.000      {0.000 8.000}   P           {board_i/processing_system7_0/inst/PS7_i/FCLKCLK[1]}
+board_i/hdmi_clock/inst/clk_in1  10.000      {0.000 5.000}   P           {board_i/hdmi_clock/inst/clk_in1}
+clkfbout_board_hdmi_clock_0      50.000      {0.000 25.000}  P,G,A       {board_i/hdmi_clock/inst/mmcm_adv_inst/CLKFBOUT}
+clk_out1_board_hdmi_clock_0      13.468      {0.000 6.734}   P,G,A       {board_i/hdmi_clock/inst/mmcm_adv_inst/CLKOUT0}
+clk_out2_board_hdmi_clock_0      2.694       {0.000 1.347}   P,G,A       {board_i/hdmi_clock/inst/mmcm_adv_inst/CLKOUT1}
+board25                          40.000      {0.000 20.000}  P           {board_clk_0}
+fb_raw                           40.000      {0.000 20.000}  P,G,A       {board_i/adc/inst/core/mmcm/CLKFBOUT}
+fast_raw                         5.000       {0.000 2.500}   P,G,A       {board_i/adc/inst/core/mmcm/CLKOUT0}
+
+
+====================================================
+Generated Clocks
+====================================================
+
+Generated Clock     : clkfbout_board_hdmi_clock_0
+Master Source       : board_i/hdmi_clock/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : board_i/hdmi_clock/inst/clk_in1
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 20.000 40.000}
+Generated Sources   : {board_i/hdmi_clock/inst/mmcm_adv_inst/CLKFBOUT}
+
+Generated Clock     : clk_out1_board_hdmi_clock_0
+Master Source       : board_i/hdmi_clock/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : board_i/hdmi_clock/inst/clk_in1
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 1.734 3.468}
+Generated Sources   : {board_i/hdmi_clock/inst/mmcm_adv_inst/CLKOUT0}
+
+Generated Clock     : clk_out2_board_hdmi_clock_0
+Master Source       : board_i/hdmi_clock/inst/mmcm_adv_inst/CLKIN1
+Master Clock        : board_i/hdmi_clock/inst/clk_in1
+Edges               : {1 2 3}
+Edge Shifts(ns)     : {0.000 -3.653 -7.306}
+Generated Sources   : {board_i/hdmi_clock/inst/mmcm_adv_inst/CLKOUT1}
+
+Generated Clock     : fb_raw
+Master Source       : board_i/adc/inst/core/mmcm/CLKIN1
+Master Clock        : board25
+Multiply By         : 1
+Generated Sources   : {board_i/adc/inst/core/mmcm/CLKFBOUT}
+
+Generated Clock     : fast_raw
+Master Source       : board_i/adc/inst/core/mmcm/CLKIN1
+Master Clock        : board25
+Multiply By         : 8
+Generated Sources   : {board_i/adc/inst/core/mmcm/CLKOUT0}
+
+
+
+====================================================
+User Uncertainty
+====================================================
+
+
+
+====================================================
+User Jitter
+====================================================
+
+Clock                            Jitter(ns)
+board_i/hdmi_clock/inst/clk_in1  0.100
+clk_fpga_0                       0.300
+clk_fpga_1                       0.480
+

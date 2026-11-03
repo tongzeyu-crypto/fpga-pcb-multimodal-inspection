@@ -1,0 +1,33 @@
+# 50 MS/s diagnostic, fixed verified connector placement, PDN=T11.
+set_property PACKAGE_PIN U18 [get_ports board_clk]
+set_property IOSTANDARD LVCMOS33 [get_ports board_clk]
+create_clock -name board25 -period 40.000 [get_ports board_clk]
+set_property PACKAGE_PIN Y6 [get_ports {adc_data[0]}]
+set_property PACKAGE_PIN Y7 [get_ports {adc_data[1]}]
+set_property PACKAGE_PIN V6 [get_ports {adc_data[2]}]
+set_property PACKAGE_PIN W6 [get_ports {adc_data[3]}]
+set_property PACKAGE_PIN T9 [get_ports {adc_data[4]}]
+set_property PACKAGE_PIN U10 [get_ports {adc_data[5]}]
+set_property PACKAGE_PIN U8 [get_ports {adc_data[6]}]
+set_property PACKAGE_PIN U9 [get_ports {adc_data[7]}]
+set_property PACKAGE_PIN V8 [get_ports {adc_data[8]}]
+set_property PACKAGE_PIN W8 [get_ports {adc_data[9]}]
+set_property PACKAGE_PIN U7 [get_ports {adc_data[10]}]
+set_property PACKAGE_PIN V7 [get_ports {adc_data[11]}]
+set_property PACKAGE_PIN T5 [get_ports {adc_data[12]}]
+set_property PACKAGE_PIN U5 [get_ports {adc_data[13]}]
+set_property PACKAGE_PIN V5 [get_ports adc_otr]
+# J4-2 = B34_L1P = T11. T10 is L1N / camera SCL, not J4-2.
+set_property PACKAGE_PIN T11 [get_ports adc_pwdn]
+set_property PACKAGE_PIN Y9 [get_ports adc_clk]
+set_property PACKAGE_PIN Y8 [get_ports adc_oeb]
+set_property PACKAGE_PIN W10 [get_ports {grounded_pads[0]}]
+set_property PACKAGE_PIN W9 [get_ports {grounded_pads[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {adc_data[*] adc_otr grounded_pads[*] adc_clk adc_oeb adc_pwdn}]
+set_property DRIVE 8 [get_ports {adc_clk adc_oeb adc_pwdn}]
+set_property SLEW SLOW [get_ports {adc_clk adc_oeb adc_pwdn}]
+# Raw oversampling intentionally includes transition samples; only stable
+# phase 1/3 words are used offline at raw 200 MHz. External flight times
+# have not been measured; this remains a diagnostic, not I/O timing signoff.
+set_false_path -from [get_ports {adc_data[*] adc_otr grounded_pads[*]}]
+set_false_path -to [get_ports {adc_clk adc_oeb adc_pwdn}]

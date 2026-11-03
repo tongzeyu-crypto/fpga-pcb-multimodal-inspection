@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "completed_points": 6,
+  "associated_frames": 18,
+  "replay_calls": 21,
+  "minimum_settle_seconds": 0.7002298009999777,
+  "simulated_motion": true,
+  "fresh_acquisition": false
+}

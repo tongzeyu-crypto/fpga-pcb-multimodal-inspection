@@ -1,0 +1,87 @@
+{
+  "global_timing": {
+    "setup_wns_ns": 0.626,
+    "setup_tns_ns": 0.0,
+    "setup_failing_endpoints": 0,
+    "hold_whs_ns": 0.015,
+    "hold_ths_ns": 0.0,
+    "hold_failing_endpoints": 0
+  },
+  "clocks": {
+    "fast_raw": {
+      "setup_wns_ns": 0.626,
+      "setup_failing_endpoints": 0,
+      "hold_whs_ns": 0.131
+    },
+    "clk_fpga_1": {
+      "setup_wns_ns": 0.712,
+      "setup_failing_endpoints": 0,
+      "hold_whs_ns": 0.015
+    }
+  },
+  "resources": {
+    "lut": {
+      "used": 44899.0,
+      "available": 53200.0,
+      "percent": 84.4
+    },
+    "ff": {
+      "used": 45788.0,
+      "available": 106400.0,
+      "percent": 43.03
+    },
+    "slices": {
+      "used": 13299.0,
+      "available": 13300.0,
+      "percent": 99.99
+    },
+    "bram36": {
+      "used": 123.5,
+      "available": 140.0,
+      "percent": 88.21
+    },
+    "dsp": {
+      "used": 190.0,
+      "available": 220.0,
+      "percent": 86.36
+    }
+  },
+  "cdc_summary": {
+    "CDC-3": {
+      "severity": "Info",
+      "count": 7
+    },
+    "CDC-6": {
+      "severity": "Warning",
+      "count": 2
+    },
+    "CDC-13": {
+      "severity": "Critical",
+      "count": 17
+    },
+    "CDC-15": {
+      "severity": "Warning",
+      "count": 22
+    }
+  },
+  "clock_targets_mhz": {
+    "PS_graphics_AI": 62.5,
+    "HDMI_reference": 100.0,
+    "ADC_raw": 200.0
+  },
+  "resolution": [
+    1280,
+    720
+  ],
+  "internal_timing_passed": true,
+  "external_adc_io_signed_off": false,
+  "adc_input_false_paths": "inherited original diagnostic constraints; not an external ADC timing signoff",
+  "board_tested": false,
+  "report_sha256": {
+    "board-timing.rpt": "dbe1ba3a993a43accef5354352c96ebb1f3368ae3cf6edb060d516021c54b35a",
+    "board-utilization.rpt": "6f16dbd0d3e87a8ac4dfaed7fe5d2d694eb365be6f6a13948815a4c791af9327",
+    "board-cdc.rpt": "e001f99b92762ed6239320f07efa5cbb425797eff0b2e97f786847a68a43eeae",
+    "board-bus-skew.rpt": "f1777bfa52c8696cefe726027cbf1ff032c6c787e7e18b733b24838eec2896a3",
+    "board-drc.rpt": "6f99894d7e1140c39e310dc605ee5fe492c736578e08d0fa53730ffc6c23642a"
+  }
+}

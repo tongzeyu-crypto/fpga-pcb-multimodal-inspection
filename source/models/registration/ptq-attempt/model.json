@@ -1,0 +1,83 @@
+{
+  "schema": "PCB-AI-W8A8/1",
+  "hardware_abi": 1,
+  "task": "registration",
+  "task_id": 1,
+  "input_scale": 0.0078125,
+  "output_scale": 0.25,
+  "input_shape": [
+    2,
+    48,
+    64
+  ],
+  "layers": [
+    {
+      "op": "conv",
+      "in_channels": 2,
+      "out_channels": 8,
+      "kernel": 3,
+      "stride": 2,
+      "padding": 1,
+      "relu": true,
+      "shift": 9,
+      "input_scale": 0.0078125,
+      "weight_scale": 0.0078125,
+      "output_scale": 0.03125,
+      "weight_key": "w0",
+      "bias_key": "b0"
+    },
+    {
+      "op": "conv",
+      "in_channels": 8,
+      "out_channels": 8,
+      "kernel": 3,
+      "stride": 2,
+      "padding": 1,
+      "relu": true,
+      "shift": 9,
+      "input_scale": 0.03125,
+      "weight_scale": 0.0078125,
+      "output_scale": 0.125,
+      "weight_key": "w1",
+      "bias_key": "b1"
+    },
+    {
+      "op": "conv",
+      "in_channels": 8,
+      "out_channels": 16,
+      "kernel": 3,
+      "stride": 2,
+      "padding": 1,
+      "relu": true,
+      "shift": 8,
+      "input_scale": 0.125,
+      "weight_scale": 0.015625,
+      "output_scale": 0.5,
+      "weight_key": "w2",
+      "bias_key": "b2"
+    },
+    {
+      "op": "gap",
+      "channels": 16,
+      "input_scale": 0.5,
+      "output_scale": 0.5
+    },
+    {
+      "op": "conv",
+      "in_channels": 16,
+      "out_channels": 9,
+      "kernel": 1,
+      "stride": 1,
+      "padding": 0,
+      "relu": false,
+      "shift": 6,
+      "input_scale": 0.5,
+      "weight_scale": 0.0078125,
+      "output_scale": 0.25,
+      "weight_key": "w4",
+      "bias_key": "b4"
+    }
+  ],
+  "arithmetic": "int32 wrap accumulation; arithmetic right shift; int8 saturation; GAP truncates toward zero",
+  "weights_sha256": "148331959028f535aab5c8117b6a4a7a4b5aadc65af3c2b6c8c96ec7c37f26e2"
+}
