@@ -1,15 +1,17 @@
 """Extract the delivered ZIP and run its main demo entry without build tools."""
 from pathlib import Path
-import argparse, json, os, subprocess, sys, time, urllib.request, zipfile
+import argparse, hashlib, json, os, subprocess, sys, time, urllib.request, zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--zip',type=Path,required=True);p.add_argument('--work',type=Path,required=True);p.add_argument('--port',type=int,default=8699);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--zip',type=Path,required=True);p.add_argument('--work',type=Path,required=True);p.add_argument('--port',type=int,default=8699);p.add_argument('--result',type=Path);a=p.parse_args()
     a.work.mkdir(parents=True,exist_ok=False)
-    with zipfile.ZipFile(a.zip) as z:z.extractall(a.work)
-    extracted=a.work/'submission_zynq_20261103'
+    with zipfile.ZipFile(a.zip) as z:
+        names=[n for n in z.namelist() if n.endswith('/VERSION.json') and n.count('/')==1]
+        if len(names)!=1:raise ValueError('one submission root required')
+        extracted=a.work/names[0].split('/')[0];z.extractall(a.work)
     log=(a.work/'portable-launch.log').open('wb')
     command=[sys.executable,'-m','runtime.run_board','--demo','--port',str(a.port),'--demo-work',str(a.work/'work'),'--no-browser']
     proc=subprocess.Popen(command,cwd=extracted,stdout=log,stderr=subprocess.STDOUT)
@@ -34,7 +36,7 @@ def main():
                 raise RuntimeError('extracted demo scan failed: '+status['demo']['error'])
             time.sleep(.2)
         assert status['demo']['completed']==6
-        assert len(status['demo']['pl_calls'])==21
+        assert len(status['demo']['pl_calls'])==54
         urllib.request.urlopen(urllib.request.Request(base+'/framegen/start',data=b'0',method='POST'),timeout=5).read()
         deadline=time.monotonic()+30
         while True:
@@ -48,8 +50,9 @@ def main():
         assert image[:2]==b'\xff\xd8'
         (a.work/'portable-frame.jpg').write_bytes(image)
         result=dict(passed=True,extracted_main_entry=True,compiler_required=False,points=6,frames=18,
-                    neural_generated_frames=4,actual_neural_rgb_fusion=True,board_connected=False,original_boot_image_modified=False)
-        (ROOT/'evidence/demo-integration/portable.json').write_text(json.dumps(result,indent=2),encoding='utf8')
+                    neural_generated_frames=4,actual_neural_rgb_fusion=True,board_connected=False,original_boot_image_modified=False,
+                    tested_zip_sha256=hashlib.sha256(a.zip.read_bytes()).hexdigest(),source_sha256={n:hashlib.sha256((extracted/n).read_bytes()).hexdigest() for n in ['bin/demo_reference.exe','bin/neural_frame_tool.exe','runtime/run_board.py','runtime/demo_host.py','runtime/demo_integration.py','runtime/frame_demo.py','models/frame/model.pai']})
+        (a.result or ROOT/'evidence/demo-integration/portable.json').write_text(json.dumps(result,indent=2),encoding='utf8')
         print(json.dumps(result,indent=2))
     finally:
         if os.name=='nt':subprocess.run(['taskkill','/PID',str(proc.pid),'/T','/F'],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)

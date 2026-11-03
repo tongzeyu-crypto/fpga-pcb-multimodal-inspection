@@ -2,11 +2,20 @@
   "depth": {
     "passed": true,
     "board_tested": false,
-    "last_stage": 2
+    "last_stage": 2,
+    "source_sha256": {
+      "graphics/rtl/g3_pkg.sv": "e1da65aee096cc92a40125b2192e672b28cefaee64d940c5f4803a52d4b983eb",
+      "graphics/rtl/g3_resolve.sv": "6712d709e4030283e3e61c7c349bda213372bffc551d89ae1da2855cf8dc7d51",
+      "tests/tb_depth.sv": "ebce54e8b503c7367fae31ec980f6a0ad4a7abcee21dc293aa13f77c35e7e706"
+    }
   },
   "adc": {
     "passed": true,
     "board_tested": false,
-    "last_stage": 2
+    "last_stage": 2,
+    "source_sha256": {
+      "rtl/pcb_adc_capture.sv": "9ade75a867fab045f5ef20d0e2fbbde554985a866e1034928975f182b0595da7",
+      "tests/tb_adc.sv": "678d850cc75382814e88a1a99c9081aa8445d94c1a37b396c21cc5e46bce49ae"
+    }
   }
 }

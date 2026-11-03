@@ -1,43 +1,44 @@
 {
   "date": "2026-11-03",
-  "files": 1075,
-  "bytes": 189448400,
-  "credential_scan_matches": [],
-  "derived_measurement_outputs_excluded": true,
+  "profile": "release",
+  "version_label": "正式提交版",
   "neural_pixel_fusion": true,
   "frame_model_is_confidence_classifier": false,
   "main_demo_software_integrated": true,
-  "new_demo_integrated_in_bitstream": false,
+  "new_demo_integrated_in_bitstream": true,
   "demo_motion_simulated": true,
-  "demo_pl_backend": "checked XSim AXI result replay",
+  "demo_pc_backend": "source-bound XSim AXI result replay",
+  "demo_board_backend": "PDP3 MMIO; no software fallback",
   "original_boot_image_modified": false,
-  "board_accessed": true,
+  "board_accessed": false,
+  "current_revision_board_programmed": false,
+  "board_demo_passed": false,
+  "physical_hdmi_user_confirmed": false,
   "kernel_modules_built": true,
   "candidate_device_tree_built": true,
-  "profile": "release",
-  "core_clock_target_mhz": 62.5,
   "combined_passed": true,
   "rtl_passed": true,
+  "core_clock_target_mhz": 62.5,
+  "host_models_integer_equal": true,
+  "full_acquisition_pipeline_validated": false,
+  "single_plane_scanout": true,
+  "hardware_included": true,
   "extensions": {
     "depth": {
       "passed": true,
-      "board_tested": true,
-      "last_stage": 2
+      "board_tested": false
     },
     "adc": {
       "passed": true,
-      "board_tested": false,
-      "last_stage": 2
+      "board_tested": false
     }
   },
-  "host_models_integer_equal": true,
-  "board_demo_passed": true,
-  "physical_hdmi_user_confirmed": true,
-  "full_acquisition_pipeline_validated": false,
-  "single_plane_scanout": true,
-  "board_record": "evidence/board-20261103-r1/result.json",
-  "version_label": "正式提交版",
-  "hardware_included": true,
+  "files": 1227,
+  "bytes": 219551194,
+  "credential_scan_matches": [],
   "debug_intermediates_included": false,
-  "documentation_revision": "r2"
+  "derived_measurement_outputs_excluded": true,
+  "real_scan_source_integrated": true,
+  "real_scan_physical_verified": false,
+  "reference_report_modified": false
 }

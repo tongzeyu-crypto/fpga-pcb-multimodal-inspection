@@ -62,6 +62,15 @@ def prepare_assets(work, bundle=None, reference=None):
     subprocess.run(cmd,check=True,cwd=ROOT)
     for p in asset_root.rglob('*.gz'):
         p.with_suffix('').write_bytes(gzip.decompress(p.read_bytes()))
+    if bundle.resolve()==(ROOT/'data/raw/dcdc.bundle.json').resolve() and (ROOT/'data/raw/stm32.bundle.json').exists():
+        second=ROOT/'data/raw/stm32.bundle.json';process(second,work/'computed-stm32',offline_test=True)
+        subprocess.run([sys.executable,str(ROOT/'tools/build_display_assets.py'),'--bundle',str(second),'--output',str(work/'stm32-display'),'--processing',str(work/'computed-stm32/processing.json')],check=True,cwd=ROOT)
+        for path in (work/'stm32-display').iterdir():
+            if path.name!='dcdc':
+                if path.is_dir():shutil.copytree(path,asset_root/path.name,dirs_exist_ok=True)
+                else:shutil.copyfile(path,asset_root/path.name)
+        for path in asset_root.rglob('*.gz'):path.with_suffix('').write_bytes(gzip.decompress(path.read_bytes()))
+        (asset_root/'generation.json').write_text(json.dumps({'boards':['stm32','dcdc'],'source_bound':True,'adc_available':['dcdc']},indent=2))
     return asset_root
 
 

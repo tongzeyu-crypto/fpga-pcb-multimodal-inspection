@@ -1,0 +1,161 @@
+{
+  "reference": {
+    "path": "C:\\Users\\admin\\Desktop\\技术文档2.docx",
+    "sha256": "c04c82d802b4e13f40b98bedae7c95b324fa4e89f125be5fc53803b3007d1e0c",
+    "bytes": 6935108,
+    "modified": false
+  },
+  "paragraph_index_basis": "zero-based direct body w:p; tables and figures remain separate",
+  "items": [
+    {
+      "id": "PL_SPECTRUM",
+      "paragraphs": [
+        30,
+        43,
+        46
+      ],
+      "required": "PL phase/integrity check, dual channels time-sharing one Hann4096 FFT, three-frame PSD, five band RMS",
+      "report_text": [
+        "PL按T＝u/16－273.15将热像原始温度值u换算为摄氏温度，统计温度与热点位置并生成伪彩色图。PL对近场样本去均值、乘周期Hann窗，经4096点FFT计算单边功率谱密度（PSD），对三帧的线性功率谱取平均，再对指定频段积分并开方，得到该频段的均方根值（RMS）[8]。输出2049个频点，间隔约12.21 kHz。",
+        "近场探头输出经模拟放大和低通滤波后进入AD9248。该器件为双通道14位ADC，支持并行输出[3]。采样率配置为50 MS/s，每通道每帧4096点；频谱以ADC码²/Hz表示，频段积分结果以ADC码RMS表示。",
+        "PL控制ADC时序，将原始采样字进行双缓冲后完成相位筛选、计数和溢出检查，再提取双通道样本。一个FFT核依次处理两个通道及各测点的三帧数据，再计算平均PSD与频段RMS。PS设置计算任务和频段，并按机械位置与采集ID保存处理结果。"
+      ]
+    },
+    {
+      "id": "PL_THERMAL",
+      "paragraphs": [
+        30,
+        61
+      ],
+      "required": "PL full temperature plane, extrema, hotspot count and pseudocolor",
+      "report_text": [
+        "PL按T＝u/16－273.15将热像原始温度值u换算为摄氏温度，统计温度与热点位置并生成伪彩色图。PL对近场样本去均值、乘周期Hann窗，经4096点FFT计算单边功率谱密度（PSD），对三帧的线性功率谱取平均，再对指定频段积分并开方，得到该频段的均方根值（RMS）[8]。输出2049个频点，间隔约12.21 kHz。",
+        "RGB与红外配准先使用初始标定，再由网络预测位置修正量。PL对图像缩放、3×3平滑并计算Sobel梯度，按PS设置的参数归一化，得到64×48×2的网络输入。共享AI核执行三层步长为2的卷积和全局平均池化，通过9维输出层给出四个角点的8个坐标修正值及可信度。PS据此更新几何映射，将板面查询位置换算到原始温度矩阵中。"
+      ]
+    },
+    {
+      "id": "PL_IMAGE",
+      "paragraphs": [
+        61,
+        70
+      ],
+      "required": "PL resize, Gaussian3x3, Sobel, parameterized normalization, difference, threshold and morphology",
+      "report_text": [
+        "RGB与红外配准先使用初始标定，再由网络预测位置修正量。PL对图像缩放、3×3平滑并计算Sobel梯度，按PS设置的参数归一化，得到64×48×2的网络输入。共享AI核执行三层步长为2的卷积和全局平均池化，通过9维输出层给出四个角点的8个坐标修正值及可信度。PS据此更新几何映射，将板面查询位置换算到原始温度矩阵中。",
+        "PS通过SIFT特征匹配和RANSAC单应变换，将待测RGB图像与正常参考图像对齐[5–6]，再校正局部背景差异。PL执行差分、阈值化、腐蚀与膨胀；PS根据连通区域和元件标注，检查引脚桥接、器件是否存在及独立金属区域，并保存板面坐标和原图中的对应位置。"
+      ]
+    },
+    {
+      "id": "FRAME_FUSION",
+      "paragraphs": [
+        15,
+        65,
+        66,
+        95,
+        98
+      ],
+      "required": "80x45x4, 4->4->1, alpha_R R+(1-alpha_R)P, bilinear weights, previous-frame holes and state invalidation",
+      "report_text": [
+        "（3）利用模型深度与视角变化重投影历史画面，由轻量网络根据运动、深度边缘和有效区域预测融合权重，将低分辨率权重图放大后用于全分辨率像素合成，生成交互过渡画面。",
+        "帧融合采用深度重投影与学习式像素融合。PS利用上一完整帧的颜色和深度，按目标视角重投影得到候选画面，再提取横向和纵向运动、深度边缘及有效区域信息，组成80×45×4的网络输入。4→4→1小型网络输出80×45权重图，经Sigmoid转换后插值放大至1280×720，逐像素融合候选画面与上一完整帧，生成过渡帧。",
+        "仅在有效区域融合画面，重投影留下的空洞使用上一完整帧的像素；板卡、数据或图层变化时重新绘制完整画面。离线界面提供网络开关，展示完整渲染、仅重投影和网络融合三组画面，以及融合权重图和输出差异图。",
+        "",
+        "离线对照使用相同的上一帧、深度和目标视角，比较关闭网络后的重投影画面与开启网络后的融合画面，并以目标视角的完整渲染画面作为基准。记录全帧及几何区域的平均绝对误差（MAE）、两种输出的差异图和融合权重图，检查网络使哪些像素发生了变化。"
+      ]
+    },
+    {
+      "id": "PS_SCAN",
+      "paragraphs": [
+        28,
+        38,
+        72
+      ],
+      "required": "fresh actual Idle/position, 0.5 second settle, three ADC frames and association, cancel/fault stop",
+      "report_text": [
+        "PS记录板卡、采集ID、测点编号、控制器返回的位置和采样时间戳，并保存原始文件的校验信息与标定参数。RGB与热像通过几何映射对齐；近场数据按机械位置（单位mm）对应测点的频谱，显示模块将处理结果绘制为图层。",
+        "PS通过GRBL发送运动指令并查询状态[2]，依据位置回报确认到点，停稳0.5 s后采集三帧数据。每帧数据同时保存机械位置、测点编号和帧序号。",
+        "PS根据扫描范围和测点间距生成路线，通过GRBL控制步进电机。探头停稳后触发ADC三帧采样，再调用PL计算频谱，保存坐标、帧序号和结果索引。"
+      ]
+    },
+    {
+      "id": "AUTOSTART",
+      "paragraphs": [
+        2,
+        90
+      ],
+      "required": "candidate launch sources, device checks and original UI integration; installation remains pending",
+      "report_text": [
+        "本作品以Zynq-7020为核心，结合IMX577高清相机、Tiny-1b热像仪模块、AD9248采集电路和CoreXY扫描机构，实现PCB外观、发热情况和近场频谱分布检测与融合展示。系统提供RGB与热像二维融合、三维温度着色、EMI地形和频率立方体等视图，支持原图查看、局部放大、温度与热点查询，以及按测点和频段查询完整频谱与空间功率分布。通过正常参考图像比对标记器件和引脚的可见异常；PS调度CoreXY蛇形扫描并关联测点与采样记录，板卡切换时同步更新模型、数据和视图。PS负责设备访问、采样调度与交互；PL承担4096点FFT与功率谱、图像预处理、轻量网络推理和图像渲染。残差网络修正RGB矩阵与温度矩阵映射误差，帧融合网络预测区域权重，将深度重投影画面与上一完整帧融合为过渡帧，两网络复用同一卷积计算核。系统记录3840×3040 RGB、256×192热像及若干点的ADC数据；HDMI以1280×720输出，支持自启动和鼠标交互。",
+        "软件的特色是将扫描控制、数据分析和交互显示组织在同一流程中。PS生成蛇形路线，完成到点确认、停稳等待和三帧采样，将机械位置、测点编号与频谱结果关联，便于追溯原始记录；切换板卡时同步更新模型、数据和视图。在此基础上，轻量配准网络修正RGB与热像的映射偏差，帧融合网络根据深度重投影结果生成交互过渡画面，并提供网络开关、融合权重和输出差异对照，使采集结果与算法作用都能在界面中直观查看。"
+      ]
+    },
+    {
+      "id": "ADC_BUFFER",
+      "paragraphs": [
+        46
+      ],
+      "required": "two owned raw ADC banks, capture/copy overlap, backpressure, generation and sample tick provenance",
+      "report_text": [
+        "PL控制ADC时序，将原始采样字进行双缓冲后完成相位筛选、计数和溢出检查，再提取双通道样本。一个FFT核依次处理两个通道及各测点的三帧数据，再计算平均PSD与频段RMS。PS设置计算任务和频段，并按机械位置与采集ID保存处理结果。"
+      ]
+    },
+    {
+      "id": "THERMAL_QUERY",
+      "paragraphs": [
+        13
+      ],
+      "required": "select board point, inverse map, query preserved original thermal matrix",
+      "report_text": [
+        "（1）结合初始几何标定与轻量卷积网络，利用结构梯度预测四角修正量，更新可见光与红外映射，并将板面选点回映至原始温度矩阵，查询该位置的原始温度值。"
+      ]
+    },
+    {
+      "id": "SCAN_CONFIG",
+      "paragraphs": [
+        35,
+        72
+      ],
+      "required": "runtime scan range and X/Y spacing, inclusive endpoints, configurable feed and 1024 point bound",
+      "report_text": [
+        "PS生成蛇形扫描路线，传给步进电机控制板，CoreXY带动探头逐行移动，扫描固定区域，可以在程序中进行调整范围大小和精度。图3展示探头滑块、固定样板与扫描区域的布置。",
+        "PS根据扫描范围和测点间距生成路线，通过GRBL控制步进电机。探头停稳后触发ADC三帧采样，再调用PL计算频谱，保存坐标、帧序号和结果索引。"
+      ]
+    },
+    {
+      "id": "SCAN_PUBLICATION",
+      "paragraphs": [
+        28,
+        90
+      ],
+      "required": "same run results atomically update original EMI, spectrum, cube and PL RMS views",
+      "report_text": [
+        "PS记录板卡、采集ID、测点编号、控制器返回的位置和采样时间戳，并保存原始文件的校验信息与标定参数。RGB与热像通过几何映射对齐；近场数据按机械位置（单位mm）对应测点的频谱，显示模块将处理结果绘制为图层。",
+        "软件的特色是将扫描控制、数据分析和交互显示组织在同一流程中。PS生成蛇形路线，完成到点确认、停稳等待和三帧采样，将机械位置、测点编号与频谱结果关联，便于追溯原始记录；切换板卡时同步更新模型、数据和视图。在此基础上，轻量配准网络修正RGB与热像的映射偏差，帧融合网络根据深度重投影结果生成交互过渡画面，并提供网络开关、融合权重和输出差异对照，使采集结果与算法作用都能在界面中直观查看。"
+      ]
+    },
+    {
+      "id": "BOARD_CAPTURE",
+      "paragraphs": [
+        64,
+        90
+      ],
+      "required": "isolated two-board RGB/thermal/model/calibration input and new scan ADC merge",
+      "report_text": [
+        "三维模型使用QFP、SOIC和连接器等封装网格搭建，根据照片确定元件位置和纹理，根据封装参数设置高度。模型导出为GLB或板端绘图资源[4]，热像按几何映射为模型着色。图6展示模型、纹理与温度图层。",
+        "软件的特色是将扫描控制、数据分析和交互显示组织在同一流程中。PS生成蛇形路线，完成到点确认、停稳等待和三帧采样，将机械位置、测点编号与频谱结果关联，便于追溯原始记录；切换板卡时同步更新模型、数据和视图。在此基础上，轻量配准网络修正RGB与热像的映射偏差，帧融合网络根据深度重投影结果生成交互过渡画面，并提供网络开关、融合权重和输出差异对照，使采集结果与算法作用都能在界面中直观查看。"
+      ]
+    },
+    {
+      "id": "AOI_COORDINATES",
+      "paragraphs": [
+        70
+      ],
+      "required": "annotated component and visible pin screening, reference adaptation, board/reference/test coordinates",
+      "report_text": [
+        "PS通过SIFT特征匹配和RANSAC单应变换，将待测RGB图像与正常参考图像对齐[5–6]，再校正局部背景差异。PL执行差分、阈值化、腐蚀与膨胀；PS根据连通区域和元件标注，检查引脚桥接、器件是否存在及独立金属区域，并保存板面坐标和原图中的对应位置。"
+      ]
+    }
+  ],
+  "physical_board_effects_not_required": true,
+  "persistent_autoboot_must_not_be_modified": true
+}

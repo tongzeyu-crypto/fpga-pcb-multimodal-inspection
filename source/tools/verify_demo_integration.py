@@ -26,25 +26,42 @@ def main():
         assert image.shape==(720,1280,3)
         (evidence/(name+'.png')).write_bytes(cv2.imencode('.png',image)[1].tobytes())
         return hashlib.sha256(image.tobytes()).hexdigest()
-    post('/demo/reset');post('/app','raw_board 1 mode 16');post('/demo/start')
+    post('/demo/reset');post('/app','raw_board 1 mode 16')
+    settings=dict(width=12,height=7,step_x=2,step_y=3,feed=120)
+    configured=post('/scan/config',json.dumps(settings));assert configured['scan_plan']['planned_points']==28
+    assert get('/api/status')['demo']['scan_config']==settings
+    assert get('/api/status')['demo']['route'][1]['xy_mm']==[5,0], 'historical coordinates relabeled as configured positions'
+    for invalid in [dict(width=200,height=200,step_x=.25,step_y=.25),dict(feed=600),dict(unknown=1)]:
+        try:post('/scan/config',json.dumps(invalid))
+        except urllib.error.HTTPError as exc:assert exc.code==400
+        else:raise AssertionError('invalid scan configuration accepted')
+        assert get('/api/status')['app']['scan_config']==settings
+    post('/demo/start')
     active=until(lambda x:x['demo']['state']=='SETTLE')
     run_id=active['demo']['run_id'];post('/demo/start')
+    try:post('/scan/config',json.dumps(dict(width=10)))
+    except urllib.error.HTTPError as exc:assert exc.code==400
+    else:raise AssertionError('active route changed')
+    assert get('/api/status')['app']['scan_config']==settings
     assert get('/api/status')['demo']['run_id']==run_id, 'duplicate start replaced running scan'
     until(lambda x:x['demo']['completed']>=1)
-    post('/demo/reset');time.sleep(.4)
+    post('/demo/pause');paused=get('/api/status')['demo'];time.sleep(.3)
+    assert paused['state']=='CANCELED' and paused['completed']>=1 and get('/api/status')['demo']['completed']==paused['completed']
+    post('/demo/reset');time.sleep(.4);post('/scan/config',json.dumps(dict(width=70,height=44,step_x=5,step_y=5,feed=120)))
     reset=get('/api/status')['demo']
     assert reset['state']=='READY' and reset['completed']==0 and reset['points']==[] and reset['run_id']!=run_id
     time.sleep(.4);assert get('/api/status')['demo']['completed']==0
     # Native hit tests share the real mouse path (down=1, up=2).
     for kind in [1,2]:post('/pointer',f'{kind} 1120 110 0 0')
     done=until(lambda x:x['demo']['state']=='DONE');session=done['demo']
-    assert session['completed']==6 and len(session['pl_calls'])==21 and not done['error']
+    assert session['completed']==6 and len(session['pl_calls'])==54 and not done['error']
     assert session['motion_simulated'] and not session['fresh_acquisition'] and not session['hardware_synchronized']
     assert [p['xy_mm'] for p in session['points']]==[[0,0],[5,0],[10,0],[10,5],[5,5],[0,5]]
     ids=[]
     for point in session['points']:
-        assert len(point['frames'])==3
-        assert point['settled_at']-point['arrival_confirmed_at']>=.7-1e-6
+        assert len(point['frames'])==3 and len(point['mean_power'])==2049
+        assert len(point['frames'][0]['samples'])==4096
+        assert point['settled_at']-point['arrival_confirmed_at']>=.5-1e-6
         for frame in point['frames']:
             assert frame['source_xy_mm']==point['xy_mm'] and not frame['fresh_capture']
             assert frame['demo_sample_begin']>=point['settled_at']
@@ -56,8 +73,10 @@ def main():
     for kind in [1,2]:post('/pointer',f'{kind} 1200 214 0 0')
     assert get('/api/status')['app']['demo_point']==(before+1)%6
     post('/app','demo_point 0');time.sleep(.4);screenshot('demo-complete')
+    plot=cv2.imdecode(np.frombuffer((evidence/'demo-complete.png').read_bytes(),np.uint8),cv2.IMREAD_COLOR)[202:330,538:1002]
+    assert np.any((plot[...,0]>180)&(plot[...,1]>170)&(plot[...,2]>80)&(plot[...,2]<170)), 'small physical PSD collapsed onto the bottom axis'
     rejected=False
-    try:post('/app','demo_point 6')
+    try:post('/app','demo_point 1024')
     except urllib.error.HTTPError as exc:rejected=exc.code==400
     assert rejected
     assert get('/api/status')['app']['demo_point']==0
@@ -73,7 +92,7 @@ def main():
     post('/app','mode 3')
     for kind in [1,2]:post('/pointer',f'{kind} 45 292 0 0')
     assert get('/api/status')['app']['mode']==16
-    result=dict(passed=True,demo_points=6,demo_frames=18,pl_result_calls=21,page_switch_states=len(states),
+    result=dict(passed=True,demo_points=6,demo_frames=18,pl_result_calls=54,page_switch_states=len(states),
                 original_ui_native_hit_tests=True,cancel_reset_restart=True,duplicate_start_guard=True,
                 export_verified=True,board_isolation=True,board_connected=False,boot_image_modified=False,
                 source_sha256={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for folder in ['runtime','demo/runtime'] for p in (ROOT/folder).rglob('*') if p.suffix in {'.py','.cpp','.c','.h','.html'}})

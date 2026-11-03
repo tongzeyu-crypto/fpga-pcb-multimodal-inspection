@@ -1,0 +1,52 @@
+{
+  "schema": "CaptureBundle/1",
+  "board_id": "stm32",
+  "capture_id": "stm32-rgbthermal-20261019",
+  "calibration_version": "9c3bfd3e9be74443",
+  "calibration": {
+    "path": "stm32-rgb-thermal/calibration.json",
+    "sha256": "9c3bfd3e9be74443502a3bdd7cbdcbe8852e0d5ac0b5a80ce7ee338108782695"
+  },
+  "acquisition_batches": [
+    "stm32-rgbthermal-20261019"
+  ],
+  "synchronization": "sequential USB snapshots; ADC not acquired for this board",
+  "raw": {
+    "rgb": [
+      {
+        "path": "stm32-rgb-thermal/rgb.jpg",
+        "sha256": "65ec12bee57eefb6627819e87a774decd64fefd9b69df73720677b47dd657d69",
+        "source": "ZYNQ_USB_REAL",
+        "timestamp": {
+          "v4l2_us": 1485517687,
+          "clock": "board-monotonic"
+        },
+        "dimensions": [
+          3040,
+          3840,
+          3
+        ],
+        "unit": "uint8 RGB",
+        "batch_id": "stm32-rgbthermal-20261019"
+      }
+    ],
+    "thermal": [
+      {
+        "path": "stm32-rgb-thermal/thermal.raw",
+        "sha256": "bc9bac5734da5dfbd4cc41f989f56cd1e9fe35a7def35eb5fddbcf0223bb0ac0",
+        "source": "ZYNQ_USB_REAL",
+        "timestamp": {
+          "v4l2_us": 1485774293,
+          "clock": "board-monotonic"
+        },
+        "dimensions": [
+          2,
+          192,
+          256
+        ],
+        "unit": "uint16 LE plane1 Kelvin16",
+        "batch_id": "stm32-rgbthermal-20261019"
+      }
+    ]
+  }
+}

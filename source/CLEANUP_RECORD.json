@@ -1,26 +1,11 @@
 {
-  "date": "2026-11-03T14:15:56.124353+08:00",
-  "board_temporary_plan_entries": 49,
-  "board_debug_backup_sha256": "db46db7b18418268d7cb764ebdb39d0ac0ec1c741c0dfb2cbf3073104b7c7593",
-  "board_runtime_restarted_after_cleanup": true,
-  "board_scan_after_cleanup_passed": true,
-  "board_pl_frame_generation_after_cleanup_passed": true,
-  "board_render_error": "",
-  "board_program_sha256": "89441599a806a5e064ca3aeeae2917225cfca8bee19ab65a274be5d382e2efb4",
-  "board_state_directory": "/tmp/pcb-trial/run",
-  "board_external_debug_forwarder_stopped": true,
-  "host_temporary_jtag_server_stopped": true,
-  "host_test_port_8699_stopped": true,
-  "host_formal_demo_port": 8698,
-  "release_pc_functional_test": {
-    "passed": true,
-    "scan_points": 6,
-    "scan_frames": 18,
-    "neural_frame_generation": "DONE",
-    "main_ui_error": "",
-    "profile": "release"
-  },
+  "revision": "PDP2-single-engine-r12",
+  "date": "2026-11-03",
+  "temporary_compiler_files_archived": true,
+  "release_excludes_failed_build_history": true,
+  "debug_contains_build_history_and_r6_rollback": true,
+  "current_board_bitstream_replaced": false,
   "original_boot_image_modified": false,
-  "emmc_read_only_verified": true,
-  "runtime_dependencies_preserved": true
+  "board_ram_import_check_only": true,
+  "standalone_debug_helpers_not_started_by_launcher": true
 }

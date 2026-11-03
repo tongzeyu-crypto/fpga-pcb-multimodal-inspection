@@ -1,8 +1,9 @@
 {
   "exit_code": 0,
-  "source_sha256": "bc7c1367f1fdca6e80ef379edb0a20196a37bc1bb2ab392614d6b9d6512d4cdb",
+  "source_sha256": "7a5974ebc6ef7f631085c6f1d68b347a0888a8231b91c8964bd1926fe3ae19c9",
   "board_executed": false,
+  "header_sha256": "e0dfd644415515223743bd98453e1ef90839e499846913ee26c6dcb078a0c8f2",
   "elf32_little_endian_arm": true,
-  "sha256": "68f501bb9b0a99e2ec6961b36a6e6c298571b3e5c65c106160a1e8a583d19a13",
+  "sha256": "8bec108209adae0c92af36ccba2046fbd3405d62771c68be533aaa8382854d22",
   "passed": true
 }

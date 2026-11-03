@@ -1,0 +1,12 @@
+{
+  "device": "/dev/ttyUSB0",
+  "origin_confirmed": false,
+  "width": 70,
+  "height": 44,
+  "scale_x": 1,
+  "scale_y": 1,
+  "frame": "CONTROLLER",
+  "feed": 120,
+  "step_x": 5,
+  "step_y": 5
+}

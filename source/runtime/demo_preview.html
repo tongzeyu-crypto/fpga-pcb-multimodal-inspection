@@ -5,23 +5,26 @@
 </style></head><body>
 <header><h1>桌面PCB多模态检测系统</h1><span>离线功能演示</span></header>
 <main><nav aria-label="显示与演示控制"><label>视图 <select id="mode" aria-label="显示视图"><option value="16">扫描演示</option><option value="0">三维融合</option><option value="1">二维融合</option><option value="3">EMI 地形</option><option value="6">频率立方体</option><option value="12">焊接缺陷</option><option value="13">RGB</option><option value="14">热像</option><option value="15">EMI</option></select></label><label>板卡 <select id="board" aria-label="板卡"><option value="1">DC-DC 模块</option><option value="0">STM32 核心板</option></select></label><button id="open-framegen">神经补帧</button><button id="start">开始演示</button><button id="reset">停止并清空</button><button id="previous" aria-label="上一个演示结果点">上一点</button><button id="next" aria-label="下一个演示结果点">下一点</button><a href="/api/export" download="demo-session.json">导出记录</a></nav>
-<p id="status" role="status" aria-live="polite">正在加载主程序界面…</p><p id="error" role="alert"></p>
+<form id="scan-form" class="controls" style="margin-top:12px"><label>宽/mm <input id="scan-width" type="number" min="0.25" max="200" step="0.25" value="70" size="5" required></label><label>高/mm <input id="scan-height" type="number" min="0.25" max="200" step="0.25" value="44" required></label><label>X 步距/mm <input id="scan-step_x" type="number" min="0.25" max="200" step="0.25" value="5" required></label><label>Y 步距/mm <input id="scan-step_y" type="number" min="0.25" max="200" step="0.25" value="5" required></label><label>速度/mm/min <input id="scan-feed" type="number" min="1" max="120" value="120" required></label><button id="scan-apply">保存扫描配置</button><span id="scan-plan"></span></form>
+<p id="status" role="status" aria-live="polite">正在加载主程序界面…</p><p id="temperature" role="status"></p><p id="error" role="alert"></p>
 <div class="screen" id="main-screen"><canvas id="screen" width="1280" height="720" aria-label="原生主程序界面，可点击左侧模式与右侧演示按钮"></canvas></div>
 <section id="framegen-panel" hidden aria-label="神经补帧功能演示">
 <h2>神经补帧</h2><p>深度重投影 → 学习式像素融合 → 新的过渡帧。网络输出直接参与 RGB 合成。</p>
 <div class="framegen-controls"><label>场景 <select id="framegen-mode"><option value="0">三维 PCB</option><option value="3">EMI 地形</option></select></label><button id="framegen-run">生成补帧演示</button><button id="framegen-play" disabled>播放过渡帧</button><button id="framegen-back">返回主界面</button><a href="/framegen/export" download="neural-frame-session.json">导出补帧记录</a></div>
-<div class="framegen-controls"><label>画面对照 <select id="framegen-view"><option value="sequence">完整渲染 → 神经补帧 → 完整渲染</option><option value="neural">神经生成帧</option><option value="warp">关闭网络：仅重投影</option><option value="truth">同视角完整渲染参考</option><option value="difference">网络贡献差异 ×6</option></select></label><label>对照组 <select id="framegen-case" aria-label="补帧对照组"><option value="0">1</option><option value="1">2</option><option value="2">3</option><option value="3">4</option></select></label></div>
+<div class="framegen-controls"><label>画面对照 <select id="framegen-view"><option value="sequence">完整渲染 → 神经补帧 → 完整渲染</option><option value="neural">神经生成帧</option><option value="warp">关闭网络：仅重投影</option><option value="truth">同视角完整渲染参考</option><option value="weights">融合权重图</option><option value="difference">网络贡献差异 ×6</option></select></label><label>对照组 <select id="framegen-case" aria-label="补帧对照组"><option value="0">1</option><option value="1">2</option><option value="2">3</option><option value="3">4</option></select></label></div>
 <p id="framegen-status" role="status" aria-live="polite">点击生成，运行已训练的 INT8 网络。</p><p id="framegen-metrics"></p><img id="framegen-image" class="framegen-image" src="/frame.jpg" alt="神经补帧输出及对照画面" hidden>
 <p>这是本机离线算法演示，网络使用已训练权重进行整数推理；播放节奏用于展示，不代表开发板 FPS 或加速比。完整输出为 1280×720，网络融合权重网格为 80×45。</p>
 </section>
-<footer>模拟运动与到点报告；历史原始采样；PL 侧显示已通过校验的 RTL 仿真结果。当前没有连接开发板。频谱演示为 64 点 DFT，热像与量化演示为 16×16 子采样。</footer></main>
+<footer>本机使用模拟运动、历史原始采样和已校验的 RTL 结果回放。频谱为 4096 点 FFT、2049 频点；热像计算为 256×192，扫描页只将预览缩为 16×16。配置决定实机扫描路线，历史回放保持原采样坐标。点击热像或融合板面可查询原始温度。</footer></main>
 <script>
 const el=id=>document.getElementById(id),canvas=el('screen'),ctx=canvas.getContext('2d');let current={},pending=false,framegen={},framegenVisible=false,playing=false,playIndex=0,lastFrameKey='';
 const names={READY:'等待开始',ROUTE:'生成路线',MOVE:'移动中',WAIT_ARRIVAL:'到点确认',SETTLE:'停稳等待',CAPTURE:'三帧采样',ASSOCIATE:'采样关联',DONE:'演示完成',FAULT:'演示失败',CANCELED:'演示停止'};
 async function command(path,body=''){try{const r=await fetch(path,{method:'POST',body});const j=await r.json();if(!r.ok)throw Error(j.error||'操作失败');el('error').textContent='';await update()}catch(e){el('error').textContent=e.message}}
 el('mode').onchange=()=>{showFramegen(false);command('/app','mode '+el('mode').value)};el('board').onchange=()=>command('/app','raw_board '+el('board').value);
 el('start').onclick=()=>command('/demo/start');el('reset').onclick=()=>command('/demo/reset');
-el('previous').onclick=()=>command('/app','demo_point '+((current.demo_point+5)%6));el('next').onclick=()=>command('/app','demo_point '+((current.demo_point+1)%6));
+let replayPoints=6;
+el('previous').onclick=()=>command('/app','demo_point '+((current.demo_point+replayPoints-1)%replayPoints));el('next').onclick=()=>command('/app','demo_point '+((current.demo_point+1)%replayPoints));
+el('scan-form').onsubmit=e=>{e.preventDefault();const settings={};for(const key of ['width','height','step_x','step_y','feed'])settings[key]=Number(el('scan-'+key).value);command('/scan/config',JSON.stringify(settings))};
 let pointerQueue=Promise.resolve(),dragging=false,lastMove=0;
 function pointer(e,kind,wheel=0){const b=canvas.getBoundingClientRect(),x=Math.max(0,Math.min(1279,Math.floor((e.clientX-b.left)*1280/b.width))),y=Math.max(0,Math.min(719,Math.floor((e.clientY-b.top)*720/b.height)));pointerQueue=pointerQueue.then(()=>command('/pointer',`${kind} ${x} ${y} ${e.button>0?2:0} ${wheel}`))}
 canvas.onpointerdown=e=>{dragging=true;canvas.setPointerCapture(e.pointerId);pointer(e,1)};
@@ -46,7 +49,9 @@ setInterval(()=>{if(playing&&framegenVisible&&framegen.frames?.length){playIndex
 
 async function update(){if(pending)return;pending=true;try{const r=await fetch('/api/status');if(!r.ok)throw Error('演示服务暂不可用');const j=await r.json();current=j.app;framegen=j.framegen||{};drawFramegen();el('mode').value=current.mode;el('board').value=current.raw_board;
  const d=j.demo,busy=['ROUTE','MOVE','WAIT_ARRIVAL','SETTLE','CAPTURE','ASSOCIATE'].includes(d.state);el('start').disabled=busy||!current.raw_board;
- el('status').textContent=`${names[d.state]||d.state} · 已关联 ${d.completed}/6 点 · ${d.completed*3}/18 帧 · 离线回放`;el('error').textContent=d.error||j.error||'';
+ replayPoints=d.route.length;el('scan-apply').disabled=busy;el('scan-plan').textContent=`计划 ${d.planned_route.length} 点（当前回放 ${replayPoints} 个来源点）`;
+ el('status').textContent=`${names[d.state]||d.state} · 已关联 ${d.completed}/${replayPoints} 点 · ${d.completed*3}/${replayPoints*3} 帧 · 离线回放`;el('error').textContent=d.error||j.error||'';
+ el('temperature').textContent=current.temperature_valid?`原始温度 ${current.temperature_c.toFixed(2)} °C · 热像坐标 (${current.raw_thermal_xy.join(', ')})`:'';
  if(framegenVisible)return;
  const image=await createImageBitmap(await(await fetch('/frame.jpg')).blob());ctx.drawImage(image,0,0);image.close();
  }catch(e){el('error').textContent=e.message}finally{pending=false}}

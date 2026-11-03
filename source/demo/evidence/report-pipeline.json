@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "job_count": 26,
+  "checked_output_elements": 26588,
+  "fixture_commands": 96370,
+  "board_tested": false,
+  "source_sha256": {
+    "pcb_demo_axi.sv": "aef22cd8531cd1cf5a5ec30337bc1e297f2cef9f278275730e9ce8a89f237f77",
+    "pcb_demo_coeff.sv": "c34ecae9f8fc9e2b4cbb12989c70531db2fe73e8c7f6e3eb4dd0b107ae6dc356",
+    "pcb_demo_core.sv": "4d73abe75b9286eb16bd1ffdb27a3a11b846d02b504afef67a820f0e667e2ee9",
+    "pcb_scalar.sv": "cea07de7ceda040595731328253c832fb7a4905ed82727913f951d6015de362f"
+  }
+}

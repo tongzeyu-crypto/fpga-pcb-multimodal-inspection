@@ -30,7 +30,7 @@ def main():
     blob=(ROOT/'bin/demo-7020.dtb').read_bytes();nodes=read_fdt(blob)
     controllers={struct.unpack('>I',p['phandle'])[0]:p for p in nodes.values() if 'phandle' in p and 'clock-output-names' in p}
     bindings={}
-    for name in ['graphics@43c00000','gpio@41200000','pcb_ai@43c40000','pcb_adc@43c80000']:
+    for name in ['graphics@43c00000','gpio@41200000','pcb_ai@43c40000','pcb_adc@43c80000','pcb_demo@43cc0000']:
         matches=[p for path,p in nodes.items() if path.endswith('/'+name)]
         if len(matches)!=1:raise ValueError('Missing/duplicate candidate device '+name)
         handle,index=struct.unpack('>II',matches[0]['clocks']);controller=controllers[handle]

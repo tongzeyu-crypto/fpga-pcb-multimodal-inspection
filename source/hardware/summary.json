@@ -1,0 +1,59 @@
+{
+  "global_timing": {
+    "setup_wns_ns": 0.653,
+    "setup_tns_ns": 0.0,
+    "setup_failing_endpoints": 0,
+    "hold_whs_ns": 0.009,
+    "hold_ths_ns": 0.0,
+    "hold_failing_endpoints": 0
+  },
+  "resources": {
+    "lut": {
+      "used": 39255.0,
+      "available": 53200.0,
+      "percent": 73.79
+    },
+    "ff": {
+      "used": 36571.0,
+      "available": 106400.0,
+      "percent": 34.37
+    },
+    "bram36": {
+      "used": 119.0,
+      "available": 140.0,
+      "percent": 85.0
+    },
+    "dsp": {
+      "used": 128.0,
+      "available": 220.0,
+      "percent": 58.18
+    }
+  },
+  "internal_timing_passed": true,
+  "core_clock_mhz": 62.5,
+  "resolution": [
+    1280,
+    720
+  ],
+  "board_tested": false,
+  "external_adc_io_signed_off": false,
+  "report_sha256": {
+    "board-bus-skew.rpt": "b0ea2daabee3184a23e40740891db15851b3458660e95d26cbc420d97765115c",
+    "board-cdc.rpt": "cf221f1a1be5ea1991087ece27f8ba6d641cee4e280b0d2c52fb2acf261d587e",
+    "board-clocks.rpt": "5b7769099afbb06aabe0aceed10deed2badbfbe88a201916e63f793933de6c20",
+    "board-drc.rpt": "846b3a2a5a3da6aefce0b2656ca823185cdf7f97f65d92ae52fc485459c1bf8f",
+    "board-hierarchy-synth.rpt": "d2ec659fdaf09cab100b23eaad219dd527555632842e5224bbca72183e61ed5c",
+    "board-paths-placed.rpt": "bc0a6b20ba40723afe38379cebc6f24b1526dc1dddd1b287a5c30c3fbff9d708",
+    "board-paths.rpt": "82645606d00a2b5f758e49e8039a8e1246ec048f31e48ce90efb2a61a4e646f9",
+    "board-timing-placed.rpt": "0d385b7b6a68a771de5a95103acd9f9f640de015c9ee25e235f2e4cab27cf667",
+    "board-timing.rpt": "db094855338210c50772a10342390ea0646cf0e9d3b7ca2fcbaea50085ed9ca8",
+    "board-utilization-placed.rpt": "a76d02733263b33dc3b9d4f685b7338c88fea3f8837ab3db31e25d765a0a005c",
+    "board-utilization-synth.rpt": "a34cf3956ac7854e0ac5f805e2285f335f8174c3f4fdc43e66924513fd111db8",
+    "board-utilization.rpt": "2921a73fb09bc85b4910382625ecfafd9fec7031fa395bdb5f3252cd724e27df"
+  },
+  "artifact_sha256": {
+    "board.bit": "b667fd52d29bcb683c3e2a601d6878b5f52a4d0a611c010add4ae86aa0d12b93",
+    "board.hdf": "ac80e37d58a3397e142ef703b9486a3ad5f9a4e9a8962a00fa924e36abd49a1d",
+    "address-map.txt": "dcd492cb8d3fe89282b668527512d5559af7f01b063773c059b3a9d9bc2888a4"
+  }
+}

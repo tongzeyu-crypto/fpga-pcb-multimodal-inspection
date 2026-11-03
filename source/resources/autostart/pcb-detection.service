@@ -1,0 +1,19 @@
+[Unit]
+Description=PCB multimodal detection candidate
+After=local-fs.target
+ConditionPathExists=/dev/pcb-gfx3
+ConditionPathExists=/dev/pcb_ai
+ConditionPathExists=/dev/pcb_demo
+ConditionPathExists=/dev/pcb_adc
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/pcb-detection
+ExecStart=/usr/bin/python3 -m runtime.run_board --bundle /opt/pcb-detection/data/raw/dcdc.bundle.json --state /tmp/pcb-detection --tag 0 --live-scan --motion-config /opt/pcb-detection/resources/autostart/motion.json
+KillMode=control-group
+TimeoutStopSec=25
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

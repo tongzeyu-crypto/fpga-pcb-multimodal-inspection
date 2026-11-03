@@ -41,8 +41,7 @@ module tb_device_generation;
   if((dut.bus_fault||(|dut.engine_error))&&!fault_seen)begin
    fault_seen<=1;
    $display("FAULT cycle=%0d bus=%b engines=%b prep=%d geom=%d refs=%d",cycle,dut.bus_fault,dut.engine_error,dut.binner.state,dut.geometry_count,dut.reference_count);
-   $display("ENGINE0 state=%d reader=%d index=%d reader_err=%b shader_err=%b resolver_err=%b",dut.engines[0].engine.state,dut.engines[0].engine.reader.state,dut.engines[0].engine.reader.index,dut.engines[0].engine.reader_error,dut.engines[0].engine.shader_error,dut.engines[0].engine.resolve_error);
-   $display("ENGINE1 state=%d reader=%d index=%d reader_err=%b shader_err=%b resolver_err=%b",dut.engines[1].engine.state,dut.engines[1].engine.reader.state,dut.engines[1].engine.reader.index,dut.engines[1].engine.reader_error,dut.engines[1].engine.shader_error,dut.engines[1].engine.resolve_error);
+   $display("ENGINE0 state=%d reader=%d index=%d reader_err=%b shader_err=%b resolver_err=%b",dut.engines[0].active_engine.engine.state,dut.engines[0].active_engine.engine.reader.state,dut.engines[0].active_engine.engine.reader.index,dut.engines[0].active_engine.engine.reader_error,dut.engines[0].active_engine.engine.shader_error,dut.engines[0].active_engine.engine.resolve_error);
   end
   if(m_axi_arvalid&&m_axi_arready)begin
    if(active[m_axi_arid])$fatal(1,"read ID reused");
@@ -69,13 +68,13 @@ module tb_device_generation;
  end
  // Inspect each completed tile's depth before it is discarded; depth is not
  // exported to DDR in production. Resolve WAIT_PIXEL is the synchronous BRAM result.
- generate for(genvar e=0;e<2;e=e+1)begin: depth_check
+ generate for(genvar e=0;e<1;e=e+1)begin: depth_check
   integer position;
-  always @(posedge clk)if(rstn&&dut.engines[e].engine.resolve.state==2)begin
-   position=(dut.engines[e].engine.resolve.ty*32+dut.engines[e].engine.resolve.row)*64+
-     dut.engines[e].engine.resolve.tx*32+dut.engines[e].engine.resolve.pair*2;
-   if(dut.engines[e].engine.resolved[0][47:32]!==expected_depth[position]||
-      dut.engines[e].engine.resolved[1][47:32]!==expected_depth[position+1])$fatal(1,"resolved depth mismatch %0d",position);
+  always @(posedge clk)if(rstn&&dut.engines[e].active_engine.engine.resolve.state==2)begin
+   position=(dut.engines[e].active_engine.engine.resolve.ty*32+dut.engines[e].active_engine.engine.resolve.row)*64+
+     dut.engines[e].active_engine.engine.resolve.tx*32+dut.engines[e].active_engine.engine.resolve.pair*2;
+   if(dut.engines[e].active_engine.engine.resolved[0][47:32]!==expected_depth[position]||
+      dut.engines[e].active_engine.engine.resolved[1][47:32]!==expected_depth[position+1])$fatal(1,"resolved depth mismatch %0d",position);
    depth_seen[position]<=1;depth_seen[position+1]<=1;
   end
  end endgenerate
@@ -105,9 +104,8 @@ module tb_device_generation;
   write_reg(0,1);n=0;
   while(!irq&&n<500000)begin @(negedge clk);n=n+1;end
   if(!irq||dut.frame_error)begin
-   $display("STALLED e0=%d sh=%d cache0=%d cache1=%d rused=%b wused=%b",dut.engines[0].engine.state,dut.engines[0].engine.shader.count,dut.engines[0].engine.shader.caches[0].cache.state,dut.engines[0].engine.shader.caches[1].cache.state,dut.memory.rused,dut.memory.wused);
-   $display("CACHE0 addr=%h miss=%h candidate=%h valid=%b tags=%h expected=%h misses=%d",dut.engines[0].engine.shader.caches[0].cache.addr[0],dut.engines[0].engine.shader.caches[0].cache.miss_addr,dut.engines[0].engine.shader.caches[0].cache.candidate_miss_addr,dut.engines[0].engine.shader.caches[0].cache.hit,dut.engines[0].engine.shader.caches[0].cache.tags[0],dut.engines[0].engine.shader.caches[0].cache.addr[0][31:16],dut.engines[0].engine.cache_misses);
-   $display("STALLED e1=%d sh=%d cache0=%d cache1=%d",dut.engines[1].engine.state,dut.engines[1].engine.shader.count,dut.engines[1].engine.shader.caches[0].cache.state,dut.engines[1].engine.shader.caches[1].cache.state);
+   $display("STALLED e0=%d sh=%d cache0=%d cache1=%d rused=%b wused=%b",dut.engines[0].active_engine.engine.state,dut.engines[0].active_engine.engine.shader.count,dut.engines[0].active_engine.engine.shader.caches[0].cache.state,dut.engines[0].active_engine.engine.shader.caches[1].cache.state,dut.memory.rused,dut.memory.wused);
+   $display("CACHE0 addr=%h miss=%h candidate=%h valid=%b tags=%h expected=%h misses=%d",dut.engines[0].active_engine.engine.shader.caches[0].cache.addr[0],dut.engines[0].active_engine.engine.shader.caches[0].cache.miss_addr,dut.engines[0].active_engine.engine.shader.caches[0].cache.candidate_miss_addr,dut.engines[0].active_engine.engine.shader.caches[0].cache.hit,dut.engines[0].active_engine.engine.shader.caches[0].cache.tags[0],dut.engines[0].active_engine.engine.shader.caches[0].cache.addr[0][31:16],dut.engines[0].active_engine.engine.cache_misses);
    $fatal(1,"render incomplete error=%d state=%d",dut.frame_error,dut.state);
   end
   if(rendered_id!=1||active||wcount||responses)$fatal(1,"completion before DDR drained");

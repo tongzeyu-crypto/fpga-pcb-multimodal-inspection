@@ -22,7 +22,7 @@ template<class V>void raw_view(FullDraw &d,const V &v){
   d.text("板卡",1062,64,21);button(d,1060,100,204,32,v.raw_board?"DC-DC":"STM32");
   d.text(full_modes[v.mode],1064,158,23);if(v.mode!=15)button(d,1060,182,204,32,"复位");
   if(v.mode==15){int p=std::min(v.point,int(points.size())-1);button(d,1060,424,96,32,"< P"+std::to_string(p+1));button(d,1164,424,100,32,"选择 >");
-   d.text("实测 "+std::to_string(points.size())+" 点",1064,208,18);d.text("INA",1064,246,18);d.text("频段",1064,276,18);button(d,1060,300,204,32,(v.raw_board&&v.band==0)?"0.2-21.9 MHz":(v.raw_board&&v.band==3)?"10-21.9 MHz":full_bands[v.band]);}
+   d.text("实测 "+std::to_string(points.size())+" 点",1064,208,18);d.text("INA",1064,246,18);d.text("频段",1064,276,18);button(d,1060,300,204,32,full_bands[v.band]);}
  }
  if(v.mode==13){
   d.text("参考",FULL_LEFT+24,116,24);d.text("待测",620,116,24);
@@ -30,6 +30,8 @@ template<class V>void raw_view(FullDraw &d,const V &v){
  }else if(v.mode==14){
   d.text("热像",FULL_LEFT+24,90,24);raw_image(d,v,0,v.raw_board?4:3,348,156,512,384);
   d.text("256 x 192",548,562,18);
+  if(thermal_query_available){d.text(full_number(min_temperature,2)+" ~ "+full_number(max_temperature,2)+" C",1064,240,16);d.text("热点 "+std::to_string(hot_pixels),1064,278,17);button(d,1060,340,204,32,"定位最高温");}
+  if(v.temperature_valid){d.text("原始温度 "+full_number(v.temperature_c,2)+" C",348,604,20);d.text("原始坐标 "+std::to_string(v.temperature_x)+", "+std::to_string(v.temperature_y),348,640,17);double zoom=v.raw_zoom[0],u0=std::max(0.,.5-v.raw_x[0]-.5/zoom),u1=std::min(1.,.5-v.raw_x[0]+.5/zoom),v0=std::max(0.,.5-v.raw_y[0]-.5/zoom),v1=std::min(1.,.5-v.raw_y[0]+.5/zoom);double u=(v.temperature_x+.5)/256.,t=(v.temperature_y+.5)/192.;if(u>=u0&&u<u1&&t>=v0&&t<v1)d.rect(348+(u-u0)/(u1-u0)*512-2,156+(t-v0)/(v1-v0)*384-2,5,5,0xffffffff);}
  }else{
   const auto &xx=v.raw_board?raw_dc_x:xs;const auto &yy=v.raw_board?raw_dc_y:ys;
   const int nx=int(xx.size()),ny=int(yy.size()),selected=std::min(v.point,int(points.size())-1);
@@ -37,10 +39,10 @@ template<class V>void raw_view(FullDraw &d,const V &v){
   const double left=FULL_LEFT+62,top=180,width=FULL_WIDTH-92,rowheight=26,cellwidth=width/nx;
   auto value=[&](int point,int k){return v.raw_board?double(raw_dc_psd[size_t(point)*bins+k]):base(point,k,v.scenario);};
   auto frequency=[&](int k){return v.raw_board?double(raw_dc_frequency[k]):k*df;};
-  const double lowhz=full_band_lo[v.band]*1e6,highhz=std::min(full_band_hi[v.band],v.raw_board?21.9:25.)*1e6;
-  int display_bins=bins;if(v.raw_board)while(display_bins>0&&raw_dc_frequency[display_bins-1]>=21.9e6)--display_bins;
+  const double lowhz=full_band_lo[v.band]*1e6,highhz=full_band_hi[v.band]*1e6;
+  int display_bins=bins;
   std::vector<double> rms(points.size(),0.);
-  for(size_t point=0;point<rms.size();point++){double power=0;for(int k=0;k<bins;k++){double f=frequency(k);if(f>=lowhz&&(v.raw_board?f<highhz:f<=highhz))power+=value(int(point),k);}rms[point]=std::sqrt(power*(v.raw_board?raw_dc_frequency[1]-raw_dc_frequency[0]:df));}
+  for(size_t point=0;point<rms.size();point++)rms[point]=band_value(point,v.band);
   d.text("EMI 测点矩阵",FULL_LEFT+24,80,23);d.text("实测 / INA / RMS / ADC code",FULL_LEFT+24,116,16);
   d.text("X / mm",934,132,15);d.text("Y / mm",FULL_LEFT+12,146,15);
   for(int col=0;col<nx;col++){double x=left+col*cellwidth;d.text(full_number(xx[col],v.raw_board?0:1),x+3,154,13);}
@@ -58,7 +60,7 @@ template<class V>void raw_view(FullDraw &d,const V &v){
   for(int i=0;i<=2;i++){double py=y+h*i/2;d.line(x,py,x+w,py,0xff293b47,.8);d.text(full_number(high-(high-low)*i/2,0),x-36,py-7,13);}
   double px=x,py=y+h;
   for(int col=0;col<400;col++){int a=col*display_bins/400,b=(col+1)*display_bins/400;double q=-1e99;for(int k=a;k<b;k++)q=std::max(q,full_db(value(selected,k)));double qx=x+(col+.5)*w/400,qy=y+h-(q-low)/(high-low)*h;if(col)d.line(px,py,qx,qy,0xffcbd7df,1.1);px=qx;py=qy;}
-  for(int i=0;i<=5;i++)d.text(v.raw_board?full_number(i*21.9/5,1):std::to_string(i*5),x+i*w/5-4,y+h+10,14);
+  for(int i=0;i<=5;i++)d.text(std::to_string(i*5),x+i*w/5-4,y+h+10,14);
   d.text("MHz",976,680,14);
  }
  board_control(d,v);if(v.cursor_visible)d.image(v.cursor_x,v.cursor_y,32,48,1984,1488,32,48,65530);

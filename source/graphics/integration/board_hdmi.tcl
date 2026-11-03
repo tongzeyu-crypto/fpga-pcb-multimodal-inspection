@@ -141,7 +141,7 @@ export_ip_user_files -of_objects [get_files board.bd] -no_script -sync -force -q
 update_compile_order -fileset sources_1
 synth_design -top board_wrapper -part xc7z020clg400-1 -control_set_opt_threshold 16
 set shader_instances [get_cells -hier -filter {REF_NAME == g3_shader}]
-if {[llength $shader_instances] != 2} {error "Expected two shader checkpoint instances"}
+if {[llength $shader_instances] != 1} {error "Expected one shader checkpoint instance in the demonstration profile"}
 foreach shader_cell $shader_instances {read_checkpoint -cell $shader_cell shader-synth.dcp}
 # Independent OOC timing constraints must not cut the actual FCLK tree.
 foreach shader_cell $shader_instances {

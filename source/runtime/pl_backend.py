@@ -10,6 +10,11 @@ def infer(task,x,*,offline_test=False,binary=None,device='/dev/pcb_ai'):
     if offline_test:
         from .integer_reference import run_model
         return run_model(folder,q)[-1].astype(np.float32)*desc['output_scale']
+    return infer_quantized(task,q,binary=binary,device=device)
+
+def infer_quantized(task,q,*,binary=None,device='/dev/pcb_ai'):
+    folder=ROOT/'models'/task;desc=json.loads((folder/'model.json').read_text());q=np.asarray(q)
+    if q.dtype!=np.int8 or list(q.shape)!=desc['input_shape']:raise ValueError('quantized model input tensor')
     if platform.system()!='Linux' or platform.machine() not in {'armv7l','armv8l','aarch64'}:raise RuntimeError('production inference requires board Linux and PL device')
     model=folder/'model.pai';expected=(folder/'model.pai.sha256').read_text().split()[0]
     if hashlib.sha256(model.read_bytes()).hexdigest()!=expected:raise ValueError('portable model SHA256')

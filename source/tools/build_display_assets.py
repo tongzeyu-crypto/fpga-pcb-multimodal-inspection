@@ -1,7 +1,8 @@
 """Generate display derivatives from a verified raw bundle; no result import.
 
 Static glyph/cursor regions are extracted once from an existing program atlas.
-RGB, temperature and all spectra are recomputed from bundle raw input every run.
+Production temperature, pseudocolor and PSD are consumed from source-bound PL
+outputs. An explicit offline invocation may compute floating reference results.
 """
 from pathlib import Path
 import argparse,gzip,hashlib,json,struct,sys,shutil,datetime
@@ -44,9 +45,9 @@ def publish_aoi(dest,bundle,raw,processing,reference):
     run=datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'-'+hashlib.sha256((bundle['capture_id']+info['reference_sha256']).encode()).hexdigest()[:6];folder=root/run;folder.mkdir(exist_ok=True)
     for name,image in [('rgb',view),('gray',cv2.cvtColor(cv2.cvtColor(view,cv2.COLOR_BGR2GRAY),cv2.COLOR_GRAY2BGR))]:
         atlas=np.zeros((1024,1024,4),np.uint8);atlas[:th,:,:3]=image;atlas[:th,:,3]=255;(folder/(name+'.bin')).write_bytes(pack(atlas))
-    regions=result['regions'][:64];lines=['AOI1_8X4',f'{run} {w} {h} {th} {len(regions)} {result["state"]}']
+    regions=result['regions'][:64];lines=['AOI2_8X4',f'{run} {w} {h} {th} {len(regions)} {result["state"]}']
     for r in regions:
-        x,y,bw,bh=r['reference_native_xywh'];lines.append(f'{x} {y} {bw} {bh}\tVisible change\tReview')
+        x,y,bw,bh=r['reference_native_xywh'];title=r['kind'].replace('_',' ');component=r.get('component','Board region');board=r.get('board_xywh');values=board or [0,0,0,0];lines.append(f'{x} {y} {bw} {bh} {int(board is not None)} '+' '.join(map(str,values))+f'\t{title}\t{component}')
     (folder/'display.txt').write_text('\n'.join(lines)+'\n');(folder/'provenance.json').write_text(json.dumps({'capture_id':bundle['capture_id'],'board_id':bundle['board_id'],'test_sha256':info['test_sha256'],'reference_sha256':info['reference_sha256'],'algorithm':result['algorithm'],'real_defect_validation_complete':False},indent=2))
     (root/'current.txt').write_text(run+'\n');(root/'status.txt').write_text('READY\n')
 def main():
@@ -63,6 +64,24 @@ def main():
     # Two board directories always exist; STM32 remains an explicit empty state.
     ui=np.frombuffer(gzip.decompress((ROOT/'resources/ui/ui.bin.gz').read_bytes()),np.uint8) # complete mip bytes
     glyph=(ROOT/'resources/ui/glyphs.bin').read_bytes()
+    def computed(name):
+        if not processing or name not in processing.get('output_sha256',{}):raise ValueError('matching processing output required: '+name)
+        path=a.processing.parent/name
+        if hashlib.sha256(path.read_bytes()).hexdigest()!=processing['output_sha256'][name]:raise ValueError('processing output hash: '+name)
+        return path
+    def temperatures():
+        if processing:return np.fromfile(computed('temperature.f32'),'<f4').reshape(192,256)
+        return thermal_decode((raw/b['raw']['thermal'][0]['path']).read_bytes())[1]
+    def point_psd(index,entries):
+        if processing:return np.fromfile(computed('point-%05d-psd.f32'%index),'<f4').reshape(2,2049)[0]
+        return spectrum_three([raw/e['path'] for e in entries])[0]
+    def thermal_bgr(temp):
+        if processing and 'thermal-color.argb' in processing.get('output_sha256',{}):
+            words=np.fromfile(computed('thermal-color.argb'),'<u4').reshape(192,256)
+            return np.stack([words&255,(words>>8)&255,(words>>16)&255],-1).astype(np.uint8)
+        if processing and processing.get('compute',{}).get('backend')=='PDP3 MMIO':raise ValueError('PL pseudocolor result missing')
+        ct=np.clip((temp-np.percentile(temp,1))/max(np.ptp(temp),.01)*255,0,255).astype(np.uint8)
+        return cv2.applyColorMap(ct,cv2.COLORMAP_TURBO)
     for board,dest in [('stm32',out),('dcdc',out/'dcdc')]:
         dest.mkdir(exist_ok=True);shutil.copyfile(ROOT/'resources/ui/ui.bin.gz',dest/'ui.bin.gz');(dest/'glyphs.bin').write_bytes(glyph);(dest/'texture-8x4.flag').write_text('8x4 tile mips\n')
         blank=np.zeros((2048,2048,4),np.uint8);color=blank.copy();heat=blank.copy();layouts=np.zeros((5,4),float);modeldata=b'';flatdata=b''
@@ -78,30 +97,41 @@ def main():
                     if ref is None:raise ValueError('reference decode')
                     atlas[800:1307,700:1340,:3]=cv2.resize(ref,(640,507));atlas[800:1307,700:1340,3]=255;layouts[0]=[700,800,640,507]
             if b['raw'].get('thermal'):
-                _,temp=thermal_decode((raw/b['raw']['thermal'][0]['path']).read_bytes());ct=np.clip((temp-np.percentile(temp,1))/max(np.ptp(temp),.01)*255,0,255).astype(np.uint8);th=cv2.applyColorMap(ct,cv2.COLORMAP_TURBO)
+                temp=temperatures();th=thermal_bgr(temp)
                 atlas[1400:1592,:256,:3]=th;atlas[1400:1592,:256,3]=255;layouts[4 if board=='dcdc' else 3]=[0,1400,256,192];avail|=2
             groups={}
             for entry in b['raw'].get('adc',[]):groups.setdefault(entry['point_index'],[]).append(entry)
             if groups:
-                rows=[(es[0]['mechanical_mm'],spectrum_three([raw/e['path'] for e in es])[0]) for idx,es in sorted(groups.items())];rows.sort(key=lambda r:(r[0][1],r[0][0]));coords=np.array([r[0] for r in rows],np.float32);psd=np.array([r[1] for r in rows],np.float32);nx=len(np.unique(coords[:,0]));ny=len(np.unique(coords[:,1]))
+                rows=[(es[0]['mechanical_mm'],point_psd(idx,es)) for idx,es in sorted(groups.items())];rows.sort(key=lambda r:(r[0][1],r[0][0]));coords=np.array([r[0] for r in rows],np.float32);psd=np.array([r[1] for r in rows],np.float32);nx=len(np.unique(coords[:,0]));ny=len(np.unique(coords[:,1]))
                 if nx*ny!=len(rows):raise ValueError('incomplete mechanical grid; waiting for a complete scan')
                 points=np.c_[coords,coords[:,0],coords[:,1],np.full(len(rows),np.nan)].astype(np.float32);coords.astype('<f4').tofile(dest/'raw-dcdc-coordinates.f32');psd.astype('<f4').tofile(dest/'raw-dcdc-psd.f32');np.fft.rfftfreq(4096,1/50e6).astype('<f4').tofile(dest/'raw-dcdc-frequency.f32');avail|=4
             base=np.frombuffer(ui[:2048*2048*4],np.uint8).reshape(512,256,2,4,2,2,4).transpose(0,2,4,1,3,5,6).reshape(2048,2048,4);mask=base[...,3]>0;atlas[mask]=base[mask];texture(dest/'ui.bin',atlas,True)
-        if board==b['board_id']=='dcdc' and b['raw'].get('rgb') and b['raw'].get('thermal'):
-            capture=b['capture_id'];model=json.loads((ROOT/'resources/models/model-v3.json').read_text(encoding='utf8'));geo=model['board_geometry'];w,h=geo['rectified_size_px'];margin=geo['extended_margin_px'];size=(w+2*margin,h+2*margin)
+        if board==b['board_id'] and b['raw'].get('rgb') and b['raw'].get('thermal'):
+            from runtime.board_profiles import model as board_model
+            capture=b['capture_id'];model=board_model(board);geo=model['board_geometry'];w,h=geo['rectified_size_px'];margin=geo['extended_margin_px'];size=(w+2*margin,h+2*margin);world_width=geo.get('world_width',100)
             rpath=raw/b['raw']['rgb'][0]['path'];rgb=cv2.imdecode(np.frombuffer(rpath.read_bytes(),np.uint8),cv2.IMREAD_COLOR)
             transform=np.array(geo['native_rgb_to_board']);transform[0]+=margin*transform[2];transform[1]+=margin*transform[2]
             rect=cv2.warpPerspective(rgb,transform,size);rect=rect[margin:margin+h,margin:margin+w];color[:h,:w,:3]=rect;color[:h,:w,3]=255
-            _,temp=thermal_decode((raw/b['raw']['thermal'][0]['path']).read_bytes());calpath=raw/'dcdc-rgb-thermal/thermal-calibration.json'
-            if not calpath.exists():calpath=ROOT/'resources/calibration/dcdc-initial.json'
-            cal=json.loads(calpath.read_text());ct=np.clip((temp-np.percentile(temp,1))/max(np.ptp(temp),.01)*255,0,255).astype(np.uint8);th=cv2.applyColorMap(ct,cv2.COLORMAP_TURBO)
+            from runtime.calibration import resolve
+            temp=temperatures();cal,calpath=resolve(b,a.bundle,processing.get('calibration_source') if processing else None);thermal_raw_color=thermal_bgr(temp);th=thermal_raw_color
+            if processing and processing.get('calibration_sha256')!=hashlib.sha256(calpath.read_bytes()).hexdigest():raise ValueError('processing calibration identity')
             thermal_h=np.array(cal['matrix_thermal_to_extended_rgb'])
-            if processing and processing['ai_registration']['state']=='computed':thermal_h=np.array(processing['ai_registration']['thermal_to_extended_rgb'])
+            if processing and processing['ai_registration']['state'] in ('computed','initial_calibration'):thermal_h=np.array(processing['ai_registration']['thermal_to_extended_rgb'])
+            temp.astype('<f4').tofile(dest/'temperature.f32')
+            (dest/'temperature-raw.u16').write_bytes((raw/b['raw']['thermal'][0]['path']).read_bytes()[98304:])
+            board_to_thermal=np.linalg.inv(thermal_h)@np.array([[1,0,margin],[0,1,margin],[0,0,1]],np.float64)
+            lines=['THERMAL_MAP1',str(w)+' '+str(h)+' '+str(world_width/w)]+[' '.join(map(str,row)) for row in board_to_thermal]
+            (dest/'thermal-map.txt').write_text('\n'.join(lines)+'\n')
+            if processing:
+                stats=processing['modalities']['thermal']['statistics'];peak=int(stats['max_index']);minimum=stats['min_mc']/1000;maximum=stats['max_mc']/1000;hot=stats['hot_count']
+            else:peak=int(np.argmax(temp));minimum=float(temp.min());maximum=float(temp.max());hot=int(np.count_nonzero(temp>=40))
+            py,px=divmod(peak,256)
+            (dest/'thermal-stats.txt').write_text('%d %d %.9g %.9g %d\n'%(px,py,minimum,maximum,hot))
             th=cv2.warpPerspective(th,thermal_h,size)[margin:margin+h,margin:margin+w];heat[:h,:w,:3]=th;heat[:h,:w,3]=255
             # Original test image and raw thermal preview in the UI's image atlas.
             atlas=np.zeros((2048,2048,4),np.uint8)
-            small=cv2.resize(rgb,(640,507));atlas[800:1307,:640,:3]=small;atlas[800:1307,:640,3]=255;layouts[2]=[0,800,640,507]
-            thermal=cv2.applyColorMap(ct,cv2.COLORMAP_TURBO);atlas[1400:1592,:256,:3]=thermal;atlas[1400:1592,:256,3]=255;layouts[4]=[0,1400,256,192]
+            small=cv2.resize(rgb,(640,507));atlas[800:1307,:640,:3]=small;atlas[800:1307,:640,3]=255;layouts[2 if board=='dcdc' else 1]=[0,800,640,507]
+            thermal=thermal_raw_color;atlas[1400:1592,:256,:3]=thermal;atlas[1400:1592,:256,3]=255;layouts[4 if board=='dcdc' else 3]=[0,1400,256,192]
             if a.reference:
                 ref=cv2.imdecode(np.frombuffer(a.reference.read_bytes(),np.uint8),cv2.IMREAD_COLOR)
                 if ref is None:raise ValueError('normal reference decode')
@@ -109,7 +139,7 @@ def main():
             # Add program glyphs after measurement regions; atlas only changes per bundle.
             base=np.frombuffer(ui[:2048*2048*4],np.uint8).reshape(512,256,2,4,2,2,4).transpose(0,2,4,1,3,5,6).reshape(2048,2048,4)
             mask=base[...,3]>0;atlas[mask]=base[mask];texture(dest/'ui.bin',atlas,True)
-            scale=100/w
+            scale=world_width/w
             def vertex(x,y,z):return [(x-w/2)*scale,y*scale,(z-h/2)*scale]
             uv=np.array([[0,0],[w-1,0],[w-1,h-1],[0,h-1]])/2047
             plane=np.array([vertex(0,0,0),vertex(w,0,0),vertex(w,0,h),vertex(0,0,h)])
@@ -122,13 +152,13 @@ def main():
             # Preserve the mature prebuilt mesh topology when supplied. UV is
             # recomputed against this bundle's fresh RGB/thermal atlas.
             for kind in ['model','flat']:
-                src=ROOT/'resources/models'/('dcdc-'+kind+'.commands.bin')
+                src=ROOT/'resources/models'/(board+'-'+kind+'.commands.bin')
                 if src.exists():
                     converted=bytearray(src.read_bytes())
                     for off in range(0,len(converted),64):
                         flags=struct.unpack_from('<I',converted,off)[0];struct.pack_into('<I',converted,off,(flags&~1024)|256|512)
                         for vi in range(3):
-                            x,y,z,_=struct.unpack_from('<3iI',converted,off+16+16*vi);u=np.clip((x/65536/100+.5)*(w-1)/2047,0,1);v=np.clip((z/65536/(100*h/w)+.5)*(h-1)/2047,0,1)
+                            x,y,z,_=struct.unpack_from('<3iI',converted,off+16+16*vi);u=np.clip((x/65536/world_width+.5)*(w-1)/2047,0,1);v=np.clip((z/65536/(world_width*h/w)+.5)*(h-1)/2047,0,1)
                             struct.pack_into('<I',converted,off+28+16*vi,int(round(u*65535))|(int(round(v*65535))<<16))
                     if kind=='model':modeldata=bytes(converted)
                     else:flatdata=bytes(converted)
@@ -136,15 +166,28 @@ def main():
             for entry in b['raw'].get('adc',[]):groups.setdefault(entry['point_index'],[]).append(entry)
             rows=[]
             for idx,entries in sorted(groups.items()):
-                xy=entries[0]['mechanical_mm'];p=spectrum_three([raw/e['path'] for e in entries])[0]
+                xy=entries[0]['mechanical_mm'];p=point_psd(idx,entries)
                 rows.append((xy,p))
-            avail=27 if processing and processing['ai_registration']['state']=='computed' else 11
+            avail=27 if processing and processing['ai_registration']['state'] in ('computed','initial_calibration') else 11
             if rows:
                 rows.sort(key=lambda r:(r[0][1],r[0][0]));coords=np.array([r[0] for r in rows],np.float32);psd=np.array([r[1] for r in rows],np.float32);nx=len(np.unique(coords[:,0]));ny=len(np.unique(coords[:,1]))
                 # Explicit millimetre world coordinates; no registration to RGB/model.
                 points=np.c_[coords,coords[:,0],coords[:,1],np.full(len(rows),np.nan)].astype(np.float32)
                 coords.astype('<f4').tofile(dest/'raw-dcdc-coordinates.f32');psd.astype('<f4').tofile(dest/'raw-dcdc-psd.f32');np.fft.rfftfreq(4096,1/50e6).astype('<f4').tofile(dest/'raw-dcdc-frequency.f32');avail|=4
-            (dest/'dcdc.flag').write_text('real raw replay or live USB\n')
+                from runtime.bands import UI_BANDS_HZ,band_key
+                by_index={int(p['index']):p['bands_rms_adc_codes'] for p in processing['modalities']['adc']['points']} if processing else None
+                if by_index is None:raise ValueError('source-bound band RMS outputs required')
+                ordered=sorted(groups.items(),key=lambda item:(item[1][0]['mechanical_mm'][1],item[1][0]['mechanical_mm'][0]))
+                rms=np.asarray([[by_index[idx][band_key(lo,hi)][0] for lo,hi in UI_BANDS_HZ] for idx,_ in ordered],'<f4')
+                rms.tofile(dest/'band-rms.f32')
+            if board=='dcdc':(dest/'dcdc.flag').write_text('real raw replay or live USB\n')
+            (dest/'capture-source.json').write_text(json.dumps({'board_id':board,'bundle':str(a.bundle.resolve()),'processing':str(a.processing.resolve()) if a.processing else None,'capture_id':capture},indent=2))
+        if avail&4 and not (dest/'band-rms.f32').exists():
+            from runtime.bands import UI_BANDS_HZ,band_key
+            if not processing:raise ValueError('source-bound RMS outputs required')
+            by_index={int(p['index']):p['bands_rms_adc_codes'] for p in processing['modalities']['adc']['points']}
+            ordered=sorted(groups.items(),key=lambda item:(item[1][0]['mechanical_mm'][1],item[1][0]['mechanical_mm'][0]))
+            np.asarray([[by_index[idx][band_key(lo,hi)][0] for lo,hi in UI_BANDS_HZ] for idx,_ in ordered],'<f4').tofile(dest/'band-rms.f32')
         for name,image in [('color',color),('gray',color.copy()),('line',color.copy()),('thermal',heat)]:
             if name=='gray':image[...,:3]=cv2.cvtColor(color[...,:3],cv2.COLOR_BGR2GRAY)[...,None]
             if name=='line':image[...,:3]=np.where(cv2.cvtColor(color[...,:3],cv2.COLOR_BGR2GRAY)[...,None]>100,230,20)

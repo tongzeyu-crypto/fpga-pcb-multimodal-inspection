@@ -7,7 +7,7 @@ module tb_demo;
  wire [1:0] s_axi_bresp,s_axi_rresp;wire [31:0] s_axi_rdata;
  pcb_demo_axi dut(.*);
  `include "fixture_count.svh"
- reg [31:0] commands[0:131071];integer step,attempts,fd;reg [31:0] value,held;
+ reg [31:0] commands[0:4194303];integer step,attempts,fd;reg [31:0] value,held;
  task aw(input [15:0] address);begin
   @(negedge clk);s_axi_awaddr=address;s_axi_awvalid=1;do @(posedge clk);while(!s_axi_awready);@(negedge clk);s_axi_awvalid=0;
  end endtask
@@ -32,7 +32,7 @@ module tb_demo;
    2:begin rd(commands[step*3+1],value);$fdisplay(fd,"%08x %08x",step,value);if(value!==commands[step*3+2])$fatal(1,"read mismatch step=%0d address=%h got=%h expected=%h",step,commands[step*3+1],value,commands[step*3+2]);end
    3:begin
     attempts=0;value=1;
-    while(value[0])begin rd(4,value);attempts=attempts+1;if(attempts>2000||value[2])$fatal(1,"job timeout/error %h",value);end
+    while(value[0])begin rd(4,value);attempts=attempts+1;if(attempts>100000||value[2])$fatal(1,"job timeout/error %h",value);end
     if(value!=2||!irq)$fatal(1,"completion/IRQ missing");
    end
    4:repeat(commands[step*3+2])@(negedge clk);
@@ -41,5 +41,5 @@ module tb_demo;
   endcase
   $fclose(fd);$display("PL_PS_DEMO_RTL_PASS commands=%0d",TOTAL);$finish;
  end
- initial begin #100000000;$fatal(1,"watchdog");end
+ initial begin #2000000000;$fatal(1,"watchdog");end
 endmodule

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "test": "production color decode/resize/shared-gray callback and self-registration",
+  "gray_callback_shapes": [
+    [
+      1267,
+      1600,
+      3
+    ],
+    [
+      1267,
+      1600,
+      3
+    ]
+  ],
+  "regions": 0,
+  "inliers": 1703,
+  "pl_device_used": false
+}

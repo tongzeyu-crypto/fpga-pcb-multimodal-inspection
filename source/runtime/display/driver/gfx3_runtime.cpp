@@ -177,6 +177,7 @@ struct Shared{
  FullDrag drag;std::string mouse_device,mouse_backend;uint64_t mouse_events=0,browser_events=0;
 };
 static void full_input_locked(Shared &s,int kind,int x,int y,int button,double wheel=0){
+ if(s.target.mode==16){std::ifstream f(full_for(s.target.raw_board)->demo_path);std::string magic;unsigned revision;int state,done,point,frames,total,live;double w,h,sx,sy,feed;if(f>>magic>>revision>>state>>done>>point>>frames>>total>>live>>w>>h>>sx>>sy>>feed&&magic=="PDPVIEW3"&&total>0&&total<=1024){s.target.demo_total=total;s.target.demo_active=state>=1&&state<=6;if(!s.target.scan_config_revision){s.target.scan_width=w;s.target.scan_height=h;s.target.scan_step_x=sx;s.target.scan_step_y=sy;s.target.scan_feed=feed;}}}
  auto &v=s.target;int dx=x-v.cursor_x,dy=y-v.cursor_y;v.cursor_x=std::max(0,std::min(1279,x));v.cursor_y=std::max(0,std::min(719,y));
  bool redraw=false,view_change=false;const auto &shown=s.have_displayed?s.displayed:v;
  if(kind==1){s.drag.start_x=x;s.drag.start_y=y;s.drag.total=0;
@@ -192,7 +193,7 @@ static void full_input_locked(Shared &s,int kind,int x,int y,int button,double w
   else if(s.drag.right&&(dx||dy)){gfx_pan(v.pose,dx,dy);redraw=view_change=true;}
  }else if(kind==2){
   if(button==0&&s.drag.left&&s.drag.total<=5){if(v.mode==12){if(shown.mode==12&&shown.aoi_run==full_for(v.raw_board)->aoi.run){int p=full_for(v.raw_board)->aoi.pick(shown,x,y);if(p>=0){v.aoi_selected=p;redraw=true;}}}
-   else{int p=full_for(v.raw_board)->pick(shown,x,y);if(p>=0){v.point=p;redraw=true;}double a[3];unsigned id=0;if(full_for(v.raw_board)->anchor(shown,x,y,a,&id))v.selected_component=id;}}
+   else{int p=full_for(v.raw_board)->pick(shown,x,y);if(p>=0){v.point=p;redraw=true;}double a[3];unsigned id=0;if(v.mode==14){full_for(v.raw_board)->temperature_image_pick(v,x,y);redraw=true;}else if(full_for(v.raw_board)->anchor(shown,x,y,a,&id)){v.selected_component=id;if(v.mode==0||v.mode==1)full_for(v.raw_board)->temperature_world_at(v,a[0],a[2]);redraw=true;}}}
   if(button==0){if(v.mode==13)v.raw_image=x>=610?1:0;else if(v.mode==14)v.raw_image=0;s.drag.left=false;s.drag.slider=0;}if(button==2||button==1)s.drag.right=false;
  }else if(kind==3&&wheel!=0&&v.mode!=15){
   if(v.mode==13||v.mode==14){int i=v.mode==13&&x>=610?1:0;v.raw_zoom[i]=std::max(1.,std::min(8.,v.raw_zoom[i]*std::exp(wheel*.12)));redraw=true;}
@@ -211,6 +212,9 @@ static bool send_all(int fd,const void *p,size_t n){auto b=static_cast<const cha
 static std::string full_app_json(const View &v){std::ostringstream s;s<<std::setprecision(12)
  <<"{\"sequence\":"<<v.sequence<<",\"mode\":"<<v.mode<<",\"base\":"<<v.base<<",\"heat\":"<<v.heat<<",\"emi\":"<<v.emi
  <<",\"demo_point\":"<<v.demo_point<<",\"demo_command\":"<<v.demo_command<<",\"demo_request\":"<<v.demo_request
+ <<",\"scan_config_revision\":"<<v.scan_config_revision<<",\"scan_config\":{\"width\":"<<v.scan_width<<",\"height\":"<<v.scan_height<<",\"step_x\":"<<v.scan_step_x<<",\"step_y\":"<<v.scan_step_y<<",\"feed\":"<<v.scan_feed<<"}"
+ <<",\"temperature_valid\":"<<(v.temperature_valid?"true":"false")<<",\"temperature_c\":"<<(v.temperature_valid?std::to_string(v.temperature_c):"null")<<",\"temperature_pl_c\":"<<(v.temperature_valid?std::to_string(v.temperature_pl_c):"null")
+ <<",\"raw_thermal_xy\":["<<v.temperature_x<<","<<v.temperature_y<<"],\"raw_kelvin16\":"<<v.temperature_kelvin16<<",\"temperature_board_xy\":["<<v.temperature_board_x<<","<<v.temperature_board_y<<"],\"data_revision\":"<<v.data_revision<<",\"capture_id\":\""<<v.data_capture<<"\""
  <<",\"emi_alpha\":"<<v.emi_alpha<<",\"relief\":"<<v.relief<<",\"band\":"<<v.band<<",\"scenario\":"<<v.scenario<<",\"point\":"<<v.point
  <<",\"points\":"<<v.points<<",\"components\":"<<v.components<<",\"hud\":"<<v.hud<<",\"autorotate\":"<<v.autorotate
  <<",\"cursor_visible\":"<<v.cursor_visible<<",\"cursor_x\":"<<v.cursor_x<<",\"cursor_y\":"<<v.cursor_y
@@ -237,8 +241,13 @@ static void http_client(Shared &shared,Jpeg &jpeg,int c){
    {std::lock_guard<std::mutex> g(jpeg.lock);im=jpeg.meta;serial=jpeg.serial;err=jpeg.error;}
    std::ostringstream s;s<<"{\"session_ns\":"<<jpeg.session<<",\"heartbeat_ns\":"<<now_ns()<<",\"metrics\":"<<m<<",\"image\":"<<im
     <<",\"jpeg_serial\":"<<serial<<",\"error\":\""<<err<<"\",\"render_error\":\""<<render_error<<"\",\"app\":"<<app<<",\"mouse\":{\"device\":\""<<device<<"\",\"backend\":\""<<backend<<"\",\"events\":"<<mouse_events<<"},\"browser_events\":"<<browser_events<<"}";body=s.str();
+  }else if(request.compare(0,16,"GET /temperature")==0){
+   double x,y;bool raw=request.compare(0,20,"GET /temperature/raw")==0;
+   int parsed=sscanf(request.c_str(),raw?"GET /temperature/raw?x=%lf&y=%lf":"GET /temperature?x=%lf&y=%lf",&x,&y);
+   if(parsed!=2||!std::isfinite(x)||!std::isfinite(y)||std::abs(x)>100000||std::abs(y)>100000){status=400;body="{\"error\":\"temperature coordinates required\"}";}
+   else{std::lock_guard<std::mutex>g(shared.lock);auto &v=shared.target;if(raw)full_for(v.raw_board)->temperature_raw_at(v,int(std::lround(x)),int(std::lround(y)));else full_for(v.raw_board)->temperature_board_at(v,x,y);v.sequence++;v.scene_revision++;body=full_app_json(v);if(!v.temperature_valid)status=422;}
   }else if(request.compare(0,13,"GET /spectrum")==0){
-   View v;{std::lock_guard<std::mutex> g(shared.lock);v=shared.target;}
+   std::lock_guard<std::mutex> g(shared.lock);View v=shared.target;
    if(!(full_for(v.raw_board)->available_modalities&4)){status=503;body="{\"state\":\"waiting for Zynq ADC\"}";}else{
    std::ostringstream s;s<<std::setprecision(8)<<"{\"synthetic\":false"<<",\"point\":"<<v.point<<",\"scenario\":"<<v.scenario<<",\"input_sequence\":"<<v.sequence
     <<",\"bin_count\":"<<full_for(v.raw_board)->meta[4]<<",\"df_hz\":"<<full_for(v.raw_board)->df<<",\"frequency_min_hz\":0,\"frequency_max_hz\":"<<full_for(v.raw_board)->frequency_max*1e6<<",\"temperature_c\":";
@@ -247,7 +256,7 @@ static void http_client(Shared &shared,Jpeg &jpeg,int c){
   }else if(request.compare(0,9,"POST /app")==0&&split!=std::string::npos&&request.size()>=split+4+length){
    std::istringstream in(request.substr(split+4,length));std::vector<std::pair<std::string,double>> actions;std::string key;double value;
    bool complete=true;while(in>>key){if(!(in>>value)){complete=false;break;}actions.push_back({key,value});if(actions.size()>32)break;}bool good=complete&&in.eof()&&!actions.empty()&&actions.size()<=32;
-   {std::lock_guard<std::mutex>g(shared.lock);View next=shared.target;for(auto &a:actions){if(a.first=="focus")good=good&&full_for(next.raw_board)->focus(next,next.selected_component);else if(!full_action(next,a.first,a.second,full_for(next.raw_board)->points.size()))good=false;}
+   {std::lock_guard<std::mutex>g(shared.lock);View next=shared.target;for(auto &a:actions){if(a.first=="focus")good=good&&full_for(next.raw_board)->focus(next,next.selected_component);else if(!full_action(next,a.first,a.second,full_for(next.raw_board)->points.size(),true))good=false;}good=good&&full_scan_grid_valid(next);
     if(good&&!shared.benchmark){if(next.cursor_visible!=shared.target.cursor_visible)next.cursor_revision++;next.view_revision++;next.scene_revision++;next.menu_revision++;next.sequence=shared.target.sequence+1;next.received=now_ns();shared.target=next;shared.browser_events++;body=full_app_json(next);}else{status=400;body="{\"error\":\"invalid application action\"}";}}
   }else if(request.compare(0,13,"POST /pointer")==0&&split!=std::string::npos&&request.size()>=split+4+length){
    int kind,x,y,button;double wheel;std::string extra_input;std::istringstream in(request.substr(split+4,length));in>>kind>>x>>y>>button>>wheel;
@@ -333,8 +342,8 @@ int main(int argc,char **argv){
   if(argc==3&&std::string(argv[1])=="--aoi-self-test")return full_aoi_self_test(argv[2]);
   if(argc==2&&std::string(argv[1])=="--probe"){int f=open("/dev/pcb-gfx3",O_RDWR|O_CLOEXEC);if(f<0)fail("open graphics probe");gfx3_caps c={};if(ioctl(f,GFX3_CAPS,&c))fail("caps probe");std::cout<<"{\"abi\":"<<c.abi<<",\"source_tag\":"<<c.reserved[0]<<",\"faulted\":"<<c.faulted<<",\"allocated_bytes\":"<<c.allocated_bytes<<",\"last_sequence\":"<<c.reserved[1]<<"}"<<std::endl;close(f);return c.faulted?1:0;}
   if(argc<2)throw std::runtime_error("usage: gfx3_runtime ASSET_DIR --tag TAG [--benchmark N --warmup 60 --present 1 --preview 1 --port 8686 --log PREFIX]");
-  std::string root=argv[1],prefix=root+"/run",mouse="auto",aoi_root=root+"/aoi-display",ai_model;unsigned tag=0;bool tag_set=false;int start_board=1,benchmark=0,warmup=60,present=1,preview=1,port=8686,seconds=0,release_assets=0,single_plane=1;
-  for(int a=2;a+1<argc;a+=2){std::string k=argv[a];if(k=="--single-plane")single_plane=atoi(argv[a+1]);else if(k=="--ai-model")ai_model=argv[a+1];else if(k=="--tag"){tag=strtoul(argv[a+1],nullptr,0);tag_set=true;}else if(k=="--board")start_board=atoi(argv[a+1]);else if(k=="--benchmark")benchmark=atoi(argv[a+1]);else if(k=="--warmup")warmup=atoi(argv[a+1]);else if(k=="--present")present=atoi(argv[a+1]);else if(k=="--preview")preview=atoi(argv[a+1]);else if(k=="--port")port=atoi(argv[a+1]);else if(k=="--seconds")seconds=atoi(argv[a+1]);else if(k=="--log")prefix=argv[a+1];else if(k=="--mouse")mouse=argv[a+1];else if(k=="--aoi"){if(std::string(argv[a+1])!=root+"/aoi-display")throw std::runtime_error("external AOI directory rejected; use fresh source-bound output");aoi_root=argv[a+1];}else if(k=="--release-assets")release_assets=atoi(argv[a+1]);else throw std::runtime_error("unknown option");}
+  std::string root=argv[1],prefix=root+"/run",mouse="auto",aoi_root=root+"/aoi-display",ai_model,demo_control;unsigned tag=0;bool tag_set=false;int start_board=1,benchmark=0,warmup=60,present=1,preview=1,port=8686,seconds=0,release_assets=0,single_plane=1;
+  for(int a=2;a+1<argc;a+=2){std::string k=argv[a];if(k=="--demo-control")demo_control=argv[a+1];else if(k=="--single-plane")single_plane=atoi(argv[a+1]);else if(k=="--ai-model")ai_model=argv[a+1];else if(k=="--tag"){tag=strtoul(argv[a+1],nullptr,0);tag_set=true;}else if(k=="--board")start_board=atoi(argv[a+1]);else if(k=="--benchmark")benchmark=atoi(argv[a+1]);else if(k=="--warmup")warmup=atoi(argv[a+1]);else if(k=="--present")present=atoi(argv[a+1]);else if(k=="--preview")preview=atoi(argv[a+1]);else if(k=="--port")port=atoi(argv[a+1]);else if(k=="--seconds")seconds=atoi(argv[a+1]);else if(k=="--log")prefix=argv[a+1];else if(k=="--mouse")mouse=argv[a+1];else if(k=="--aoi"){if(std::string(argv[a+1])!=root+"/aoi-display")throw std::runtime_error("external AOI directory rejected; use fresh source-bound output");aoi_root=argv[a+1];}else if(k=="--release-assets")release_assets=atoi(argv[a+1]);else throw std::runtime_error("unknown option");}
   if(single_plane!=0&&single_plane!=1)throw std::runtime_error("invalid single plane option");
   if(release_assets!=0&&release_assets!=1)throw std::runtime_error("invalid asset release option");
   if(release_assets&&root!="/tmp/pcb-hdmi-aoi-v4i/assets"&&root!="/dev/pcb-fusion/pcb-hdmi-aoi-v4i/assets")throw std::runtime_error("asset release limited to a dedicated temporary directory");
@@ -399,10 +408,34 @@ int main(int argc,char **argv){
   std::string aoi_loaded;BO aoi_texture;
   std::deque<uint64_t> render_events,present_events;
   AsyncLog log(prefix+"-frames.jsonl"),monitor(prefix+"-memory.log");AsyncSnapshot metric_file(prefix+"-metrics.json");gfx3_result latest={};View latest_view;Flight last_frame;bool have_frame=false;
+  std::unique_ptr<AsyncSnapshot> demo_state;if(!demo_control.empty())demo_state.reset(new AsyncSnapshot(demo_control));
+  int demo_seen_config=-1,demo_seen_command=-1,demo_seen_request=-1,demo_seen_mode=-1,demo_seen_board=-1,demo_seen_point=-1;
+  uint64_t demo_poll=0;unsigned demo_revision=~0u;int demo_board=-1;
   while(alive){
    bool did=false;View target;bool quiet,quiet_active;
    {std::lock_guard<std::mutex> g(shared.lock);auto tick=now_ns();if(shared.target.autorotate&&!shared.quiet_request){if(tick>rotation_time){shared.target.pose.yaw+=.25*(tick-rotation_time)*1e-9;shared.target.view_revision++;shared.target.sequence++;shared.target.received=tick;rotation_time=tick;}}else rotation_time=tick;target=shared.target;quiet=shared.quiet_request;quiet_active=shared.quiet_active;}
    FullScene &scene=*full_for(target.raw_board);
+   {std::lock_guard<std::mutex>g(shared.lock);if(shared.target.raw_board!=target.raw_board)continue;
+    if(scene.poll_scan()){shared.target.point=std::min(shared.target.point,int(scene.points.size())-1);shared.target.data_revision++;shared.target.sequence++;shared.target.scene_revision++;shared.target.view_revision++;texture_generation++;}
+    shared.target.data_capture=scene.capture_identity;
+    if(shared.target.temperature_peak){scene.temperature_raw_at(shared.target,scene.peak_x,scene.peak_y);shared.target.temperature_peak=0;shared.target.sequence++;shared.target.scene_revision++;}
+    target=shared.target;
+   }
+   if(demo_state){
+    if(target.scan_config_revision!=demo_seen_config||target.demo_command!=demo_seen_command||target.demo_request!=demo_seen_request||target.mode!=demo_seen_mode||target.raw_board!=demo_seen_board||target.demo_point!=demo_seen_point){
+     std::ostringstream state;state<<"{\"session_ns\":"<<jpeg.session<<",\"demo_command\":"<<target.demo_command<<",\"demo_request\":"<<target.demo_request<<",\"mode\":"<<target.mode<<",\"raw_board\":"<<target.raw_board<<",\"demo_point\":"<<target.demo_point<<",\"scan_config_revision\":"<<target.scan_config_revision<<",\"scan_config\":{\"width\":"<<target.scan_width<<",\"height\":"<<target.scan_height<<",\"step_x\":"<<target.scan_step_x<<",\"step_y\":"<<target.scan_step_y<<",\"feed\":"<<target.scan_feed<<"}}";demo_state->publish(state.str());demo_seen_config=target.scan_config_revision;
+     demo_seen_command=target.demo_command;demo_seen_request=target.demo_request;demo_seen_mode=target.mode;demo_seen_board=target.raw_board;demo_seen_point=target.demo_point;
+    }
+    auto tick=now_ns();if(target.mode==16&&tick-demo_poll>=100000000ULL){
+     demo_poll=tick;std::ifstream snapshot(scene.demo_path);std::string magic;unsigned revision;
+     if(snapshot>>magic>>revision&&magic=="PDPVIEW3"&&(revision!=demo_revision||demo_board!=target.raw_board)){
+      scene.demo.refresh(scene.demo_path);if(scene.demo.available&&scene.demo.revision==revision){
+       demo_revision=revision;demo_board=target.raw_board;std::lock_guard<std::mutex>g(shared.lock);
+       if(shared.target.mode==16&&shared.target.raw_board==target.raw_board){shared.target.demo_total=scene.demo.total;shared.target.demo_active=scene.demo.state>=1&&scene.demo.state<=6;shared.target.sequence++;shared.target.received=tick;shared.target.view_revision++;target=shared.target;}
+      }
+     }
+    }
+   }
    jpeg.pause(quiet);
    for(auto &f:flights){
     gfx3_result r={};r.sequence=f.job.sequence;
@@ -517,10 +550,10 @@ int main(int argc,char **argv){
        // Raw pages already contain their own complete UI in PL commands.
        if(build_view.mode<13)scene.hud(d,build_view,mouse_device,0,false);
        d.commands.push_back(gfx_command{});
-       bool unchanged=last_ui_layer&&d.commands.size()==last_ui_commands.size()&&!memcmp(d.commands.data(),last_ui_commands.data(),d.commands.size()*sizeof(gfx_command));
+       bool unchanged=last_ui_pixels&&d.commands.size()==last_ui_commands.size()&&!memcmp(d.commands.data(),last_ui_commands.data(),d.commands.size()*sizeof(gfx_command));
        if(!unchanged){int32_t identity[12]={};ui_reference->render(d.commands,identity,build_view);
         last_ui_pixels=std::make_shared<std::vector<uint32_t>>(ui_reference->pixels);
-        last_ui_layer=allocate(GFX3_FRAME,1280*720*4);memcpy(last_ui_layer->map,last_ui_pixels->data(),1280*720*4);last_ui_commands=std::move(d.commands);
+        if(!single_plane){last_ui_layer=allocate(GFX3_FRAME,1280*720*4);memcpy(last_ui_layer->map,last_ui_pixels->data(),1280*720*4);}last_ui_commands=std::move(d.commands);
        }
        entry.ui=last_ui_pixels;entry.layer=last_ui_layer;
       }
@@ -572,7 +605,7 @@ int main(int argc,char **argv){
         if(ai_frame->generate(static_cast<const uint32_t*>(frames[front]->map),static_cast<const uint16_t*>(depths[front]->map),static_cast<const uint16_t*>(objects[front]->map),last_frame.job.matrix,matrix,last_frame.job.sequence,pixels)){
          // Composite the current UI independently. Hardware cursor remains a
          // separate scanout plane; picking stays bound to shared.displayed.
-         for(size_t i=0;i<pixels.size();i++){uint32_t ui=(*f.ui)[i],dst=pixels[i],out=0xff000000;unsigned a=ui>>24;for(int c=0;c<3;c++){unsigned v=((ui>>(8*c))&255)+((((dst>>(8*c))&255)*(255-a)+127)/255);out|=std::min(255u,v)<<(8*c);}pixels[i]=out;}
+         NativeFrameSynth::overlay_ui(pixels,*f.ui);
          if(single_plane){
           // Keep the real RGB/depth/ID buffers immutable. Upload the prepared
           // intermediate to its own texture and let PL blit/present a separate
@@ -587,10 +620,7 @@ int main(int argc,char **argv){
            gfx3_seal seal={ai_commands->u.handle,uint32_t(draw.commands.size()),0,0};if(ioctl(fd,GFX3_SEAL,&seal))fail("seal intermediate frame");
           }
           auto tiled=static_cast<uint32_t*>(ai_texture->map);
-          for(unsigned y=0;y<720;y++)for(unsigned x=0;x<1280;x++){
-           size_t offset=((y/4)*160+x/8)*32+(y%4/2)*16+(x%8/2)*4+(y%2)*2+x%2;
-           tiled[offset]=pixels[y*1280+x];
-          }
+          NativeFrameSynth::tile_display(pixels,tiled);
           gfx3_job intermediate=j;intermediate.sequence=sequence++;
           intermediate.source_generation=0x80000000U|uint32_t(intermediate.sequence);
           intermediate.commands=ai_commands->u.handle;intermediate.command_count=3;
@@ -605,11 +635,11 @@ int main(int argc,char **argv){
            if(!shown.presented)std::this_thread::sleep_for(std::chrono::milliseconds(1));
           }while(!shown.presented);
           j.sequence=sequence;
-          log<<"{\"event\":\"synthetic_display_submitted\",\"display_path\":\"single_plane_pl_blit\",\"picking_real_frame\":"<<last_frame.job.sequence<<",\"display_sequence\":"<<intermediate.sequence<<",\"blend_mean\":"<<ai_frame->blend_mean<<",\"neural_changed_pixels\":"<<ai_frame->changed_pixels<<",\"coverage\":"<<ai_frame->coverage<<",\"prepare_ns\":"<<now_ns()-begin<<",\"measurement_input\":false,\"pl_task\":2}\n";log.flush();
+          log<<"{\"event\":\"synthetic_display_submitted\",\"display_path\":\"single_plane_pl_blit\",\"picking_real_frame\":"<<last_frame.job.sequence<<",\"display_sequence\":"<<intermediate.sequence<<",\"blend_mean\":"<<ai_frame->blend_mean<<",\"neural_changed_pixels\":"<<ai_frame->changed_pixels<<",\"coverage\":"<<ai_frame->coverage<<",\"project_ns\":"<<ai_frame->project_ns<<",\"feature_ns\":"<<ai_frame->feature_ns<<",\"fallback_ns\":"<<ai_frame->fallback_ns<<",\"quantize_ns\":"<<ai_frame->quantize_ns<<",\"infer_ns\":"<<ai_frame->infer_ns<<",\"compose_ns\":"<<ai_frame->compose_ns<<",\"prepare_ns\":"<<now_ns()-begin<<",\"measurement_input\":false,\"pl_task\":2}\n";log.flush();
          }else{
           auto layer=allocate(GFX3_FRAME,1280*720*4);memcpy(layer->map,pixels.data(),pixels.size()*4);
           gfx3_layer show={layer->u.handle,1,0,0};if(ioctl(fd,GFX3_LAYER,&show)==0){ai_display_layer=layer;
-           log<<"{\"event\":\"synthetic_display_submitted\",\"picking_real_frame\":"<<last_frame.job.sequence<<",\"blend_mean\":"<<ai_frame->blend_mean<<",\"neural_changed_pixels\":"<<ai_frame->changed_pixels<<",\"coverage\":"<<ai_frame->coverage<<",\"prepare_ns\":"<<now_ns()-begin<<",\"measurement_input\":false,\"pl_task\":2}\n";log.flush();}
+           log<<"{\"event\":\"synthetic_display_submitted\",\"picking_real_frame\":"<<last_frame.job.sequence<<",\"blend_mean\":"<<ai_frame->blend_mean<<",\"neural_changed_pixels\":"<<ai_frame->changed_pixels<<",\"coverage\":"<<ai_frame->coverage<<",\"project_ns\":"<<ai_frame->project_ns<<",\"feature_ns\":"<<ai_frame->feature_ns<<",\"fallback_ns\":"<<ai_frame->fallback_ns<<",\"quantize_ns\":"<<ai_frame->quantize_ns<<",\"infer_ns\":"<<ai_frame->infer_ns<<",\"compose_ns\":"<<ai_frame->compose_ns<<",\"prepare_ns\":"<<now_ns()-begin<<",\"measurement_input\":false,\"pl_task\":2}\n";log.flush();}
          }
         }
        }
@@ -637,7 +667,7 @@ int main(int argc,char **argv){
      metric_file.publish(text);}
    }
    if((expired||(benchmark&&submitted==uint64_t(benchmark+warmup)))&&flights.empty())break;
-   if(!did)usleep(1000);
+   if(!did)usleep(flights.empty()&&!target.autorotate?5000:1000);
   }
   alive=false;server.join();gfx3_quiet q={1,0,10000000000ULL};ioctl(fd,GFX3_QUIET,&q);
   if(have_frame&&q.active){

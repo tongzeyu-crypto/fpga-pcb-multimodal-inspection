@@ -17,7 +17,12 @@ def main():
     parser.add_argument('--state', type=Path, default=Path('/tmp/pcb-board-demo'))
     parser.add_argument('--tag', required=True)
     parser.add_argument('--port', type=int, default=8686)
+    parser.add_argument('--board',type=int,choices=[0,1],default=1)
+    parser.add_argument('--live-scan',action='store_true')
+    parser.add_argument('--motion-config',type=Path)
+    parser.add_argument('--capture-index',type=Path)
     args = parser.parse_args()
+    if args.live_scan and not args.motion_config:parser.error('live scan requires calibrated motion configuration')
     if platform.system() != 'Linux' or not platform.machine().startswith('arm'):
         parser.error('board demo requires ARM Linux and actual PL devices')
     display, state = args.display.resolve(), args.state.resolve()
@@ -25,7 +30,7 @@ def main():
         parser.error('display snapshots and runtime state must be in /tmp RAM storage')
     if not (display/'generation.json').is_file():
         parser.error('source-recomputed display assets required')
-    if not Path('/dev/pcb_ai').exists() or not Path('/dev/pcb-gfx3').exists():
+    if not all(Path(p).exists() for p in ['/dev/pcb_ai','/dev/pcb-gfx3','/dev/pcb_demo']):
         parser.error('matching PL design, device tree and drivers must be loaded first')
     state.mkdir(parents=True, exist_ok=True)
     stopped = threading.Event()
@@ -34,20 +39,26 @@ def main():
     children = []
     try:
         with (state/'native.log').open('wb') as native_log, (state/'scan.log').open('wb') as scan_log:
+            control=state/'demo-control.json'
+            if control.exists():control.unlink()
             native = subprocess.Popen([
                 str(ROOT/'bin/hdmi_full_runtime'), str(display), '--tag', args.tag,
-                '--board', '1', '--single-plane', '1', '--port', str(args.port),
+                '--board',str(args.board),'--single-plane','1','--port',str(args.port),
                 '--log', str(state/'native'), '--release-assets', '0',
-                '--ai-model', str(ROOT/'models/frame/model.pai')],
+                '--ai-model', str(ROOT/'models/frame/model.pai'),
+                '--demo-control', str(control)],
                 stdout=native_log, stderr=subprocess.STDOUT)
             children.append(native)
-            scan = subprocess.Popen([
-                sys.executable or '/usr/bin/python3', '-m', 'runtime.demo_board', '--replay',
+            scan_command=[
+                sys.executable or '/usr/bin/python3', '-m', 'runtime.demo_board',
                 '--display', str(display), '--output', str(state/'scan-sessions'),
-                '--port', str(args.port)], cwd=str(ROOT),
+                '--port',str(args.port),'--control',str(control),'--board',str(args.board)]
+            if args.live_scan:scan_command+=['--live-scan','--motion-config',str(args.motion_config.resolve())]
+            if args.capture_index:scan_command+=['--capture-index',str(args.capture_index.resolve())]
+            scan = subprocess.Popen(scan_command,cwd=str(ROOT),
                 stdout=scan_log, stderr=subprocess.STDOUT)
             children.append(scan)
-            print('BOARD_DEMO native_PL_AI=true scan_motion=simulated storage=RAM', flush=True)
+            print('BOARD_DEMO native_PL_AI=true live_scan='+str(args.live_scan)+' storage=RAM',flush=True)
             while not stopped.wait(.25):
                 if native.poll() is not None:
                     if native.returncode:

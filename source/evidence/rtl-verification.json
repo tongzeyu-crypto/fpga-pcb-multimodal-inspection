@@ -88,7 +88,7 @@
         80
       ],
       "output_elements": 14400,
-      "expected_sha256": "75fff8fba5b40de207c29506910607442f07dbe9db06b29e6a5ce19a9a4fa30d"
+      "expected_sha256": "aa81fed71aa2d3214088005343adc75629a48e76d928169132bd6d5266a542d1"
     },
     {
       "name": "frame/1",
@@ -103,7 +103,7 @@
         80
       ],
       "output_elements": 3600,
-      "expected_sha256": "cdb27772d492f90124e5c10cde55e7f421fcb31d86a737a224d9c2337c62a2e9"
+      "expected_sha256": "ff4b5f06947fe17ef5bfa01dc0c56766bbf50e057a46e9d17474b4f8ca85facf"
     },
     {
       "name": "edge/0",
@@ -157,8 +157,8 @@
     "models/registration/int8.npz": "97725bdfc2a0426de7358d981cf98eb697583e057d2a7ae1c32ee255960ecd73",
     "models/registration/model.json": "4bd5b32e0cf647b0574ff14af817ba9c3a3a0588da1dda5cc2c58ef86867da4f",
     "models/registration/validation-inputs.npz": "0d45ca37b52213f8205be68af45e7350668aaf9dd851a864746e259051c92f85",
-    "models/frame/int8.npz": "3a0bd7bd989c22c8e8cc035a8dade86d4c3b26a382c594e5e5d72e0fae453864",
-    "models/frame/model.json": "c53cd76ee5c382b09fbd3e1af65dce12869cd29bd6766f382002e68ccfd5b47e",
-    "models/frame/validation-inputs.npz": "12236f2bb65cdecb8ba6acb6fdd2ab42fdb84edf0922d26713ba036cc98c6302"
+    "models/frame/int8.npz": "07e475605c45dcfd2ae5270e87022a1d2fae6f471c2dc87b71b6f03f2fe0d3a1",
+    "models/frame/model.json": "d860c6b5b3026cb1517c58b6e84af5d93674af50c497e1f0ebf0dd6da6368951",
+    "models/frame/validation-inputs.npz": "daa9dcf8e177cbd0ee3766823b064ba49a501398d5c293f71c85b14e16a4c49e"
   }
 }

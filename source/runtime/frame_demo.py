@@ -1,6 +1,6 @@
 """One-click, actual INT8 neural frame generation in the offline main UI."""
 from pathlib import Path
-import hashlib, json, subprocess, threading, time
+import hashlib, json, subprocess, threading, time, shutil
 import cv2
 import numpy as np
 from .neural_frames import NativeRenderer, render_pair, read_rgb
@@ -43,7 +43,8 @@ class NeuralFrameDemo:
     def _run(self,mode):
         try:
             folder=self.work/self.record['run_id'];folder.mkdir()
-            model=ROOT/'models/frame/model.pai'
+            model=folder/'model.pai'
+            for suffix in ('','.kind','.scale','.sha256'):shutil.copyfile(str(ROOT/'models/frame/model.pai')+suffix,str(model)+suffix)
             expected=(model.with_suffix('.pai.sha256')).read_text().split()[0]
             if hashlib.sha256(model.read_bytes()).hexdigest()!=expected:raise ValueError('neural model hash mismatch')
             with NativeRenderer(ROOT/'bin/demo_reference.exe',self.assets,folder/'render') as engine:
@@ -55,6 +56,7 @@ class NeuralFrameDemo:
                     process=subprocess.run([str(ROOT/'bin/neural_frame_tool.exe'),'generate',str(model),str(source),str(truth),str(prefix)],capture_output=True,check=True,timeout=20)
                     stats=json.loads(process.stdout)
                     if not stats['network_participated'] or not stats['soft_blended_pixels']:raise RuntimeError('network did not participate in RGB generation')
+                    alpha=np.fromfile(str(prefix)+'.alpha-full.u8',np.uint8).reshape(720,1280)
                     original=read_rgb(str(source)+'.argb');reference=read_rgb(str(truth)+'.argb');warped=read_rgb(str(prefix)+'.warp.argb');neural=read_rgb(str(prefix)+'.neural.argb')
                     # The native UI header is a separate display layer. Reuse
                     # that unchanged source UI, never the target scene pixels.
@@ -67,7 +69,7 @@ class NeuralFrameDemo:
                     engine.command(f'app raw_board 1 mode {mode} hud 0 cursor_visible 0 points 0 base 1 polar .9 yaw {yaw+.02}')
                     final=read_rgb(str(engine.prefix)+'.argb')
                     with self.lock:
-                        for kind,image in [('source',original),('neural',neural),('truth',reference),('warp',warped),('final',final),('difference',cv2.applyColorMap(np.minimum(difference*6,255).astype(np.uint8),cv2.COLORMAP_TURBO))]:
+                        for kind,image in [('source',original),('neural',neural),('truth',reference),('warp',warped),('final',final),('weights',cv2.applyColorMap(alpha,cv2.COLORMAP_TURBO)),('difference',cv2.applyColorMap(np.minimum(difference*6,255).astype(np.uint8),cv2.COLORMAP_TURBO))]:
                             self._save_image(f'{kind}-{i}',image,folder)
                         self.record['cases'].append(stats)
                         self.record['frames'] += [dict(image=f'source-{i}',kind='完整渲染',yaw=yaw),dict(image=f'neural-{i}',kind='神经生成过渡帧',yaw=yaw+.01),dict(image=f'final-{i}',kind='完整渲染',yaw=yaw+.02)]

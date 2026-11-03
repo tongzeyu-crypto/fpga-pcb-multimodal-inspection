@@ -1,0 +1,8 @@
+{
+  "dcdc": {
+    "bundle": "data/raw/dcdc.bundle.json"
+  },
+  "stm32": {
+    "bundle": "data/raw/stm32.bundle.json"
+  }
+}

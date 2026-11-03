@@ -4,7 +4,7 @@
   "task": "frame",
   "task_id": 2,
   "input_scale": 0.0078125,
-  "output_scale": 0.0625,
+  "output_scale": 0.03125,
   "input_shape": [
     4,
     45,
@@ -19,9 +19,9 @@
       "stride": 1,
       "padding": 1,
       "relu": true,
-      "shift": 8,
+      "shift": 9,
       "input_scale": 0.0078125,
-      "weight_scale": 0.015625,
+      "weight_scale": 0.0078125,
       "output_scale": 0.03125,
       "weight_key": "w0",
       "bias_key": "b0"
@@ -36,20 +36,20 @@
       "relu": false,
       "shift": 7,
       "input_scale": 0.03125,
-      "weight_scale": 0.015625,
-      "output_scale": 0.0625,
+      "weight_scale": 0.0078125,
+      "output_scale": 0.03125,
       "weight_key": "w1",
       "bias_key": "b1"
     }
   ],
   "arithmetic": "int32 wrap accumulation; arithmetic right shift; int8 saturation; GAP truncates toward zero",
-  "weights_sha256": "3a0bd7bd989c22c8e8cc035a8dade86d4c3b26a382c594e5e5d72e0fae453864",
+  "weights_sha256": "07e475605c45dcfd2ae5270e87022a1d2fae6f471c2dc87b71b6f03f2fe0d3a1",
   "purpose": "NEURAL_PIXEL_FUSION_V1",
   "feature_semantics": [
-    "hole_fraction",
+    "motion_x",
+    "motion_y",
     "depth_edge",
-    "candidate_rgb_difference",
-    "motion_magnitude"
+    "valid_fraction"
   ],
-  "output_semantics": "logits of candidate-B RGB fusion weight; sigmoid and integer RGB mixing on PS"
+  "output_semantics": "alpha_R = sigmoid(-raw_logit); alpha_R*reprojected + (1-alpha_R)*previous"
 }

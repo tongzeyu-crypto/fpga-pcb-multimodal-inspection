@@ -1,0 +1,250 @@
+{
+  "passed": true,
+  "verification_scope": "source integration and offline validation; deployment and physical acceptance pending",
+  "report_path": "C:\\Users\\admin\\Desktop\\技术文档2.docx",
+  "report_sha256": "c04c82d802b4e13f40b98bedae7c95b324fa4e89f125be5fc53803b3007d1e0c",
+  "report_bytes": 6935108,
+  "report_modified": false,
+  "requirements": [
+    {
+      "id": "PL_SPECTRUM",
+      "paragraphs": [
+        30,
+        43,
+        46
+      ],
+      "required": "PL phase/integrity check, dual channels time-sharing one Hann4096 FFT, three-frame PSD, five band RMS",
+      "source_implemented": true,
+      "source_sha256": {
+        "demo/rtl/pcb_demo_core.sv": "4d73abe75b9286eb16bd1ffdb27a3a11b846d02b504afef67a820f0e667e2ee9",
+        "demo/rtl/pcb_scalar.sv": "cea07de7ceda040595731328253c832fb7a4905ed82727913f951d6015de362f",
+        "runtime/pl_compute.cpp": "7a5974ebc6ef7f631085c6f1d68b347a0888a8231b91c8964bd1926fe3ae19c9",
+        "runtime/pdp_device.hpp": "e0dfd644415515223743bd98453e1ef90839e499846913ee26c6dcb078a0c8f2",
+        "runtime/compute_backend.py": "7baab5272260923380de5a418e74b150ecbfec7652114ee5870e766e6c3cdfea",
+        "runtime/service.py": "d125bf4a87d9d9169a3b324b08033f04f882f7833cfcf9dafcdb2ebf417fc0fc",
+        "tools/build_display_assets.py": "ff029d3a6b5b7d01ff3099856d3695c2cd36f451444f4c443cde7e6f8b14f486"
+      }
+    },
+    {
+      "id": "PL_THERMAL",
+      "paragraphs": [
+        30,
+        61
+      ],
+      "required": "PL full temperature plane, extrema, hotspot count and pseudocolor",
+      "source_implemented": true,
+      "source_sha256": {
+        "demo/rtl/pcb_demo_core.sv": "4d73abe75b9286eb16bd1ffdb27a3a11b846d02b504afef67a820f0e667e2ee9",
+        "runtime/pl_image.cpp": "360f90f30d661f1932732d59f482e29862a8aa30ca07b55c66c03a18930f90ef",
+        "runtime/compute_backend.py": "7baab5272260923380de5a418e74b150ecbfec7652114ee5870e766e6c3cdfea",
+        "runtime/service.py": "d125bf4a87d9d9169a3b324b08033f04f882f7833cfcf9dafcdb2ebf417fc0fc",
+        "tools/build_display_assets.py": "ff029d3a6b5b7d01ff3099856d3695c2cd36f451444f4c443cde7e6f8b14f486"
+      }
+    },
+    {
+      "id": "PL_IMAGE",
+      "paragraphs": [
+        61,
+        70
+      ],
+      "required": "PL resize, Gaussian3x3, Sobel, parameterized normalization, difference, threshold and morphology",
+      "source_implemented": true,
+      "source_sha256": {
+        "demo/rtl/pcb_demo_core.sv": "4d73abe75b9286eb16bd1ffdb27a3a11b846d02b504afef67a820f0e667e2ee9",
+        "runtime/pl_image.cpp": "360f90f30d661f1932732d59f482e29862a8aa30ca07b55c66c03a18930f90ef",
+        "runtime/compute_backend.py": "7baab5272260923380de5a418e74b150ecbfec7652114ee5870e766e6c3cdfea",
+        "runtime/registration.py": "c6db620213c9a21be7d5ead552bea0cf2df1027c2bad149672110d93286e4b87",
+        "runtime/aoi_rules.py": "18ee9fc2c1ae5fccce860503005853e20582ab1f9a4c9d44590304d660ffddc9",
+        "runtime/aoi_annotation.py": "16fdf3281e9632f09db43aa48c10dea6263d06c65c795c8902032eff0da6a18a",
+        "resources/annotations/dcdc.json": "164a65df789035795ea4975a94a2c0636aa31cd0c71c5f407f650d9a71ab124f",
+        "resources/annotations/stm32.json": "d9832a50c89ccf880a927874f9aabc44cf22c63bd29934b286cab6bcb1ae5850",
+        "rtl/pcb_ai_core.sv": "9387139b50e8e7d59fe5d9409dd50f49def4af2d122f76e9dad4af7d084346c6",
+        "models/registration/model.json": "4bd5b32e0cf647b0574ff14af817ba9c3a3a0588da1dda5cc2c58ef86867da4f",
+        "models/registration/int8.npz": "97725bdfc2a0426de7358d981cf98eb697583e057d2a7ae1c32ee255960ecd73"
+      }
+    },
+    {
+      "id": "FRAME_FUSION",
+      "paragraphs": [
+        15,
+        65,
+        66,
+        95,
+        98
+      ],
+      "required": "80x45x4, 4->4->1, alpha_R R+(1-alpha_R)P, bilinear weights, previous-frame holes and state invalidation",
+      "source_implemented": true,
+      "source_sha256": {
+        "runtime/display/driver/full_ai_frame.h": "abc73bf0cfb09dc90af40c20168b071742cc54a2202c5e3658027a681a741e06",
+        "runtime/display/driver/gfx3_runtime.cpp": "6ae8779689caacef84fd0a15fc9420dc80fa8556bcba42a0d9f4bd2c4f9a0316",
+        "runtime/frame_demo.py": "7ff901d66868f034c5deb7f7001a3bd88695e9d474958edcf9c5cea1444d0e1a",
+        "runtime/demo_preview.html": "e8df3c7f8b3740748bb77d956466b523f55cb6b363e621e67051d1e4d946c6d5",
+        "models/frame/model.json": "d860c6b5b3026cb1517c58b6e84af5d93674af50c497e1f0ebf0dd6da6368951",
+        "models/frame/model.pai": "8793788510c5ade83a2c4d544119a567e62efc089fe992061acc530d6ac018a6",
+        "models/frame/int8.npz": "07e475605c45dcfd2ae5270e87022a1d2fae6f471c2dc87b71b6f03f2fe0d3a1",
+        "tools/train_neural_frame.py": "f1aa6928dfb266bc73748f6e7f79e4042ab187c1ab59d67aa9e900c8b2243598"
+      }
+    },
+    {
+      "id": "PS_SCAN",
+      "paragraphs": [
+        28,
+        38,
+        72
+      ],
+      "required": "fresh actual Idle/position, 0.5 second settle, three ADC frames and association, cancel/fault stop",
+      "source_implemented": true,
+      "source_sha256": {
+        "demo/runtime/scan_demo.py": "56c99aa05942903fcc5b9d3028cac97b809fb18dcb6a21a5d2f22a87848e0542",
+        "runtime/grbl_control.c": "54bd44aa3922d01de574bd2817cd7a8b85788773378f01f873dc90bf5d333873",
+        "runtime/grbl_guard.h": "ee6a500b880befcdbbf78d2fd2f660f105895583ac5b7985e96b55daab389464",
+        "runtime/motion.py": "74ea0120609d8f5837d2aff66b924ea641e6fe22eb662f838d23edd8a0fda651",
+        "runtime/adc_sampler.py": "601797550548e6fc44abf8a0cb9142b78e3d2526aa72336d6701a256de285e4a",
+        "runtime/demo_integration.py": "8eb73fc7b5fd49cf1bbbdb184800993281f69b678dbbed294e4282851934d4a4",
+        "runtime/demo_board.py": "11af76180c268b612e82f373a9307d608a9b83cfb7800a1eea4fa5bb74ef7c99",
+        "runtime/board_demo.py": "b15d4d22cf92be12aaddae898d113332051dbe133aeb6aefcf42c37401efdd5c",
+        "runtime/run_board.py": "089c3895744a632318057cc4f4d8e7d8870387ad83512eef1ed8aa65ea28a16e",
+        "runtime/display/driver/full_demo.h": "44c21122eefdf1721080df92cc76c43ca0dae952e7b0c72c5425dee989571832",
+        "runtime/display/driver/full_state.h": "24b9937b7fad27aaf9f230f627dc744851061dc357bac1d959a1e40f3af7dd34"
+      }
+    },
+    {
+      "id": "AUTOSTART",
+      "paragraphs": [
+        2,
+        90
+      ],
+      "required": "candidate launch sources, device checks and original UI integration; installation remains pending",
+      "source_implemented": true,
+      "source_sha256": {
+        "resources/autostart/pcb-detection.service": "7d3c886cbd33fe255d9304f7295bb523c89cec8c0ed943be62f4071ae6050e3f",
+        "resources/autostart/pcb-detection.init": "de5d507bbb1e6d4bbb0b2ef22b575aa7329d5b1276e5dfa937d1512ebd22810c",
+        "resources/autostart/motion.json": "ea2aec3085bd99f776e90da09404a9c23257283be480f25ad8ac76a7dc9d3c95",
+        "runtime/run_board.py": "089c3895744a632318057cc4f4d8e7d8870387ad83512eef1ed8aa65ea28a16e",
+        "runtime/board_demo.py": "b15d4d22cf92be12aaddae898d113332051dbe133aeb6aefcf42c37401efdd5c"
+      }
+    },
+    {
+      "id": "ADC_BUFFER",
+      "paragraphs": [
+        46
+      ],
+      "required": "two owned raw ADC banks, capture/copy overlap, backpressure, generation and sample tick provenance",
+      "source_implemented": true,
+      "source_sha256": {
+        "rtl/pcb_adc_capture.sv": "9ade75a867fab045f5ef20d0e2fbbde554985a866e1034928975f182b0595da7",
+        "rtl/compute_cdc.xdc": "1981fdca6e8479135ec7e669571dcc80e788e89a3aca2bdbe69eb43e81be760a",
+        "runtime/pcb_adc.cpp": "f26c8a0ddb8e3d3e9ea59fea2e46de0ebc2755fcf66f5589ccaa590e81faedd7",
+        "runtime/adc_sampler.py": "601797550548e6fc44abf8a0cb9142b78e3d2526aa72336d6701a256de285e4a",
+        "tests/tb_adc.sv": "678d850cc75382814e88a1a99c9081aa8445d94c1a37b396c21cc5e46bce49ae"
+      }
+    },
+    {
+      "id": "THERMAL_QUERY",
+      "paragraphs": [
+        13
+      ],
+      "required": "select board point, inverse map, query preserved original thermal matrix",
+      "source_implemented": true,
+      "source_sha256": {
+        "runtime/display/driver/full_capture_data.h": "d2dcb8c12e7aea01978c32fa8ed0a7c5ba06f79b0bd3463dc8b6270c5c4d5458",
+        "runtime/display/driver/gfx3_runtime.cpp": "6ae8779689caacef84fd0a15fc9420dc80fa8556bcba42a0d9f4bd2c4f9a0316",
+        "tools/build_display_assets.py": "ff029d3a6b5b7d01ff3099856d3695c2cd36f451444f4c443cde7e6f8b14f486",
+        "runtime/registration.py": "c6db620213c9a21be7d5ead552bea0cf2df1027c2bad149672110d93286e4b87"
+      }
+    },
+    {
+      "id": "SCAN_CONFIG",
+      "paragraphs": [
+        35,
+        72
+      ],
+      "required": "runtime scan range and X/Y spacing, inclusive endpoints, configurable feed and 1024 point bound",
+      "source_implemented": true,
+      "source_sha256": {
+        "runtime/display/driver/full_state.h": "24b9937b7fad27aaf9f230f627dc744851061dc357bac1d959a1e40f3af7dd34",
+        "runtime/demo_integration.py": "8eb73fc7b5fd49cf1bbbdb184800993281f69b678dbbed294e4282851934d4a4",
+        "runtime/demo_host.py": "7dcd33af307fba4db65e34bcdadf7cfb72dbbcd2913cf81cb8059459aaaf44b7",
+        "runtime/demo_preview.html": "e8df3c7f8b3740748bb77d956466b523f55cb6b363e621e67051d1e4d946c6d5",
+        "demo/runtime/scan_demo.py": "56c99aa05942903fcc5b9d3028cac97b809fb18dcb6a21a5d2f22a87848e0542"
+      }
+    },
+    {
+      "id": "SCAN_PUBLICATION",
+      "paragraphs": [
+        28,
+        90
+      ],
+      "required": "same run results atomically update original EMI, spectrum, cube and PL RMS views",
+      "source_implemented": true,
+      "source_sha256": {
+        "runtime/scan_results.py": "8a88fdb5a18631b40a6ec528f99de3802566b86cea812db615e9514f867d0449",
+        "runtime/display/driver/full_capture_data.h": "d2dcb8c12e7aea01978c32fa8ed0a7c5ba06f79b0bd3463dc8b6270c5c4d5458",
+        "runtime/display/driver/full_scene.h": "2ed4074f9dc1d70572d78477e4b349f0e3ef3bcead8df25fdb0f56c6aea46b3b",
+        "runtime/display/driver/full_raw.h": "1408743277e5998d7191a7d8c8d2baff80482e515b8fee8314ec48feacaac2bb",
+        "runtime/bands.py": "a524d7245d70e8431d200f31bc8a8971b3077a033c1aad441ae416ea90aa56be"
+      }
+    },
+    {
+      "id": "BOARD_CAPTURE",
+      "paragraphs": [
+        64,
+        90
+      ],
+      "required": "isolated two-board RGB/thermal/model/calibration input and new scan ADC merge",
+      "source_implemented": true,
+      "source_sha256": {
+        "runtime/capture_live.py": "330e1e55e3a47065b1150efd35e519bfc4dcd3d6ae95fbf86c17e0570f8a22fc",
+        "runtime/capture_bundle.py": "c3777d6d9acbe8bf2321188dadd5a824e117991ff73a14361f4e6f3e80b77122",
+        "runtime/capture_set.py": "7fc69a3579974f23303005ba496f5ad86c2289521c3b4ec44893568a2f690f08",
+        "runtime/calibration.py": "274a739ba117c383aed57099baf27e01a4a2366a340b94dbe728443914a60ed7",
+        "runtime/board_profiles.py": "4ab78b2de090e80e5a0135a658a2a5530ffe97dd3ce5c51284e62d6a78584c1a",
+        "runtime/run_board.py": "089c3895744a632318057cc4f4d8e7d8870387ad83512eef1ed8aa65ea28a16e",
+        "runtime/demo_board.py": "11af76180c268b612e82f373a9307d608a9b83cfb7800a1eea4fa5bb74ef7c99",
+        "resources/models/stm32-model-v3.json": "e425d6e5ca6cb592dccf62c1248322fd462536d1475da68d48398198bb873c8f"
+      }
+    },
+    {
+      "id": "AOI_COORDINATES",
+      "paragraphs": [
+        70
+      ],
+      "required": "annotated component and visible pin screening, reference adaptation, board/reference/test coordinates",
+      "source_implemented": true,
+      "source_sha256": {
+        "runtime/aoi_annotation.py": "16fdf3281e9632f09db43aa48c10dea6263d06c65c795c8902032eff0da6a18a",
+        "runtime/aoi_rules.py": "18ee9fc2c1ae5fccce860503005853e20582ab1f9a4c9d44590304d660ffddc9",
+        "resources/annotations/dcdc.json": "164a65df789035795ea4975a94a2c0636aa31cd0c71c5f407f650d9a71ab124f",
+        "resources/annotations/stm32.json": "d9832a50c89ccf880a927874f9aabc44cf22c63bd29934b286cab6bcb1ae5850",
+        "runtime/display/driver/full_aoi.h": "7ad2144424b7bc90b24080732ce6a5a0ba87ce6d7399db80438945ee4477798c"
+      }
+    }
+  ],
+  "validation_sha256": {
+    "evidence/combined/result.json": "e10de5b2c8471309d690457195d39b966018393a3f90aae5d0f874fd21db97a7",
+    "demo/evidence/rtl-verification.json": "b215657cebad977c037be1aad333885f146906286eac061e7e92908d7963da0b",
+    "demo/evidence/report-pipeline.json": "e2bb0e5332beac163a09bac568c99df9b3b0f8bee6a1462cc6396eb623034bb5",
+    "evidence/report-contract/result.json": "287d0bcac5faf36064a715b245727b0d0ba9c2011d7763205405ecc52c513e7c",
+    "evidence/report-consumers/result.json": "9c03664066e3af5b79d1825c762c6897c9fb05f1cf27085ec2bd65fab9e233e1",
+    "evidence/report-scan-ui/result.json": "a6846e6d57d4e8b17364498dbe0d2a17cc1f0e011740596952b153bfe96840d8",
+    "evidence/report-fixes/result.json": "9de0c850b5af765a4fc381e024125fd7aa378b713b7960d853393d18949f1827",
+    "evidence/demo-integration/result.json": "06d685174cafd4ae300537735706f35b3d510ced89d2ccd6f4ad15d6d90b233f",
+    "evidence/neural-frame/result.json": "dd206530c329f159c64459db6cf029a0f5aed4eee1b2f9ac3d0a8ba7dbf5e197",
+    "evidence/neural-frame/ui-verification.json": "79f7f152441267b5f312eed1c6e25a311fbbeab1444dc2cf07fcd4a382495d1c",
+    "evidence/candidate-clocks.json": "2513f767e310cab98a322dbb8deac5c981f416014d7d16ac3f52992c8dd8ce44",
+    "evidence/kernel/result.json": "478992c36a156da5b03860c601847887f933394b788bfae998280bdb55fd800d",
+    "evidence/demo-integration/portable.json": "00beb3837bce00f4e22dc45dc84dd8762856c1bf2adfeb9fa7b250225f52b0a9",
+    "evidence/extensions.json": "33e1216ed0a8dc04a0c0d8e77008c6ab208f83d40f13320de8455dd4d99cc3c5",
+    "evidence/arm/result.json": "a7d4a749967668d5b14a8eaa61fcec19449ffb17d31c4e2454d7fec7569a5a86",
+    "evidence/rtl-verification.json": "cc8232db8c76ab10afd0bd301207764c9b0acef5b82d04705c644375cb18cc65"
+  },
+  "current_revision_board_tested": false,
+  "physical_motion_executed": false,
+  "persistent_boot_image_modified": false,
+  "unresolved_physical_acceptance": [
+    "ADC external IO timing and channel wiring",
+    "new hardware HDMI/sensor/motion end-to-end run",
+    "STM32 real ADC acquisition",
+    "candidate autostart installation and acceptance"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "tests": 7,
+  "physical_devices_opened": false,
+  "source_sha256": {
+    "runtime/motion.py": "74ea0120609d8f5837d2aff66b924ea641e6fe22eb662f838d23edd8a0fda651",
+    "runtime/adc_sampler.py": "601797550548e6fc44abf8a0cb9142b78e3d2526aa72336d6701a256de285e4a",
+    "demo/runtime/scan_demo.py": "56c99aa05942903fcc5b9d3028cac97b809fb18dcb6a21a5d2f22a87848e0542",
+    "tests/report_contract_test.py": "e486d6a24e45d59032bd475a5bda9e23984df24bd701ae3b38869add7ff81493"
+  }
+}

@@ -1,4 +1,4 @@
-"""Check evidence/source identity and make the small, self-contained demo ZIP."""
+"""Check evidence/source identity and make the self-contained PDP2 demonstration ZIP."""
 from pathlib import Path
 import argparse,hashlib,json,re,zipfile
 ROOT=Path(__file__).resolve().parents[1]
@@ -13,7 +13,7 @@ def main():
     if sha(ROOT/'runtime/pl_demo.cpp')!=arm['source_sha256'] or sha(ROOT/'bin/pl_demo')!=arm['sha256']:raise ValueError('ARM client/source mismatch')
     ps=(ROOT/'evidence/ps-tests.log').read_text(encoding='utf8')
     if 'Ran 5 tests' not in ps or not ps.strip().endswith('OK'):raise ValueError('PS tests unpassed')
-    if not session['motion_simulated'] or session['fresh_acquisition'] or sha(ROOT/'inputs/demo-inputs.json')!=session['input_sha256']:raise ValueError('Demo/source labels mismatch')
+    if not session['motion_simulated'] or session['fresh_acquisition'] or sha(ROOT/'inputs/full-inputs.json')!=session['input_sha256']:raise ValueError('Demo/source labels mismatch')
     if len(session['points'])!=6 or sum(len(p['frames']) for p in session['points'])!=18:raise ValueError('Incomplete demo route')
     for point in session['points']:
         if point['settled_at']-point['arrival_confirmed_at']<point['settle_s']-1e-9:raise ValueError('Sample settling violation')

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "display_recomputes_ps_fft": false,
+  "display_recomputes_ps_temperature": false,
+  "corrupt_output_rejected": true,
+  "board_connected": false,
+  "source_sha256": {
+    "tools/build_display_assets.py": "ff029d3a6b5b7d01ff3099856d3695c2cd36f451444f4c443cde7e6f8b14f486",
+    "runtime/service.py": "d125bf4a87d9d9169a3b324b08033f04f882f7833cfcf9dafcdb2ebf417fc0fc",
+    "tools/verify_processing_consumers.py": "f0012cf73c79fb4945d4c0c724d32cf02b1375da62e2660990ea1cb5eedaeda0"
+  }
+}

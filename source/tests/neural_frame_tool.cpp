@@ -12,15 +12,15 @@ int main(int argc,char**argv){try{
  auto rgb=read_plane<uint32_t>(source+".argb",1280*720);auto depth=read_plane<uint16_t>(source+".depth.u16",1280*720);auto ids=read_plane<uint16_t>(source+".u16",1280*720);
  auto src=read_plane<int32_t>(source+".matrix",12),dst=read_plane<int32_t>(target+".matrix",12);
  auto frame=NativeFrameSynth::prepare(rgb.data(),depth.data(),ids.data(),src.data(),dst.data());
- write_plane(output+".warp.argb",frame.warp);write_plane(output+".repair.argb",frame.repair);write_plane(output+".features.i8",frame.features);
- std::ostringstream report;report<<"{\"coverage\":"<<frame.coverage<<",\"input_pixels\":"<<frame.input_pixels<<",\"repair_pixels\":"<<frame.repair_pixels;
+ write_plane(output+".warp.argb",frame.warp);write_plane(output+".previous.argb",frame.previous);write_plane(output+".features.i8",frame.features);write_plane(output+".valid.u8",frame.valid);
+ std::ostringstream report;report<<"{\"coverage\":"<<frame.coverage<<",\"input_pixels\":"<<frame.input_pixels<<",\"fallback_pixels\":"<<frame.fallback_pixels;
  if(generate){
-  NativeFrameSynth net(argv[2],true);auto alpha=net.weights(frame);std::vector<uint32_t>pixels,disabled,all_repair;
+  NativeFrameSynth net(argv[2],true);auto alpha=net.weights(frame);std::vector<uint32_t>pixels,all_previous,all_warp;
   write_plane(output+".logits.i8",net.predict(frame.features));
-  NativeFrameSynth::compose(frame,alpha,pixels);NativeFrameSynth::compose(frame,std::vector<uint8_t>(3600,0),disabled);NativeFrameSynth::compose(frame,std::vector<uint8_t>(3600,255),all_repair);
-  if(disabled!=frame.warp||all_repair!=frame.repair)throw std::runtime_error("fusion endpoint regression");
-  uint64_t changed=0,soft=0;for(size_t i=0;i<pixels.size();i++){if(pixels[i]!=frame.warp[i])changed++;if(pixels[i]!=frame.warp[i]&&pixels[i]!=frame.repair[i])soft++;}
-  write_plane(output+".neural.argb",pixels);write_plane(output+".alpha.u8",alpha);
+  NativeFrameSynth::compose(frame,alpha,pixels);NativeFrameSynth::compose(frame,std::vector<uint8_t>(3600,0),all_previous);NativeFrameSynth::compose(frame,std::vector<uint8_t>(3600,255),all_warp);
+  if(all_previous!=frame.previous||all_warp!=frame.warp)throw std::runtime_error("fusion endpoint regression");
+  uint64_t changed=0,soft=0;for(size_t i=0;i<pixels.size();i++){if(pixels[i]!=frame.warp[i])changed++;if(pixels[i]!=frame.warp[i]&&pixels[i]!=frame.previous[i])soft++;}
+  write_plane(output+".neural.argb",pixels);write_plane(output+".alpha.u8",alpha);write_plane(output+".alpha-full.u8",NativeFrameSynth::interpolate_alpha(alpha));
   report<<",\"network_participated\":"<<(changed?"true":"false")<<",\"neural_changed_pixels\":"<<changed<<",\"soft_blended_pixels\":"<<soft<<",\"blend_mean\":"<<net.blend_mean<<",\"explicit_offline_int8\":true";
  }
  report<<"}";std::ofstream metadata(output+".json");metadata<<report.str()<<'\n';std::cout<<report.str()<<std::endl;return 0;

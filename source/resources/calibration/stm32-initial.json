@@ -1,0 +1,24 @@
+{
+  "board_id": "stm32",
+  "matrix_thermal_to_extended_rgb": [
+    [
+      0.3681984072401229,
+      -8.395507327631103,
+      1480.8658388687652
+    ],
+    [
+      9.958194853466843,
+      0.6671600621063563,
+      -1009.8431352524993
+    ],
+    [
+      -0.000685375906380344,
+      0.0005143417685753375,
+      0.9189692437760046
+    ]
+  ],
+  "basis": "existing fixed-rig geometric prior applied to a new captured thermal frame; approximate, not independently calibrated",
+  "reference_thermal_sha256": "73d8f1c6fcf4faa78d69bb8ee2ae9f7cb905c1a24d2b658730670946cc940573",
+  "capture_thermal_sha256": "bc9bac5734da5dfbd4cc41f989f56cd1e9fe35a7def35eb5fddbcf0223bb0ac0",
+  "validated": false
+}

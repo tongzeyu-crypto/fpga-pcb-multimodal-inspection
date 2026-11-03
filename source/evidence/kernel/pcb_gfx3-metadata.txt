@@ -1,0 +1,11 @@
+/home/tzy/submission-report2-fixes-20261103/graphics/driver/pcb_gfx3.ko: ELF 32-bit LSB relocatable, ARM, EABI5 version 1 (SYSV), BuildID[sha1]=4e5e61d03aaa6608112ab0c231d7af00693b2433, not stripped
+filename:       /home/tzy/submission-report2-fixes-20261103/graphics/driver/pcb_gfx3.ko
+description:    PCB graphics ABI3 typed DMA and async renderer
+license:        GPL
+alias:          of:N*T*Cpcb,graphics-3.0C*
+alias:          of:N*T*Cpcb,graphics-3.0
+depends:        
+name:           pcb_gfx3
+vermagic:       5.4.0-xilinx-v2020.2 SMP preempt mod_unload modversions ARMv7 p2v8 
+parm:           expected_tag:Required matching hardware source tag; explicit zero is valid
+parm:           memory_only:BO preflight only; never touches PL registers (bool)

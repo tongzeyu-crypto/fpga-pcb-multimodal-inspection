@@ -1,0 +1,31 @@
+#!/bin/sh
+# Candidate SysV source. This file does not install itself or load a bitstream.
+APP=/opt/pcb-detection
+PIDFILE=/tmp/pcb-detection-candidate.pid
+LOG=/tmp/pcb-detection-candidate.log
+running() {
+    test -f "$PIDFILE" || return 1
+    pid=$(cat "$PIDFILE")
+    case "$pid" in ''|*[!0-9]*) return 1;; esac
+    kill -0 "$pid" 2>/dev/null || return 1
+    tr '\000' ' ' < "/proc/$pid/cmdline" | grep -q 'python3 -m runtime.run_board' || return 1
+}
+case "$1" in
+ start)
+    running && exit 0
+    for node in /dev/pcb-gfx3 /dev/pcb_ai /dev/pcb_demo /dev/pcb_adc; do
+        test -e "$node" || { echo "Candidate hardware device missing: $node"; exit 1; }
+    done
+    cd "$APP" || exit 1
+    python3 -c 'import numpy,cv2' || exit 1
+    nohup python3 -m runtime.run_board --state /tmp/pcb-detection --tag 0 --live-scan --motion-config "$APP/resources/autostart/motion.json" > "$LOG" 2>&1 &
+    echo $! > "$PIDFILE"
+    ;;
+ stop)
+    if running; then kill -TERM "$pid"; fi
+    ;;
+ status)
+    if running; then echo "candidate running pid=$pid"; else echo "candidate stopped"; exit 1; fi
+    ;;
+ *) echo "usage: $0 {start|stop|status}"; exit 2;;
+esac

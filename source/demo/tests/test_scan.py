@@ -7,7 +7,7 @@ class Clock:
     def sleep(self,s):self.now+=s
 
 class FakePl:
-    def run(self,task,values):return {'output':[1]*33,'backend':'unit-test fixture only'}
+    def run_three(self,frames):return {'output':[1]*33,'metadata':{'window_energy_q28':64*(1<<28),'frames':3},'backend':'unit-test fixture only'}
 
 def points():
     return [{'point_index':i,'xy_mm':[x,y],'frames':[{'samples':[0]*64,'source_sha256':str(i)} for _ in range(3)]} for i,(x,y) in enumerate([(0,0),(1,0),(2,0),(0,1),(1,1),(2,1)])]

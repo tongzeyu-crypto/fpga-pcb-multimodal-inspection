@@ -33,8 +33,8 @@ static int pcb_probe(struct platform_device*p){struct resource*r=platform_get_re
  return rc;
 }
 static int pcb_remove(struct platform_device*p){struct pcb_dev*d=platform_get_drvdata(p);if(atomic_read(&d->opened))return -EBUSY;misc_deregister(&d->misc);return 0;}
-static const struct of_device_id pcb_match[]={{.compatible="pcb,ai-1",.data="pcb_ai"},{.compatible="pcb,adc-1",.data="pcb_adc"},{}};
+static const struct of_device_id pcb_match[]={{.compatible="pcb,ai-1",.data="pcb_ai"},{.compatible="pcb,adc-1",.data="pcb_adc"},{.compatible="pcb,adc-2",.data="pcb_adc"},{.compatible="pcb,demo-1",.data="pcb_demo"},{}};
 MODULE_DEVICE_TABLE(of,pcb_match);
 static struct platform_driver pcb_driver={.probe=pcb_probe,.remove=pcb_remove,.driver={.name="pcb-compute",.of_match_table=pcb_match,.suppress_bind_attrs=true}};
 module_platform_driver(pcb_driver);
-MODULE_LICENSE("GPL");MODULE_DESCRIPTION("PCB AI and frozen ADC MMIO resource driver");
+MODULE_LICENSE("GPL");MODULE_DESCRIPTION("PCB AI ADC and signal image MMIO resource driver");

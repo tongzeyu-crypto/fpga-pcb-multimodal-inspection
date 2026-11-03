@@ -1,4 +1,6 @@
-"""Board-side/replay numerical processing, no precomputed PSD inputs."""
+"""ADC transport decoding and explicit offline floating-point reference.
+
+Production FFT/thermal dispatch is runtime.compute_backend.PlCompute."""
 import csv
 from pathlib import Path
 import numpy as np
@@ -39,4 +41,4 @@ def spectrum_three(paths):
     return np.mean([periodogram(adc_decode(read_adc(p))) for p in paths],axis=0)
 def bands(p):
     f=np.fft.rfftfreq(4096,1/FS)
-    return {f'{lo:g}-{hi:g}Hz':np.sqrt(p[...,(f>=lo)&(f<hi)].sum(-1)*FS/4096).tolist() for lo,hi in [(2e5,3e6),(3e6,10e6),(10e6,20e6),(20e6,25e6),(2e5,25e6)]}
+    return {f'{lo:g}-{hi:g}Hz':np.sqrt(p[...,(f>=lo)&(f<hi)].sum(-1)*FS/4096).tolist() for lo,hi in __import__('runtime.bands',fromlist=['UI_BANDS_HZ']).UI_BANDS_HZ}

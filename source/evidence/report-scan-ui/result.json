@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "route_points": 150,
+  "last_result_selectable": true,
+  "mouse_wraps_actual_route": true,
+  "motion_adapter_constructed": false,
+  "physical_board_connected": false,
+  "source_sha256": {
+    "runtime/display/driver/full_demo.h": "44c21122eefdf1721080df92cc76c43ca0dae952e7b0c72c5425dee989571832",
+    "runtime/display/driver/full_state.h": "24b9937b7fad27aaf9f230f627dc744851061dc357bac1d959a1e40f3af7dd34",
+    "runtime/demo_integration.py": "8eb73fc7b5fd49cf1bbbdb184800993281f69b678dbbed294e4282851934d4a4",
+    "tests/reference_bridge.cpp": "b9d4a7b9b67ea4376972aa80980598451d5f0943359a90ac22ed885393ea9a08"
+  }
+}

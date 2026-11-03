@@ -6,4 +6,6 @@
 
 未纳入尚未选定的海报、产品宣传图、外部行业视频及其他项目的相机资料。[manifest.json](manifest.json)保留发布资产与来源文件哈希，来源以集合名与文件名表示。
 
-`board-20261103-main.jpg`与`board-20261103-scan.jpg`原样摘自本次正式代码包的实板证据。前者为实际PL显示记录，后者为板端模拟运动/历史数据扫描回放；对应验证范围见[实板记录](../source/docs/实板演示记录-20261103.md)。这些是交付包中的既有记录，本次发布没有新做硬件试验。
+`board-20261103-main.jpg`与`board-20261103-scan.jpg`原样摘自本次正式代码包的实板证据。前者为实际PL显示记录，后者为板端模拟运动/历史数据扫描回放；对应验证范围见[历史板端记录](../docs/history/earlier-board-record-20261103.md)。这些是交付包中的既有记录，本次发布没有新做硬件试验。
+
+PDP3最终程序的当前界面截图按来源位于 `source/evidence/demo-integration/` 与 `source/evidence/report-scan-ui/`，属于包内电脑集成检查材料；旧板端照片按其原版本保留。

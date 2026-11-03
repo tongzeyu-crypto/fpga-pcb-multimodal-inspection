@@ -1,5 +1,5 @@
 // Independent ABI3 shell. Read and write AXI ports bind HP2 and HP0.
-module g3_device(input logic clk,rstn,vsync,scan_adopted,input logic [63:0] scan_read_bytes,
+module g3_device #(parameter integer ENGINES=1)(input logic clk,rstn,vsync,scan_adopted,input logic [63:0] scan_read_bytes,
  input logic [31:0] scan_underflows,scan_active_layer,scan_active_cursor,input logic scan_ui_drained,
  output logic [31:0] cursor_position,layer_address,output logic ui_quiet,output logic irq,
  input logic [8:0] s_axi_awaddr,input logic s_axi_awvalid,output logic s_axi_awready,
@@ -83,7 +83,7 @@ module g3_device(input logic clk,rstn,vsync,scan_adopted,input logic [63:0] scan
     156:read_register={28'b0,frame_error};504:read_register=/*G3_SOURCE_TAG*/32'h00000000;
     380:read_register=cursor_position;384:read_register=layer_address;
     388:read_register=scan_active_layer;392:read_register=scan_active_cursor;
-    496:read_register=32'h00001f00;508:read_register=32'h47584633;default:read_register=0;
+    492:read_register=ENGINES;496:read_register=32'h00001f00;508:read_register=32'h47584633;default:read_register=0;
    endcase
   end
  endfunction
@@ -94,7 +94,10 @@ module g3_device(input logic clk,rstn,vsync,scan_adopted,input logic [63:0] scan
   .rd(read_req[0]),.rd_ready(read_ready[0]),.response(read_rsp[0]),.response_ready(response_ready[0]),
   .wr(write_req[0]),.wr_ready(write_ready[0]),.wd(write_data[0]),.wd_ready(data_ready[0]),
   .wr_done(write_done[0]),.wr_error(write_error[0]),.setup_cycles(prep_cycles),.bin_cycles(bin_cycles));
+ // One engine is the demonstration profile: same tiles/pixels and ABI, lower
+ // parallel throughput, sufficient resources for the full signal/image core.
  generate for(genvar e=0;e<2;e=e+1)begin: engines
+ if(e<ENGINES)begin: active_engine
   g3_engine engine(.clk(clk),.rstn(rstn),.invalidate(source_changed),.begin_frame(state==PREP_START),.tile_valid(offer[e]),.tile_ready(engine_ready[e]),
    .tile_id(next_tile),.tile_x(tx),.tile_y(ty),.width(cfg[10][11:0]),.height(cfg[10][27:16]),
    .bin_base(cfg[5]),.geometry_base(cfg[4]),.geometry_count(geometry_count),
@@ -110,6 +113,13 @@ module g3_device(input logic clk,rstn,vsync,scan_adopted,input logic [63:0] scan
    .rsp(read_rsp[1+3*e:3+3*e]),.rsp_ready(response_ready[3+3*e:1+3*e]),
    .wr(write_req[1+e]),.wr_ready(write_ready[1+e]),.wd(write_data[1+e]),.wd_ready(data_ready[1+e]),
    .wr_done(write_done[1+e]),.wr_error(write_error[1+e]));
+ end else begin: inactive_engine
+  assign engine_ready[e]=0;assign engine_idle[e]=1;assign engine_error[e]=0;
+  assign pixels[e]=0;assign tiles[e]=0;assign misses[e]=0;assign cache_wait[e]=0;assign mix_wait[e]=0;
+  for(genvar d=0;d<6;d=d+1)assign diagnostic[e][d]=0;
+  for(genvar p=0;p<3;p=p+1)assign read_req[1+3*e+p]='0;
+  assign response_ready[3+3*e:1+3*e]=0;assign write_req[1+e]='0;assign write_data[1+e]='0;
+ end
  end endgenerate
  g3_axi_fabric #(.NR(7),.NW(3)) memory(.clk(clk),.rstn(rstn),
   .rd(read_req),.rd_ready(read_ready),.rsp(read_rsp),.rsp_ready(response_ready),

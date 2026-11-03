@@ -44,13 +44,19 @@ int main(int argc,char**argv){try{
  while(std::getline(std::cin,line))try{
   std::istringstream input(line);std::string operation;input>>operation;
   if(operation=="app"){
-   View next=shared.target;std::string key;double value;int count=0;while(input>>key){if(!(input>>value)||!(key=="focus"?full_for(next.raw_board)->focus(next,next.selected_component):full_action(next,key,value,full_for(next.raw_board)->points.size())))throw std::runtime_error("invalid action");count++;}
-   if(!input.eof()||!count)throw std::runtime_error("invalid command");if(next.cursor_visible!=shared.target.cursor_visible)next.cursor_revision++;next.sequence=shared.target.sequence+1;next.received=now_ns();shared.target=next;
+   View next=shared.target;std::string key;double value;int count=0;while(input>>key){if(!(input>>value)||!(key=="focus"?full_for(next.raw_board)->focus(next,next.selected_component):full_action(next,key,value,full_for(next.raw_board)->points.size(),true)))throw std::runtime_error("invalid action");count++;}
+   if(!input.eof()||!count||!full_scan_grid_valid(next))throw std::runtime_error("invalid command");if(next.cursor_visible!=shared.target.cursor_visible)next.cursor_revision++;next.sequence=shared.target.sequence+1;next.received=now_ns();shared.target=next;
   }else if(operation=="pointer"){
    int kind,x,y,button;double wheel;if(!(input>>kind>>x>>y>>button>>wheel)||kind<0||kind>4||x<0||x>1279||y<0||y>719||button<0||button>2||!std::isfinite(wheel)||std::abs(wheel)>20)throw std::runtime_error("invalid pointer");
    full_input_locked(shared,kind,x,y,button,wheel);
+  }else if(operation=="temperature"){
+   std::string space;double x,y;if(!(input>>space>>x>>y)||!std::isfinite(x)||!std::isfinite(y)||std::abs(x)>100000||std::abs(y)>100000)throw std::runtime_error("temperature coordinates");auto &v=shared.target;
+   if(space=="raw")full_for(v.raw_board)->temperature_raw_at(v,int(std::lround(x)),int(std::lround(y)));else if(space=="board")full_for(v.raw_board)->temperature_board_at(v,x,y);else throw std::runtime_error("temperature coordinate space");v.sequence++;
   }else if(operation!="dump")throw std::runtime_error("unknown command");
   auto t=now_ns();auto &v=shared.target;FullScene &active=*full_for(v.raw_board);
+  active.demo.refresh(active.demo_path);if(active.demo.available){v.demo_total=active.demo.total;v.demo_active=active.demo.state>=1&&active.demo.state<=6;}
+  if(active.poll_scan()){v.point=std::min(v.point,int(active.points.size())-1);v.data_revision++;v.scene_revision++;cached_commands.clear();}
+  v.data_capture=active.capture_identity;if(v.temperature_peak){active.temperature_raw_at(v,active.peak_x,active.peak_y);v.temperature_peak=0;}
   if(renderer_board!=v.raw_board){renderer=FullReference(std::string(argv[1])+(v.raw_board?"/dcdc":""));renderer_board=v.raw_board;cached_base=-1;cached_commands.clear();}
   active.aoi.refresh(std::string(argv[1])+(v.raw_board?"/dcdc/aoi-display":"/aoi-display"));
   if(active.aoi.available&&renderer.textures.size()<7){renderer.textures.emplace_back(active.aoi.texture_path(0),1024,true);renderer.textures.emplace_back(active.aoi.texture_path(1),1024,true);}
@@ -80,7 +86,8 @@ int main(int argc,char**argv){try{
   auto transported=now_ns();shared.displayed=v;shared.have_displayed=true;
   std::cout<<"{\"offline_reference\":true,\"app\":"<<full_app_json(v)<<",\"reference_render_ms\":"<<(transported-t)*1e-6
    <<",\"prepare_ms\":"<<(prepared-t)*1e-6<<",\"raster_ms\":"<<(rastered-prepared)*1e-6<<",\"transport_ms\":"<<(transported-rastered)*1e-6
-   <<",\"scene_reused\":"<<reuse<<",\"shared_memory\":"<<bool(shared_pixels)<<",\"command_count\":"<<commands.size()<<",\"covered_fragments\":"<<renderer.fragments<<"}"<<std::endl;
+   <<",\"scene_reused\":"<<reuse<<",\"shared_memory\":"<<bool(shared_pixels)<<",\"command_count\":"<<commands.size()<<",\"covered_fragments\":"<<renderer.fragments
+   <<",\"measurement\":{\"points\":"<<active.points.size()<<",\"bins\":"<<active.meta[4]<<",\"max_frequency_hz\":"<<active.frequency_max*1e6<<",\"selected_rms\":"<<((active.available_modalities&4)?active.band_value(v.point,v.band):-1)<<",\"last_psd\":"<<((active.available_modalities&4)?active.base(v.point,active.meta[4]-1,0):-1)<<"}}"<<std::endl;
  }catch(const std::exception&e){std::cout<<"{\"error\":\""<<e.what()<<"\"}"<<std::endl;}
 #ifdef _WIN32
  if(shared_pixels)UnmapViewOfFile(shared_pixels);if(mapping)CloseHandle(mapping);

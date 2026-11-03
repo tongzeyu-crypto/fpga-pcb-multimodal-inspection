@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "job_count": 99,
+  "checked_output_elements": 216430,
+  "axi_commands": 718617,
+  "board_connected": false,
+  "algorithm": "PDP3 radix-2 DIF Q16 FFT; Q14 Hann; 64-bit one-sided power accumulation",
+  "numeric_quality": [
+    {
+      "name": "three-tone-frames",
+      "relative_l2": 2.38340137132374e-05,
+      "relative_energy": 2.7717457826170705e-05
+    },
+    {
+      "name": "source-adc-channel-0",
+      "relative_l2": 3.739199455025511e-05,
+      "relative_energy": 1.4367588336597652e-05
+    },
+    {
+      "name": "source-adc-channel-1",
+      "relative_l2": 0.0005330645993137156,
+      "relative_energy": 7.48778057747016e-06
+    }
+  ],
+  "input_sha256": {
+    "demo-inputs.json": "2d462721cf39cc96da67cbde1e2871ce2a2fe412d289bdece1c84a759cdcf2d2",
+    "full-inputs.json": "328172f31f749501fc3b6460b894151b63a37b4f10cedb06b739a71b64ae3e92"
+  },
+  "source_sha256": {
+    "pcb_demo_axi.sv": "aef22cd8531cd1cf5a5ec30337bc1e297f2cef9f278275730e9ce8a89f237f77",
+    "pcb_demo_coeff.sv": "c34ecae9f8fc9e2b4cbb12989c70531db2fe73e8c7f6e3eb4dd0b107ae6dc356",
+    "pcb_demo_core.sv": "4d73abe75b9286eb16bd1ffdb27a3a11b846d02b504afef67a820f0e667e2ee9",
+    "pcb_scalar.sv": "cea07de7ceda040595731328253c832fb7a4905ed82727913f951d6015de362f"
+  }
+}

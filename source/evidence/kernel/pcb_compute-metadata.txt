@@ -1,0 +1,15 @@
+/home/tzy/submission-report2-fixes-20261103/drivers/pcb_compute.ko: ELF 32-bit LSB relocatable, ARM, EABI5 version 1 (SYSV), BuildID[sha1]=51d5aa734db3b6190b056f14d2c5fb18f13211f0, not stripped
+filename:       /home/tzy/submission-report2-fixes-20261103/drivers/pcb_compute.ko
+description:    PCB AI ADC and signal image MMIO resource driver
+license:        GPL
+alias:          of:N*T*Cpcb,demo-1C*
+alias:          of:N*T*Cpcb,demo-1
+alias:          of:N*T*Cpcb,adc-2C*
+alias:          of:N*T*Cpcb,adc-2
+alias:          of:N*T*Cpcb,adc-1C*
+alias:          of:N*T*Cpcb,adc-1
+alias:          of:N*T*Cpcb,ai-1C*
+alias:          of:N*T*Cpcb,ai-1
+depends:        
+name:           pcb_compute
+vermagic:       5.4.0-xilinx-v2020.2 SMP preempt mod_unload modversions ARMv7 p2v8 

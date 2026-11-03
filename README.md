@@ -1,58 +1,47 @@
 # 基于FPGA的桌面式PCB多模态检测系统
 
-面向PCB研发调试与故障排查的桌面式原型系统：通过CoreXY机构移动近场探头，结合RGB、红外热像与ADC原始采样，在Zynq平台上关联板卡位置、温度与近场频谱，并由PL完成图形渲染和HDMI输出。
+桌面式PCB检测原型，结合CoreXY近场扫描、RGB、红外热像和ADC波形，在Zynq平台上组织板卡位置、温度、频谱与交互显示。
 
-**2026年11月3日正式提交版代码已发布。** [浏览源码与模型权重](source/README_GITHUB.md) · [下载完整代码包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-r2) · [运行与版本说明](docs/code-submission.md)。本次发布包含源码、模型、硬件产物与实板记录。
+**最终程序已更新：PDP3-report2-audit-fixes-r6。** [浏览源码](source/README_GITHUB.md) · [下载完整包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-final) · [修复核对](source/docs/修复核对.md) · [运行说明](source/docs/构建与运行.md)
 
 ![真实整机与HDMI终端](assets/photos/system.jpg)
 
-## 主要成果与当前版本
+## 最终版主要内容
 
-- 实物CoreXY、近场探头、放大/低通、AD9248与Zynq组成桌面扫描采集链。
-- DC-DC模块70×44 mm蛇形扫描，150个测点、450帧原始记录，保留原坐标与完整频谱。
-- 板端USB RGB与Tiny1-B热像原始样例，保留来源标记、JPEG、双平面载荷及温度数组。
-- 11月3日提交包含配准与神经帧融合的训练/剪枝/INT8权重、共享PL计算核、图形渲染、ARM程序、驱动、构建工具及验证摘要。
-- 随包实板记录确认RAM临时启动、两项PL推理与整数参考一致、HDMI完整显示及六点十八帧扫描回放；原自启动镜像保留。
+- **PL处理链**：原始ADC标志/相位检查、双通道提取、4096点周期Hann FFT、三帧平均PSD与频段RMS；完整热像温度面、热点统计与伪彩色；共享图像算子与INT8网络。
+- **PS处理与调度**：USB与机械接口、路线/停稳/三帧采样关联、几何映射、SIFT/RANSAC及规则判断、重投影和最终像素融合。
+- **扫描与数据发布**：可配置范围、X/Y步距和1–120速度，最多1024点；完整扫描结果发布后由原有EMI、谱线、融合与立方体页面读取。
+- **ADC双缓冲**：2×16384原始字乒乓RAM，所有权、ACK、背压、采集/读取重叠及逐帧序号和采样时钟戳。
+- **两板与温度查询**：STM32和DC-DC独立RGB、热像、模型、标定及输入关联；原始热像点击、融合板面点击和最高温定位。
+- **神经帧融合**：共享PL卷积核生成α_R权重，PS按α_R·R+(1−α_R)·P合成过渡帧，配套逐像素及保留视角检查。
 
-扫描演示采用模拟运动、历史原始数据和已核验的独立算子结果回放；完整频谱/热像数值处理由PS执行，整机PL承载图形、共享CNN与ADC接口。具体见[功能状态](STATUS.md)和[实板记录](source/docs/实板演示记录-20261103.md)。
+本次按用户提供的最终包原样归档。当前包记录源码集成、ARM编译、RTL、整机布局布线及电脑界面检查；具体运行配置和验证范围以[修复核对](source/docs/修复核对.md)与[验收记录](source/docs/验收记录.md)为准。电脑演示采用模拟运动、历史原始输入和已核验RTL结果回放；真实扫描入口显式选择 `--live-scan` 与实际运动配置。
 
-## 系统结构
+## 架构与数据
 
-![系统框图](assets/diagrams/02_system_architecture.png)
+PDP3接口为本版频谱、热像与共享算子提供统一任务入口；配准和帧融合复用INT8计算核。PS负责数据组织、运动管理及几何/规则流程，PL负责对应算术和图形显示。寄存器、单位及任务表见[处理链与接口](source/docs/处理链与接口.md)。
 
-采集记录按板卡与机械位置组织，PS承担调度、完整频谱/热像数值处理和重投影，PL承担图形绘制、HDMI及两项小模型推理。三维模型采用封装先验与照片纹理。图为10月30日总体结构，11月3日具体软硬件分工见[架构说明](docs/architecture.md)。
+保留的DC-DC实测样例包括70×44 mm、150点、450帧原始ADC及原始机械坐标。当前完整包另收录两板RGB/热像和便携标定。频谱幅度采用相对ADC码²/Hz与RMS ADC码。
 
-## 代表结果
+![DCDC历史扫描与代表频谱](assets/diagrams/10_emi_measurements.png)
 
-![11月3日实板主界面](assets/screenshots/board-20261103-main.jpg)
-
-来自正式代码包的实板记录。图形/AI/AXI核心配置62.5 MHz，1280×720源画面放大为1920×1080、30 Hz输出；该输出时序不是应用或AI的处理帧率。
-
-![11月3日板端扫描回放](assets/screenshots/board-20261103-scan.jpg)
-
-板端调度器完成六点、十八帧历史数据关联及结果展示；运动为模拟，部分演示算子为经过核验的XSim结果回放。
-
-![DCDC扫描与代表频谱](assets/diagrams/10_emi_measurements.png)
-
-历史DC-DC实测扫描的0.2–3 MHz和3–10 MHz相对分布，代表峰值为(40,30) mm。幅度为相对ADC码，没有绝对场强或EMC合规结论。
+图为历史原始扫描的低/中频相对分布，代表点(40,30) mm。原始例子保留在 `examples/`，当前程序显示完整0–25 MHz频率轴；报告旧图21.9 MHz按历史材料解释。
 
 ## 材料导航
 
 |材料|入口|
 |---|---|
-|源码、模型与构建工具|[source/](source/README_GITHUB.md)|
-|完整正式代码包、位流与驱动|[代码Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-r2)|
-|电脑演示与复现说明|[docs/code-submission.md](docs/code-submission.md)|
-|当前功能与验证状态|[STATUS.md](STATUS.md)|
-|本版实板验证记录|[source/docs/实板演示记录-20261103.md](source/docs/实板演示记录-20261103.md)|
-|系统架构与PS/PL分工|[docs/architecture.md](docs/architecture.md)|
-|数据来源|[docs/data-provenance.md](docs/data-provenance.md)|
-|硬件模块与安装|[hardware/](hardware/README.md)|
-|10月30日阶段技术报告|[PDF](reports/technical-report-20261030.pdf) · [Word](reports/technical-report-20261030.docx)|
-|150点频谱与3点原始采样|[DCDC样例](examples/dcdc-scan/README.md)|
-|板端RGB与热像原始样例|[USB采集样例](examples/zynq-usb-capture/README.md)|
-|首批数据与历史片段|[材料Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/materials-20261103)|
-|材料目录|[docs/submission-follow-ups.md](docs/submission-follow-ups.md)|
-|照片图表来源与版权|[assets/](assets/README.md) · [THIRD_PARTY.md](THIRD_PARTY.md)|
+|最终程序源码、模型、配置|[source/](source/README_GITHUB.md)|
+|完整代码包、位流、HDF、驱动|[最终版Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-final)|
+|F01–F11修复核对|[source/docs/修复核对.md](source/docs/修复核对.md)|
+|当前版本及文件指纹|[source/VERSION.json](source/VERSION.json)|
+|处理链、任务与寄存器|[处理链与接口](source/docs/处理链与接口.md)|
+|启动与构建|[构建与运行](source/docs/构建与运行.md)|
+|报告逐条实现对应|[报告实现对照](source/docs/报告实现对照.md)|
+|功能与记录|[STATUS.md](STATUS.md) · [验收记录](source/docs/验收记录.md)|
+|硬件实物和安装|[hardware/](hardware/README.md)|
+|阶段技术报告|[PDF](reports/technical-report-20261030.pdf) · [Word](reports/technical-report-20261030.docx)|
+|原始数据示例|[DCDC](examples/dcdc-scan/README.md) · [RGB/热像](examples/zynq-usb-capture/README.md)|
+|来源与版权|[数据来源](docs/data-provenance.md) · [THIRD_PARTY.md](THIRD_PARTY.md)|
 
-报告与早期截图保留其阶段日期。五处外观候选来自电脑直采的离线回归，STM32历史EMI含模拟背景；新提交版缺少STM32实采输入时保持等待，不把旧展示结果作为新测量。R2统一发布说明，算法、RTL、权重、执行程序和原始数据保持交付版本，完整包见Release。
+旧版程序、旧板端截图和阶段报告按各自日期保留；当前代码及对应说明以本页的最终版入口为准。

@@ -1,0 +1,429 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Nov  3 22:49:30 2026
+| Host         : LAPTOP-F5G30AS7 running 64-bit major release  (build 9200)
+| Command      : report_cdc -details -file board-cdc.rpt
+| Design       : board_wrapper
+| Device       : 7z020-clg400
+| Speed File   : -1  PRODUCTION 1.11 2014-09-11
+------------------------------------------------------------------------------------
+
+CDC Report
+
+ID      Severity  Count  Description
+------  --------  -----  ----------------------------------------------
+CDC-3   Info         13  1-bit synchronized with ASYNC_REG property
+CDC-6   Warning       2  Multi-bit synchronized with ASYNC_REG property
+CDC-13  Critical     17  1-bit CDC path on a non-FD primitive
+CDC-15  Warning     342  Clock enable controlled CDC structure detected
+
+Source Clock: clk_out1_board_hdmi_clock_0
+Destination Clock: clk_fpga_1
+CDC Type: No Common Primary Clock
+
+Row  ID     Severity  Description                                     Depth  Exception                Source (From)                                          Destination (To)
+---  -----  --------  ----------------------------------------------  -----  -----------------------  -----------------------------------------------------  -----------------------------------------------
+  1  CDC-6  Warning   Multi-bit synchronized with ASYNC_REG property      2  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/rgray_reg[3:0]/C        board_i/hdmi_scanout/inst/core/rg0_reg[3:0]/D
+  2  CDC-3  Info      1-bit synchronized with ASYNC_REG property          2  False Path               board_i/hdmi_scanout/inst/core/underflow_toggle_reg/C  board_i/hdmi_scanout/inst/core/uf_sync_reg[0]/D
+  3  CDC-3  Info      1-bit synchronized with ASYNC_REG property          2  False Path               board_i/hdmi_scanout/inst/core/video_vsync_reg/C       board_i/hdmi_scanout/inst/core/vs_sync_reg[0]/D
+
+Source Clock: fast_raw
+Destination Clock: clk_fpga_1
+CDC Type: No Common Primary Clock
+
+Row  ID      Severity  Description                                     Depth  Exception                Source (From)                                     Destination (To)
+---  ------  --------  ----------------------------------------------  -----  -----------------------  ------------------------------------------------  -------------------------------------------
+  1  CDC-3   Info      1-bit synchronized with ASYNC_REG property          3  False Path               board_i/adc/inst/core/running_reg/C               board_i/adc/inst/core/active_sync_reg[0]/D
+  2  CDC-3   Info      1-bit synchronized with ASYNC_REG property          3  False Path               board_i/adc/inst/core/complete_reg[0]/C           board_i/adc/inst/core/done_sync0_reg[0]/D
+  3  CDC-3   Info      1-bit synchronized with ASYNC_REG property          3  False Path               board_i/adc/inst/core/complete_reg[1]/C           board_i/adc/inst/core/done_sync1_reg[0]/D
+  4  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[0]/C          board_i/adc/inst/core/host_meta0_reg[0]/D
+  5  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[1]/C          board_i/adc/inst/core/host_meta0_reg[1]/D
+  6  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[2]/C          board_i/adc/inst/core/host_meta0_reg[2]/D
+  7  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[3]/C          board_i/adc/inst/core/host_meta0_reg[3]/D
+  8  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[4]/C          board_i/adc/inst/core/host_meta0_reg[4]/D
+  9  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[5]/C          board_i/adc/inst/core/host_meta0_reg[5]/D
+ 10  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[6]/C          board_i/adc/inst/core/host_meta0_reg[6]/D
+ 11  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[7]/C          board_i/adc/inst/core/host_meta0_reg[7]/D
+ 12  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[8]/C          board_i/adc/inst/core/host_meta0_reg[8]/D
+ 13  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[9]/C          board_i/adc/inst/core/host_meta0_reg[9]/D
+ 14  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[10]/C         board_i/adc/inst/core/host_meta0_reg[10]/D
+ 15  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[11]/C         board_i/adc/inst/core/host_meta0_reg[11]/D
+ 16  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[12]/C         board_i/adc/inst/core/host_meta0_reg[12]/D
+ 17  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[13]/C         board_i/adc/inst/core/host_meta0_reg[13]/D
+ 18  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[14]/C         board_i/adc/inst/core/host_meta0_reg[14]/D
+ 19  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[15]/C         board_i/adc/inst/core/host_meta0_reg[15]/D
+ 20  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[16]/C         board_i/adc/inst/core/host_meta0_reg[16]/D
+ 21  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[17]/C         board_i/adc/inst/core/host_meta0_reg[17]/D
+ 22  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[18]/C         board_i/adc/inst/core/host_meta0_reg[18]/D
+ 23  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[19]/C         board_i/adc/inst/core/host_meta0_reg[19]/D
+ 24  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[20]/C         board_i/adc/inst/core/host_meta0_reg[20]/D
+ 25  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[21]/C         board_i/adc/inst/core/host_meta0_reg[21]/D
+ 26  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[22]/C         board_i/adc/inst/core/host_meta0_reg[22]/D
+ 27  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[23]/C         board_i/adc/inst/core/host_meta0_reg[23]/D
+ 28  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[24]/C         board_i/adc/inst/core/host_meta0_reg[24]/D
+ 29  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[25]/C         board_i/adc/inst/core/host_meta0_reg[25]/D
+ 30  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[26]/C         board_i/adc/inst/core/host_meta0_reg[26]/D
+ 31  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[27]/C         board_i/adc/inst/core/host_meta0_reg[27]/D
+ 32  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[28]/C         board_i/adc/inst/core/host_meta0_reg[28]/D
+ 33  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[29]/C         board_i/adc/inst/core/host_meta0_reg[29]/D
+ 34  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[30]/C         board_i/adc/inst/core/host_meta0_reg[30]/D
+ 35  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[31]/C         board_i/adc/inst/core/host_meta0_reg[31]/D
+ 36  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[32]/C         board_i/adc/inst/core/host_meta0_reg[32]/D
+ 37  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[33]/C         board_i/adc/inst/core/host_meta0_reg[33]/D
+ 38  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[34]/C         board_i/adc/inst/core/host_meta0_reg[34]/D
+ 39  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[35]/C         board_i/adc/inst/core/host_meta0_reg[35]/D
+ 40  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[36]/C         board_i/adc/inst/core/host_meta0_reg[36]/D
+ 41  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[37]/C         board_i/adc/inst/core/host_meta0_reg[37]/D
+ 42  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[38]/C         board_i/adc/inst/core/host_meta0_reg[38]/D
+ 43  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[39]/C         board_i/adc/inst/core/host_meta0_reg[39]/D
+ 44  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[40]/C         board_i/adc/inst/core/host_meta0_reg[40]/D
+ 45  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[41]/C         board_i/adc/inst/core/host_meta0_reg[41]/D
+ 46  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[42]/C         board_i/adc/inst/core/host_meta0_reg[42]/D
+ 47  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[43]/C         board_i/adc/inst/core/host_meta0_reg[43]/D
+ 48  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[44]/C         board_i/adc/inst/core/host_meta0_reg[44]/D
+ 49  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[45]/C         board_i/adc/inst/core/host_meta0_reg[45]/D
+ 50  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[46]/C         board_i/adc/inst/core/host_meta0_reg[46]/D
+ 51  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[47]/C         board_i/adc/inst/core/host_meta0_reg[47]/D
+ 52  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[48]/C         board_i/adc/inst/core/host_meta0_reg[48]/D
+ 53  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[49]/C         board_i/adc/inst/core/host_meta0_reg[49]/D
+ 54  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[50]/C         board_i/adc/inst/core/host_meta0_reg[50]/D
+ 55  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[51]/C         board_i/adc/inst/core/host_meta0_reg[51]/D
+ 56  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[52]/C         board_i/adc/inst/core/host_meta0_reg[52]/D
+ 57  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[53]/C         board_i/adc/inst/core/host_meta0_reg[53]/D
+ 58  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[54]/C         board_i/adc/inst/core/host_meta0_reg[54]/D
+ 59  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[55]/C         board_i/adc/inst/core/host_meta0_reg[55]/D
+ 60  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[56]/C         board_i/adc/inst/core/host_meta0_reg[56]/D
+ 61  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[57]/C         board_i/adc/inst/core/host_meta0_reg[57]/D
+ 62  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[58]/C         board_i/adc/inst/core/host_meta0_reg[58]/D
+ 63  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[59]/C         board_i/adc/inst/core/host_meta0_reg[59]/D
+ 64  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[60]/C         board_i/adc/inst/core/host_meta0_reg[60]/D
+ 65  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[61]/C         board_i/adc/inst/core/host_meta0_reg[61]/D
+ 66  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[62]/C         board_i/adc/inst/core/host_meta0_reg[62]/D
+ 67  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick0_reg[63]/C         board_i/adc/inst/core/host_meta0_reg[63]/D
+ 68  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[0]/C        board_i/adc/inst/core/host_meta0_reg[64]/D
+ 69  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[1]/C        board_i/adc/inst/core/host_meta0_reg[65]/D
+ 70  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[2]/C        board_i/adc/inst/core/host_meta0_reg[66]/D
+ 71  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[3]/C        board_i/adc/inst/core/host_meta0_reg[67]/D
+ 72  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[4]/C        board_i/adc/inst/core/host_meta0_reg[68]/D
+ 73  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[5]/C        board_i/adc/inst/core/host_meta0_reg[69]/D
+ 74  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[6]/C        board_i/adc/inst/core/host_meta0_reg[70]/D
+ 75  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[7]/C        board_i/adc/inst/core/host_meta0_reg[71]/D
+ 76  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[8]/C        board_i/adc/inst/core/host_meta0_reg[72]/D
+ 77  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[9]/C        board_i/adc/inst/core/host_meta0_reg[73]/D
+ 78  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[10]/C       board_i/adc/inst/core/host_meta0_reg[74]/D
+ 79  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[11]/C       board_i/adc/inst/core/host_meta0_reg[75]/D
+ 80  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[12]/C       board_i/adc/inst/core/host_meta0_reg[76]/D
+ 81  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[13]/C       board_i/adc/inst/core/host_meta0_reg[77]/D
+ 82  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[14]/C       board_i/adc/inst/core/host_meta0_reg[78]/D
+ 83  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[15]/C       board_i/adc/inst/core/host_meta0_reg[79]/D
+ 84  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[16]/C       board_i/adc/inst/core/host_meta0_reg[80]/D
+ 85  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[17]/C       board_i/adc/inst/core/host_meta0_reg[81]/D
+ 86  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[18]/C       board_i/adc/inst/core/host_meta0_reg[82]/D
+ 87  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[19]/C       board_i/adc/inst/core/host_meta0_reg[83]/D
+ 88  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[20]/C       board_i/adc/inst/core/host_meta0_reg[84]/D
+ 89  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[21]/C       board_i/adc/inst/core/host_meta0_reg[85]/D
+ 90  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[22]/C       board_i/adc/inst/core/host_meta0_reg[86]/D
+ 91  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[23]/C       board_i/adc/inst/core/host_meta0_reg[87]/D
+ 92  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[24]/C       board_i/adc/inst/core/host_meta0_reg[88]/D
+ 93  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[25]/C       board_i/adc/inst/core/host_meta0_reg[89]/D
+ 94  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[26]/C       board_i/adc/inst/core/host_meta0_reg[90]/D
+ 95  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[27]/C       board_i/adc/inst/core/host_meta0_reg[91]/D
+ 96  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[28]/C       board_i/adc/inst/core/host_meta0_reg[92]/D
+ 97  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[29]/C       board_i/adc/inst/core/host_meta0_reg[93]/D
+ 98  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[30]/C       board_i/adc/inst/core/host_meta0_reg[94]/D
+ 99  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[31]/C       board_i/adc/inst/core/host_meta0_reg[95]/D
+100  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[32]/C       board_i/adc/inst/core/host_meta0_reg[96]/D
+101  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[33]/C       board_i/adc/inst/core/host_meta0_reg[97]/D
+102  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[34]/C       board_i/adc/inst/core/host_meta0_reg[98]/D
+103  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[35]/C       board_i/adc/inst/core/host_meta0_reg[99]/D
+104  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[36]/C       board_i/adc/inst/core/host_meta0_reg[100]/D
+105  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[37]/C       board_i/adc/inst/core/host_meta0_reg[101]/D
+106  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[38]/C       board_i/adc/inst/core/host_meta0_reg[102]/D
+107  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[39]/C       board_i/adc/inst/core/host_meta0_reg[103]/D
+108  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[40]/C       board_i/adc/inst/core/host_meta0_reg[104]/D
+109  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[41]/C       board_i/adc/inst/core/host_meta0_reg[105]/D
+110  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[42]/C       board_i/adc/inst/core/host_meta0_reg[106]/D
+111  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[43]/C       board_i/adc/inst/core/host_meta0_reg[107]/D
+112  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[44]/C       board_i/adc/inst/core/host_meta0_reg[108]/D
+113  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[45]/C       board_i/adc/inst/core/host_meta0_reg[109]/D
+114  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[46]/C       board_i/adc/inst/core/host_meta0_reg[110]/D
+115  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[47]/C       board_i/adc/inst/core/host_meta0_reg[111]/D
+116  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[48]/C       board_i/adc/inst/core/host_meta0_reg[112]/D
+117  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[49]/C       board_i/adc/inst/core/host_meta0_reg[113]/D
+118  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[50]/C       board_i/adc/inst/core/host_meta0_reg[114]/D
+119  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[51]/C       board_i/adc/inst/core/host_meta0_reg[115]/D
+120  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[52]/C       board_i/adc/inst/core/host_meta0_reg[116]/D
+121  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[53]/C       board_i/adc/inst/core/host_meta0_reg[117]/D
+122  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[54]/C       board_i/adc/inst/core/host_meta0_reg[118]/D
+123  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[55]/C       board_i/adc/inst/core/host_meta0_reg[119]/D
+124  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[56]/C       board_i/adc/inst/core/host_meta0_reg[120]/D
+125  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[57]/C       board_i/adc/inst/core/host_meta0_reg[121]/D
+126  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[58]/C       board_i/adc/inst/core/host_meta0_reg[122]/D
+127  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[59]/C       board_i/adc/inst/core/host_meta0_reg[123]/D
+128  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[60]/C       board_i/adc/inst/core/host_meta0_reg[124]/D
+129  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[61]/C       board_i/adc/inst/core/host_meta0_reg[125]/D
+130  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[62]/C       board_i/adc/inst/core/host_meta0_reg[126]/D
+131  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick0_reg[63]/C       board_i/adc/inst/core/host_meta0_reg[127]/D
+132  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[0]/C   board_i/adc/inst/core/host_meta0_reg[128]/D
+133  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[1]/C   board_i/adc/inst/core/host_meta0_reg[129]/D
+134  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[2]/C   board_i/adc/inst/core/host_meta0_reg[130]/D
+135  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[3]/C   board_i/adc/inst/core/host_meta0_reg[131]/D
+136  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[4]/C   board_i/adc/inst/core/host_meta0_reg[132]/D
+137  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[5]/C   board_i/adc/inst/core/host_meta0_reg[133]/D
+138  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[6]/C   board_i/adc/inst/core/host_meta0_reg[134]/D
+139  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[7]/C   board_i/adc/inst/core/host_meta0_reg[135]/D
+140  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[8]/C   board_i/adc/inst/core/host_meta0_reg[136]/D
+141  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[9]/C   board_i/adc/inst/core/host_meta0_reg[137]/D
+142  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[10]/C  board_i/adc/inst/core/host_meta0_reg[138]/D
+143  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[11]/C  board_i/adc/inst/core/host_meta0_reg[139]/D
+144  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[12]/C  board_i/adc/inst/core/host_meta0_reg[140]/D
+145  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[13]/C  board_i/adc/inst/core/host_meta0_reg[141]/D
+146  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[14]/C  board_i/adc/inst/core/host_meta0_reg[142]/D
+147  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[15]/C  board_i/adc/inst/core/host_meta0_reg[143]/D
+148  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[16]/C  board_i/adc/inst/core/host_meta0_reg[144]/D
+149  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[17]/C  board_i/adc/inst/core/host_meta0_reg[145]/D
+150  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[18]/C  board_i/adc/inst/core/host_meta0_reg[146]/D
+151  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[19]/C  board_i/adc/inst/core/host_meta0_reg[147]/D
+152  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[20]/C  board_i/adc/inst/core/host_meta0_reg[148]/D
+153  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[21]/C  board_i/adc/inst/core/host_meta0_reg[149]/D
+154  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[22]/C  board_i/adc/inst/core/host_meta0_reg[150]/D
+155  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[23]/C  board_i/adc/inst/core/host_meta0_reg[151]/D
+156  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[24]/C  board_i/adc/inst/core/host_meta0_reg[152]/D
+157  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[25]/C  board_i/adc/inst/core/host_meta0_reg[153]/D
+158  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[26]/C  board_i/adc/inst/core/host_meta0_reg[154]/D
+159  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[27]/C  board_i/adc/inst/core/host_meta0_reg[155]/D
+160  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[28]/C  board_i/adc/inst/core/host_meta0_reg[156]/D
+161  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[29]/C  board_i/adc/inst/core/host_meta0_reg[157]/D
+162  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[30]/C  board_i/adc/inst/core/host_meta0_reg[158]/D
+163  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation0_reg[31]/C  board_i/adc/inst/core/host_meta0_reg[159]/D
+164  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[0]/C          board_i/adc/inst/core/host_meta1_reg[0]/D
+165  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[1]/C          board_i/adc/inst/core/host_meta1_reg[1]/D
+166  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[2]/C          board_i/adc/inst/core/host_meta1_reg[2]/D
+167  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[3]/C          board_i/adc/inst/core/host_meta1_reg[3]/D
+168  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[4]/C          board_i/adc/inst/core/host_meta1_reg[4]/D
+169  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[5]/C          board_i/adc/inst/core/host_meta1_reg[5]/D
+170  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[6]/C          board_i/adc/inst/core/host_meta1_reg[6]/D
+171  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[7]/C          board_i/adc/inst/core/host_meta1_reg[7]/D
+172  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[8]/C          board_i/adc/inst/core/host_meta1_reg[8]/D
+173  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[9]/C          board_i/adc/inst/core/host_meta1_reg[9]/D
+174  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[10]/C         board_i/adc/inst/core/host_meta1_reg[10]/D
+175  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[11]/C         board_i/adc/inst/core/host_meta1_reg[11]/D
+176  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[12]/C         board_i/adc/inst/core/host_meta1_reg[12]/D
+177  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[13]/C         board_i/adc/inst/core/host_meta1_reg[13]/D
+178  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[14]/C         board_i/adc/inst/core/host_meta1_reg[14]/D
+179  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[15]/C         board_i/adc/inst/core/host_meta1_reg[15]/D
+180  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[16]/C         board_i/adc/inst/core/host_meta1_reg[16]/D
+181  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[17]/C         board_i/adc/inst/core/host_meta1_reg[17]/D
+182  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[18]/C         board_i/adc/inst/core/host_meta1_reg[18]/D
+183  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[19]/C         board_i/adc/inst/core/host_meta1_reg[19]/D
+184  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[20]/C         board_i/adc/inst/core/host_meta1_reg[20]/D
+185  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[21]/C         board_i/adc/inst/core/host_meta1_reg[21]/D
+186  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[22]/C         board_i/adc/inst/core/host_meta1_reg[22]/D
+187  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[23]/C         board_i/adc/inst/core/host_meta1_reg[23]/D
+188  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[24]/C         board_i/adc/inst/core/host_meta1_reg[24]/D
+189  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[25]/C         board_i/adc/inst/core/host_meta1_reg[25]/D
+190  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[26]/C         board_i/adc/inst/core/host_meta1_reg[26]/D
+191  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[27]/C         board_i/adc/inst/core/host_meta1_reg[27]/D
+192  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[28]/C         board_i/adc/inst/core/host_meta1_reg[28]/D
+193  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[29]/C         board_i/adc/inst/core/host_meta1_reg[29]/D
+194  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[30]/C         board_i/adc/inst/core/host_meta1_reg[30]/D
+195  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[31]/C         board_i/adc/inst/core/host_meta1_reg[31]/D
+196  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[32]/C         board_i/adc/inst/core/host_meta1_reg[32]/D
+197  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[33]/C         board_i/adc/inst/core/host_meta1_reg[33]/D
+198  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[34]/C         board_i/adc/inst/core/host_meta1_reg[34]/D
+199  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[35]/C         board_i/adc/inst/core/host_meta1_reg[35]/D
+200  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[36]/C         board_i/adc/inst/core/host_meta1_reg[36]/D
+201  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[37]/C         board_i/adc/inst/core/host_meta1_reg[37]/D
+202  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[38]/C         board_i/adc/inst/core/host_meta1_reg[38]/D
+203  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[39]/C         board_i/adc/inst/core/host_meta1_reg[39]/D
+204  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[40]/C         board_i/adc/inst/core/host_meta1_reg[40]/D
+205  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[41]/C         board_i/adc/inst/core/host_meta1_reg[41]/D
+206  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[42]/C         board_i/adc/inst/core/host_meta1_reg[42]/D
+207  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[43]/C         board_i/adc/inst/core/host_meta1_reg[43]/D
+208  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[44]/C         board_i/adc/inst/core/host_meta1_reg[44]/D
+209  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[45]/C         board_i/adc/inst/core/host_meta1_reg[45]/D
+210  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[46]/C         board_i/adc/inst/core/host_meta1_reg[46]/D
+211  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[47]/C         board_i/adc/inst/core/host_meta1_reg[47]/D
+212  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[48]/C         board_i/adc/inst/core/host_meta1_reg[48]/D
+213  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[49]/C         board_i/adc/inst/core/host_meta1_reg[49]/D
+214  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[50]/C         board_i/adc/inst/core/host_meta1_reg[50]/D
+215  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[51]/C         board_i/adc/inst/core/host_meta1_reg[51]/D
+216  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[52]/C         board_i/adc/inst/core/host_meta1_reg[52]/D
+217  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[53]/C         board_i/adc/inst/core/host_meta1_reg[53]/D
+218  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[54]/C         board_i/adc/inst/core/host_meta1_reg[54]/D
+219  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[55]/C         board_i/adc/inst/core/host_meta1_reg[55]/D
+220  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[56]/C         board_i/adc/inst/core/host_meta1_reg[56]/D
+221  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[57]/C         board_i/adc/inst/core/host_meta1_reg[57]/D
+222  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[58]/C         board_i/adc/inst/core/host_meta1_reg[58]/D
+223  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[59]/C         board_i/adc/inst/core/host_meta1_reg[59]/D
+224  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[60]/C         board_i/adc/inst/core/host_meta1_reg[60]/D
+225  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[61]/C         board_i/adc/inst/core/host_meta1_reg[61]/D
+226  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[62]/C         board_i/adc/inst/core/host_meta1_reg[62]/D
+227  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/end_tick1_reg[63]/C         board_i/adc/inst/core/host_meta1_reg[63]/D
+228  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[0]/C        board_i/adc/inst/core/host_meta1_reg[64]/D
+229  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[1]/C        board_i/adc/inst/core/host_meta1_reg[65]/D
+230  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[2]/C        board_i/adc/inst/core/host_meta1_reg[66]/D
+231  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[3]/C        board_i/adc/inst/core/host_meta1_reg[67]/D
+232  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[4]/C        board_i/adc/inst/core/host_meta1_reg[68]/D
+233  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[5]/C        board_i/adc/inst/core/host_meta1_reg[69]/D
+234  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[6]/C        board_i/adc/inst/core/host_meta1_reg[70]/D
+235  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[7]/C        board_i/adc/inst/core/host_meta1_reg[71]/D
+236  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[8]/C        board_i/adc/inst/core/host_meta1_reg[72]/D
+237  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[9]/C        board_i/adc/inst/core/host_meta1_reg[73]/D
+238  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[10]/C       board_i/adc/inst/core/host_meta1_reg[74]/D
+239  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[11]/C       board_i/adc/inst/core/host_meta1_reg[75]/D
+240  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[12]/C       board_i/adc/inst/core/host_meta1_reg[76]/D
+241  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[13]/C       board_i/adc/inst/core/host_meta1_reg[77]/D
+242  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[14]/C       board_i/adc/inst/core/host_meta1_reg[78]/D
+243  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[15]/C       board_i/adc/inst/core/host_meta1_reg[79]/D
+244  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[16]/C       board_i/adc/inst/core/host_meta1_reg[80]/D
+245  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[17]/C       board_i/adc/inst/core/host_meta1_reg[81]/D
+246  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[18]/C       board_i/adc/inst/core/host_meta1_reg[82]/D
+247  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[19]/C       board_i/adc/inst/core/host_meta1_reg[83]/D
+248  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[20]/C       board_i/adc/inst/core/host_meta1_reg[84]/D
+249  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[21]/C       board_i/adc/inst/core/host_meta1_reg[85]/D
+250  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[22]/C       board_i/adc/inst/core/host_meta1_reg[86]/D
+251  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[23]/C       board_i/adc/inst/core/host_meta1_reg[87]/D
+252  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[24]/C       board_i/adc/inst/core/host_meta1_reg[88]/D
+253  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[25]/C       board_i/adc/inst/core/host_meta1_reg[89]/D
+254  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[26]/C       board_i/adc/inst/core/host_meta1_reg[90]/D
+255  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[27]/C       board_i/adc/inst/core/host_meta1_reg[91]/D
+256  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[28]/C       board_i/adc/inst/core/host_meta1_reg[92]/D
+257  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[29]/C       board_i/adc/inst/core/host_meta1_reg[93]/D
+258  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[30]/C       board_i/adc/inst/core/host_meta1_reg[94]/D
+259  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[31]/C       board_i/adc/inst/core/host_meta1_reg[95]/D
+260  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[32]/C       board_i/adc/inst/core/host_meta1_reg[96]/D
+261  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[33]/C       board_i/adc/inst/core/host_meta1_reg[97]/D
+262  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[34]/C       board_i/adc/inst/core/host_meta1_reg[98]/D
+263  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[35]/C       board_i/adc/inst/core/host_meta1_reg[99]/D
+264  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[36]/C       board_i/adc/inst/core/host_meta1_reg[100]/D
+265  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[37]/C       board_i/adc/inst/core/host_meta1_reg[101]/D
+266  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[38]/C       board_i/adc/inst/core/host_meta1_reg[102]/D
+267  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[39]/C       board_i/adc/inst/core/host_meta1_reg[103]/D
+268  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[40]/C       board_i/adc/inst/core/host_meta1_reg[104]/D
+269  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[41]/C       board_i/adc/inst/core/host_meta1_reg[105]/D
+270  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[42]/C       board_i/adc/inst/core/host_meta1_reg[106]/D
+271  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[43]/C       board_i/adc/inst/core/host_meta1_reg[107]/D
+272  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[44]/C       board_i/adc/inst/core/host_meta1_reg[108]/D
+273  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[45]/C       board_i/adc/inst/core/host_meta1_reg[109]/D
+274  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[46]/C       board_i/adc/inst/core/host_meta1_reg[110]/D
+275  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[47]/C       board_i/adc/inst/core/host_meta1_reg[111]/D
+276  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[48]/C       board_i/adc/inst/core/host_meta1_reg[112]/D
+277  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[49]/C       board_i/adc/inst/core/host_meta1_reg[113]/D
+278  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[50]/C       board_i/adc/inst/core/host_meta1_reg[114]/D
+279  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[51]/C       board_i/adc/inst/core/host_meta1_reg[115]/D
+280  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[52]/C       board_i/adc/inst/core/host_meta1_reg[116]/D
+281  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[53]/C       board_i/adc/inst/core/host_meta1_reg[117]/D
+282  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[54]/C       board_i/adc/inst/core/host_meta1_reg[118]/D
+283  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[55]/C       board_i/adc/inst/core/host_meta1_reg[119]/D
+284  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[56]/C       board_i/adc/inst/core/host_meta1_reg[120]/D
+285  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[57]/C       board_i/adc/inst/core/host_meta1_reg[121]/D
+286  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[58]/C       board_i/adc/inst/core/host_meta1_reg[122]/D
+287  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[59]/C       board_i/adc/inst/core/host_meta1_reg[123]/D
+288  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[60]/C       board_i/adc/inst/core/host_meta1_reg[124]/D
+289  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[61]/C       board_i/adc/inst/core/host_meta1_reg[125]/D
+290  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[62]/C       board_i/adc/inst/core/host_meta1_reg[126]/D
+291  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/begin_tick1_reg[63]/C       board_i/adc/inst/core/host_meta1_reg[127]/D
+292  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[0]/C   board_i/adc/inst/core/host_meta1_reg[128]/D
+293  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[1]/C   board_i/adc/inst/core/host_meta1_reg[129]/D
+294  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[2]/C   board_i/adc/inst/core/host_meta1_reg[130]/D
+295  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[3]/C   board_i/adc/inst/core/host_meta1_reg[131]/D
+296  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[4]/C   board_i/adc/inst/core/host_meta1_reg[132]/D
+297  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[5]/C   board_i/adc/inst/core/host_meta1_reg[133]/D
+298  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[6]/C   board_i/adc/inst/core/host_meta1_reg[134]/D
+299  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[7]/C   board_i/adc/inst/core/host_meta1_reg[135]/D
+300  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[8]/C   board_i/adc/inst/core/host_meta1_reg[136]/D
+301  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[9]/C   board_i/adc/inst/core/host_meta1_reg[137]/D
+302  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[10]/C  board_i/adc/inst/core/host_meta1_reg[138]/D
+303  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[11]/C  board_i/adc/inst/core/host_meta1_reg[139]/D
+304  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[12]/C  board_i/adc/inst/core/host_meta1_reg[140]/D
+305  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[13]/C  board_i/adc/inst/core/host_meta1_reg[141]/D
+306  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[14]/C  board_i/adc/inst/core/host_meta1_reg[142]/D
+307  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[15]/C  board_i/adc/inst/core/host_meta1_reg[143]/D
+308  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[16]/C  board_i/adc/inst/core/host_meta1_reg[144]/D
+309  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[17]/C  board_i/adc/inst/core/host_meta1_reg[145]/D
+310  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[18]/C  board_i/adc/inst/core/host_meta1_reg[146]/D
+311  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[19]/C  board_i/adc/inst/core/host_meta1_reg[147]/D
+312  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[20]/C  board_i/adc/inst/core/host_meta1_reg[148]/D
+313  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[21]/C  board_i/adc/inst/core/host_meta1_reg[149]/D
+314  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[22]/C  board_i/adc/inst/core/host_meta1_reg[150]/D
+315  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[23]/C  board_i/adc/inst/core/host_meta1_reg[151]/D
+316  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[24]/C  board_i/adc/inst/core/host_meta1_reg[152]/D
+317  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[25]/C  board_i/adc/inst/core/host_meta1_reg[153]/D
+318  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[26]/C  board_i/adc/inst/core/host_meta1_reg[154]/D
+319  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[27]/C  board_i/adc/inst/core/host_meta1_reg[155]/D
+320  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[28]/C  board_i/adc/inst/core/host_meta1_reg[156]/D
+321  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[29]/C  board_i/adc/inst/core/host_meta1_reg[157]/D
+322  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[30]/C  board_i/adc/inst/core/host_meta1_reg[158]/D
+323  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/adc/inst/core/bank_generation1_reg[31]/C  board_i/adc/inst/core/host_meta1_reg[159]/D
+
+Source Clock: clk_fpga_1
+Destination Clock: clk_out1_board_hdmi_clock_0
+CDC Type: No Common Primary Clock
+
+Row  ID      Severity  Description                                     Depth  Exception                Source (From)                                           Destination (To)
+---  ------  --------  ----------------------------------------------  -----  -----------------------  ------------------------------------------------------  -----------------------------------------------------
+  1  CDC-3   Info      1-bit synchronized with ASYNC_REG property          3  False Path               board_i/hdmi_scanout/inst/core/cursor_toggle_reg/C      board_i/hdmi_scanout/inst/core/cursor_sync_reg[0]/D
+  2  CDC-3   Info      1-bit synchronized with ASYNC_REG property          3  False Path               board_i/hdmi_scanout/inst/core/mode_latched_reg/C       board_i/hdmi_scanout/inst/core/mode_sync_reg[0]/D
+  3  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[0]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[0]/D
+  4  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[1]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[1]/D
+  5  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[2]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[2]/D
+  6  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[3]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[3]/D
+  7  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[4]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[4]/D
+  8  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[5]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[5]/D
+  9  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[6]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[6]/D
+ 10  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[7]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[7]/D
+ 11  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[8]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[8]/D
+ 12  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[9]/C   board_i/hdmi_scanout/inst/core/pixel_cursor_reg[9]/D
+ 13  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[10]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[10]/D
+ 14  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[16]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[16]/D
+ 15  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[17]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[17]/D
+ 16  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[18]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[18]/D
+ 17  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[19]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[19]/D
+ 18  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[20]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[20]/D
+ 19  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[21]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[21]/D
+ 20  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[22]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[22]/D
+ 21  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[23]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[23]/D
+ 22  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[24]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[24]/D
+ 23  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[25]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[25]/D
+ 24  CDC-15  Warning   Clock enable controlled CDC structure detected      0  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/active_cursor_reg[31]/C  board_i/hdmi_scanout/inst/core/pixel_cursor_reg[31]/D
+ 25  CDC-6   Warning   Multi-bit synchronized with ASYNC_REG property      2  Max Delay Datapath Only  board_i/hdmi_scanout/inst/core/wgray_reg[3:0]/C         board_i/hdmi_scanout/inst/core/wg0_reg[3:0]/D
+
+Source Clock: clk_fpga_1
+Destination Clock: fast_raw
+CDC Type: No Common Primary Clock
+
+Row  ID     Severity  Description                                 Depth  Exception   Source (From)                                               Destination (To)
+---  -----  --------  ------------------------------------------  -----  ----------  ----------------------------------------------------------  ----------------------------------------------
+  1  CDC-3  Info      1-bit synchronized with ASYNC_REG property      3  False Path  board_i/adc/inst/core/acknowledge_reg[0]/C                  board_i/adc/inst/core/ack_sync0_reg[0]/D
+  2  CDC-3  Info      1-bit synchronized with ASYNC_REG property      3  False Path  board_i/adc/inst/core/acknowledge_reg[1]/C                  board_i/adc/inst/core/ack_sync1_reg[0]/D
+  3  CDC-3  Info      1-bit synchronized with ASYNC_REG property      3  False Path  board_i/adc/inst/core/continuous_host_reg/C                 board_i/adc/inst/core/continuous_sync_reg[0]/D
+  4  CDC-3  Info      1-bit synchronized with ASYNC_REG property      3  False Path  board_i/adc/inst/core/request_reg/C                         board_i/adc/inst/core/req_sync_reg[0]/D
+  5  CDC-3  Info      1-bit synchronized with ASYNC_REG property      3  False Path  board_i/sys_reset/U0/ACTIVE_LOW_PR_OUT_DFF[0].FDRE_PER_N/C  board_i/adc/inst/core/rst_sync_reg[0]/D
+  6  CDC-3  Info      1-bit synchronized with ASYNC_REG property      3  False Path  board_i/adc/inst/core/stop_request_reg/C                    board_i/adc/inst/core/stop_sync_reg[0]/D
+
+Source Clock: input port clock
+Destination Clock: fast_raw
+CDC Type: No Common Primary Clock
+
+Row  ID      Severity  Description                           Depth  Exception   Source (From)       Destination (To)
+---  ------  --------  ------------------------------------  -----  ----------  ------------------  -----------------------------------------------
+  1  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[0]       board_i/adc/inst/core/raw_mem_reg_0_0/DIADI[0]
+  2  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[1]       board_i/adc/inst/core/raw_mem_reg_0_1/DIADI[0]
+  3  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[10]      board_i/adc/inst/core/raw_mem_reg_0_10/DIADI[0]
+  4  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[11]      board_i/adc/inst/core/raw_mem_reg_0_11/DIADI[0]
+  5  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[12]      board_i/adc/inst/core/raw_mem_reg_0_12/DIADI[0]
+  6  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[13]      board_i/adc/inst/core/raw_mem_reg_0_13/DIADI[0]
+  7  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_otr_0           board_i/adc/inst/core/raw_mem_reg_0_14/DIADI[0]
+  8  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  grounded_pads_0[0]  board_i/adc/inst/core/raw_mem_reg_0_17/DIADI[0]
+  9  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  grounded_pads_0[1]  board_i/adc/inst/core/raw_mem_reg_0_18/DIADI[0]
+ 10  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[2]       board_i/adc/inst/core/raw_mem_reg_0_2/DIADI[0]
+ 11  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[3]       board_i/adc/inst/core/raw_mem_reg_0_3/DIADI[0]
+ 12  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[4]       board_i/adc/inst/core/raw_mem_reg_0_4/DIADI[0]
+ 13  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[5]       board_i/adc/inst/core/raw_mem_reg_0_5/DIADI[0]
+ 14  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[6]       board_i/adc/inst/core/raw_mem_reg_0_6/DIADI[0]
+ 15  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[7]       board_i/adc/inst/core/raw_mem_reg_0_7/DIADI[0]
+ 16  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[8]       board_i/adc/inst/core/raw_mem_reg_0_8/DIADI[0]
+ 17  CDC-13  Critical  1-bit CDC path on a non-FD primitive      0  False Path  adc_data_0[9]       board_i/adc/inst/core/raw_mem_reg_0_9/DIADI[0]
+

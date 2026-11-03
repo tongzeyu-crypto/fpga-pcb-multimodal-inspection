@@ -28,6 +28,7 @@
   };
   pcb_ai@43c40000 {compatible = "pcb,ai-1";reg = <0x43c40000 0x40000>;clocks = <&clkc 16>;clock-names = "aclk";};
   pcb_adc@43c80000 {compatible = "pcb,adc-1";reg = <0x43c80000 0x20000>;clocks = <&clkc 16>;clock-names = "aclk";};
+  pcb_demo@43cc0000 {compatible = "pcb,demo-1";reg = <0x43cc0000 0x10000>;clocks = <&clkc 16>;clock-names = "aclk";};
   scanout_status: gpio@41200000 {
    compatible = "xlnx,axi-gpio-2.0", "xlnx,xps-gpio-1.00.a";
    reg = <0x41200000 0x10000>;clocks = <&clkc 16>;clock-names = "s_axi_aclk";

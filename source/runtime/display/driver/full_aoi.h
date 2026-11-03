@@ -3,7 +3,7 @@
 #include "full_layout.h"
 // AOI display snapshots contain only data produced by the separate AOI service.
 // No measurement is inferred from a rendered pixel or from the RGB/thermal model.
-struct FullAoiRegion {double x=0,y=0,w=0,h=0;std::string kind,component;};
+struct FullAoiRegion {double x=0,y=0,w=0,h=0,bx=0,by=0,bw=0,bh=0;int board_valid=0;std::string kind,component;};
 struct FullAoi {
  std::string root,run,status="OFFLINE",state;int width=0,height=0,texture_height=0;
  double crop_x=0,crop_y=0,crop_width=0,crop_height=0;
@@ -25,7 +25,7 @@ struct FullAoi {
   if(!valid_id(next_run)){if(available||next_status=="READY")return invalid();return changed;}
   if(next_run==run&&available)return changed;
   std::ifstream meta(directory+"/"+next_run+"/display.txt");std::string magic,header;
-  if(!std::getline(meta,magic)||magic!="AOI1_8X4"||!std::getline(meta,header))return invalid();
+  if(!std::getline(meta,magic)||(magic!="AOI1_8X4"&&magic!="AOI2_8X4")||!std::getline(meta,header))return invalid();
   std::istringstream first(header);std::string id,next_state;int w,h,th,count;
   if(!(first>>id>>w>>h>>th>>count>>next_state)||id!=next_run||w<=0||h<=0||w>10000||h>10000||th<=0||th>1024||count<0||count>64)return invalid();
   std::vector<FullAoiRegion> next;std::string line;
@@ -36,6 +36,7 @@ struct FullAoi {
    if(!(numbers>>item.x>>item.y>>item.w>>item.h)||!std::isfinite(item.x)||!std::isfinite(item.y)||!std::isfinite(item.w)||!std::isfinite(item.h)||
       item.x<0||item.y<0||item.w<=0||item.h<=0||item.x+item.w>w+2||item.y+item.h>h+2)return invalid();
    item.kind=line.substr(a+1,b-a-1);item.component=line.substr(b+1);
+   if(magic=="AOI2_8X4"&&(!(numbers>>item.board_valid>>item.bx>>item.by>>item.bw>>item.bh)||item.board_valid<0||item.board_valid>1||!std::isfinite(item.bx)||!std::isfinite(item.by)||!std::isfinite(item.bw)||!std::isfinite(item.bh)))return invalid();
    if(item.kind.empty()||item.kind.size()>256||item.component.size()>256)return invalid();
    next.push_back(item);
   }

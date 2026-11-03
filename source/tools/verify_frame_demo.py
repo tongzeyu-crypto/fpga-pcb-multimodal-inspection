@@ -28,6 +28,9 @@ def main():
         assert [f['kind'] for f in result['frames'][:3]]==['完整渲染','神经生成过渡帧','完整渲染']
         assert all(b['yaw']>=a['yaw']-1e-6 for a,b in zip(result['frames'],result['frames'][1:]))
         neural=get('/framegen/image?key=neural-0');warp=get('/framegen/image?key=warp-0')
+        weights=cv2.imdecode(np.frombuffer(get('/framegen/image?key=weights-0'),np.uint8),cv2.IMREAD_COLOR)
+        difference=cv2.imdecode(np.frombuffer(get('/framegen/image?key=difference-0'),np.uint8),cv2.IMREAD_COLOR)
+        assert weights.shape==difference.shape==(720,1280,3) and np.unique(weights.reshape(-1,3),axis=0).shape[0]>1
         assert neural!=warp
         pixels=cv2.imdecode(np.frombuffer(neural,np.uint8),cv2.IMREAD_COLOR);assert pixels.shape==(720,1280,3)
         (e/f'ui-mode-{mode}-neural.png').write_bytes(cv2.imencode('.png',pixels)[1].tobytes())

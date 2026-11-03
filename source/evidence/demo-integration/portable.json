@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "extracted_main_entry": true,
+  "compiler_required": false,
+  "points": 6,
+  "frames": 18,
+  "neural_generated_frames": 4,
+  "actual_neural_rgb_fusion": true,
+  "board_connected": false,
+  "original_boot_image_modified": false,
+  "tested_zip_sha256": "84a58d9e398d5d73e5cef7135836c9912f4b1818ebc833fe1c616a6206582ab1",
+  "source_sha256": {
+    "bin/demo_reference.exe": "2348077829d4de5add4c5dea47b3a8c39fe4af4af01f9085bd38f3a2358a6dc0",
+    "bin/neural_frame_tool.exe": "1a67fee0ed2d33fd5cf9dc1525c12bc5aed25c1269bdec77d8224923ea943aed",
+    "runtime/run_board.py": "089c3895744a632318057cc4f4d8e7d8870387ad83512eef1ed8aa65ea28a16e",
+    "runtime/demo_host.py": "7dcd33af307fba4db65e34bcdadf7cfb72dbbcd2913cf81cb8059459aaaf44b7",
+    "runtime/demo_integration.py": "8eb73fc7b5fd49cf1bbbdb184800993281f69b678dbbed294e4282851934d4a4",
+    "runtime/frame_demo.py": "7ff901d66868f034c5deb7f7001a3bd88695e9d474958edcf9c5cea1444d0e1a",
+    "models/frame/model.pai": "8793788510c5ade83a2c4d544119a567e62efc089fe992061acc530d6ac018a6"
+  }
+}

@@ -5,7 +5,11 @@
 #include <cmath>
 #include <algorithm>
 struct FullState {
- int demo_point=0,demo_command=0,demo_request=0;
+ int demo_point=0,demo_command=0,demo_request=0,demo_total=6;
+ bool temperature_valid=false;int temperature_x=0,temperature_y=0,temperature_kelvin16=0,temperature_peak=0;
+ double temperature_c=0,temperature_pl_c=0,temperature_board_x=0,temperature_board_y=0;
+ double scan_width=70,scan_height=44,scan_step_x=5,scan_step_y=5,scan_feed=120;int scan_config_revision=0,demo_active=0;
+ uint64_t data_revision=0;std::string data_capture;
  int mode=0,base=0,band=0,scenario=0,point=93,points=1,components=1,hud=1,autorotate=0,raw_board=0;
  int emi_alpha=153,cursor_x=640,cursor_y=360,cursor_visible=1,time=0;
  int aoi_selected=0,aoi_variant=0;double aoi_zoom=1.,aoi_pan_x=0.,aoi_pan_y=0.;std::string aoi_run,aoi_status;
@@ -23,18 +27,26 @@ template<class V> static void full_preset(V &v,int which){
  if(which==1){v.pose.yaw=0;v.pose.polar=.05;v.pose.zoom=.82;}
  if(which==2){v.pose.yaw=0;v.pose.polar=1.25;v.pose.zoom=.78;}
 }
-template<class V> static bool full_action(V &v,const std::string &key,double value,int point_count){
+template<class V> static bool full_scan_grid_valid(const V &v){return (std::ceil(v.scan_width/v.scan_step_x-1e-9)+1)*(std::ceil(v.scan_height/v.scan_step_y-1e-9)+1)<=1024;}
+template<class V> static bool full_action(V &v,const std::string &key,double value,int point_count,bool defer_scan_grid=false){
  if(!std::isfinite(value)||std::abs(value)>10000000)return false;
- if(key!="relief"&&key!="slice"&&key!="yaw"&&key!="polar"&&key!="zoom"&&key!="x"&&key!="y"&&key!="z"&&key!="aoi_zoom"&&key!="aoi_pan_x"&&key!="aoi_pan_y"&&value!=std::trunc(value))return false;
+ if(key.compare(0,5,"scan_")!=0&&key!="relief"&&key!="slice"&&key!="yaw"&&key!="polar"&&key!="zoom"&&key!="x"&&key!="y"&&key!="z"&&key!="aoi_zoom"&&key!="aoi_pan_x"&&key!="aoi_pan_y"&&value!=std::trunc(value))return false;
  int n=int(value);
  if(key=="mode"){if(n<0||n>16||n==2||n==4||n==5||n==7||n==8||n==9||n==10||n==11)return false;v.mode=n;full_preset(v,(n==1||n==4||n==7)?1:0);if(n==6)v.pose.zoom=.58;
   if(n==2||n==4||n==5||n==7||n==10||n==11)v.heat=0;else if((n==0||n==1||n==3||n==6)&&!v.heat)v.heat=179;
   if(n==10)v.base=1;
  }
- else if(key=="demo_point"){if(n<0||n>5)return false;v.demo_point=n;}
- else if(key=="demo_request"){if(n<1||n>2)return false;v.demo_request=n;v.demo_command++;}
+ else if(key=="demo_point"){if(n<0||n>1023)return false;v.demo_point=n;}
+ else if(key.compare(0,5,"scan_")==0){
+  if(v.demo_active)return false;
+  double w=v.scan_width,h=v.scan_height,sx=v.scan_step_x,sy=v.scan_step_y,feed=v.scan_feed;
+  if(key=="scan_width")w=value;else if(key=="scan_height")h=value;else if(key=="scan_step_x")sx=value;else if(key=="scan_step_y")sy=value;else if(key=="scan_feed")feed=value;else return false;
+  if(w<=0||w>200||h<=0||h>200||sx<.25||sx>200||sy<.25||sy>200||feed<1||feed>120||(!defer_scan_grid&&(std::ceil(w/sx-1e-9)+1)*(std::ceil(h/sy-1e-9)+1)>1024))return false;
+  v.scan_width=w;v.scan_height=h;v.scan_step_x=sx;v.scan_step_y=sy;v.scan_feed=feed;v.scan_config_revision++;
+ }
+ else if(key=="demo_request"){if(n<1||n>3)return false;v.demo_request=n;v.demo_command++;}
  else if(key=="base"){if(n<0||n>2)return false;v.base=n;}
- else if(key=="raw_board"){if(n<0||n>1)return false;if(n!=v.raw_board)v.relief=n?2.:.6;v.raw_board=n;v.point=0;v.board_menu=0;v.aoi_selected=0;v.aoi_zoom=1.;v.aoi_pan_x=v.aoi_pan_y=0.;full_preset(v,v.mode==1?1:0);}
+ else if(key=="raw_board"){if(n<0||n>1)return false;if(n!=v.raw_board)v.relief=n?2.:.6;v.raw_board=n;v.temperature_valid=false;v.point=0;v.board_menu=0;v.aoi_selected=0;v.aoi_zoom=1.;v.aoi_pan_x=v.aoi_pan_y=0.;full_preset(v,v.mode==1?1:0);}
  else if(key=="heat"){if(n<0||n>255)return false;v.heat=n;}
  else if(key=="emi"){if(n<0||n>1)return false;v.emi=n;}
  else if(key=="emi_alpha"){if(n<0||n>255)return false;v.emi_alpha=n;}
@@ -44,6 +56,7 @@ template<class V> static bool full_action(V &v,const std::string &key,double val
  else if(key=="point"){if(n<0||n>=point_count)return false;v.point=n;}
  else if(key=="slice"){if(value<.2||value>25)return false;v.slice=value;}
  else if(key=="time"){if(n<0||n>=160)return false;v.time=n;}
+ else if(key=="hotspot"){if(n!=1)return false;v.temperature_peak=1;}
  else if(key=="aoi_variant"){if(n<0||n>1)return false;v.aoi_variant=n;}
  else if(key=="aoi_selected"){if(n<0||n>=64)return false;v.aoi_selected=n;}
  else if(key=="aoi_zoom"){if(value<1||value>4)return false;v.aoi_zoom=value;}
@@ -75,10 +88,19 @@ template<class V> static bool full_click(V &v,int x,int y,int count,int aoi_coun
  if(v.mode==16){
   if(FullRect{1060,100,204,32}.contains(x,y)&&v.raw_board)return full_action(v,"demo_request",1,count);
   if(FullRect{1060,144,204,32}.contains(x,y))return full_action(v,"demo_request",2,count);
-  if(FullRect{1060,200,204,32}.contains(x,y))return full_action(v,"demo_point",(v.demo_point+(x<1160?5:1))%6,count);
+  if(FullRect{1060,340,204,32}.contains(x,y))return full_action(v,"demo_request",3,count);
+  if(FullRect{1060,200,204,32}.contains(x,y)){int total=std::max(1,std::min(1024,v.demo_total));return full_action(v,"demo_point",(v.demo_point+(x<1160?total-1:1))%total,count);}
+  if(x>=1060&&x<1264){int direction=x<1160?-1:1;
+   if(y>=374&&y<406)return full_action(v,"scan_width",v.scan_width+direction*5,count);
+   if(y>=410&&y<442)return full_action(v,"scan_height",v.scan_height+direction*5,count);
+   if(y>=446&&y<478)return full_action(v,"scan_step_x",v.scan_step_x+direction*.5,count);
+   if(y>=482&&y<514)return full_action(v,"scan_step_y",v.scan_step_y+direction*.5,count);
+   if(y>=518&&y<550)return full_action(v,"scan_feed",v.scan_feed+direction*10,count);
+  }
   return true;
  }
  if(v.mode>=13){
+  if(v.mode==14&&FullRect{1060,340,204,32}.contains(x,y))return full_action(v,"hotspot",1,count);
   if(v.mode!=15&&FullRect{1060,182,204,32}.contains(x,y)){full_preset(v,0);return true;}
   if(v.mode==15&&x>=1060&&x<1264&&y>=300&&y<332){v.band=(v.band+1)%5;return true;}
   if(x>=1060&&x<1264&&y>=100&&y<132)return full_action(v,"raw_board",!v.raw_board,count);

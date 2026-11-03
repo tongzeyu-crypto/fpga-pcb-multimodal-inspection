@@ -1,0 +1,4 @@
+wgray: board_i/hdmi_scanout/inst/core/wgray_reg[0] board_i/hdmi_scanout/inst/core/wgray_reg[1] board_i/hdmi_scanout/inst/core/wgray_reg[2] board_i/hdmi_scanout/inst/core/wgray_reg[3]
+wg0: board_i/hdmi_scanout/inst/core/wg0_reg[0]/D board_i/hdmi_scanout/inst/core/wg0_reg[1]/D board_i/hdmi_scanout/inst/core/wg0_reg[2]/D board_i/hdmi_scanout/inst/core/wg0_reg[3]/D
+rgray: board_i/hdmi_scanout/inst/core/rgray_reg[0] board_i/hdmi_scanout/inst/core/rgray_reg[1] board_i/hdmi_scanout/inst/core/rgray_reg[2] board_i/hdmi_scanout/inst/core/rgray_reg[3]
+rg0: board_i/hdmi_scanout/inst/core/rg0_reg[0]/D board_i/hdmi_scanout/inst/core/rg0_reg[1]/D board_i/hdmi_scanout/inst/core/rg0_reg[2]/D board_i/hdmi_scanout/inst/core/rg0_reg[3]/D

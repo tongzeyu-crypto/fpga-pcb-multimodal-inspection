@@ -1,8 +1,8 @@
 {
   "passed": true,
   "periods_ns": {
-    "clk_fpga_0": 10.0,
     "clk_fpga_1": 16.0,
+    "clk_fpga_0": 10.0,
     "clk_out1_board_hdmi_clock_0": 13.468,
     "clk_out2_board_hdmi_clock_0": 2.694,
     "fast_raw": 5.0
@@ -23,6 +23,10 @@
     "pcb_adc@43c80000": {
       "clock_index": 16,
       "clock_name": "fclk1"
+    },
+    "pcb_demo@43cc0000": {
+      "clock_index": 16,
+      "clock_name": "fclk1"
     }
   },
   "fclk_enable_mask": 3,
@@ -41,7 +45,7 @@
     }
   },
   "board_tested": false,
-  "dtb_sha256": "98aab9f31d21fd54d8842804477166351d121b791615e5dfe6d6ca0806cc61e6",
-  "hdf_sha256": "260f2cc77f79f6a5e74944290ecca5b49d1be983ee288dfb910263ead28c995c",
-  "clock_report_sha256": "bf505bc04374b8d23caf49311529960e47cb130e1014e5f331da458419cf9632"
+  "dtb_sha256": "705330fbd79c7ac291e71d23f0fc0beb6ea8d3905a62446b27d4dd546d5ff705",
+  "hdf_sha256": "ac80e37d58a3397e142ef703b9486a3ad5f9a4e9a8962a00fa924e36abd49a1d",
+  "clock_report_sha256": "5b7769099afbb06aabe0aceed10deed2badbfbe88a201916e63f793933de6c20"
 }

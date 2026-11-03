@@ -1,15 +1,23 @@
 {
   "project": "Zynq-7020 PCB demonstration",
   "date": "2026-11-03",
-  "source_snapshot": "verified board demo r6 with single-plane HDMI fix",
-  "boot_image_modified": false,
-  "hardware_sha256": {
-    "hardware/board.bit": "70f9608585416d4843119bef677676ecc1140b7c601cc4d2c0fdc0f9a4afd3fa",
-    "hardware/board.hdf": "260f2cc77f79f6a5e74944290ecca5b49d1be983ee288dfb910263ead28c995c"
-  },
-  "board_program_sha256": "89441599a806a5e064ca3aeeae2917225cfca8bee19ab65a274be5d382e2efb4",
-  "debug_transport_started_by_launcher": false,
+  "revision": "PDP3-report2-audit-fixes-r6",
+  "source_snapshot": "Current fixed report; audited integration fixes, ADC pingpong PAD2 and two-board capture pipeline",
   "profile": "release",
   "label": "正式提交版",
-  "debug_intermediates_included": false
+  "graphics_engines": 1,
+  "compute_abi": "PDP3",
+  "new_processing_integrated_in_bitstream": true,
+  "hardware_sha256": {
+    "hardware/board.bit": "b667fd52d29bcb683c3e2a601d6878b5f52a4d0a611c010add4ae86aa0d12b93",
+    "hardware/board.hdf": "ac80e37d58a3397e142ef703b9486a3ad5f9a4e9a8962a00fa924e36abd49a1d"
+  },
+  "arm_program_sha256": "891dcca6b520ddd41ddd04bbb73d1a90a85d057ee12ce79d9b99d440644de5a6",
+  "current_revision_board_programmed": false,
+  "current_revision_board_verified": false,
+  "boot_image_modified": false,
+  "debug_transport_started_by_launcher": false,
+  "debug_intermediates_included": false,
+  "report_sha256": "c04c82d802b4e13f40b98bedae7c95b324fa4e89f125be5fc53803b3007d1e0c",
+  "report_modified": false
 }

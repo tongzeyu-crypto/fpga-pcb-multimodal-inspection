@@ -1,5 +1,5 @@
 from pathlib import Path
-import argparse,json,os,shutil,subprocess
+import argparse,json,os,shutil,subprocess,hashlib
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     p=argparse.ArgumentParser();p.add_argument('--vivado-bin',type=Path,required=True);p.add_argument('--work',type=Path,required=True);a=p.parse_args();a.work.mkdir(parents=True,exist_ok=True);os.environ['TEMP']=os.environ['TMP']=str(a.work);report={}
@@ -13,6 +13,6 @@ def main():
             with (logs/(str(index)+'.log')).open('wb') as f:r=subprocess.run([str(a.vivado_bin/cmd[0])]+cmd[1:],cwd=dest,stdout=f,stderr=subprocess.STDOUT)
             if r.returncode:break
         else:ok=marker in (logs/'2.log').read_text(errors='replace')
-        report[name]={'passed':ok,'board_tested':False,'last_stage':index}
+        report[name]={'passed':ok,'board_tested':False,'last_stage':index,'source_sha256':{p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}}
     (ROOT/'evidence/extensions.json').write_text(json.dumps(report,indent=2));print(json.dumps(report))
 if __name__=='__main__':main()

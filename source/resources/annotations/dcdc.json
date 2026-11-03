@@ -1,0 +1,281 @@
+{
+  "source_rgb_sha256": "eac8d3afa0283a7cd5a92a7a2be2b9e40082bd3af417f028c56886de276cb9cc",
+  "native_to_board": [
+    [
+      1.1480347790662668,
+      6.738371664225884e-17,
+      -1377.64173487952
+    ],
+    [
+      0.019514172765708493,
+      1.146832922538558,
+      -1640.451428098217
+    ],
+    [
+      4.5248696406071845e-05,
+      1.1843033635860175e-05,
+      1.0
+    ]
+  ],
+  "components": [
+    {
+      "id": "C-left",
+      "family": "capacitor",
+      "pins": {},
+      "quad_px": [
+        [
+          -50,
+          210
+        ],
+        [
+          305,
+          210
+        ],
+        [
+          305,
+          545
+        ],
+        [
+          -50,
+          545
+        ]
+      ]
+    },
+    {
+      "id": "L1",
+      "family": "toroid",
+      "pins": {},
+      "quad_px": [
+        [
+          435,
+          265
+        ],
+        [
+          840,
+          265
+        ],
+        [
+          840,
+          490
+        ],
+        [
+          435,
+          490
+        ]
+      ]
+    },
+    {
+      "id": "U1",
+      "family": "powerchip",
+      "pins": {
+        "total_visible": 5,
+        "rows": [
+          {
+            "quad_px": [
+              [
+                875,
+                405
+              ],
+              [
+                1115,
+                405
+              ],
+              [
+                1115,
+                495
+              ],
+              [
+                875,
+                495
+              ]
+            ],
+            "count": 5,
+            "basis": "visible five-lead row reviewed in source-bound rectified RGB"
+          }
+        ]
+      },
+      "quad_px": [
+        [
+          845,
+          32
+        ],
+        [
+          1139,
+          32
+        ],
+        [
+          1139,
+          342
+        ],
+        [
+          845,
+          342
+        ]
+      ]
+    },
+    {
+      "id": "C-right",
+      "family": "capacitor",
+      "pins": {},
+      "quad_px": [
+        [
+          1235,
+          210
+        ],
+        [
+          1575,
+          210
+        ],
+        [
+          1575,
+          540
+        ],
+        [
+          1235,
+          540
+        ]
+      ]
+    },
+    {
+      "id": "VR",
+      "family": "trimmer",
+      "pins": {},
+      "quad_px": [
+        [
+          700,
+          560
+        ],
+        [
+          1010,
+          560
+        ],
+        [
+          1010,
+          732
+        ],
+        [
+          700,
+          732
+        ]
+      ]
+    },
+    {
+      "id": "D1",
+      "family": "diode",
+      "pins": {},
+      "quad_px": [
+        [
+          470,
+          50
+        ],
+        [
+          650,
+          50
+        ],
+        [
+          650,
+          140
+        ],
+        [
+          470,
+          140
+        ]
+      ]
+    },
+    {
+      "id": "D2",
+      "family": "led",
+      "pins": {},
+      "quad_px": [
+        [
+          330,
+          622
+        ],
+        [
+          430,
+          622
+        ],
+        [
+          430,
+          667
+        ],
+        [
+          330,
+          667
+        ]
+      ]
+    },
+    {
+      "id": "R3",
+      "family": "passive",
+      "pins": {},
+      "quad_px": [
+        [
+          494,
+          611
+        ],
+        [
+          615,
+          611
+        ],
+        [
+          615,
+          660
+        ],
+        [
+          494,
+          660
+        ]
+      ]
+    },
+    {
+      "id": "C4",
+      "family": "passive",
+      "pins": {},
+      "quad_px": [
+        [
+          342,
+          310
+        ],
+        [
+          408,
+          310
+        ],
+        [
+          408,
+          418
+        ],
+        [
+          342,
+          418
+        ]
+      ]
+    },
+    {
+      "id": "C5",
+      "family": "passive",
+      "pins": {},
+      "quad_px": [
+        [
+          1040,
+          540
+        ],
+        [
+          1163,
+          540
+        ],
+        [
+          1163,
+          594
+        ],
+        [
+          1040,
+          594
+        ]
+      ]
+    }
+  ],
+  "source": "resources/models/model-v3.json",
+  "reference_image": "data/raw/dcdc-rgb-thermal/rgb.jpg",
+  "coordinate_basis": "rectified cropped board pixels; removed 140px extended-canvas margin from model annotations"
+}

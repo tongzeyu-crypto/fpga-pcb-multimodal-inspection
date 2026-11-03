@@ -90,6 +90,7 @@ struct FullScene {
  int field_band=-1,field_scenario=-1,time_point=-1,time_scenario=-1;const int columns=128,rows=48,times=160;
  double df=25000000./4096,frequency_max=25.;bool dcdc_fixture=false;
  bool background_fixture=false;double background_span=12,background_offset=2,background_delta=3;
+ #include "full_capture_data.h"
  explicit FullScene(const std::string &root){
   demo_path=root+"/demo-view.txt";
   std::ifstream state(root+"/capture-state.txt");
@@ -122,14 +123,13 @@ struct FullScene {
    double b=((z[2]-z[0])*(points[i].wx-x[2])+(x[0]-x[2])*(points[i].wz-z[2]))/den;
    if(a>=0&&b>=0&&a+b<=1)heights[i]=std::max<double>(heights[i],a*y[0]+b*y[1]+(1-a-b)*y[2]+.35);
   }
+  load_capture_data(root);
  }
  double base(int p,int k,int)const{if(!(available_modalities&4))throw std::runtime_error("ADC missing");return psd.at(size_t(p)*meta[4]+k);}
  template<class V>void refresh(const V &v){
   if(v.band==field_band&&v.scenario==field_scenario)return;field_band=v.band;field_scenario=v.scenario;
-  double upper=std::min(full_band_hi[v.band],dcdc_fixture?21.9:25.);
-  int a=std::max(0,int(std::ceil(full_band_lo[v.band]*1e6/df))),b=std::min(int(meta[4])-1,int(std::ceil(upper*1e6/df))-1);
   powers.assign(points.size(),0);power_before.assign(points.size(),0);power_after.assign(points.size(),0);difference.assign(points.size(),0);lo=1e99;hi=-1e99;delta_limit=0;
-  for(size_t p=0;p<points.size();p++){double before=0,after=0;for(int k=a;k<=b;k++){before+=base(p,k,1)*df;after+=base(p,k,2)*df;}
+  for(size_t p=0;p<points.size();p++){double measured=band_value(p,v.band);double before=measured*measured,after=before;
    powers[p]=v.scenario==1?before:v.scenario==2?after:(before+after)*.5;
    power_before[p]=before;power_after[p]=after;
    difference[p]=full_db(after)-full_db(before);delta_limit=std::max(delta_limit,std::abs(difference[p]));lo=std::min(lo,full_db(powers[p]));hi=std::max(hi,full_db(powers[p]));}
@@ -226,7 +226,7 @@ struct FullScene {
    checkbox(d,1064,100,v.heat>0,"热像着色");slider(d,1068,143,v.heat/255.);d.text(std::to_string(v.heat*100/255)+"%",1204,116,14);
    checkbox(d,1064,180,v.emi,"电磁干扰");slider(d,1068,222,v.emi_alpha/255.);d.text(std::to_string(v.emi_alpha*100/255)+"%",1204,195,14);
    d.text("地形起伏 "+full_number(v.relief,2),1064,241,17);slider(d,1068,273,(v.relief-.1)/1.9);
-   button(d,1060,300,204,32,full_bases[v.base]);button(d,1060,342,204,32,v.mode==6?"< "+full_number(v.slice,1)+" MHz >":dcdc_fixture&&v.band==0?"0.2-21.9 MHz":dcdc_fixture&&v.band==3?"10-21.9 MHz":full_bands[v.band]);
+   button(d,1060,300,204,32,full_bases[v.base]);button(d,1060,342,204,32,v.mode==6?"< "+full_number(v.slice,1)+" MHz >":full_bands[v.band]);
    button(d,1060,382,204,32,dcdc_fixture?"本次扫描":v.scenario==0?"功率平均":v.scenario==1?(background_fixture?"模拟 A":"扫描之前"):(background_fixture?"模拟 B":"扫描之后"));
    button(d,1060,424,96,32,"< P"+std::to_string(v.point+1));button(d,1164,424,100,32,"选择 >");
    checkbox(d,1064,468,v.points,"测点标记");
@@ -234,7 +234,7 @@ struct FullScene {
    checkbox(d,1064,550,v.autorotate,"自动旋转");checkbox(d,1064,590,v.components,"立体元件");
    if(available_modalities&4){d.text("总功率 "+full_number(full_db(powers[v.point]),1)+" dB",1060,636,15);spectrum(d,v);}
    else d.text("ADC WAITING",1060,636,15);
-   if(std::isfinite(points[v.point].temp))d.text("原始温度 "+full_number(points[v.point].temp,1)+" C",1060,665,15);
+   if(v.temperature_valid)d.text("原始温度 "+full_number(v.temperature_c,2)+" C",1060,665,15);
    else d.text("TEMP: RAW PAGE",1060,665,15);
   }
   if(floating&&v.mode==6)d.text("频率 / MHz",v.hud?FULL_LEFT+30:24,70,19);
@@ -265,15 +265,15 @@ struct FullScene {
    for(size_t i=0;i<aoi.regions.size()&&i<6;i++){int y=244+int(i)*32;if(int(i)==v.aoi_selected)d.rect(1060,y,204,30,0xff2a5a65);d.text(std::to_string(i+1)+" "+aoi.regions[i].kind,1064,y+1,14);}
    d.text("检测结果",FULL_LEFT+20,570,19);
    if(aoi.available&&!aoi.regions.empty()){int index=std::max(0,std::min(int(aoi.regions.size())-1,v.aoi_selected));const auto &r=aoi.regions[index];
-    d.text(std::to_string(index+1)+" / "+std::to_string(aoi.regions.size())+"  "+r.kind+"  "+r.component,FULL_LEFT+20,608,20);d.text("板面位置 "+full_number(r.x,0)+", "+full_number(r.y,0)+" px",FULL_LEFT+20,643,16);
-   }else if(aoi.available)d.text(aoi.state=="insufficient_coverage"?"图片质量不足":"未发现明显缺陷",FULL_LEFT+20,613,18);
+    d.text(std::to_string(index+1)+" / "+std::to_string(aoi.regions.size())+"  "+r.kind+"  "+r.component,FULL_LEFT+20,608,20);d.text(std::string(r.board_valid?"板面位置 ":"原图位置 ")+full_number(r.board_valid?r.bx:r.x,0)+", "+full_number(r.board_valid?r.by:r.y,0)+" px",FULL_LEFT+20,643,16);
+   }else if(aoi.available)d.text(aoi.state=="annotation_required"?"需要元件标注":aoi.state=="insufficient_coverage"?"图片质量不足":"未发现明显缺陷",FULL_LEFT+20,613,18);
    else d.text("等待照片",FULL_LEFT+20,613,18);
   }
   board_control(d,v);
  if(v.cursor_visible)d.image(v.cursor_x,v.cursor_y,32,48,1984,1488,32,48,65530);
  }
  template<class V>static std::string command_key(const V&v,const std::string&mouse,bool overlay){
-  std::ostringstream k;k<<std::setprecision(17)<<v.board_menu<<','<<v.raw_zoom[0]<<','<<v.raw_zoom[1]<<','<<v.raw_x[0]<<','<<v.raw_y[0]<<','<<v.raw_x[1]<<','<<v.raw_y[1]<<','<<v.mode<<','<<v.raw_board<<','<<v.base<<','<<v.heat<<','<<v.emi<<','<<v.emi_alpha<<','<<v.relief<<','<<v.band<<','<<v.scenario<<','<<v.point<<','<<v.slice<<','<<v.time<<','<<v.points<<','<<v.components<<','<<v.hud<<','<<v.autorotate<<','<<mouse;
+  std::ostringstream k;k<<std::setprecision(17)<<v.board_menu<<','<<v.raw_zoom[0]<<','<<v.raw_zoom[1]<<','<<v.raw_x[0]<<','<<v.raw_y[0]<<','<<v.raw_x[1]<<','<<v.raw_y[1]<<','<<v.temperature_valid<<','<<v.temperature_x<<','<<v.temperature_y<<','<<v.scan_config_revision<<','<<v.data_revision<<','<<v.mode<<','<<v.raw_board<<','<<v.base<<','<<v.heat<<','<<v.emi<<','<<v.emi_alpha<<','<<v.relief<<','<<v.band<<','<<v.scenario<<','<<v.point<<','<<v.slice<<','<<v.time<<','<<v.points<<','<<v.components<<','<<v.hud<<','<<v.autorotate<<','<<mouse;
   if(v.mode==12)k<<','<<v.aoi_run<<','<<v.aoi_status<<','<<v.aoi_selected<<','<<v.aoi_variant<<','<<v.aoi_zoom<<','<<v.aoi_pan_x<<','<<v.aoi_pan_y;
   if(v.mode==16)k<<','<<v.demo_point<<','<<v.demo_command;
   if(!overlay)k<<','<<v.cursor_visible<<','<<v.cursor_x<<','<<v.cursor_y;return k.str();
@@ -319,7 +319,8 @@ struct FullScene {
   if(v.mode==3||v.mode==6||((v.mode==0||v.mode==1)&&(available_modalities&27)!=27))return false;
   if(v.hud&&(x<FULL_LEFT||x>=FULL_RIGHT||y<54||y>=554))return false;
   int32_t m[12];gfx_view_matrix(v.pose,m);if(v.hud){m[3]-=full_q(FULL_PROJECTION_X);m[7]-=full_q(60);}double best=1e99;bool found=false;
-  for(const auto&c:model){if((c.opcode_flags&255)!=GFX_TRIANGLE)continue;double px[3],py[3],pz[3];
+  const auto &picking_geometry=(v.mode==1||!v.components)?flat:model;
+  for(const auto&c:picking_geometry){if((c.opcode_flags&255)!=GFX_TRIANGLE)continue;double px[3],py[3],pz[3];
    for(int j=0;j<3;j++){const auto&p=c.v[j];px[j]=(double(m[0])*p.x+double(m[1])*p.y+double(m[2])*p.z)/4294967296.+m[3]/65536.;py[j]=(double(m[4])*p.x+double(m[5])*p.y+double(m[6])*p.z)/4294967296.+m[7]/65536.;pz[j]=(double(m[8])*p.x+double(m[9])*p.y+double(m[10])*p.z)/4294967296.+m[11]/65536.;}
    double d=(py[1]-py[2])*(px[0]-px[2])+(px[2]-px[1])*(py[0]-py[2]);if(std::abs(d)<1e-8)continue;
    double a=((py[1]-py[2])*(x-px[2])+(px[2]-px[1])*(y-py[2]))/d,b=((py[2]-py[0])*(x-px[2])+(px[0]-px[2])*(y-py[2]))/d,t=1-a-b;

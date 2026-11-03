@@ -32,11 +32,11 @@ def generate_dataset(work,assets,renderer,helper,count,seed):
             source,target=render_pair(engine,work,mode,yaw,polar,step)
             prefix=work/'prepared'
             result=subprocess.run([str(helper),'prepare',str(source),str(target),str(prefix)],capture_output=True,check=True)
-            a=read_rgb(str(prefix)+'.warp.argb').astype(np.float64);b=read_rgb(str(prefix)+'.repair.argb').astype(np.float64);truth=read_rgb(str(target)+'.argb').astype(np.float64)
+            a=read_rgb(str(prefix)+'.warp.argb').astype(np.float64);b=read_rgb(str(prefix)+'.previous.argb').astype(np.float64);truth=read_rgb(str(target)+'.argb').astype(np.float64)
             delta=b-a;denom=(delta*delta).reshape(45,16,80,16,3).sum((1,3,4));numer=((truth-a)*delta).reshape(45,16,80,16,3).sum((1,3,4))
             alpha=np.clip(numer/np.maximum(denom,1),0,1)
             x=np.fromfile(str(prefix)+'.features.i8',np.int8).reshape(4,45,80).astype(np.float32)/128
-            inputs.append(x);targets.append(alpha[None].astype(np.float32));weights.append((denom/np.maximum(denom.mean(),1))[None].astype(np.float32))
+            inputs.append(x);targets.append((1-alpha)[None].astype(np.float32));weights.append((denom/np.maximum(denom.mean(),1))[None].astype(np.float32))
             records.append(dict(mode=mode,yaw=yaw,polar=polar,step=step,**json.loads(result.stdout)))
             if i%8==0:print('Rendered supervision',i,'/',count,flush=True)
     return np.array(inputs),np.array(targets),np.array(weights),records
@@ -47,7 +47,7 @@ def fit(net,x,y,w,epochs):
     xx,yy,ww=[torch.from_numpy(a).to(device) for a in [x,y,w]]
     optimizer=torch.optim.Adam(net.parameters(),lr=.008);losses=[]
     for epoch in range(epochs):
-        optimizer.zero_grad();pred=net(xx).sigmoid()
+        optimizer.zero_grad();pred=(-net(xx)).sigmoid()
         loss=((pred-yy).square()*ww).sum()/ww.sum();loss.backward();optimizer.step();losses.append(float(loss.detach()))
         if epoch%50==0:print('Pixel-fusion reconstruction loss',epoch,losses[-1],flush=True)
     net.cpu();return dict(device=device,epochs=epochs,loss=losses,objective='RGB reconstruction MSE, equivalent to weighted optimal-alpha regression; no confidence labels')
@@ -65,10 +65,10 @@ def main():
     finetuning=fit(small,x,y,w,200);torch.save(small.state_dict(),folder/'pruned-finetuned.pt')
     export(small,x,folder)
     descriptor=json.loads((folder/'model.json').read_text())
-    descriptor.update(purpose='NEURAL_PIXEL_FUSION_V1',feature_semantics=['hole_fraction','depth_edge','candidate_rgb_difference','motion_magnitude'],output_semantics='logits of candidate-B RGB fusion weight; sigmoid and integer RGB mixing on PS')
+    descriptor.update(purpose='NEURAL_PIXEL_FUSION_V1',feature_semantics=['motion_x','motion_y','depth_edge','valid_fraction'],output_semantics='alpha_R = sigmoid(-raw_logit); bilinear interpolation; alpha_R*reprojected + (1-alpha_R)*previous')
     (folder/'model.json').write_text(json.dumps(descriptor,indent=2),encoding='utf8')
     np.savez_compressed(folder/'validation-inputs.npz',x=vx,y=vy,reconstruction_weight=vw)
-    with torch.no_grad():pred=small(torch.from_numpy(vx)).sigmoid().numpy()
+    with torch.no_grad():pred=(-small(torch.from_numpy(vx))).sigmoid().numpy()
     report=dict(task='frame',purpose='NEURAL_PIXEL_FUSION_V1',seed=20261103,wide_parameters=sum(p.numel() for p in wide.parameters()),pruned_parameters=sum(p.numel() for p in small.parameters()),
                 kept_output_channels=kept,training=training,finetuning=finetuning,
                 validation_weighted_alpha_mse=float(((pred-vy)**2*vw).sum()/vw.sum()),

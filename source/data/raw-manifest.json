@@ -1,0 +1,3030 @@
+{
+  "dcdc-adc/motion.jsonl": {
+    "sha256": "3bf4612dd0d92d63449482bc3d7832a1445c987dd88098a0e18f793be84da95d",
+    "bytes": 703638
+  },
+  "dcdc-adc/points.jsonl": {
+    "sha256": "4f98480d7a62b788ebd59b11b984d28f628898a2dbbc01adf2e2d6e10e884f99",
+    "bytes": 71454
+  },
+  "dcdc-adc/session.json": {
+    "sha256": "3ba01cb5b23077b43a4e2d8045939c8f44a7ae8c35a426442b18660c0e14055e",
+    "bytes": 2252
+  },
+  "dcdc-adc/points/point-00000/capture_00.csv": {
+    "sha256": "318b4bee5520bef0058619e0ddd2ed93c58a4e64b2c62c7ebc804fb0187eb38a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00000/capture_01.csv": {
+    "sha256": "319faeec946242d6bf3fdf9c405312e24645dbbdea9d8b7d8bbff07089846670",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00000/capture_02.csv": {
+    "sha256": "ff84a041ac49a6e6e414ad1dd4bf953d019ac9cd8b1921bd1b92ed6aecf6aaf1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00000/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00000/point.json": {
+    "sha256": "f3ed2f27cfda3c6b7e6f3e2248960bb8a40745f994f9d96c180b02641971565c",
+    "bytes": 557
+  },
+  "dcdc-adc/points/point-00001/capture_00.csv": {
+    "sha256": "2c82c8352549fc97034e63c73a080d6f035ea92bfd1593db057cb68a5fcb777e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00001/capture_01.csv": {
+    "sha256": "996cbcadc2ffb70c0aba44ccb8f3017bbeec9921fb84bfd711d0550e147dc86a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00001/capture_02.csv": {
+    "sha256": "1b925723a68d8be4efddf24defaafef4f9630bedbe8fa7654cffdf237c5e7473",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00001/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00001/point.json": {
+    "sha256": "f16f0c2721c637cb277f37113324bbee2592321c0fda00b9f6f88198509b8688",
+    "bytes": 561
+  },
+  "dcdc-adc/points/point-00002/capture_00.csv": {
+    "sha256": "742bc9e0b1b8ee3dd5d9695dd3f4bcd944dd45ae944b1e9be417ce9ffb3be9c7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00002/capture_01.csv": {
+    "sha256": "7279349dd2b813e4d2dbe95a79d5212ffe1dcc45b45976e21a98466fd0edde63",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00002/capture_02.csv": {
+    "sha256": "842b80aba160e0891e3aa681f99d633fe165c5108bdf57600f79f5b1db347462",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00002/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00002/point.json": {
+    "sha256": "72a72ff96d8b1fc960dc757d0117328c812dca06d0626b705821bf1a5e571207",
+    "bytes": 560
+  },
+  "dcdc-adc/points/point-00003/capture_00.csv": {
+    "sha256": "ea21a325804bc91cf9a42c869db9395e64c19886eed8401904f841bee550512a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00003/capture_01.csv": {
+    "sha256": "18d9687165aa2dc1c9923313ab777d86941469c0543177eb0671b0a2aa02eafc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00003/capture_02.csv": {
+    "sha256": "09a26663a956e17c8a2fd70c6557391a9a979bd041f008bd8fdd15dd5c517c24",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00003/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00003/point.json": {
+    "sha256": "aad58e7589303aca3ca8f8085e924cf4d149260e5449d3952b459c323b65918f",
+    "bytes": 561
+  },
+  "dcdc-adc/points/point-00004/capture_00.csv": {
+    "sha256": "4875debe01cb7bed3c5d32aee07fe9ea1be67bc687941a2c2f1a7cbbbd5d66f1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00004/capture_01.csv": {
+    "sha256": "b8618c04ccd75b0175df4dbef34f0ced3ed9e03ce904b9fa971f82f763f93e82",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00004/capture_02.csv": {
+    "sha256": "7a1b32750782820b2dd8d55b8439585a4c56870102f9164dcbbf1efd10c48972",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00004/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00004/point.json": {
+    "sha256": "19424cdc84acc7dd3a563b031272e3292beb47a1a23e6438faafeb0926c09c51",
+    "bytes": 575
+  },
+  "dcdc-adc/points/point-00005/capture_00.csv": {
+    "sha256": "6aa505e624041bee82f7f75dd63d1f08e84bc4e40a594e471545aba453065f8c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00005/capture_01.csv": {
+    "sha256": "8983e5638fcdaae6e05c3daf519818367a8a19ff784b0f10d1427ba9d067d056",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00005/capture_02.csv": {
+    "sha256": "0f543ddc1dbdaec999d8c04ca4699d6f880dc9de02dbe0a3508f3c1e6e8377d1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00005/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00005/point.json": {
+    "sha256": "776bb07eb5cac310b2fbb1731d3a83fe8edc51271639807a27f14b2a8caadc6e",
+    "bytes": 562
+  },
+  "dcdc-adc/points/point-00006/capture_00.csv": {
+    "sha256": "a85b45f58667c4653d82daae282a299e4ede6a2c699037ab58c222c3d204122d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00006/capture_01.csv": {
+    "sha256": "abc737e141a7296352de369198205db788fc32bbf6673fb018ea89e23062a361",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00006/capture_02.csv": {
+    "sha256": "058c46c0cb9268ac9e5af4fa82b3a183fc95c93087ed204c25c94aa654788d64",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00006/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00006/point.json": {
+    "sha256": "d5bfa9d4b6eaa0062872696a950484def21f28f40075884b82dfba746c70d245",
+    "bytes": 559
+  },
+  "dcdc-adc/points/point-00007/capture_00.csv": {
+    "sha256": "455bc7d8d77351eb3d52c80e4a63eaf18e13fc41804bb958e733f42dba1e2f6b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00007/capture_01.csv": {
+    "sha256": "8b50c78a21d4207e3dc8175abafce323b9587be4155dfbfba9cfad0e7d736782",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00007/capture_02.csv": {
+    "sha256": "5bbf0576fb7e86e2b6a1a8b42afbe3b20e7e09ffed38272ebe47633e9abd8f31",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00007/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00007/point.json": {
+    "sha256": "87a07e008ef67e4a1c4b54e6a608aa99490798ba8c321fce9d1c5fc73810a331",
+    "bytes": 562
+  },
+  "dcdc-adc/points/point-00008/capture_00.csv": {
+    "sha256": "04092c028877ad0ca7f32ddb49ce65a574187184c1099b2af84be6a4074d3b3f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00008/capture_01.csv": {
+    "sha256": "0b185e507172eeb9c8aa27dfc1b2b71f1033950172d9fec430e5467bca5342f8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00008/capture_02.csv": {
+    "sha256": "88e77ca55a72a3fcc9f5969d1f71026d27ba704a3e673b912f59b837863403d5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00008/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00008/point.json": {
+    "sha256": "a17683460c2faaef26dda57fde94a660df496a1d9c6973baa4bdd524ee234734",
+    "bytes": 562
+  },
+  "dcdc-adc/points/point-00009/capture_00.csv": {
+    "sha256": "4e831fb9d439fe240e0dc9489079a3803d57525949c6117fbde184ee2a5aee9b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00009/capture_01.csv": {
+    "sha256": "8e1fa9f3456a94bbf1781aad428d9445c525928be1b7af91e65f5d6f444d7414",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00009/capture_02.csv": {
+    "sha256": "0db7caa6c05ec95e9dfa8a0849e67ed8b93d58507bc6d7744410d3c52e899805",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00009/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00009/point.json": {
+    "sha256": "179c9b9fad9f311544bf9bbc92e4cd178217cea78c1c5d8ec52520ebca7ad3e9",
+    "bytes": 560
+  },
+  "dcdc-adc/points/point-00010/capture_00.csv": {
+    "sha256": "ed3b49cbb0938b1d46bfb620dd51a786eb8322887e63540f68da4fb69cfe9701",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00010/capture_01.csv": {
+    "sha256": "86a6c051c6cc71d2c152bfaa7c3010722e87cab996c7b41d4a758ec4eb22ccf6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00010/capture_02.csv": {
+    "sha256": "07c5e391010a82a5919ed4f6b516eaef8f507fe3b33ffb5e09e4f825e40195a8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00010/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00010/point.json": {
+    "sha256": "287ff0c60367d3bfe926224b1de2e27d894c288b1fee0d39debaecd7fe2ad4db",
+    "bytes": 562
+  },
+  "dcdc-adc/points/point-00011/capture_00.csv": {
+    "sha256": "c158d22ea0584425774cab9453554f5d144bc6d99ca0a6fef42afc49d37deace",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00011/capture_01.csv": {
+    "sha256": "7e94c9bd8960cb22f80265784ad2bb3c8ab12694eb048bd76b1bec4af956ba53",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00011/capture_02.csv": {
+    "sha256": "016b8a9f99ac8bf241b2e49860abc6bc9c1a0b3904b00f26f256d55751a1f54c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00011/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00011/point.json": {
+    "sha256": "585053638d68bba342699851958dd5ac6edce8c7f225a24bb0d6331ad2009eff",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00012/capture_00.csv": {
+    "sha256": "903d2785c9176c957a1feb9f0a3a75ed3f04f8f6d545ca29db6ae89a1e9f0bc4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00012/capture_01.csv": {
+    "sha256": "3ef1c00beb726c49b8af8e36fe926ad22f199d0d6c57cbef66d723957ab20fa7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00012/capture_02.csv": {
+    "sha256": "7cff3517bdedab389677c916498f6373006916c0e059a37e983c99320d3685a7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00012/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00012/point.json": {
+    "sha256": "6f98bf79fae32b6484ae352edae2f12e925112a0dbf22a7ce6d835e45e31b918",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00013/capture_00.csv": {
+    "sha256": "e9c974c0c9b9b7995f3717b74970ea7c4d7190d2251ec30636c0e2cb1c1648d9",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00013/capture_01.csv": {
+    "sha256": "8a66618160b3e429c55a8701aa58412ac5093e80ae6478b6774da50bf95e62c1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00013/capture_02.csv": {
+    "sha256": "775e69e3529acea6195fcb52a30b85ad5a7edf5305410a77b317bc86ca0dde5a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00013/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00013/point.json": {
+    "sha256": "90791530da75c7ceab8c9b7070e51f3c891e9a1aed3eb08a61fbad57bf54f3c0",
+    "bytes": 561
+  },
+  "dcdc-adc/points/point-00014/capture_00.csv": {
+    "sha256": "de1c7529239e817fd641dd2f52b9982f01ee50046b41332cbd7b13318fdfe968",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00014/capture_01.csv": {
+    "sha256": "1e453cb1b5afdbdc7c056a1b316d50e83db0e937fccfc4981e82fba29b859201",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00014/capture_02.csv": {
+    "sha256": "419b547801d4b795299550a23e0d111cdbaa99cc139a659a34b39827b27076be",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00014/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00014/point.json": {
+    "sha256": "24752c50d54bc3e915f1c8b33348482fff84f6784054396877eda5dca00ab04c",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00015/capture_00.csv": {
+    "sha256": "c6b5026835a0b90d1bee02ab014e2fd406458edbe075070522a50e6bd6042169",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00015/capture_01.csv": {
+    "sha256": "c34f72e567eec9e312855254671dd89f7a2e9711b80a28bd0285068a40cb94ac",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00015/capture_02.csv": {
+    "sha256": "b8831accceb77d85c7e1817c908993589159009eb30b853613579d0cf6a56c2d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00015/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00015/point.json": {
+    "sha256": "3a08b777cf4a525c1964427b5c45fe7da0c59fca75439f817d716e6215b8c827",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00016/capture_00.csv": {
+    "sha256": "977fe6a4d3dc9b7e1468190037cdcea447d69c3dc6c20aa7124600bc97f1b429",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00016/capture_01.csv": {
+    "sha256": "8b20c81e9bbf5023cab7aa2f4c31e6fe2e0b1319b3adca51331576d9099503ca",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00016/capture_02.csv": {
+    "sha256": "9656e459f66764a65493b9e5b36e498c1147eb85465facf0ed99e7e66735c6eb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00016/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00016/point.json": {
+    "sha256": "acb451eae40df9162e1c18816e2234ece4dd92b6c0193e3e2fc9d991c45aa2ff",
+    "bytes": 561
+  },
+  "dcdc-adc/points/point-00017/capture_00.csv": {
+    "sha256": "7e4d36097081e3b1dabe0713275a58a41c1ff66a0c2154f97d97625f3b884f6f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00017/capture_01.csv": {
+    "sha256": "d473f8cfcf1dd6a99e4877372d315162c886b14354cafe3751b44a5a98b0c3d7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00017/capture_02.csv": {
+    "sha256": "7c1f894cfc43f39fc1b9e118d515ba997731d9524bb34d9b1380510305ab3749",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00017/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00017/point.json": {
+    "sha256": "47d544be9a8f658a6c5f30effab8213e222983ceb9e8c73821bf7652e72f4643",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00018/capture_00.csv": {
+    "sha256": "d97638b9dd0883e6505b4c0bb5fb6b5260734f3c76917fee4a71bab208deaf54",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00018/capture_01.csv": {
+    "sha256": "4c7a6bc7078e50c747b32346b76d7b7674a6bee3d39bf9b78d06c9702711c97f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00018/capture_02.csv": {
+    "sha256": "d34474e181793d94ecca15adfa4a3f270f348f81546eaafd2248d6f105abedf7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00018/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00018/point.json": {
+    "sha256": "7a52df3cd9ec6852d111c07ea43c97fa10c6823017db17141a81aac5c7ec2881",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00019/capture_00.csv": {
+    "sha256": "f00f9ff248a7dbd3c4cb1c964daccea4a312fdcd2941d078743f91f1f2aa6e06",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00019/capture_01.csv": {
+    "sha256": "d217edfa8b4185791be4113308ca9097c9ec7710d83be89505e20baf403df813",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00019/capture_02.csv": {
+    "sha256": "cd15fda29a20ce78f5ab1f0e62d6866d364099f3ed04d7c33eb890c087cbca58",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00019/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00019/point.json": {
+    "sha256": "6a1efcfe6f7c05943e36bb7aef3ac64794713b45745f4b67c185bd0b56e5fb82",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00020/capture_00.csv": {
+    "sha256": "d76b9804d631f12919ecae8bb3ab20baecb5620756fc45d783351455cf7720ef",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00020/capture_01.csv": {
+    "sha256": "05133df9e047178bfc0a1ebcf87e705e32180636a2e096794b2c715156d27927",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00020/capture_02.csv": {
+    "sha256": "cf604dea7526736000480a59efeaee0e9d80e8e06b6cc497914a688d1133239e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00020/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00020/point.json": {
+    "sha256": "26df2884548877302cc9db5bb72028f298e19ca9cb5cf51c6d9527dfafcfe4e6",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00021/capture_00.csv": {
+    "sha256": "7cd5bb748e6087e83acd9a6d862cc37db1ada3d8fce5a6fb8a10c76acd9df457",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00021/capture_01.csv": {
+    "sha256": "a4edb1e3a2542a58b159d6869d7c3d04dba0c76be11969db6b7c186daa1680fc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00021/capture_02.csv": {
+    "sha256": "5bb2b60fe814274e77e3f97773c4010e9bd602ee772e9f418db8990be06d076e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00021/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00021/point.json": {
+    "sha256": "8af942df54611f76d6289a4b05054f6dfaf42b564868b210b358bc0b98a0efa5",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00022/capture_00.csv": {
+    "sha256": "dbc959646419d684210748533137d5ec49a3d0106f3b0b88a239033f6df02d46",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00022/capture_01.csv": {
+    "sha256": "7504d288e7945f39e80007a976ba27e093344890b0fb486cbe82586fa97175ef",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00022/capture_02.csv": {
+    "sha256": "cb84e2b9904257ae164d5b412de04dad0aa47e96efe567abc6a12147e75d86c8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00022/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00022/point.json": {
+    "sha256": "51a328138aa035281f672f79edf839f673fe84ff31c506eb6a0aa6ce3e875062",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00023/capture_00.csv": {
+    "sha256": "efdcf15fecd2ce8f9dfa349afd8cf4238f5ff5cbad2a7984d17c608930ca1915",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00023/capture_01.csv": {
+    "sha256": "3527fa1a8474179a7de60a715d1420360aa899a46bc8089928c876042bdaa62a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00023/capture_02.csv": {
+    "sha256": "7699dfca9e19600e08d0bb9bf84a15efeb932dcaeb2bbd554c5d9ab4562f3865",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00023/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00023/point.json": {
+    "sha256": "c2bd1e1e6dfc05d4118090d7ccbfa9db247e234dee49a3e83db7f8c1146e82f1",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00024/capture_00.csv": {
+    "sha256": "92a1c6b6c217b87bd1e99d1d1c746ff8d1146a783ad604a72a82f1402b979774",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00024/capture_01.csv": {
+    "sha256": "584f40b3144b82f00cce14d97da9450e8fc22b69be0cc90895899cd86e53d11c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00024/capture_02.csv": {
+    "sha256": "16bb661db11bb951d11812150fc91c2cd62adb84a9b69a2b6cefb29dad3839ea",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00024/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00024/point.json": {
+    "sha256": "ea124b40615994799831db6c9405fe48b8f3939ced05beeab2ebef3ee2648f5e",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00025/capture_00.csv": {
+    "sha256": "f858ebb580d4cb9ee869afd3c0fc17f895d4438b76885ccdab30e4f634ecd37c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00025/capture_01.csv": {
+    "sha256": "c9af9c4e37c855585375b8fa0f1ffc21791f6176fa8bb355fae01ca0e228db86",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00025/capture_02.csv": {
+    "sha256": "155401fce37cf40bd50b6d470ab79f0982ff49ae2bc06fcddd8c2f13169a99da",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00025/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00025/point.json": {
+    "sha256": "47d164ebf263dd575d586bbff4851fe77d63020e0070e934970c60d4519cda82",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00026/capture_00.csv": {
+    "sha256": "185a5aa1185788b017c35273a002bc6a7bc343402e226a9eb595fd04d795bd4e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00026/capture_01.csv": {
+    "sha256": "22cb4bd7098644d452e5ca80e5115f271323250b2bb92ee3b10aae3cb58338c8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00026/capture_02.csv": {
+    "sha256": "7db8568079e195c80ae686417d23b0cfa63a872ef2cb59c2b69a5e8a19a498b6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00026/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00026/point.json": {
+    "sha256": "38383c80656869de4e64a08aff7ce6cf5c6a6bc21d6da02ec7a13052a71d1849",
+    "bytes": 563
+  },
+  "dcdc-adc/points/point-00027/capture_00.csv": {
+    "sha256": "216f543df3f675dd4a8a0cb6c92d303b16f6d23310c125faba8d048339effa08",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00027/capture_01.csv": {
+    "sha256": "82b1924909fd30e76ac8c424a8855b066d2abe0a72a188cd6cf89a95db966863",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00027/capture_02.csv": {
+    "sha256": "610630faa53f42b4fb77dd7d2c27cdcabf11013570cc8b7bf3a707830bd69465",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00027/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00027/point.json": {
+    "sha256": "d9ccb0a961c4e663e1178f0b2ad2e3bba3264eaedeff1b284e78a0ad785c2932",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00028/capture_00.csv": {
+    "sha256": "929686608003653b7e3c4ce306c5659bffc027a10583373adf30cab595fec396",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00028/capture_01.csv": {
+    "sha256": "b05659136ad5a6f6e580d74fd3c438507d2251b63db63ad0dff27add388aab52",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00028/capture_02.csv": {
+    "sha256": "84fd5d051a5b0ed743827fada8590bb236837507ff8d97274448bc09750e34dc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00028/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00028/point.json": {
+    "sha256": "39503ab797b5e6afe67c75884a863e16b308f2e8e0a560fb244eb62e6bc0c9a5",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00029/capture_00.csv": {
+    "sha256": "cebae0b27362454ac9a21823738197d91362caadbc409b6a1f5666bd1abd2eb5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00029/capture_01.csv": {
+    "sha256": "c2919625bfc36ef71c7877d1975f16d701ae475cbe2275253d65642abb358778",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00029/capture_02.csv": {
+    "sha256": "2483504a9c406059c903f00af27245a61a1c6a780291eb205b1631a543966593",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00029/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00029/point.json": {
+    "sha256": "7dc2dd704d82d05d9d6c9a3d9b641f4a9ddc638fd4ecfa8a8db1027365bcc93b",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00030/capture_00.csv": {
+    "sha256": "31c14513062ba1e09bc5d02136c1a3f5367636fcd98ad4cca71a82e2adbe03de",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00030/capture_01.csv": {
+    "sha256": "86621b9fdafe01105c23dd5c1596cc1061e9ad54011a5d5fe6c6b7b5091e6ec5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00030/capture_02.csv": {
+    "sha256": "f8b39d9f12c774c5e8527555fb8dcc38caeaeb0bb4d7f5544ad3cc466ba19a79",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00030/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00030/point.json": {
+    "sha256": "7fc6a820176289e534de6be5dfaa9d6d4d37eef40c077ac319b06a5f8ae58fc0",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00031/capture_00.csv": {
+    "sha256": "d780b4daa694982e72046bb2fa41e6fbe1ead95926a39b6f82961258067f4852",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00031/capture_01.csv": {
+    "sha256": "b68b5f68509d6999d11b59f880c561a102defe22566aeeb55618a99938063062",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00031/capture_02.csv": {
+    "sha256": "2d74628bfd77e307997148c0f428b3cc35c63dab6945c971e0eb47f7f0bf204e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00031/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00031/point.json": {
+    "sha256": "4f9b02173d0136773ac289dd98b489f2fb67bdd564439a454fa12947cf3db881",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00032/capture_00.csv": {
+    "sha256": "da731b8635b84af32acd2e736a0e98462edd127e21a8ed3d5e7e8310d1df8f1e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00032/capture_01.csv": {
+    "sha256": "ee6ca787b4e10867816d9f0663d954d4c12f3cf89a7845ade49ca81db2d3063f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00032/capture_02.csv": {
+    "sha256": "d0adcf947a39cfafd6b8ad82e59b1d782bc7a5bc695bf9ab66a221af929d68ed",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00032/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00032/point.json": {
+    "sha256": "f7bd2d78102c1c49c28c47b699d3f32421c1cb4aaac0220eb4c386b9b0a64931",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00033/capture_00.csv": {
+    "sha256": "f680f7395e6e755b7b479d8c197598aac0ac7edce958a9dd517b3dc40d369076",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00033/capture_01.csv": {
+    "sha256": "a1144c7c5ac366f5dd5f62849e0ee93666570492a1c48e4e2d3f604af936fbf8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00033/capture_02.csv": {
+    "sha256": "67babe9601450f6e3f664cda095bf3cafd821a58801b09ada802d8ca8fe8dd77",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00033/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00033/point.json": {
+    "sha256": "c59dcc6397bdda2840af32f26602cfc60ead9bb7a2d16e064a7cfb910e870cd8",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00034/capture_00.csv": {
+    "sha256": "ce86427dfd49f3ca56c33038fc10b22df1bf6c6bf0a325a2873795470a631cf4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00034/capture_01.csv": {
+    "sha256": "e7d9a92075afe9729e48703d9baa6045ede130459b08a7d7245c3a0b6af2732b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00034/capture_02.csv": {
+    "sha256": "db1927ea0d91cb308930072245842a8151b5dbd67964329ff7b4cdad1824c14f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00034/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00034/point.json": {
+    "sha256": "86b1239efb851f94579a42f5530a0c10d19d2a6f68c854308b958a360e72109c",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00035/capture_00.csv": {
+    "sha256": "3199b79a62bf727628d8ad6cd8f833cc46de31e83f17d53fd6827197167e517f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00035/capture_01.csv": {
+    "sha256": "267c5f39a28b0380e5ff8cae64e9784831fe07bb183d68174ce8634c2e56126f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00035/capture_02.csv": {
+    "sha256": "fdb4e3a60a894bacc3150c40b2f31a2f2ce9c4b6d13262a242e852064070a513",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00035/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00035/point.json": {
+    "sha256": "8925e1c6357b301affd197316bd70935463067d8d94d6fbce1a6039970840b8f",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00036/capture_00.csv": {
+    "sha256": "9e48e2691b26405356c50a35b47a92c756f42715f8bd60a7d7e4caa17f16d012",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00036/capture_01.csv": {
+    "sha256": "e0b0239e244f0659d58a0fa85da0cf68c4fea96ae195d556abd37d47f8ec8962",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00036/capture_02.csv": {
+    "sha256": "f3c5c121a37eb36319d75504638ad5ff46093f10e23da3b487df09f56f265f67",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00036/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00036/point.json": {
+    "sha256": "6b1b42d25dc3faf70951f53a93d38d3c0c77778f77cf7afdff37d3fb6afa537c",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00037/capture_00.csv": {
+    "sha256": "1c1cdc10c5a03b582f8ed8c11e40f0e626e09df38b6674321783aaba60c19394",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00037/capture_01.csv": {
+    "sha256": "2f3becbf0721c7c26222f6d204eb121c5bc1a538894cdb1d6be562a2cb7dede0",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00037/capture_02.csv": {
+    "sha256": "01c59060b07db9b01596bdddf95127a2936709cd3ed751ad04701cb1b3c85e82",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00037/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00037/point.json": {
+    "sha256": "149550f072756dcddfc1eea3a95bdd3b17e5cdd2468cbb757f2049275151fdb2",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00038/capture_00.csv": {
+    "sha256": "f9706362492d0271ea6e711df18dffe79c24b6ab605e90056cec0ac29901e071",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00038/capture_01.csv": {
+    "sha256": "33ab5727d96037597c199395ddfc1ab6e6ee225be9c8acd1f9f1c45cef8a9567",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00038/capture_02.csv": {
+    "sha256": "908d6d7dddbb52f9f679674ae42750563867d922d76befb10e40de1566c7f49f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00038/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00038/point.json": {
+    "sha256": "32438dad7f925123b67d632559e1de83e0a04eaf02755c87528a2c87125a9286",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00039/capture_00.csv": {
+    "sha256": "2167f5679038b2adfeecfd45ebe854bdae39fdf54db36adbbeb37e47a2b3e38a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00039/capture_01.csv": {
+    "sha256": "732263f3ce41cbcc77d86a78e1a1aa6e00a4f5225fb0e5db8fcc37663fbea100",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00039/capture_02.csv": {
+    "sha256": "d16f2a5633462ce172e0b1e58a10b1d8eb5df91ace2dd32458d96514eb610f2e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00039/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00039/point.json": {
+    "sha256": "577e9026ef304e7346760ed190047c428daa067bd9a8bd00a97e2e192fca2f7b",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00040/capture_00.csv": {
+    "sha256": "24f5aea334e32a9c96b1d030248b7cad01b41863c19002d6fb95517936fddd4a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00040/capture_01.csv": {
+    "sha256": "ade087db3debe2198bc85b49b48045fbae79e2a154685b09c537491ff5351453",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00040/capture_02.csv": {
+    "sha256": "6290f62ba1bb0387f1928ca9160e08a1f68f4201a2178c256d2c0098b9268e99",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00040/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00040/point.json": {
+    "sha256": "54dcfcd3829506f9d1e0b303e1e345ac8e9a8bd383359107af89935fee62dae3",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00041/capture_00.csv": {
+    "sha256": "ba2c89243125688480b47f7dccfb4b185ab0a809f36017831d609c9217c2487a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00041/capture_01.csv": {
+    "sha256": "68553310dbc27444aaa95d09760add2877778c5e7eaf5d44e70d34b2262aaabf",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00041/capture_02.csv": {
+    "sha256": "7fdc93eda51d0781cd4eb767b18af57fb62f0961424acbc89905953b4716f6d5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00041/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00041/point.json": {
+    "sha256": "ebeb9f4ffc78b4ea9559846b491f1718fac98b95958adf99b577990513c69a7e",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00042/capture_00.csv": {
+    "sha256": "88e961aa73333aca2cb7702315c57353ba71dbc7521dc551dd2267260b8060f3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00042/capture_01.csv": {
+    "sha256": "f103d2ef66c5e6a34449c4b5e13e577568e6d08f48da977b5edfb2c496cea6d8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00042/capture_02.csv": {
+    "sha256": "e697e295366ccecfa444f017ef8d02b92e5418b1bf4d6a3de15e445b3ad0d39e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00042/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00042/point.json": {
+    "sha256": "bb12776a41bacb813f16090aee0d04c29a88bc70f1333e310dc86e177935fa05",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00043/capture_00.csv": {
+    "sha256": "18a8c6e19dc2431065f7573f01da6ea160498af721ede8f92558844f7a017654",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00043/capture_01.csv": {
+    "sha256": "b91c10936462de109fb5557ba0ce16d112a189ad39b29170700230f1df811078",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00043/capture_02.csv": {
+    "sha256": "d03904a5f3faa0810f562f52038f00ce131338e70112081c1adb195c26bf3d69",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00043/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00043/point.json": {
+    "sha256": "dae8558de1a002a1eb13b0a85163d349b348bcc91e7d82cf842bf128b49e0c23",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00044/capture_00.csv": {
+    "sha256": "03e76b109d872de554e842e297a564de8d25a77995b26072cd14b23d295c811f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00044/capture_01.csv": {
+    "sha256": "752a50053d7e7702c97d64ee3e90d8072fa020e9625ad4500f66b3b47f08d2df",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00044/capture_02.csv": {
+    "sha256": "dde7879928d1bf4b58e59523f6ae1eae3b9ac60867db8f7676ad5a65cb2d3875",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00044/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00044/point.json": {
+    "sha256": "841dd3765e0cbbbf72a873f244ba24d19aee1b6a25289ec391fbf90cd7d494a8",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00045/capture_00.csv": {
+    "sha256": "807ed2982d53a912a26dfbacf20acb88ea5369b43980e362f82c1c602b8650cd",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00045/capture_01.csv": {
+    "sha256": "af0ad2bfed594bd42111ed229a40167c6d11a6bbe59f05495218c2a7ed232bf0",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00045/capture_02.csv": {
+    "sha256": "a60bf8798b7952431c3d1e83e25df3ce01083af0b10a6759ac16b02cb064cd65",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00045/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00045/point.json": {
+    "sha256": "0cdeaa8352c07d4c304265124cd8db28e106eb0a6bd1fd560e6ee80008267363",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00046/capture_00.csv": {
+    "sha256": "c24b92829b49b53bf2f135d6954c88f02217586dc2529df78daa306d99fb4e88",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00046/capture_01.csv": {
+    "sha256": "f08c65ddd5be4aefa37247349ceb25bb98095d5ea1dce9d16c057b52abcdb212",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00046/capture_02.csv": {
+    "sha256": "509b13467e61e2d733119848e9ff2c85b2a352f2c690345ea9f6ead0f5f40d2a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00046/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00046/point.json": {
+    "sha256": "a3cf4a2fcb2b67cff09c5e280cca33751a2c57caa9c902f12f3b481c0ccb748f",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00047/capture_00.csv": {
+    "sha256": "b7f318d593a6ecff7ad0352a97e1ba73d4eeffc90988f2efdc95fc2fd8287c23",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00047/capture_01.csv": {
+    "sha256": "ebf42e900437f6742f63bb0d1512c87980b30396e6e6c9e982546c583f84966b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00047/capture_02.csv": {
+    "sha256": "f926dfbda0978698d4d1cefe268b74a02f6992100d0a650521dd1d2a37d69c4e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00047/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00047/point.json": {
+    "sha256": "50e5976b0fbe72059d3826c1d095b85bd5e4a425754fdb33a62432c84d2dc3c8",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00048/capture_00.csv": {
+    "sha256": "1231f5a2dc9218069140d85c57b4408d116f5011a34cda7b16152a895ad3a2bd",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00048/capture_01.csv": {
+    "sha256": "27e7cd57126bbb7760c385c14b533410387eb6f535317620b3a478567e3ec6c4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00048/capture_02.csv": {
+    "sha256": "5793bd29af23f803d64ee3ca30c54c9955e4f2835f860bc40791a381d3caf832",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00048/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00048/point.json": {
+    "sha256": "e4d5abc789531654dbcb2cc8caace63d5cf369a725e179e7a03ddf68602906dd",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00049/capture_00.csv": {
+    "sha256": "a292d4f3c56a3f49ad546964d3648510f38daa01d5460deebea8f9e55986fb1a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00049/capture_01.csv": {
+    "sha256": "a06335d72581e0300cbfe77f5b1deaffcb1c1439025fc45ceae51e67b9ef4e7b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00049/capture_02.csv": {
+    "sha256": "cd4eb75a734b327c4b01da91555c8554f0f0e023cca59fd266097ad9b262197a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00049/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00049/point.json": {
+    "sha256": "5866722563b69c7ea490a5b3a0fc78b76e44108dc25e83feb1665e968fdd1664",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00050/capture_00.csv": {
+    "sha256": "04c7ab5a280c3d443a6c85254330a7838c9d2d0b5aa8da42567755ad2334af7a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00050/capture_01.csv": {
+    "sha256": "92a1326a86ce6b64129d8c3ae22d0ffdb0b00d2146bf80644d0198f6bd9bb055",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00050/capture_02.csv": {
+    "sha256": "2426c13152e42b0ea0fe48e8b5e9dc210da76bdcc15fec5d492321839a7ec779",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00050/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00050/point.json": {
+    "sha256": "8a6acd0424b73a70d28a9c4a415dfd41652c1cf3ea755b296d57ee4705f51ce9",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00051/capture_00.csv": {
+    "sha256": "c859e93341ad8e2ddfecad3e526912c0ae0250bd544f3c00fb71e0e5ef79ab90",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00051/capture_01.csv": {
+    "sha256": "2ad04999cabefd2a6245135694079202d837c1971b06a0a347bc3f7103723bf1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00051/capture_02.csv": {
+    "sha256": "58b100298e99c5fa1fc511b75b33264ade2771eb5b3622b0d43eb50d1cdd8107",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00051/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00051/point.json": {
+    "sha256": "8390f809fe043a32dfd111d31f1cd1c59bb08f0ce225a1ceeb165573eee312ee",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00052/capture_00.csv": {
+    "sha256": "c97bdb748160ed200573d10198b2292cf4ac0097b1c9f5329354318e58ab1339",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00052/capture_01.csv": {
+    "sha256": "411f6297bb7f49a54b57f96f5ca5c1524631469fd8d7466b14199bac9ca56ad3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00052/capture_02.csv": {
+    "sha256": "fce35a9a2c5e00157b28f96939a35e7123a48d4f8e4d4b2f4ff1c40891251ef9",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00052/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00052/point.json": {
+    "sha256": "5615a1030c82c13f89a39388222bf0a5300b14440cc8ee6e920aa9cb5e9fe5fc",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00053/capture_00.csv": {
+    "sha256": "fb6d0271d23ca02e3395f5891aa9a93515fbf31383268262942512515ece0d3b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00053/capture_01.csv": {
+    "sha256": "30b778ed4712fa44b3d216d0dcef7d00f2090c2086e7f7a8adc920e415027f3e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00053/capture_02.csv": {
+    "sha256": "9504bd450393a01918f4e3b07a36c18147cf514cdd7705e8fa1763f61372678e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00053/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00053/point.json": {
+    "sha256": "5641bac5eef9437068a926364d55a67696041de598c4b3b74ba218c4e3bc2eb8",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00054/capture_00.csv": {
+    "sha256": "edd36f7527f0258798d69e7e23357ed5b51b9b905e94a13a8929455ad06b8412",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00054/capture_01.csv": {
+    "sha256": "d9c3469241a0028deda6d942c0b60118d8ad44b9b10a51c3f0a3bdfd437d4c3c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00054/capture_02.csv": {
+    "sha256": "29d1d8df5e243c16eafb551efbf67839882474d80bfdc5b29985ce0d4786be5d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00054/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00054/point.json": {
+    "sha256": "3da4590dd5c061fdf4032368d0989d89e43c6b41ce50bbecea20c3050286e693",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00055/capture_00.csv": {
+    "sha256": "40f77d60031793fcf7ee721d4dd33d8ca414ca6b2c5f114e11e0444b918cb7d6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00055/capture_01.csv": {
+    "sha256": "9d7c5011d2e6caaa1cb2dd459f174e186cc5de5e4c0de064eb54bbd988b72c85",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00055/capture_02.csv": {
+    "sha256": "1b1242f8fc817bebfd7c70a79f0fdfedbca3c19930a3ab56d50df8766638ebb8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00055/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00055/point.json": {
+    "sha256": "2ff098d0f1156a0a6a99b3f300123868b7adb1c98a1561e10e8cc5fdcbb68cad",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00056/capture_00.csv": {
+    "sha256": "d1126880cf4be5b004fd0b1e7286fe62d7bfb9e0c679c69a3c240a237a30494d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00056/capture_01.csv": {
+    "sha256": "8902b9809ef5c922e388a85c542338963a03a8f43b1c31e52ebe9192ea818ff4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00056/capture_02.csv": {
+    "sha256": "33f004e3534e8ab9f376ea22e34a0213419f366704f859944eb90eafade89928",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00056/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00056/point.json": {
+    "sha256": "b2ed2e03484fae914aa91038843dd8dbe9c8d2dd0be92e253b498c5f270f84e0",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00057/capture_00.csv": {
+    "sha256": "3be3828884e4900a3ae4e675e86cac03cfc0e120f16a1ff94d20a417eb5b4680",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00057/capture_01.csv": {
+    "sha256": "680364640ea9ff0b211d9d9c2ef2a5b85cd401a9d82f7b0536c57167cc693a09",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00057/capture_02.csv": {
+    "sha256": "6c028790777392a98b32a2ff19ea3c4894919793a5bd09682476ac2243a4a9f6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00057/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00057/point.json": {
+    "sha256": "6273c6830cb4c2dd46705d75e4b5468b367fd04552a641c57a235d0383fcc13c",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00058/capture_00.csv": {
+    "sha256": "867aecc51f7ee0d86572cc94163635614e9e2da453ccf9139eb8fcfd76f08298",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00058/capture_01.csv": {
+    "sha256": "5f307ba541845794228b4d7365dbc6ab81ae75f9b331784b07b1297918afed8a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00058/capture_02.csv": {
+    "sha256": "389d06a0ef90324ceafcdfd34dbae253346bbcebf1e343959fd65e33e0225b07",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00058/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00058/point.json": {
+    "sha256": "03b0b92a8a7170e3daaf107c0e163be499f2f6ec0dcb74d5e717daca825d604f",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00059/capture_00.csv": {
+    "sha256": "40849650339fe0f86f515f7eaf8b926f5c01d738e547c7ba44211afebc8500c4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00059/capture_01.csv": {
+    "sha256": "2a9d28e6b06d16ece0d07a362ce42993d83b6f77dea07de2be58ba6fde5cbbf3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00059/capture_02.csv": {
+    "sha256": "a029cbffb2f933636cfb9949c91157bcc1e4611516fea8f555c6bd8ca6a2d509",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00059/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00059/point.json": {
+    "sha256": "1171c9f0973f3817052aae7f8d0cf85e994982b95b1147d971f77d7efb1a3d69",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00060/capture_00.csv": {
+    "sha256": "720b92e0435d8fb0773d9d1afb412c7de69afc813b3c4519fc2c7ff5285c39c7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00060/capture_01.csv": {
+    "sha256": "cca82912391fdce2d7e43f7f054076106891e57af7f932941029d7a81c43d1d5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00060/capture_02.csv": {
+    "sha256": "33222d743200358f8a7b8cacacba7b48d36d1f0489a917674a3539d8a8cf922c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00060/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00060/point.json": {
+    "sha256": "8dd084ff055f32419539ba13b1ca268008030c032fde068f1dd0536dd2976d2c",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00061/capture_00.csv": {
+    "sha256": "1e059f525c5f1459ced8c098df01c9a5e970fa49c69548bbd62f3195ef4837ea",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00061/capture_01.csv": {
+    "sha256": "420cf6c45f76f478fe576cdb72a0374f9cafc37847073f893f47c5a84fa8b7fe",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00061/capture_02.csv": {
+    "sha256": "f40a93a486ad03b5eface34a7bb8e76b970cdb61cc9d6767db7bf43b854561b3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00061/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00061/point.json": {
+    "sha256": "9ce351e664eab77a2acb2657eb53f7cf38f52f7b0f60780b29ba2e2f0093423c",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00062/capture_00.csv": {
+    "sha256": "39f4ad6ed9f13c39788b375d5966091c268ffee3225db7fdfff5e356a890388b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00062/capture_01.csv": {
+    "sha256": "438541c42afafe6d1ffadb11ade85dd1c7d3a807acf9d1a316bd2cea5f44dd59",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00062/capture_02.csv": {
+    "sha256": "5689087c6e1254607c99e5b8daa34306126cf3da89bc1b4409ea0ce7288c5c76",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00062/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00062/point.json": {
+    "sha256": "f39890d0df36c7938b5b10dc97e040fc56aee0bb2bbcf3e28c76ac7fe3582bd2",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00063/capture_00.csv": {
+    "sha256": "10d3dec00ef4477a0279941be1376cfc899b78eb5df0898c1db68bc3ab0564d4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00063/capture_01.csv": {
+    "sha256": "4e68366ec326077e9026f74293e697d57a04e8d2d0b2961d891bde0fb1fe68d1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00063/capture_02.csv": {
+    "sha256": "74f4d6a108a4cc39bffcee75cf1889afa7ee906cb921ca3f26e917b1cd1843e9",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00063/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00063/point.json": {
+    "sha256": "8ac0324a711a53f71636afab5570c7498dd66c240d412bf3f0e19cfeb5843689",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00064/capture_00.csv": {
+    "sha256": "bc153a6dc99e41fb19b4284ea41f6f35f6f0da70db7ee8768b376840d9718ee9",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00064/capture_01.csv": {
+    "sha256": "009ae6c7eca878fe2ffb6c240f9f036f2fc5b5dc8581d7b67280e457aa3cd87a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00064/capture_02.csv": {
+    "sha256": "56bfd7ba44301a0136b6786d178416782ae7a71a9ec993b171f4ae80b0e17d00",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00064/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00064/point.json": {
+    "sha256": "2d174fbe5bc84f171aa6cba28a7644cac2ce72554a1fc69f515b68e7bcc56b1c",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00065/capture_00.csv": {
+    "sha256": "b1a350961e0397d60877a92346b121b21548d02cc6ff5c095fae2b174e6720b2",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00065/capture_01.csv": {
+    "sha256": "4f77236d60d30b97f6e78f12afa1e3b17db69ac4697111a6008f1633cc2c365b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00065/capture_02.csv": {
+    "sha256": "ee1a97a4f8f16adbed03b53c41cab38845de69868cf42eddcd9773b929a51f3f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00065/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00065/point.json": {
+    "sha256": "01c854f6b1efa5fcc21b416ecd9a26063a18e063b514094a10ae62a98bb3bfff",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00066/capture_00.csv": {
+    "sha256": "51a18b78d2654dce698c13248c589b99149c4ab38e5edd947020773f31caf0b9",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00066/capture_01.csv": {
+    "sha256": "447c475d3718250644ce2c5aae9eba9e878309a897cd0187c8c83fe79efd9481",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00066/capture_02.csv": {
+    "sha256": "5097ec86c76282e6efaa30b827fb46891e26c20791b3dd0f3c5ecf55746297e5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00066/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00066/point.json": {
+    "sha256": "8baaa760dee1c8719b6ccad86941133b8eccee17d5849a30716c595e8884db51",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00067/capture_00.csv": {
+    "sha256": "d0b14a9f27afbebbb6a2ef5b3eb7cc36adfd2831e8a48d64211ec8e1dd26e924",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00067/capture_01.csv": {
+    "sha256": "84ffddfd4f7d8c380ad0800829409ae318e252c45bdbffd275d69d4513ee500a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00067/capture_02.csv": {
+    "sha256": "4091b4b0f713f8eb0108c60706b5f664a14b75779833092a7e594960b6285f0f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00067/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00067/point.json": {
+    "sha256": "38bc1ca584092f953d448ff0f6aeb2a78f4d4d6dbafd0351083d74298a22ba0b",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00068/capture_00.csv": {
+    "sha256": "b314a689a7447b543a6a1111f9aab4201384e9dbdb1435cc89a8d4f51bf3a4f1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00068/capture_01.csv": {
+    "sha256": "c87958438e531e36f9ef65698058c35fc51d3ab949040749e542c797b1dcdc06",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00068/capture_02.csv": {
+    "sha256": "e4b160544c14d7b18633b8543a00d8b64be36f2ba366c7e8e78c3fedc799828b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00068/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00068/point.json": {
+    "sha256": "2283fc9a2c428c48b9ccd8c656fad0786f739cb00bd387e41de3a00e3f0cc238",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00069/capture_00.csv": {
+    "sha256": "144c74ffd789c2d2f267b4327f73e5195d8caa50b1840e573569b037a0fbc67f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00069/capture_01.csv": {
+    "sha256": "f0465ae1f4fc8913611d45bf56ec3d58d9976fd9fce3d19b21806dc5fbb00bdd",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00069/capture_02.csv": {
+    "sha256": "73a4c67c25e4e4123df792d8c3543ea586ab389c8b90da797b32705e85c706ec",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00069/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00069/point.json": {
+    "sha256": "64c65c49205066145f5ba9336d977fcbba9e4e7a09920b5aa352113bc77ab5f5",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00070/capture_00.csv": {
+    "sha256": "a5bb21fad9da8a2ee480195ef972a5302bf17b834f86aaecbcfc400c5d92d6a0",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00070/capture_01.csv": {
+    "sha256": "1de62302448822c43c731b9db71f7a796896fba3f7ec6041199e0063e8ad91a3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00070/capture_02.csv": {
+    "sha256": "dc1d87a122ad7e544ed388310fd46abd45ce9a4f106e30f40508f03d6f904aa4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00070/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00070/point.json": {
+    "sha256": "325b885bc0430481e83a729ea978f4c01e2f37ccb443e97df01e829f3a050d6e",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00071/capture_00.csv": {
+    "sha256": "91c14956333104b6588d968cc34e98764fe18fec5e436fb861e14c92beda99c8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00071/capture_01.csv": {
+    "sha256": "524010ccd41e0820df9b270cc9b688e1d675d52898b5bdec47d92558a807d839",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00071/capture_02.csv": {
+    "sha256": "54a9e89396ba4c734a89fd0a7dc91ebe58b3005f95700d0ab39668b6b3e885e6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00071/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00071/point.json": {
+    "sha256": "24bdd8568cec0476f86f6c3119609efc0004f7d3887cf397f6c68fc72c82cef4",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00072/capture_00.csv": {
+    "sha256": "64dada4493f7f580325072d85e21b8ec28fa16c5960a7de2938b73dbfaf213dd",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00072/capture_01.csv": {
+    "sha256": "ac1f488a78ad7958e38e2acdb884e3736dad88d1ad896df7180888a8455b994f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00072/capture_02.csv": {
+    "sha256": "2c6570536b15002b122da287a92c1d0bbb42d2096d456b700b6b83ca77aa1b55",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00072/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00072/point.json": {
+    "sha256": "57bff04ae08b0c15785b483565e7bf14784dfff1d14f3d00eaad62dae53911ec",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00073/capture_00.csv": {
+    "sha256": "b8d8cd779b99c9a6d84af49e73d316c95bce4c5d3b08953bbf502c0cc304b4b4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00073/capture_01.csv": {
+    "sha256": "6cd8ed3c99e8094e21c3c16a6bbea9fdeea6a1eb80aeaa75557d9c27543e2313",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00073/capture_02.csv": {
+    "sha256": "5985438b6374f5b71e496de9e9d50352f2165a551b8d3b3e5a3ee23d067f6ed1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00073/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00073/point.json": {
+    "sha256": "1af7d1c38d8a1e86f0056f1a19839ba4d9ee8ef4b8fbf237ba8caa5676e63b49",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00074/capture_00.csv": {
+    "sha256": "bd7547d43ecf8704ba30bff3f66b7d2f70d00c866dc20fa8c7c18b50d6d45bfb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00074/capture_01.csv": {
+    "sha256": "9238b990f390e3eeaa1b603c81092a126085ceaff3f5da4126b76442167a2d95",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00074/capture_02.csv": {
+    "sha256": "16e93dc02aa5176a2c59755d2a9159d52af12debbdd47ebfc748ec923464ad45",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00074/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00074/point.json": {
+    "sha256": "57ebbb52ef2ef9b345721439f8951c0af111ad8364bcce823d94c50276ba181f",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00075/capture_00.csv": {
+    "sha256": "c565192ad82a865724c7d3b10b9af9f123bc071e47a8efd8d513e8e10b8bab32",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00075/capture_01.csv": {
+    "sha256": "ceea5eec29cd92bac2b27e325b674abdc3ee23ed089f65bd13873b2098dfe042",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00075/capture_02.csv": {
+    "sha256": "150e7e9bf13e7afc05eed6588dd18f1770d3a8dffc514c53cdd77f3268fe2236",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00075/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00075/point.json": {
+    "sha256": "2d6487bc55d5ee80d962310cdcb3639524273c9f605cbeedbf7b6b1825ef3f5e",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00076/capture_00.csv": {
+    "sha256": "a321789b81690c4e5f483e88ccc74fe395fa0b4b8527600a543dcc251cf43957",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00076/capture_01.csv": {
+    "sha256": "b007d88567693fabd02244483c41b6395058c23f6c4a834c947a0394ef38f523",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00076/capture_02.csv": {
+    "sha256": "bf238f5c175ce1113c0e58777640e5cc31dae6f38436ff0fe36ce3425bb78f63",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00076/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00076/point.json": {
+    "sha256": "8dff7f86e23150177a770e2e4b9a43a0d6b828cdba869eea3aaa909f1e8b32be",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00077/capture_00.csv": {
+    "sha256": "2d3433eb237f2fdaf2c3fa4c49f8c0304d5cae7bf7a1abc65a2dc9ff83eea2b1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00077/capture_01.csv": {
+    "sha256": "0a15aed8f1e0d6594d27616398fe32b1fe2b934188e5f5728e1e2eb3e6ea6ba6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00077/capture_02.csv": {
+    "sha256": "fd6227e94fa8472c32e22b3b885e7a694e8f2f479479f49efb85217e64f43521",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00077/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00077/point.json": {
+    "sha256": "52413ea744fa04a7b33a52ff53dbba6ad1b178cdeeb638de12152427a6e6f0f6",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00078/capture_00.csv": {
+    "sha256": "7293371d1a70749c84f815e6b8070e8fc79a5f51afa76594c05ae31a9d574232",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00078/capture_01.csv": {
+    "sha256": "2f00b598d8b08a3cde1e68aca5a131f2868955631d1c2a60027808cc821e39a4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00078/capture_02.csv": {
+    "sha256": "539a06024575c261b0db0de6c0f093a815f4ded4a682490c9fc5c90d4772f372",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00078/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00078/point.json": {
+    "sha256": "183254f5ec28746a858fae6bdba1b12d7ca52af6949dcb2d2a0d4ef99ae3d000",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00079/capture_00.csv": {
+    "sha256": "8263c514705a280b8c1648817cde025fef890a4a5aae957d6365b0b0fa9a7aea",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00079/capture_01.csv": {
+    "sha256": "0ca8a38a4d1222a2e85e3cb2caa15ff130bf53fc51a68e2c80cd92a25f049911",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00079/capture_02.csv": {
+    "sha256": "0d29c98389b39bbc65dbfb766a4c27412a95ea0514379efff8160aa30425a5f6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00079/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00079/point.json": {
+    "sha256": "414877e2d701a9a7d3d02b86f84b9e45988a317f67a194f91f09ac7c24518048",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00080/capture_00.csv": {
+    "sha256": "01d8abd318b85fb6785ed5fa0e6e1efa979c339569a36a1e78548aacda92c7af",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00080/capture_01.csv": {
+    "sha256": "0775f253efaa3e6d7c78c023193cb48bdf60cb38c532d1aed732b69225162a60",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00080/capture_02.csv": {
+    "sha256": "9f2964b9200d1d0362105a54a0acf1ac6578c1afe7bb8b7d4ed993a320a95d5a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00080/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00080/point.json": {
+    "sha256": "9c5c9187515d164305cf286eea7648a735522a995c8d910cc1427ca5ad1f0b47",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00081/capture_00.csv": {
+    "sha256": "07d51c4a8ccb96774a23671e8f65c29b03cd2c66dd9e70917ee7cc4d3775b8e5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00081/capture_01.csv": {
+    "sha256": "6407f1b5b98d4cc427f286c16a4869368077c0aa25bb2d98bcccd0bd510ecf53",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00081/capture_02.csv": {
+    "sha256": "96a2137516eb18f7d3fc646d041d23a6a712fd2baacfa2e5b7f43858362debde",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00081/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00081/point.json": {
+    "sha256": "91d933bd4300efefb75127c7716cd91d0e9b3accdaac3705825142b03fdd7af6",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00082/capture_00.csv": {
+    "sha256": "08a1a486d0d9f7f9a4a31e42b89a78eb7e024de4c75300836053ae67cabfdce4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00082/capture_01.csv": {
+    "sha256": "8a16ebc34460d605aa6510674f7c4e4fbf43ae1db121a5c1d76b296485bdb8cc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00082/capture_02.csv": {
+    "sha256": "8444342881665f8cdb08d3548ce5718cc8110117af4de59559f3516f18377d3f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00082/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00082/point.json": {
+    "sha256": "ca271885657777db1552b8b9b5fdba54df8684d94022ee01d20ac23dbda44577",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00083/capture_00.csv": {
+    "sha256": "763b139ff68cf9a71289ebcda7b3b00571138a5d6ab8f9a26512990ac2e3fbbb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00083/capture_01.csv": {
+    "sha256": "da8702b08388203b419b91588071b770202464bdbd114ff18c0f75055e8275d6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00083/capture_02.csv": {
+    "sha256": "9622b66d594b33cd19fcca1bc67ee65fbaa2d92fbc56ac7f6be68e2b4bb899b1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00083/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00083/point.json": {
+    "sha256": "36603918b703edc98faf930231bc761b52433b50c1e6383260578f3e6911e4a2",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00084/capture_00.csv": {
+    "sha256": "789fd8a6ae75c1bc604af4a4bbbadde68d1b273a75fff114d05e25fe9947bb71",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00084/capture_01.csv": {
+    "sha256": "d7dfa0e23623aef51588d38287827fc6f49630ca0c9e2a392fb0faa2cbb4147a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00084/capture_02.csv": {
+    "sha256": "76a118572d47da7f8194ad5566fe0f4dc5c9c32d7fbd13869632897ace991840",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00084/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00084/point.json": {
+    "sha256": "b6def97ea223509b52dc02e38bcbd6970a7312b3b77a4ccc6045177a26736232",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00085/capture_00.csv": {
+    "sha256": "e54ef8100c2213efa844c02471ee24649bffbe3757817a78091fa60bdd19ff72",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00085/capture_01.csv": {
+    "sha256": "cafb7bd7bf1ba3a620269068520b715627f8a9a783557aed20709821d2c8bd1c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00085/capture_02.csv": {
+    "sha256": "fb406d80418ecef756b89da85ca5e36b992c75ccffe0ea5bdd3e3658aa5c99dc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00085/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00085/point.json": {
+    "sha256": "61ca73accab8e90130229efdd2ff683ad8b32fb65d98c617876b58770ef22b76",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00086/capture_00.csv": {
+    "sha256": "fcfd14b70d6b9017596fa84bf4994968a752ca38f1436a48c47867246b272e13",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00086/capture_01.csv": {
+    "sha256": "d80d929bff15a30937e76e7c5684ff0d374a835c0f9dc5c438d92b48ffedf35b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00086/capture_02.csv": {
+    "sha256": "a9c5b8f9d1fd0735bef9103992df6ff9219f3566fcc4fd3ab5aeb56311081175",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00086/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00086/point.json": {
+    "sha256": "8333b4dbc385104c742eef07c13c03884dad440fb80429bd10b0dfdb185ec2a1",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00087/capture_00.csv": {
+    "sha256": "9cc1b0d3b828aff186280bf976c1c923a69d84e9b7a5264a6395ce1e5de67f26",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00087/capture_01.csv": {
+    "sha256": "3730baa33754e620a13b223bdedc59ab93c41e820264dcc43b3bc05b947ab52a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00087/capture_02.csv": {
+    "sha256": "4c6c45850e3a52d29915b17db5537aff5e114f19b88653c81af28fda02cb1a72",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00087/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00087/point.json": {
+    "sha256": "aec18ccf13238e3eb09aeb644103b55a474407de9ee475939f9e999bc5afa848",
+    "bytes": 563
+  },
+  "dcdc-adc/points/point-00088/capture_00.csv": {
+    "sha256": "08723497a6ac47183861bae90f9af747d5fd33ea03a1f2bf9e2fc77e576810c6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00088/capture_01.csv": {
+    "sha256": "09ef6ea909f349b38461fc839cb4ecb5458d5ee6efbb0fce20a1959d90745dd7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00088/capture_02.csv": {
+    "sha256": "7e127657905010ba90a9a112d18fa3c37ad5fb867e9e8e1cf3204571e2437349",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00088/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00088/point.json": {
+    "sha256": "9f6e81ef844429383fa392243b69eb71100469f32e480945b77e42ad8ebb8eb1",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00089/capture_00.csv": {
+    "sha256": "978b76017c49f662102db5d8feb343c929df0bbcfc40324c84e26bcf81fcb03c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00089/capture_01.csv": {
+    "sha256": "1ab3d88ee20e7bc3f82396806e5c8549cb4dba55d89d3d09705abb3e7fedb005",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00089/capture_02.csv": {
+    "sha256": "c948af940dc9ca09b889df0ea8b7e05c08980c1a0ee3d228127514018f305173",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00089/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00089/point.json": {
+    "sha256": "87635e24db746f86f0216c86c33be19f2e1ff8d35f9d7abfc5284da2fcdaf233",
+    "bytes": 562
+  },
+  "dcdc-adc/points/point-00090/capture_00.csv": {
+    "sha256": "f35d4a3f7a6af085df5c5f4cb257938462692c74ff0ea5186a1f5d399ef0008a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00090/capture_01.csv": {
+    "sha256": "9aed6de6e61cfe7e9472b53662522708dba0d2a958084ef7ca734ebedd359555",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00090/capture_02.csv": {
+    "sha256": "a990f8a9548cd8ae88892a9eb2f2606888d426ab1a18893f29eaba0296bfd692",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00090/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00090/point.json": {
+    "sha256": "8c4a0d919a53cfd8bf231cacd6aa202f256d9f50e6837f52b9bfe8552ce55970",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00091/capture_00.csv": {
+    "sha256": "a94b2f55af66c82c410eba67b4544f3fafba012391de53704ecfd26e5058e4f7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00091/capture_01.csv": {
+    "sha256": "4a63e41ad7122ebc5ad19ebd2df4e9f1c6fe3242f535deb30dbb70958a2173d9",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00091/capture_02.csv": {
+    "sha256": "7a1bb7a16c05d30b1f80a93ed91fc1e1bd609e2f1e8f7672c5fa793722ac127a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00091/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00091/point.json": {
+    "sha256": "249835ccce904659c6f7a139bd3cc669bcf8f7dfa8c93aa55faac1583b26dbb7",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00092/capture_00.csv": {
+    "sha256": "d9aa31c152ae8f7b08a8e71b927722f371c9594116d2c589a10eb590fc3e6166",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00092/capture_01.csv": {
+    "sha256": "9e26fc3a50e423a95eea2df7408043671b8229c8d693b0e539a4bbc011502922",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00092/capture_02.csv": {
+    "sha256": "821552ac199974c24f4dc86906046b32cc6389d5bceebc194bcc5f4493add32a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00092/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00092/point.json": {
+    "sha256": "f60fb72978752cd0eeb7fcc4727e714e13c3d9a5914df71324d6880363723658",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00093/capture_00.csv": {
+    "sha256": "7353793d2bede25849fcb47e528543d7b4470709a388a3a0cbff34618c07f882",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00093/capture_01.csv": {
+    "sha256": "db94f298ce809720ec85305b6f10f78192930aff9d3926cc55a756255115bd5c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00093/capture_02.csv": {
+    "sha256": "63d0bd5a124ac59abdbead1c6fc262c877ef8ec8848923220cc36bb44957f6d0",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00093/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00093/point.json": {
+    "sha256": "08981cbf5717d9f913ecbebca8aafcdf2d3f9c0933e643b0e532480402e2e2d7",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00094/capture_00.csv": {
+    "sha256": "a185ea31013d01c8a3045e558b29f0a4f231e2a21c29c39f7cc31a82fda91211",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00094/capture_01.csv": {
+    "sha256": "2624117a8277884ec8253363c19228421755ec51d779653576a6d9530d0a383a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00094/capture_02.csv": {
+    "sha256": "660cb67d06838fad9cd9c56141d11ae56bc69cd9a2cbf6947413fcdba5e4c125",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00094/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00094/point.json": {
+    "sha256": "289fccce5861563bbacf8f19bd01531920da8c13b95a55a5e1418f0cf733ad68",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00095/capture_00.csv": {
+    "sha256": "8298d059bfe2e8f4681241a409eb55015fa16ca45241e7311644041e879f7508",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00095/capture_01.csv": {
+    "sha256": "ca2a2a17af7cfe9f1ff21ae4138c81dc990a3254cb877415f9a454274c317473",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00095/capture_02.csv": {
+    "sha256": "2957bddb87b58f6d0a3c473ad9571e88ff6866e0671d53fab91fdb06fc7651c8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00095/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00095/point.json": {
+    "sha256": "2957c21d88286519461241c5cbecf0c72da217831470ae0502ae5c03b66bfcfc",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00096/capture_00.csv": {
+    "sha256": "a13a8f9db0ad6d21327d08118a0af659ce203c883155d4ce12a5b2bcf7a7c370",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00096/capture_01.csv": {
+    "sha256": "304021719656ba40cb6a9ef55752c4756097acbaeaa289f6e501138421d9b139",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00096/capture_02.csv": {
+    "sha256": "ce7b9616a9ad70025bac2c4fc20ac302218728b51bcdcdcfa8b9e4d1dc9ef984",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00096/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00096/point.json": {
+    "sha256": "c58d4ca834c7d96a10b179f617961552bc20fae2f08a67e75efc699ca6dd0650",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00097/capture_00.csv": {
+    "sha256": "e733666f97726d61ddbda853137b15597b9ef846e6da70316758843db60be24e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00097/capture_01.csv": {
+    "sha256": "89b1a277aba4887ee60847f62711083d1c2aaf9434f7f997f95bec3b26ae6ebe",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00097/capture_02.csv": {
+    "sha256": "5ac1bd7027e38af11348f6ea591a19d571c0f96fc84d799e7c07b9b7160b74de",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00097/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00097/point.json": {
+    "sha256": "8fc0d5db1929077bbcb335d91cadc78fa987b12be49a014cd65fa7ab9481f919",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00098/capture_00.csv": {
+    "sha256": "f49a4dddefa2a7b706c1095d754a83135523b52914800feb43592383866f9ab7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00098/capture_01.csv": {
+    "sha256": "8624d2deda6de4a4d7089f465bd4398aed6d5653a2a86aff74c274537ab6dd76",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00098/capture_02.csv": {
+    "sha256": "a9d4edaafa3b82a35d138188f384e61f395c77d0d0efe0f4d92fae6ca675ebb7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00098/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00098/point.json": {
+    "sha256": "ff161b6db7add41674df7bc53eca2d4f93bcf06a333fa47828534bab09bcbd7e",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00099/capture_00.csv": {
+    "sha256": "9823e49d04e75b36da7e58d451a3a428a077a7616d2e3abba5639f865ab39632",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00099/capture_01.csv": {
+    "sha256": "fb85ff3dc3769e45b5d0ddfa0de1a71d112f3937d775859e674c745e11b4858d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00099/capture_02.csv": {
+    "sha256": "87c55db06d08e8f9dbe9c84ba955453b6bae5627e3dd61533092673e739a01f0",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00099/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00099/point.json": {
+    "sha256": "ded8ededfdc2337cf5bc11e5f724949c7bb3ea32aeecbd953a0247168ff2c19d",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00100/capture_00.csv": {
+    "sha256": "e0c27cbd7031f73f594ccc5b8178105cdcc617c3d7e89f7c619d3412b80ea6be",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00100/capture_01.csv": {
+    "sha256": "33e967138cddb461f4570b6c7363afa74802be179a888fcc556690fffb6afe33",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00100/capture_02.csv": {
+    "sha256": "af9ebc24313d7c8d4fe215a910105527f115cdb37c29f69c8440bb2442fa9b66",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00100/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00100/point.json": {
+    "sha256": "23d9e8d0e1743af8a95c825012bf79b322ebe95278f2a41eae74fd9b9b09085d",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00101/capture_00.csv": {
+    "sha256": "eba590fd69c8dcf1d1f3bc770557aa8b5d36ecdf99973ffc6e38011ddb2d8e0c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00101/capture_01.csv": {
+    "sha256": "48619d53ed18c84440c36ae907441375edd05e0fe8e13f3805ae60105b00b1d7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00101/capture_02.csv": {
+    "sha256": "9db71a6c1ea9285a4c2999ec06483ce1e1dc79156e98e6856ebb51c7e662e1ca",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00101/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00101/point.json": {
+    "sha256": "1970caf87f57665f1cf945632f5ff57f6ccd958ebb36801ad4ca436906376682",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00102/capture_00.csv": {
+    "sha256": "e50974a6ae2d52b8dd45deb36d8c8252de9cd060da8e20d8f236ce494b8b56af",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00102/capture_01.csv": {
+    "sha256": "eb5191333f12e79b123e16ebad73e22f6348216c8869126fc4a9d2e766236965",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00102/capture_02.csv": {
+    "sha256": "681c6bc6e7901f27b4636380e90142e0d6a21375c4bf5e7066f16c6b7c24015e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00102/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00102/point.json": {
+    "sha256": "b964d7223812acd90afd1c0f679e2c81c4231f9ca49db51eaa591ec082fe55c4",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00103/capture_00.csv": {
+    "sha256": "0c43a4e847d432fd0098907c55f4c06990b523ca33b12a89ac2066265e438e30",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00103/capture_01.csv": {
+    "sha256": "cc3e5f83b273bdf4fe634752ec133208f184b3f8e46ee5433d59c9dd4c204768",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00103/capture_02.csv": {
+    "sha256": "93b365fad2f99ce069ecb523c5f2a964216fecba9b6462e0a90054a7014d9d32",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00103/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00103/point.json": {
+    "sha256": "90e76b13601b2aebb91e81b3290fd631316cbdd93ffac3344dfed839f1ac4247",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00104/capture_00.csv": {
+    "sha256": "20212d78e38eb559e7e929df714b63fb5521a115eac023c9dbeaa0bc53a9050f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00104/capture_01.csv": {
+    "sha256": "2557ed7072366661ef5a6085e561f1009f3712a3f7494a8cb4ab61b9cacbec1f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00104/capture_02.csv": {
+    "sha256": "b0d945e0bc12654ad6ea610b9e48eaa28b30d2d2f1a548e74c0c0eff8676458b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00104/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00104/point.json": {
+    "sha256": "db69bd43a1e6db9fa55b75c672e25c12322f72a25794989019cef8286528a40c",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00105/capture_00.csv": {
+    "sha256": "f787316517689927a49f7fdfc671a30e7b9d482233d37aa16b8f1c7d2b19e9c6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00105/capture_01.csv": {
+    "sha256": "c140b25b91aa6a8e3953053446c2e473b48adda71fc2cbd000e57454f9376226",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00105/capture_02.csv": {
+    "sha256": "5ce10fd9aaf914dd8280535678b5efac62ec1012d928a686b5b03dc86250de63",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00105/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00105/point.json": {
+    "sha256": "ca87ea73fc0da994814611d9352a3c4bbc93a65cdab317589187541e3cf65cda",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00106/capture_00.csv": {
+    "sha256": "9b66c243f1d14b274c526e1d65f669f48097bf880f458aa7056edb45ba8f829e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00106/capture_01.csv": {
+    "sha256": "489f4142ba1ec5c3cfed9cd0debbadfffd39579d9030bb288231cccae6ebcadc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00106/capture_02.csv": {
+    "sha256": "c2780f103c0db455de39a0fda829037267068b74dcf8ad0f21a911e0ec69dc60",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00106/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00106/point.json": {
+    "sha256": "30c87158c377fe79b1922f11552eee9c3895c6952e3546e5f303e8af8441470f",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00107/capture_00.csv": {
+    "sha256": "5a15e354bab5ce921a394c32c1c6339b469981297ca88de77c08c5b6bb443021",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00107/capture_01.csv": {
+    "sha256": "5c13eac0a1016b5d9d1e0a6a6776beac79853aa982f40bf63420997064251069",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00107/capture_02.csv": {
+    "sha256": "54534d0919b689366ee33ae90ae82793163fdd97317497634b9740d612a289a4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00107/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00107/point.json": {
+    "sha256": "4069dc811452e2e6da3fea1778adae897a0cb54f4568d0891f4f2145c2f6b81e",
+    "bytes": 574
+  },
+  "dcdc-adc/points/point-00108/capture_00.csv": {
+    "sha256": "f064143c7813338307123746f14719f65124a50982b0e5ca1fdc699ea8996fda",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00108/capture_01.csv": {
+    "sha256": "4ddd5a1f25d97bdeb46d0ee6ef4dd9c52cc9210aa264438ad1668faadb9acda1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00108/capture_02.csv": {
+    "sha256": "da5037e649c93e7847c5870828c4ce58a64a715865be2e955419f21032bc915a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00108/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00108/point.json": {
+    "sha256": "3f567c8bb8a5cef04a581d15e6bf6c94bcf3f6ba1cd089a9aa6cb8ef3a7f3ba2",
+    "bytes": 573
+  },
+  "dcdc-adc/points/point-00109/capture_00.csv": {
+    "sha256": "e7f6b345e043276b7ceb27d0145642be2a0d3299759a9bf5bab71543280f547a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00109/capture_01.csv": {
+    "sha256": "c247918190f91a89dd778778d23a037813658e1d23ec7463e21531bdb4d05cdb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00109/capture_02.csv": {
+    "sha256": "ab2fdf63b83a790af65d8f8edb4bbff2b9f34a875a90fb1ae443db645c68c7be",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00109/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00109/point.json": {
+    "sha256": "e0dfea0d04a3773d084c8ad30c9515e0aedd14bb16cddf00cf02065c87b6e257",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00110/capture_00.csv": {
+    "sha256": "f40ddf0a54327d44f55175b66e2d5e9004cf3a3aac02f444ddb743a819824ca8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00110/capture_01.csv": {
+    "sha256": "3dca8c39b54419616ab722c05d68c8d310e8be52716d548d3c8e618890477605",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00110/capture_02.csv": {
+    "sha256": "d82d303a0dab725037a39bfd6872b0ad6d25bd60ed8a64a0a904757769df3b79",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00110/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00110/point.json": {
+    "sha256": "e68f71e27b3b441ceaaab7b71d173c6d2bca220c12b5653eae4b34f44f381d3b",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00111/capture_00.csv": {
+    "sha256": "1ffe4b74d988be790cbe282462385babefd6ace2fed96bee3b3f8cfff75696b7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00111/capture_01.csv": {
+    "sha256": "76f4cb2e764e939ea90ef8f7199ccbaadd9fd0db6edce4cddbde74f77538c7c2",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00111/capture_02.csv": {
+    "sha256": "8fb2e8d60d16950aab109257bb96008dc63fa8bd0aa445ea84f3a680902f6223",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00111/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00111/point.json": {
+    "sha256": "df830b125d2775350da937e4afb178e405a5a39e986f4fe0063fecd1da2a2e17",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00112/capture_00.csv": {
+    "sha256": "f484f361c88bbfee4113f698105f22b51fed6f7dd84f25aec995671ca458143b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00112/capture_01.csv": {
+    "sha256": "4c6c6eb3e2d17813ea4272f5b14e093f18b77dd25cfa835c5d541b3719f058a1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00112/capture_02.csv": {
+    "sha256": "635e59e0424dd03e7d13fa93702a32d119e6f4dc7241f26edb3bc0847cb796e1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00112/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00112/point.json": {
+    "sha256": "594612e0797a4f9dd2e6de3cb43edb78222e1287e49611c7cab2fdd871a2d75a",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00113/capture_00.csv": {
+    "sha256": "c24bcdeb00d673d3a47f43bddda0127a6dd952dcda6f7bb730dd4d9ae3218a79",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00113/capture_01.csv": {
+    "sha256": "eea297dec9b8f10b6e85d17a09d9dfbd3d0afae349fedb8d7dbe2f5425fa15ea",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00113/capture_02.csv": {
+    "sha256": "229f0803072465f4dd7eb7f94a49b8cb8f9c77dbefefa34eaac0d7e4dced6f31",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00113/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00113/point.json": {
+    "sha256": "58e29854a1b6bc936a95baa3b56787d7ba4f29410863c3597647cfe81bbb2865",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00114/capture_00.csv": {
+    "sha256": "73fb6dba8c86b694ec1f80f9762d26ce0c9bf8d72690e0bde3fbbfbcc2d08543",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00114/capture_01.csv": {
+    "sha256": "d6acac2bdcc20a8a232e714408c58faefb69ec9038a3d963fc366281127f4457",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00114/capture_02.csv": {
+    "sha256": "c8616647d03309146ac3d13bae128c5258c10484fc7548476efbf7b4a5be0c13",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00114/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00114/point.json": {
+    "sha256": "97cc5063297a1dd3eda262edfbf080f8224a62cbc75785d335190261e0f25cc0",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00115/capture_00.csv": {
+    "sha256": "caeea2dc3a2128dcdd5def7e4d4cd08e73dc11eb5a9f2815beab7ffe09a15bc5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00115/capture_01.csv": {
+    "sha256": "b14353c47c712d591aa0ece01ecc375dbbe2f62d8a5383ab9576405621a881a2",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00115/capture_02.csv": {
+    "sha256": "6a8ad31f44870ffc6af5362fa89ea3b103a1cf2c79c3cc114c40af0f7b8ba9df",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00115/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00115/point.json": {
+    "sha256": "bf2002fbdab45073a9ce08bedc246db04d855dd291b8b56f4bbcb477a1bd914a",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00116/capture_00.csv": {
+    "sha256": "f28272ad5eed4f8df93f49f1351353d7089d6cc1df6170c42168ee7185232fef",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00116/capture_01.csv": {
+    "sha256": "31bed59c0a8df5caf052c2b3658791dfe336510ae84481f458e1cb46afd26e19",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00116/capture_02.csv": {
+    "sha256": "675f6cdd19db460f3da71cefc90ae02854c8e03422c41b3222235c55bf0ff180",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00116/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00116/point.json": {
+    "sha256": "18f0ae8ba7a38790e60ee99b0daea52d5f03dc27184120e078d4c1838ab3da25",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00117/capture_00.csv": {
+    "sha256": "844b0a36bce6c7df55813094a475d4b49b2d37c0911400427e18c8ce2726223f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00117/capture_01.csv": {
+    "sha256": "e63320d51886eae269ea6fe0e4b594e71efc13b8d3d9c23931404c232daef0f4",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00117/capture_02.csv": {
+    "sha256": "5274d0cccd4d409160ffcbe6307b315561302609b86d93b376480835e640a841",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00117/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00117/point.json": {
+    "sha256": "ce9080d1266023d72870bc5bdb300627cc29c0f9b42ede91b644e0105b53717d",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00118/capture_00.csv": {
+    "sha256": "82d960fa667f11ad92035504eca6b42fbcf4c745167d337722214e4c23dcd95f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00118/capture_01.csv": {
+    "sha256": "709380c067b5de7c13ef0ca236db31313da11acb4190954b2ec89e88b8bdace7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00118/capture_02.csv": {
+    "sha256": "658a0b076ac478e0ebb1bfc2affd318a830b264a1370fcc8a0a96953716eb42f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00118/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00118/point.json": {
+    "sha256": "6b0a477d24ef9461b5a57ea879fbe8bfb1b8e5dd5a42d48cdab7c43d62091bad",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00119/capture_00.csv": {
+    "sha256": "35bd708349ce41d60d00932c2d30a8e4c0cd04c10c2551d11a509be732892d1f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00119/capture_01.csv": {
+    "sha256": "a8261ca7c8d18df9b443719fe8c0342c1b5a61342cefcdcee802b425b48919f7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00119/capture_02.csv": {
+    "sha256": "f15a37a9832cdba7a50ef7ae916060f62685b9c1310b2a27dcb950faec615b77",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00119/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00119/point.json": {
+    "sha256": "7121c1fea68a055f075ec24cc43f58ec916350de9492daa55b6df10c542a543c",
+    "bytes": 565
+  },
+  "dcdc-adc/points/point-00120/capture_00.csv": {
+    "sha256": "457f78416f9632198041a82ccd4277a46e6b1ee9a3291a94bcc59d81ee04ef14",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00120/capture_01.csv": {
+    "sha256": "0a6e10add5ad5600d944563bedc64f757509086849737a1e34cd9c0a7b9ef23e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00120/capture_02.csv": {
+    "sha256": "4321dea7700022b5c1abda2b92db81d95212c266794209884fc9b68339b3816d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00120/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00120/point.json": {
+    "sha256": "d393849f11d047ff166fe129cace013daba950c5c97ec0f252eefdc3cc4f08a6",
+    "bytes": 564
+  },
+  "dcdc-adc/points/point-00121/capture_00.csv": {
+    "sha256": "c0b6dd647d4c39dd6879c2c651b4b41bce836db1bc5c96fdcd2a1bf11030c6de",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00121/capture_01.csv": {
+    "sha256": "7bb5e9c985408ec4df5e25fe66d7724d97e82f1016a5b92162dc2de7d8c38e25",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00121/capture_02.csv": {
+    "sha256": "65f4d832661b6d724cdea1b3b4bfe24a625159e12fd11830c744811fd73d467f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00121/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00121/point.json": {
+    "sha256": "c41a7c5e8239333467b7cabf82f1787dc69eb2b7a1d925fdcc483cd9dce9ca16",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00122/capture_00.csv": {
+    "sha256": "fc1329d5110a7ae4821a7566e85b4bc26ba95ff05787043b653db0e3549b9975",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00122/capture_01.csv": {
+    "sha256": "85891699ca816378df14c4455ff76e1db7b0e98fe3a41130c56767c478537827",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00122/capture_02.csv": {
+    "sha256": "65439f4d9864a5326ff358753ec0547524222d71e44e327db7763e939fda7964",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00122/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00122/point.json": {
+    "sha256": "726c82b21c2e9569b3df4e1f26c8d2fdc3d3f918150dc335d3d3c4fca6f51b1a",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00123/capture_00.csv": {
+    "sha256": "d8bfd7c60b42dada9e59ad5836235ea9e9fc44637669fa8f24f733e2b32d04fd",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00123/capture_01.csv": {
+    "sha256": "3c78006fb8e7fef7e7a9504d8c8fe395251b3d9a9f7b068d477c41c1615cc009",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00123/capture_02.csv": {
+    "sha256": "9528babb8fe68e8f3e02543941c6f9e4348fb8cbfb4236a70f13a7245b8de5d5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00123/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00123/point.json": {
+    "sha256": "8c58788089df4531b31959c6727ad9a71df0eac28a5d1dc6122905474a883a06",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00124/capture_00.csv": {
+    "sha256": "456e711660e0321a7abfd0203c666ac8a0c23ef541ccb195e997f9e233964d8b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00124/capture_01.csv": {
+    "sha256": "92d8857dfacd79c58d815c3cfe5e1162228d0b24db69d7a60791e13844cae160",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00124/capture_02.csv": {
+    "sha256": "2e5ed9fc530891d3cbf00f98837e9a467dcff5f0fb6e0d7f3a71eccab3cb616f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00124/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00124/point.json": {
+    "sha256": "642ba7e2dbf04143b0422768bda73d6bc1237b6b99b4b08d5ffa748b7009d2ef",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00125/capture_00.csv": {
+    "sha256": "e9a67241adf912b4634b935023b9c948974ad71aa74d0edee74168bf0c03afbd",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00125/capture_01.csv": {
+    "sha256": "fa7e8d48614956ff62c6eef20bc356c2c7a5ab3dcb211050f367af58cb6e8a69",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00125/capture_02.csv": {
+    "sha256": "a387a6e7998e80c6908966e3a1aa103c089077c7daaaca68917d3ade0ccd3054",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00125/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00125/point.json": {
+    "sha256": "582a44014d8dd28dd0c01ad0282a8a66e72016388bf7e12b866d47c675c027da",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00126/capture_00.csv": {
+    "sha256": "73f88f8adf856d4ccb7447975214ab1265b298b98db33e21837b4111cebcef55",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00126/capture_01.csv": {
+    "sha256": "2ae3b53d9426b9423d09f41fe4c00873bd33574db5e44a1b42c370d4227c30a7",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00126/capture_02.csv": {
+    "sha256": "18cdac250667b7f18b9ee5bcf9c326c27c281135e0372056e800c66ef19d253b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00126/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00126/point.json": {
+    "sha256": "6cf5a999f48d33fffdace1fb792266ed6eb895839927baf0e4f73b92bb6cd96e",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00127/capture_00.csv": {
+    "sha256": "cc44eac23f3268d2efae4c66b0e3a172ac55586716cd031aa822296d3eb27795",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00127/capture_01.csv": {
+    "sha256": "15efe97a7d60b5b29c928b9bd05fafb1e0f55912efded566975ed3f2748dd428",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00127/capture_02.csv": {
+    "sha256": "4a6ab50cccd60bfd9390b27f98eda224da458888424335b77c0b925babc2b7db",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00127/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00127/point.json": {
+    "sha256": "4f7f76e8bfd818b5655e0b65b7f958a4f317d81765b47f597a5bd401461f32a1",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00128/capture_00.csv": {
+    "sha256": "17e6c8d35e9f1a33fe2fccf9fa8bf0025d7f8a5c615f3c273897da6cba79063e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00128/capture_01.csv": {
+    "sha256": "da64ad005e1433c0e16b73bfaf247b91694b40ce1c1679db7c5092fcd8533fde",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00128/capture_02.csv": {
+    "sha256": "361c8b36073cbf5238496f80f3cd81532552bbbef244d117d1099b115e559d11",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00128/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00128/point.json": {
+    "sha256": "b542a9e9a8a9799f42f7d8a90254acbcaffd11489910018bde69f1d367f89174",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00129/capture_00.csv": {
+    "sha256": "0e45014e85e69c3821a9d6da5e5714817b81e122b5aa7e51e4ab4cf5b900f482",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00129/capture_01.csv": {
+    "sha256": "3bf9a70e3190dbca8fd9b5f45ca51daf44a0653abb48fae97b59ff987c1f79e6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00129/capture_02.csv": {
+    "sha256": "7a9bc285155c34e59c316e2d1d4c0c47bbb9f7761348b641bbeaefbf6d80f4f1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00129/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00129/point.json": {
+    "sha256": "3d91aa0796b28481cd6bba0ac62aee930c43425831214af9b00f6adf973c37f2",
+    "bytes": 567
+  },
+  "dcdc-adc/points/point-00130/capture_00.csv": {
+    "sha256": "eee74f761d6e56339bb75774c037c7c3da2f0420b98dda7d180c935a83aca8dc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00130/capture_01.csv": {
+    "sha256": "116b4f1d41ded3c48b3e3f2da3cdc76e85940874e244902eda213dcd13e7daf5",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00130/capture_02.csv": {
+    "sha256": "1aea168b2c955a8bc691f0f5f55dd75de22fd4ab3c9381068a5018dff4c77985",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00130/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00130/point.json": {
+    "sha256": "4573c2410c0f6008505614f563e9f313d9f1b5717ef8e070fdd3a7ef4305b299",
+    "bytes": 573
+  },
+  "dcdc-adc/points/point-00131/capture_00.csv": {
+    "sha256": "5ca745b0653522e721316c944d09056506dfda2de79fe10074a8bbfab6e2ef10",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00131/capture_01.csv": {
+    "sha256": "d8905d3d6fb100e16874bc46a7362e6b4c774d7e04c3e41efa31ac89afc71bbc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00131/capture_02.csv": {
+    "sha256": "915666733160d93370c5f45036042f2e2bb51ed000fa1dd90efc2082d4438f43",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00131/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00131/point.json": {
+    "sha256": "f450c06cdc3ee547f0933f2bad4c3d46fa4bf808118d246e4816d13f2d762a45",
+    "bytes": 568
+  },
+  "dcdc-adc/points/point-00132/capture_00.csv": {
+    "sha256": "54a0e2715a3bf67a5df890b386e88da0db6187b27b356ae8ddb0ce60ae46c9b8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00132/capture_01.csv": {
+    "sha256": "576f7ce1db20d65550a8b5701f02fdf5f280abe392d65594abaa7ccb8e717c82",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00132/capture_02.csv": {
+    "sha256": "8fd72057463992db7a1e79c9a14aaabe668171e14dd815e53beb4a0cd3d3f15f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00132/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00132/point.json": {
+    "sha256": "d56fca325ed3c9a8269f30ed45d6e56615d84a26f53e722ca78c74067d909181",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00133/capture_00.csv": {
+    "sha256": "2ad68b8aa105172928acfb36c9140b2031c377d66eb576dfe9c69ed76da4333d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00133/capture_01.csv": {
+    "sha256": "a80b8e1884a7e19b4e66e055aeb4fcc12d376339026263cdfdaa6dc221cdf6fb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00133/capture_02.csv": {
+    "sha256": "0b7f2d2c25a72853e090f130c1f429cb618e8bbe4dfece8237b6876cb1425d92",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00133/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00133/point.json": {
+    "sha256": "dacd2a7d22650ab0b53222143dca08a062fb4423d5605da1baeeaea5ecaaa290",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00134/capture_00.csv": {
+    "sha256": "1c23250467e26424679d55d1336ff48a6de3384f99154b0d112707be8cc33aae",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00134/capture_01.csv": {
+    "sha256": "f6f43b0604035196617e4779e1d2a0e0576a63229a0504f5fc77df36c19719af",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00134/capture_02.csv": {
+    "sha256": "690253b62a96c54c031f1575982a56f52c58384ac42a46919126efe5e0366e70",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00134/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00134/point.json": {
+    "sha256": "684f7a938f2614658f1f2f2a6c2eeb834103e4d3c86cb53424f092f3c2a5bb5b",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00135/capture_00.csv": {
+    "sha256": "8c7b1a438c181d126d8dbd3ba1823053df9ba3e35694f606b520e896eb346274",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00135/capture_01.csv": {
+    "sha256": "737e82beb356f0926458a3e7d277ccba8d0fe1a5ef3d31651f57115122acb0b6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00135/capture_02.csv": {
+    "sha256": "babf144a098d03e20b7802473b3a77fa328b7a8b307665f3fd6748e58cdf7173",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00135/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00135/point.json": {
+    "sha256": "64b40b44ce663e5983ab494ec0fb82f2ac48b3e6254fd6a352e06be670c4ffb2",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00136/capture_00.csv": {
+    "sha256": "098852924e7a8a2b7d720e9656fc23632b638120c12d783c31587537c241fb00",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00136/capture_01.csv": {
+    "sha256": "5bd6acfd3e4e4317df1e60e4ced071b81ada74aa10148b9cfc08c9cb533d303f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00136/capture_02.csv": {
+    "sha256": "e4f9d2a5f51188cdb98201087e7e3f7c46f97d9afd2b8b202eca11e78ad90ea3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00136/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00136/point.json": {
+    "sha256": "729d86078bf431540942a3bd97c977be8b61c0500e1dab514900ead139367dd6",
+    "bytes": 566
+  },
+  "dcdc-adc/points/point-00137/capture_00.csv": {
+    "sha256": "f90c54232cb3a92bacb425ba84a80a0b50943860f57750e67b530032ce7346dc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00137/capture_01.csv": {
+    "sha256": "f278cf64b472aa98d9229cbc594887cd701248a06656a152c5570621a64daaa0",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00137/capture_02.csv": {
+    "sha256": "8ae10e104ef5e99df7e288aa75a5d707cd254e034ad620e323b2ce27ff9b392c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00137/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00137/point.json": {
+    "sha256": "f90930f4e0740767b4209160cad7b795d9a729eca96eb677e41079f9bfcea9c2",
+    "bytes": 574
+  },
+  "dcdc-adc/points/point-00138/capture_00.csv": {
+    "sha256": "f06c71b9ce764f1f15030171b8c27c8c54aeb46faa97377bc9a1772f5539a88d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00138/capture_01.csv": {
+    "sha256": "1097b1382625bf7e88bea98b3ee862bf7dff3e0db5f618f2229df560a6339d2b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00138/capture_02.csv": {
+    "sha256": "9dca85de43478d1d7bc2a654621d64cafbdffc5db629784885f213d02b0dfabe",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00138/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00138/point.json": {
+    "sha256": "a381520fb8aaed6a673c487f6405694c65463e5515277212db3c75dd22be46c9",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00139/capture_00.csv": {
+    "sha256": "6a3b35f54da93a8fc73839600909b22d50c2c95fa094c913e80304edc807c67c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00139/capture_01.csv": {
+    "sha256": "38d8dd1d0afa34e11c3e9f581cfd954272b9341f62207de43fc6d2b43552241e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00139/capture_02.csv": {
+    "sha256": "53ba4c497e9b254430b3ef7496abc98e45128f9f4701c0ae4dca322ea0b133ac",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00139/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00139/point.json": {
+    "sha256": "36d48b9bfbd167453eac580cfb6df75e5b1e0c94670765fa7f2963aab45dcb87",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00140/capture_00.csv": {
+    "sha256": "fa8fb9625bdd16087ab9bcf267c4fcd43409cd4d6e37bb8a2cdb9ca1c77eebaf",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00140/capture_01.csv": {
+    "sha256": "3522efd5541c4fe5bf61abff6cb419a0b7ea83d9e5415b916487340a7190db0f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00140/capture_02.csv": {
+    "sha256": "5ee2e6d3ce33c969fd5887b5c033bffe27dd747b0a339f00dd3784833829f407",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00140/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00140/point.json": {
+    "sha256": "5541bc918f719a54f21bdd6786c44c2c80c74ad52bd43ced54d213090c76b2e0",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00141/capture_00.csv": {
+    "sha256": "1c14a78330c910e5d6da5801d26a40626206fa29d59a6c81b5a353ea353acaa1",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00141/capture_01.csv": {
+    "sha256": "6699460645993cac5d16d2833862b2c895e15f6c2f4f2da0f67b94147f40511a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00141/capture_02.csv": {
+    "sha256": "97a4cb89e25980723fe15d38c8492d6856bc3ecd95d6da0714282a7446f5b208",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00141/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00141/point.json": {
+    "sha256": "d0082046fabd3c66f3caac86c17da180396f190208c3446bee22e14a8c68c42d",
+    "bytes": 569
+  },
+  "dcdc-adc/points/point-00142/capture_00.csv": {
+    "sha256": "01ce3b8a089024e5343fed3c4a96acaa5cccd01b030056b42e377634f9ee481d",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00142/capture_01.csv": {
+    "sha256": "56fcd752e74aabfcc693f254595982660fcf153cf18f5e46756ab490d416c953",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00142/capture_02.csv": {
+    "sha256": "ba1aead5e99dd08dca9dc3b2da52287a2ad3aa7d46254353c63d1c46b599507b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00142/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00142/point.json": {
+    "sha256": "11fa61a569e32cd854fd2411f6f69d7f05b1bc132e06019196ca1fb1d9831443",
+    "bytes": 573
+  },
+  "dcdc-adc/points/point-00143/capture_00.csv": {
+    "sha256": "41eb3577252cd7158b9514f772d2768b07c8394fd3f8745a7fbe9ed4a272dfc2",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00143/capture_01.csv": {
+    "sha256": "7d12a9ec4604234175d4fa6e5260a870a8369074329343b4d53398e92b6653fb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00143/capture_02.csv": {
+    "sha256": "4156ab6f71efa23251999140ef758c170839c0940d83cc87fea329370f63304c",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00143/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00143/point.json": {
+    "sha256": "39494d361be3a31e808c7c71258930d90e6473f38177a00dffcb0c67e7723708",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00144/capture_00.csv": {
+    "sha256": "8364c5f0f9d46575d1ba37251c3c2dd82ba192548ab3a0f090a5e5e5b218e4fb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00144/capture_01.csv": {
+    "sha256": "87b59c3567090df47ad01616155a7508b93823d415bdbd360cbe0e698138834b",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00144/capture_02.csv": {
+    "sha256": "e897a8f1cd7708680d3126d8c43cbe6d3a6984c2ae6377cb319a4cd2ffc61c25",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00144/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00144/point.json": {
+    "sha256": "552566060d6b0b9042586221ec5764928a083b0fa9f0d56184ac718a36d9706f",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00145/capture_00.csv": {
+    "sha256": "2f73d77a9700899aff1cdc9bfdbac9c9841cd1e4dc99a732d3572d3654cb6979",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00145/capture_01.csv": {
+    "sha256": "b5de3d05c8f0549b7bccc84df7d1409a9f15f5310ff4de9cdcb8caafc60fbbd6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00145/capture_02.csv": {
+    "sha256": "cf3df123c2d0909c47005bd9d5e94c5edfbfd3a7a88f093b2337ca13f40842e8",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00145/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00145/point.json": {
+    "sha256": "dc0f1130472bedb7b207b5d16a828d67129a32fc497eaec4221f283747452b4e",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00146/capture_00.csv": {
+    "sha256": "32c39538a0749161689dabfe93436d25d00ee03cc61b53469c7e2c9e8e1c1005",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00146/capture_01.csv": {
+    "sha256": "23904e8ece4392fcc871f047d69661949414d3107a19ca4dcaa8f8771a402f3e",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00146/capture_02.csv": {
+    "sha256": "d1705709753bc20735ecbbbb36c4233288255247b25054c22fc67291fbbae480",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00146/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00146/point.json": {
+    "sha256": "9cbdc65b6715fa06102dbb940063b714b55c5a4a551cb80248d454647d442df1",
+    "bytes": 572
+  },
+  "dcdc-adc/points/point-00147/capture_00.csv": {
+    "sha256": "6906039740c093f3eb6477b63b68f431ab1b4cd8d412990e92b6123e9cb01dee",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00147/capture_01.csv": {
+    "sha256": "91d13da92d5e01e23042390d12885ef3f7385f6e9612e8bcc2515ce1ecd4dd1f",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00147/capture_02.csv": {
+    "sha256": "d5739de9be6662c19fd81db7c2fcba07fe5406f6f958fa887a4b6a38f4997dcc",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00147/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00147/point.json": {
+    "sha256": "bc497aff35d75a090a9e89a06acbd7a3a47f552f48cdfb5054cdd80cdeeff7b7",
+    "bytes": 571
+  },
+  "dcdc-adc/points/point-00148/capture_00.csv": {
+    "sha256": "e2c862d51c60d5824808d80e08339f8b6454326cb640888d0db49df9eb1427d6",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00148/capture_01.csv": {
+    "sha256": "089180210feced1286d30ee6adeeeafc9f291b183b2e97383f469a40b296c3e3",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00148/capture_02.csv": {
+    "sha256": "8dc14a2c69ca9b275ffc7972b20375092ebf5213426a365189cd228ccdd5981a",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00148/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00148/point.json": {
+    "sha256": "fe4448ec278819b3b40330459e936537f92ddb00b27c92687f9d4254d3f8544a",
+    "bytes": 570
+  },
+  "dcdc-adc/points/point-00149/capture_00.csv": {
+    "sha256": "51c1cfb7b758d60ddc3b0da999700931b10e899db1e6cf4038a84cbc4b433cca",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00149/capture_01.csv": {
+    "sha256": "ea46d04ebebcbc5dd4fcfbcce906149d6b8a6dfe3b9381c15569df6a372466bb",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00149/capture_02.csv": {
+    "sha256": "3a91912e12eadea18d568beecd49ac2ecda26eceee6c6d3c502a871164055f63",
+    "bytes": 371058
+  },
+  "dcdc-adc/points/point-00149/capture_metadata.json": {
+    "sha256": "9615ecb0e8bffcdbcbcf06a95234e6d67d484ebd97f05fd7da1334b9644555d0",
+    "bytes": 423
+  },
+  "dcdc-adc/points/point-00149/point.json": {
+    "sha256": "79e6c7b1607638c03bc5a20b2f78bba84fe36452b1d874197468241d6b598014",
+    "bytes": 569
+  },
+  "dcdc-rgb-thermal/capture.json": {
+    "sha256": "3b338e748fe9c6140b3581bdbcc558b7359b3b7e395ea215cfa40cc400da7e73",
+    "bytes": 1900
+  },
+  "dcdc-rgb-thermal/rgb.jpg": {
+    "sha256": "eac8d3afa0283a7cd5a92a7a2be2b9e40082bd3af417f028c56886de276cb9cc",
+    "bytes": 599314
+  },
+  "dcdc-rgb-thermal/thermal-calibration.json": {
+    "sha256": "d84a16433908d634195dd4c69ddad0b461fe1867d15d76d815220dda137414c3",
+    "bytes": 3182
+  },
+  "dcdc-rgb-thermal/thermal.raw": {
+    "sha256": "64bed978fe57cc620b39090c2423bc887b6ba6fd4df35f9c1b1a03eb2f61fad7",
+    "bytes": 196608
+  }
+}

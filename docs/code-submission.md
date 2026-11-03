@@ -1,30 +1,23 @@
-# 正式代码提交与运行说明
+# 最终程序提交与运行
 
-R2已统一README、验收记录、构建说明和发布模板的版本文字，实板信息采用11月3日的运行记录。算法、RTL、模型权重、运行程序和原始采样保持交付版本。
+当前包版本为PDP3-report2-audit-fixes-r6。原ZIP共1230个文件，1227个清单文件核验通过、ZIP CRC通过，91个Python文件语法解析通过。单独提供的《修复核对.md》与包内文件逐字节一致。
+
+原包SHA-256：`9a8e675adc020fbec6e05893b87b7221a60d5d86f12d43cea6b0e1cd4485b1db`。上传文件保持原包内容，公开附件名为 `submission-zynq-20261103-final.zip`。
 
 ## 获取与核对
 
-[下载完整正式代码包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-r2)。完整ZIP包含1078个文件，包含原始数据、预建模型、训练权重、ARM/Windows程序、位流/HDF、驱动及标准库资源。解压到英文路径后，在包根目录运行：
+[下载完整程序](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261103-final)，解压后在完整包根目录运行：
 
 ```text
 python tools/verify_delivery.py
 ```
 
-Git内的[source/](../source/README_GITHUB.md)提供源码、模型和证据浏览，完整数据及构建二进制通过Release提供。Git根目录可运行 `python tools/verify_source_snapshot.py` 核对每个源码快照文件与当前发布清单的一致性。
+Git的[source目录](../source/README_GITHUB.md)用于源码、模型与记录浏览，原始数据、二进制和硬件产物由完整Release提供。核对Git源码快照时，在仓库根目录运行 `python tools/verify_source_snapshot.py`。
 
-## 电脑演示
+## 运行入口
 
-原包要求Python 3.10+。在完整包根目录安装 `runtime/requirements.txt` 中的依赖后，执行：
+电脑功能展示：`start_demo.cmd`，或 `python -m runtime.run_board --demo --no-browser`，默认地址 `http://127.0.0.1:8698/`。运行依赖见 `runtime/requirements.txt`。
 
-```text
-python -m pip install -r runtime/requirements.txt
-python -m runtime.run_board --demo
-```
+板端计算接口为PDP3，身份 `0x50445033`，应使用本包配套位流、DTB、驱动与客户端。原始包入口、精简显示入口和真实扫描的显式选项见[构建与运行](../source/docs/构建与运行.md)。
 
-入口为 `http://127.0.0.1:8698/`。Windows也提供 `start_demo.cmd`，其中有开发机Conda和依赖目录的可选优先路径；其他电脑应先安装自己的Python与依赖，或直接采用上面的Python入口。扫描演示为模拟运动和历史记录回放，电脑画面不能作为FPGA速度指标。
-
-## 板端与构建
-
-配套硬件、驱动、显示素材和启动参数见[实板记录](../source/docs/实板演示记录-20261103.md)及[构建与运行](../source/docs/构建与运行.md)。原自启动镜像保留；新包的实板记录属于RAM临时加载。
-
-完整 `--bundle` 复算路径使用板端兼容的NumPy/OpenCV等环境，具体依赖、输入条件和启动方法见随包构建文档。板端演示采用来源绑定显示素材与历史数据回放。
+修复项目、单位、输入条件、双缓冲与公式见[修复核对](../source/docs/修复核对.md)和[处理链与接口](../source/docs/处理链与接口.md)。本次上传保留最终包中的全部版本说明和验证记录。
