@@ -1,10 +1,10 @@
 {
-  "archive": "submission-zynq-20261104-doc-update.zip",
-  "archive_sha256": "534786a5c613f735a0dc04875a7954d448ce9a25fb57083de5edc9f29759d9e1",
-  "archive_bytes": 86983048,
+  "archive": "submission-zynq-20261104-status-aligned.zip",
+  "archive_sha256": "0a3ba6a71c9503c25e29e27cb91c9c152c8297fec2badc931fa4467e761d80de",
+  "archive_bytes": 86983806,
   "archive_total_files": 1230,
   "version": "PDP3-report2-audit-fixes-r6",
-  "release_tag": "code-20261104-doc-update",
+  "release_tag": "code-20261104-status-aligned",
   "git_snapshot_files": [
     "CLEANUP_RECORD.json",
     "data/board-index.json",
@@ -1252,11 +1252,13 @@
     "mismatched_files": []
   },
   "python_files_syntax_checked": 91,
-  "previous_archive": "submission_zynq_20261103_正式提交版.zip",
-  "previous_archive_sha256": "9a8e675adc020fbec6e05893b87b7221a60d5d86f12d43cea6b0e1cd4485b1db",
+  "previous_archive": "submission-zynq-20261104-doc-update.zip",
+  "previous_archive_sha256": "534786a5c613f735a0dc04875a7954d448ce9a25fb57083de5edc9f29759d9e1",
   "code_models_binaries_hardware_unchanged": true,
   "document_updated": "docs/修复核对.md",
   "document_source_filename": "对照分析报告_提交版vs技术文档2.md",
   "document_sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5",
-  "document_matches_selected_file": true
+  "document_matches_selected_file": true,
+  "documentation_alignment_updated": "2026-11-04",
+  "documentation_alignment_scope": "current-version status documentation; original dated single-test evidence retained"
 }

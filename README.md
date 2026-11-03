@@ -2,7 +2,7 @@
 
 桌面式PCB检测原型，结合CoreXY近场扫描、RGB、红外热像和ADC波形，在Zynq平台上组织板卡位置、温度、频谱与交互显示。
 
-**最终程序：PDP3-report2-audit-fixes-r6；对照分析报告已于11月4日更新。** [浏览源码](source/README_GITHUB.md) · [下载完整包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261104-doc-update) · [对照分析报告](source/docs/修复核对.md) · [运行说明](source/docs/构建与运行.md)
+**最终程序：PDP3-report2-audit-fixes-r6；对照分析报告已于11月4日更新。** [浏览源码](source/README_GITHUB.md) · [下载完整包](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261104-status-aligned) · [对照分析报告](source/docs/修复核对.md) · [运行说明](source/docs/构建与运行.md)
 
 ![真实整机与HDMI终端](assets/photos/system.jpg)
 
@@ -15,7 +15,7 @@
 - **两板与温度查询**：STM32和DC-DC独立RGB、热像、模型、标定及输入关联；原始热像点击、融合板面点击和最高温定位。
 - **神经帧融合**：共享PL卷积核生成α_R权重，PS按α_R·R+(1−α_R)·P合成过渡帧，配套逐像素及保留视角检查。
 
-程序按最终交付版本归档，当前展示文档采用提交方提供的对照分析报告。当前包记录源码集成、ARM编译、RTL、整机布局布线及电脑界面检查；具体运行配置和验证范围以[对照分析报告](source/docs/修复核对.md)与[验收记录](source/docs/验收记录.md)为准。电脑演示采用模拟运动、历史原始输入和已核验RTL结果回放；真实扫描入口显式选择 `--live-scan` 与实际运动配置。
+程序按最终交付版本归档。提交方提供的2026年11月4日《对照分析报告》记录本版已完成配套位流部署、真实50 MS/s采样、GRBL机械运动、HDMI物理输出、实板测温及自启动流程验证；本仓库同时保留源码、RTL、电脑集成和离线回归记录。各项记录的具体范围见[对照分析报告](source/docs/修复核对.md)与[验收记录](source/docs/验收记录.md)。电脑演示采用模拟运动、历史原始输入和已核验RTL结果回放；真实扫描入口显式选择 `--live-scan` 与实际运动配置。
 
 ## 架构与数据
 
@@ -32,7 +32,7 @@ PDP3接口为本版频谱、热像与共享算子提供统一任务入口；配�
 |材料|入口|
 |---|---|
 |最终程序源码、模型、配置|[source/](source/README_GITHUB.md)|
-|完整代码包、位流、HDF、驱动|[最终版Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261104-doc-update)|
+|完整代码包、位流、HDF、驱动|[最终版Release](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261104-status-aligned)|
 |逐项对照分析|[source/docs/修复核对.md](source/docs/修复核对.md)|
 |当前版本及文件指纹|[source/VERSION.json](source/VERSION.json)|
 |处理链、任务与寄存器|[处理链与接口](source/docs/处理链与接口.md)|

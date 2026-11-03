@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "version": "PDP3-report2-audit-fixes-r6",
-  "archive_sha256": "534786a5c613f735a0dc04875a7954d448ce9a25fb57083de5edc9f29759d9e1",
-  "archive_bytes": 86983048,
+  "archive_sha256": "0a3ba6a71c9503c25e29e27cb91c9c152c8297fec2badc931fa4467e761d80de",
+  "archive_bytes": 86983806,
   "archive_files": 1230,
   "manifest_files_checked": 1227,
   "manifest_passed": true,
@@ -11,9 +11,10 @@
   "git_snapshot_files": 407,
   "git_snapshot_files_byte_identical": false,
   "new_board_actions_during_publication": false,
-  "release_tag": "code-20261104-doc-update",
+  "release_tag": "code-20261104-status-aligned",
   "document_update_date": "2026-11-04",
   "document_sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5",
   "document_matches_selected_file": true,
-  "code_models_binaries_hardware_unchanged": true
+  "code_models_binaries_hardware_unchanged": true,
+  "documentation_alignment_checked": true
 }

@@ -34,7 +34,7 @@
     }
   },
   "files": 1227,
-  "bytes": 219565709,
+  "bytes": 219567111,
   "credential_scan_matches": [],
   "debug_intermediates_included": false,
   "derived_measurement_outputs_excluded": true,
@@ -43,5 +43,7 @@
   "reference_report_modified": false,
   "documentation_updated_on": "2026-11-04",
   "documentation_source": "submitter-provided comparison report",
-  "documentation_sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5"
+  "documentation_sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5",
+  "documentation_alignment_updated_on": "2026-11-04",
+  "documentation_alignment_source": "submitter-provided comparison report and dated validation update"
 }

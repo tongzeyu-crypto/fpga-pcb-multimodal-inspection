@@ -3184,8 +3184,8 @@
     "sha256": "328172f31f749501fc3b6460b894151b63a37b4f10cedb06b739a71b64ae3e92"
   },
   "demo/README-standalone.md": {
-    "bytes": 1490,
-    "sha256": "147958fb15cb8a055edaffb4aef47cab346d99159df0b8183cbe46d0d41633b0"
+    "bytes": 1618,
+    "sha256": "fe4a496829038d08ff436fc0d9f39df042d48f7c15102907d844e203bdeb52a0"
   },
   "demo/rtl/pcb_demo_axi.sv": {
     "bytes": 2379,
@@ -3288,36 +3288,36 @@
     "sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5"
   },
   "docs/功能清单.md": {
-    "bytes": 1273,
-    "sha256": "2dcef270579ff72ddf3b1a0a1da7dcd161f810154165bfc1c490db00355bc054"
+    "bytes": 1404,
+    "sha256": "9902897f81503fe4323edbcca56fe7bc6f5f0833d64c9cedafe2cee8ff4a0427"
   },
   "docs/处理链与接口.md": {
     "bytes": 3145,
     "sha256": "d98f1a2081d64da339fadc4fceb8a761d21f1484d26c0d1e1e39cfff06ef8e2e"
   },
   "docs/宣传与实现对照.md": {
-    "bytes": 962,
-    "sha256": "a64e7e7769b688672edcd79399737a3bb24bf8dfc7401cbe3c65c0f78ee982de"
+    "bytes": 1266,
+    "sha256": "b587063b4b5ddf474d4f9cbf62b7ea50b6a28c4fec383a82e773e6d14845777c"
   },
   "docs/报告实现对照.md": {
-    "bytes": 2232,
-    "sha256": "67e792d8b7b2dd88027263b2242a5c9788e703a829cc8c0b3e92f56951f8ae0a"
+    "bytes": 2325,
+    "sha256": "c5301c7a2909c917a0b34d772f1ca84e775b8f82628848bc2148d6ed1b04196f"
   },
   "docs/构建与运行.md": {
-    "bytes": 2762,
-    "sha256": "ca79022dbed38994059217cbc44b3a8b78ffa4e8787e132997b2f4ca694dee9b"
+    "bytes": 2863,
+    "sha256": "c7224623088835ebcf017790908346bdc1024f59dd34fc191cc4af572603d806"
   },
   "docs/神经补帧.md": {
-    "bytes": 1669,
-    "sha256": "b322f0866f53bdcc20ee8bbecb866eff5361d0a9b42c948c56d989a939f0eab2"
+    "bytes": 1793,
+    "sha256": "75bcd4ddb688da9037beb81792fb599cdc963455f00414f6a97b0cc21b6c73ff"
   },
   "docs/第三方与资源.md": {
     "bytes": 2753,
     "sha256": "a07bde338f7c695646d26b7a16bcd3e503eee8786d9ea974ab5e1e7175c7180a"
   },
   "docs/验收记录.md": {
-    "bytes": 1693,
-    "sha256": "14213cd0cd11bd7256aab0059086293345fc35c0979cea0c7bd10b50df455259"
+    "bytes": 1912,
+    "sha256": "90d4e50ed8cfe11393e8b943e818045499c4f275fc219ca0c34d341529da8a6d"
   },
   "drivers/compute.dtsi": {
     "bytes": 337,
@@ -4236,8 +4236,8 @@
     "sha256": "6c5c84b1ac762201be25af6839934730848b3203b5726c66076248f65e738aa7"
   },
   "README.md": {
-    "bytes": 1359,
-    "sha256": "008bb8bec81caaf7aeeabed42bf38a976e69c1867b8abf710c0eb123d4efbb5f"
+    "bytes": 1548,
+    "sha256": "0f6808f6bf6c7db89e1f02c2b9f6e2f7fbbaf5a32e6d16535804a007a536ff02"
   },
   "resources/adc_bringup.xdc": {
     "bytes": 1955,
@@ -4264,8 +4264,8 @@
     "sha256": "7d3c886cbd33fe255d9304f7295bb523c89cec8c0ed943be62f4071ae6050e3f"
   },
   "resources/autostart/README.md": {
-    "bytes": 1079,
-    "sha256": "416d54b3b7722efc94c933344d2fa6b10f3dbb16814ab23cdc60fcacf1336269"
+    "bytes": 841,
+    "sha256": "1e5a4c93e5736273b701432fcfc457f22b4fd8511d2654b03351c0fa81383596"
   },
   "resources/board/python-stdlib-3.7.6.tar.gz": {
     "bytes": 2271765,
@@ -4900,11 +4900,11 @@
     "sha256": "413bff1b10a1b3c5472bdd238ccb2dfc9f5bcfd06d2aa384b019023c6a9ff83c"
   },
   "VERSION.json": {
-    "bytes": 1046,
-    "sha256": "a36ca49c4ce4c90b816aec43ecc583439332e4e1d1183f10196305e6d4801740"
+    "bytes": 1335,
+    "sha256": "f6cd8b3d796004e38433d48571b06336a026c7d5d2d91c2318338c779a160d37"
   },
   "版本说明.md": {
-    "bytes": 734,
-    "sha256": "9760285c8501b0bdf4408a7344cb4bfa731f66d2c810c52e8461809d6c45f739"
+    "bytes": 796,
+    "sha256": "c6ed04f27add38da1bb3b675ce5c437ba77ea250cdb01f50f49536223cb3378e"
   }
 }

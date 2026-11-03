@@ -19,5 +19,11 @@
   "debug_transport_started_by_launcher": false,
   "debug_intermediates_included": false,
   "report_sha256": "c04c82d802b4e13f40b98bedae7c95b324fa4e89f125be5fc53803b3007d1e0c",
-  "report_modified": false
+  "report_modified": false,
+  "post_release_validation_report": {
+    "date": "2026-11-04",
+    "source": "submitter-provided comparison report",
+    "sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5",
+    "status": "reports completed on-board validation of this PDP3 revision"
+  }
 }

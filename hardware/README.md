@@ -1,6 +1,6 @@
 # 硬件与接口
 
-11月3日代码Release已补入本版位流、HDF、设备树与驱动；RTL和引脚约束可在[source](../source/README_GITHUB.md)浏览。当前配置与实现核对见[对照分析报告](../source/docs/修复核对.md)。下面是实物模块与信号链说明。
+11月3日代码Release已补入本版位流、HDF、设备树与驱动；RTL和引脚约束可在[source](../source/README_GITHUB.md)浏览。提交方提供的[对照分析报告](../source/docs/修复核对.md)记录本版已完成上板验证。下面列出实物模块、接口与来源边界。
 
 ![采集板与ADC](../assets/photos/zynq-adc.jpg)
 
