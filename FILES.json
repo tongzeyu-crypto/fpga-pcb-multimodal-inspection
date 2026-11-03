@@ -116,13 +116,13 @@
   },
   {
     "file": "docs/code-submission.md",
-    "bytes": 1614,
-    "sha256": "d0441bdf79b525af91717856c222f1cf3ae519b24c3ecb7e3553c0a51c9dfe04"
+    "bytes": 1693,
+    "sha256": "c776314faa39f0b04962e87a95b0afefc14238a1b74c2df9885463413ebeb062"
   },
   {
     "file": "docs/data-provenance.md",
-    "bytes": 1916,
-    "sha256": "97a84d2d50f2df1502a1ce5b599d443a7a9d622b46c294cda217d7f813f3b425"
+    "bytes": 1922,
+    "sha256": "96cf9a0e304afaacb885da917f74e218e8cb78f8548d5cdd0428375f6ccb7686"
   },
   {
     "file": "docs/history/earlier-board-record-20261103.md",
@@ -136,18 +136,18 @@
   },
   {
     "file": "docs/source-publication-check.json",
-    "bytes": 561,
-    "sha256": "c283bea3f4ed6f178a8fe8492bef6f3064db695e523bee6492b4efbdf05f14db"
+    "bytes": 747,
+    "sha256": "9015ce6ed18df2a5293e6f2a50f57ac6b830313f404e8f962df950e5239b500b"
   },
   {
     "file": "docs/submission-follow-ups.md",
-    "bytes": 647,
-    "sha256": "e9b4effaeeb16cad807df0aefe1f12cd8fa9280b04282b6b15ff63b3a7bba196"
+    "bytes": 650,
+    "sha256": "6568291499ff5c123623b105558b8983e75a6436fea5d81af2bea4f99b490a7e"
   },
   {
     "file": "docs/usage-and-validation.md",
-    "bytes": 737,
-    "sha256": "d30c8eaef5d68630da4546ad8ae95be4c5ee4adc9af4e7c53a06ec8d3f134de8"
+    "bytes": 743,
+    "sha256": "518057beeeb26ba2a5a308799503d6da8cde91363f802398e31637fcf4e038b8"
   },
   {
     "file": "docs/video-materials.md",
@@ -356,13 +356,13 @@
   },
   {
     "file": "hardware/README.md",
-    "bytes": 2196,
-    "sha256": "88844efd1ffee7e58afd67470d984a154ea4e2c13262be6f9f8bb3ef161958da"
+    "bytes": 2202,
+    "sha256": "dd1ce8de10b39d5da58073cd9be23fc419f6587226d425e3e89d9fb0928d6b58"
   },
   {
     "file": "README.md",
-    "bytes": 4144,
-    "sha256": "f0c99063539ffc92c03c3b1047e6e8725114b15c6410be473f4bc242a0bbfe71"
+    "bytes": 4247,
+    "sha256": "5c2f590c72d5307c58d37ac13af402921441927f85623dd196e8b6207a0e9eaf"
   },
   {
     "file": "reports/README.md",
@@ -411,8 +411,8 @@
   },
   {
     "file": "source/DELIVERY_CHECK.json",
-    "bytes": 1374,
-    "sha256": "0769fbfdadca7f411fdc9a8649f90fd871329605f2fa132a375bf3c12248b68c"
+    "bytes": 1536,
+    "sha256": "ea01d9ad4cedc092ec16a321d0660ae526a1dae00808d3c3afc12d5136e5dddd"
   },
   {
     "file": "source/demo/__init__.py",
@@ -586,8 +586,8 @@
   },
   {
     "file": "source/docs/修复核对.md",
-    "bytes": 2922,
-    "sha256": "58238b224b305223785b24b2c688b5a5744068f05229c7cd920f9e9f4cba1dbd"
+    "bytes": 17437,
+    "sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5"
   },
   {
     "file": "source/docs/功能清单.md",
@@ -1111,8 +1111,8 @@
   },
   {
     "file": "source/FILE_MANIFEST.json",
-    "bytes": 197863,
-    "sha256": "c0452d5abe729a90c10f6ee5943d8c8874ba1455fddf0841a3a652717575749c"
+    "bytes": 192956,
+    "sha256": "216ba2f6f26b8e3cfa6e69b048f77f4602e22374cd204586a21fbacd8c7c677d"
   },
   {
     "file": "source/graphics/driver/gfx3_contract_test.c",
@@ -1586,8 +1586,8 @@
   },
   {
     "file": "source/README_GITHUB.md",
-    "bytes": 1329,
-    "sha256": "c6adc1d04dd53c079f7c2fa9f53471f1a923922cc91da89cd4e76d63041c6010"
+    "bytes": 1481,
+    "sha256": "de65e101a83b7a50cde01ec15d7274ab6f775358e59fae5c874f70191e4009f6"
   },
   {
     "file": "source/resources/adc_bringup.xdc",
@@ -2421,8 +2421,8 @@
   },
   {
     "file": "source/UPSTREAM_LAYOUT.json",
-    "bytes": 65510,
-    "sha256": "772dc31ff6becd59696e93112598f97dcb2c611ba6f2785ab6d4afb2ccb223fa"
+    "bytes": 65950,
+    "sha256": "c96d8b4be86c60cbb708acebb7a44efe42b6423bb60391ed366fa79505095e40"
   },
   {
     "file": "source/VERSION.json",
@@ -2436,8 +2436,8 @@
   },
   {
     "file": "STATUS.md",
-    "bytes": 1476,
-    "sha256": "e3a69d0037f4b4f764bc566087ae83c81bff00d63eafb2921e471754e0bb49da"
+    "bytes": 1488,
+    "sha256": "1f86d54fc557c0a09417cf72ae47961355624c19dcac2c97173b2674b90e09e8"
   },
   {
     "file": "THIRD_PARTY.md",
