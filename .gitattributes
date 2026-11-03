@@ -1,0 +1,3 @@
+# Preserve original source/data bytes so published SHA-256 manifests also
+# verify on Windows checkouts with a global core.autocrlf setting.
+* -text
