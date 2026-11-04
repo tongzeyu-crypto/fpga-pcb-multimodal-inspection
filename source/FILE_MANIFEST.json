@@ -3312,8 +3312,8 @@
     "sha256": "75bcd4ddb688da9037beb81792fb599cdc963455f00414f6a97b0cc21b6c73ff"
   },
   "docs/第三方与资源.md": {
-    "bytes": 2753,
-    "sha256": "a07bde338f7c695646d26b7a16bcd3e503eee8786d9ea974ab5e1e7175c7180a"
+    "bytes": 3011,
+    "sha256": "f6c41b38c228984e0cb55744f5c2439e4a3caa9ca3b95f211c9e9e5174955f8e"
   },
   "docs/验收记录.md": {
     "bytes": 1912,
@@ -4236,8 +4236,8 @@
     "sha256": "6c5c84b1ac762201be25af6839934730848b3203b5726c66076248f65e738aa7"
   },
   "README.md": {
-    "bytes": 1548,
-    "sha256": "0f6808f6bf6c7db89e1f02c2b9f6e2f7fbbaf5a32e6d16535804a007a536ff02"
+    "bytes": 1703,
+    "sha256": "77f501bf8a43418758f03c81d4adaa6df3eea7797c218a8ec0073f46dbc9fc47"
   },
   "resources/adc_bringup.xdc": {
     "bytes": 1955,
@@ -4900,11 +4900,15 @@
     "sha256": "413bff1b10a1b3c5472bdd238ccb2dfc9f5bcfd06d2aa384b019023c6a9ff83c"
   },
   "VERSION.json": {
-    "bytes": 1335,
-    "sha256": "f6cd8b3d796004e38433d48571b06336a026c7d5d2d91c2318338c779a160d37"
+    "bytes": 1459,
+    "sha256": "36cd463d186bde39a90340511b4604db55f5a78fa0ad3421bc62a21e2f7c9080"
   },
   "版本说明.md": {
     "bytes": 796,
     "sha256": "c6ed04f27add38da1bb3b675ce5c437ba77ea250cdb01f50f49536223cb3378e"
+  },
+  "LICENSE": {
+    "bytes": 1093,
+    "sha256": "09fc4c2c5b529f978abf750c458b691f1a2477dd8884dbed4792a2aefde3f862"
   }
 }

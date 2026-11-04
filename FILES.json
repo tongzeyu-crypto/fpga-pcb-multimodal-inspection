@@ -116,8 +116,8 @@
   },
   {
     "file": "docs/code-submission.md",
-    "bytes": 1785,
-    "sha256": "8dc2703b1c0ffae0bbd6b5dc4b77b8aef650a35a83f84757da63d05ee68b3198"
+    "bytes": 1865,
+    "sha256": "2a6bfad8f826de1084a5b02ebbb7e4c30050b95227bba77b7be356bb8434ebc7"
   },
   {
     "file": "docs/data-provenance.md",
@@ -136,8 +136,8 @@
   },
   {
     "file": "docs/source-publication-check.json",
-    "bytes": 795,
-    "sha256": "d3f3d9a63f86fde0d215f03416a6ef04094d96dcf2d42ed1dc54b3fa5df12f50"
+    "bytes": 841,
+    "sha256": "c50bd4df82b802744e889046b998a7498be47a5834f6f23ec84195b86e0d9042"
   },
   {
     "file": "docs/submission-follow-ups.md",
@@ -360,9 +360,14 @@
     "sha256": "41e911abbc0d30986c9015ed614a4d47d206626f152b0554da1f02448b7fc31e"
   },
   {
+    "file": "LICENSE",
+    "bytes": 1093,
+    "sha256": "09fc4c2c5b529f978abf750c458b691f1a2477dd8884dbed4792a2aefde3f862"
+  },
+  {
     "file": "README.md",
-    "bytes": 4361,
-    "sha256": "684d2f5923b0bd33cc5460a8dca905262384becb73911caffd45ba6a3580ef85"
+    "bytes": 4488,
+    "sha256": "3064a073fcd9cfc55b526dc2e100750120dab12b3afafe5ddd3fd203e8496d6b"
   },
   {
     "file": "reports/README.md",
@@ -411,8 +416,8 @@
   },
   {
     "file": "source/DELIVERY_CHECK.json",
-    "bytes": 1694,
-    "sha256": "dcc5fb321ea41fd781e72be49001b5b72ae8ff1207f4566f6f2d930342c9375f"
+    "bytes": 1892,
+    "sha256": "120b1ed6a1a6a1086876b68b7724f4d1fa6490918f1d5649b823761d57781b33"
   },
   {
     "file": "source/demo/__init__.py",
@@ -621,8 +626,8 @@
   },
   {
     "file": "source/docs/第三方与资源.md",
-    "bytes": 2753,
-    "sha256": "a07bde338f7c695646d26b7a16bcd3e503eee8786d9ea974ab5e1e7175c7180a"
+    "bytes": 3011,
+    "sha256": "f6c41b38c228984e0cb55744f5c2439e4a3caa9ca3b95f211c9e9e5174955f8e"
   },
   {
     "file": "source/docs/验收记录.md",
@@ -1111,8 +1116,8 @@
   },
   {
     "file": "source/FILE_MANIFEST.json",
-    "bytes": 192956,
-    "sha256": "93b996b5902836f74e6bf1120991e0731326703ef3ba5b70dbd620c761fa9869"
+    "bytes": 193076,
+    "sha256": "4fc8aeb89396ff9a10661b95af938f13f74537aa77b7b2f556fe53820c658b00"
   },
   {
     "file": "source/graphics/driver/gfx3_contract_test.c",
@@ -1370,6 +1375,11 @@
     "sha256": "02a403e83b10aaa47a3b6b439baef6089b943a6c607f4b8a461e8937d3d0e234"
   },
   {
+    "file": "source/LICENSE",
+    "bytes": 1093,
+    "sha256": "09fc4c2c5b529f978abf750c458b691f1a2477dd8884dbed4792a2aefde3f862"
+  },
+  {
     "file": "source/models/frame/int8.npz",
     "bytes": 1166,
     "sha256": "07e475605c45dcfd2ae5270e87022a1d2fae6f471c2dc87b71b6f03f2fe0d3a1"
@@ -1581,13 +1591,13 @@
   },
   {
     "file": "source/README.md",
-    "bytes": 1548,
-    "sha256": "0f6808f6bf6c7db89e1f02c2b9f6e2f7fbbaf5a32e6d16535804a007a536ff02"
+    "bytes": 1703,
+    "sha256": "77f501bf8a43418758f03c81d4adaa6df3eea7797c218a8ec0073f46dbc9fc47"
   },
   {
     "file": "source/README_GITHUB.md",
-    "bytes": 1736,
-    "sha256": "37de02490e5aeb70ac5641b0d08f1be3f26233fdaedcd57bfcce6d01084455ad"
+    "bytes": 1873,
+    "sha256": "b3b6103e93f39efbf5a104a8a414c636b5915568619f72a732d7417b63816d98"
   },
   {
     "file": "source/resources/adc_bringup.xdc",
@@ -2421,13 +2431,13 @@
   },
   {
     "file": "source/UPSTREAM_LAYOUT.json",
-    "bytes": 66127,
-    "sha256": "b6b8094c5b1537dd98d354c7268d0a7faed3141ee3adfa23451e56cffb2da135"
+    "bytes": 66295,
+    "sha256": "aebb650e715bf8c3295e85c1267cf1db50f48eb52068b763982df4f05fb0b03b"
   },
   {
     "file": "source/VERSION.json",
-    "bytes": 1335,
-    "sha256": "f6cd8b3d796004e38433d48571b06336a026c7d5d2d91c2318338c779a160d37"
+    "bytes": 1459,
+    "sha256": "36cd463d186bde39a90340511b4604db55f5a78fa0ad3421bc62a21e2f7c9080"
   },
   {
     "file": "source/版本说明.md",
@@ -2441,8 +2451,8 @@
   },
   {
     "file": "THIRD_PARTY.md",
-    "bytes": 2465,
-    "sha256": "f2e3f5a83441284142f342ba6e44aebc52165a6d0ea75b14053058970f060c0d"
+    "bytes": 2617,
+    "sha256": "e524e71e2288920832029827bf32476accca7d59d578a5f590639d042f09ac44"
   },
   {
     "file": "tools/verify_source_snapshot.py",

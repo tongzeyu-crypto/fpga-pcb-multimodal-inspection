@@ -25,5 +25,7 @@
     "source": "submitter-provided comparison report",
     "sha256": "d575e281526d0514cfa1d83a07f445c5a7e5ab02555dda3bb19ca195fd93afa5",
     "status": "reports completed on-board validation of this PDP3 revision"
-  }
+  },
+  "license": "MIT",
+  "license_scope": "project-authored materials; third-party items retain original notices and terms"
 }

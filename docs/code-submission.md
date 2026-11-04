@@ -1,12 +1,12 @@
 # 最终程序提交与运行
 
-当前包版本为PDP3-report2-audit-fixes-r6。原ZIP共1230个文件，1227个清单文件核验通过、ZIP CRC通过，91个Python文件语法解析通过。当前对照分析报告与指定文件逐字节一致。
+当前包版本为PDP3-report2-audit-fixes-r6，项目原创软件及配套材料采用根目录MIT许可；第三方文件仍按各自许可。完整包共1231个ZIP条目，1228项内容清单核验通过，ZIP CRC通过，91个Python文件语法解析通过。当前对照分析报告与指定文件逐字节一致。
 
-当前文档更新包SHA-256：`0a3ba6a71c9503c25e29e27cb91c9c152c8297fec2badc931fa4467e761d80de`。公开附件名为 `submission-zynq-20261104-status-aligned.zip`。本次对照分析报告及仓库内相关说明统一更新，并同步完整性清单；程序源码、模型、二进制、位流和硬件文件保持原正式交付版本。
+MIT许可版程序包SHA-256：`e646cd2148cea3fd22515f1326bfb374f4599760365de1dba73f941eedead0e3`。公开附件名为 `submission-zynq-20261104-mit.zip`。本次对照分析报告及仓库内相关说明统一更新，并同步完整性清单；程序源码、模型、二进制、位流和硬件文件保持原正式交付版本。
 
 ## 获取与核对
 
-[下载完整程序](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261104-status-aligned)，解压后在完整包根目录运行：
+[下载完整程序](https://github.com/tongzeyu-crypto/fpga-pcb-multimodal-inspection/releases/tag/code-20261104-mit)，解压后在完整包根目录运行：
 
 ```text
 python tools/verify_delivery.py
